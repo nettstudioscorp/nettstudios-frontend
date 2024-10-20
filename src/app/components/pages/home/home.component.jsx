@@ -40,46 +40,102 @@ const HomeComponent = () => {
         </SwiperSlide>
       </Swiper>
 
-      <section id="games" className="games-section">
-        <h2 className="section-title">
-          Jogos em andamento e suas curiosidades!
-        </h2>
-        <div className="game-grid">
-          <div className="game-card">
-            <img
-              src="https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
-              alt="Assassin's Creed Valhalla"
-              className="game-image"
-            />
-            <h3 className="game-title">Assassin's Creed Valhalla</h3>
-            <p className="game-description">
-              Sinopse: O movimento do Grande Exército Pagão na Inglaterra
-              durante as expansões Vikings...
-            </p>
-          </div>
-          <div className="game-card">
-            <img
-              src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4RKia895j9bcLcVEsLL1PB/dbd31dfe5049a8b65abbe13727d113ef/ac-rogue-heroBanner.jpg"
-              alt="Assassin's Creed Rogue"
-              className="game-image"
-            />
-            <h3 className="game-title">Assassin's Creed Rogue</h3>
-            <p className="game-description">
-              Também é o único Assassin's Creed a estrelar um Templário, pois o
-              ex-Assassino Shay Cormac...
-            </p>
-          </div>
-          <div className="game-card">
+      <section id="no-cinema" className="movies-section">
+        <h2 className="section-title">Playlists</h2>
+        <div className="movie-grid">
+          <div className="movie-card">
             <img
               src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
-              alt="Batman: Arkham Knight"
-              className="game-image"
+              alt="Alien: Romulus"
+              className="movie-image"
             />
-            <h3 className="game-title">Batman: Arkham Knight</h3>
-            <p className="game-description">
-              Escrita por Sefton Hill, a história acontece um ano após os
-              eventos de Arkham City...
-            </p>
+            <h3 className="movie-title">Alien: Romulus</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="A Substância"
+              className="movie-image"
+            />
+            <h3 className="movie-title">A Substância</h3>
+          </div>
+        </div>
+      </section>
+
+      <section id="remakes" className="remakes-section">
+        <h2 className="section-title">Remakes de histórias marcantes!</h2>
+        <div className="movie-grid">
+          <div className="movie-card">
+            <img
+              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
+              alt="Título do Filme"
+              className="movie-image"
+            />
+            <h3 className="movie-title">Título do Filme</h3>
           </div>
         </div>
       </section>

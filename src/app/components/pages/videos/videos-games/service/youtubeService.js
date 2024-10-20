@@ -69,4 +69,18 @@ export const videos = [
       description: "27 de mai. de 2024",
     },
   },
+  {
+    id: "6",
+    videoId: "Hk0Mpe-9kYw",
+    snippet: {
+      title:
+        "Assassin's Creed Rogue Parte 20 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+      thumbnails: {
+        medium: {
+          url: "https://wallpapercave.com/wp/wp2212972.jpg",
+        },
+      },
+      description: "27 de mai. de 2024",
+    },
+  },
 ];

@@ -43,7 +43,7 @@ const Navbar = () => {
       greeting = "Boa noite";
     }
 
-    return `${greeting}!    •    ${formattedTime}`;
+    return `${greeting}!      Seja Bem-Vindo ao theNettko  •                ${formattedTime}`; /*TODO: data */
   };
 
   return (
@@ -62,11 +62,9 @@ const Navbar = () => {
           <span className="icon">&#9776;</span>
           <span className="menu-text">Menu</span>
         </div>
-        <div className="brand">
-          <h1>THENETTKO</h1>
-        </div>
+        <div className="brand">{/* <h1>THENETTKO</h1> */}</div>
         <div className="login">
-          <button>Login</button>
+          <button>Entrar/Registrar</button>
         </div>
       </div>
       <div className={`sidebar ${menuOpen ? "open" : ""}`}>

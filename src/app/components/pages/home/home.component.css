@@ -1,129 +1,65 @@
-body {
-  background-color: #f8f9fa;
-  color: #212529;
+.home-container {
+  background-color: #191a23;
+  color: white;
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: #000000;
+  padding: 20px;
 }
 
 .carousel-image {
   width: 100%;
   height: auto;
   max-height: 500px;
-  border-radius: 0px;
+  border-radius: 0;
   object-fit: cover;
-}
-
-.games-section {
-  padding: 4rem 2rem;
 }
 
 .section-title {
   font-size: 2.5rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
-.game-grid {
+.movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
 }
 
-.game-card {
-  background-color: #000;
+.movie-card {
+  background-color: transparent;
   color: white;
-  border-radius: 10px;
-  padding: 1.5rem;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.game-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-.game-image {
-  width: 100%;
-  border-radius: 10px;
   transition: transform 0.3s;
 }
 
-.game-card:hover .game-image {
-  transform: scale(1.1);
+.movie-card:hover {
+  transform: scale(1.05);
 }
 
-.game-title {
-  font-size: 1.5rem;
-  margin: 1rem 0;
+.movie-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0;
+  max-height: 250px;
 }
 
-.game-description {
+.movie-title {
   font-size: 1rem;
-  color: #b3b3b3;
+  color: white;
+  margin-top: 0.5rem;
 }
 
 @media (max-width: 768px) {
-  .hero-section {
-    height: 300px;
-  }
-
-  .carousel-image {
-    max-height: 300px;
-  }
-
   .section-title {
     font-size: 2rem;
   }
 
-  .game-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  .movie-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
-  .game-title {
-    font-size: 1.25rem;
-  }
-
-  .game-description {
+  .movie-title {
     font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    height: 250px;
-  }
-
-  .carousel-image {
-    max-height: 200px;
-  }
-
-  .section-title {
-    font-size: 1.75rem;
-  }
-
-  .game-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .game-title {
-    font-size: 1.2rem;
-  }
-
-  .game-description {
-    font-size: 0.85rem;
   }
 }

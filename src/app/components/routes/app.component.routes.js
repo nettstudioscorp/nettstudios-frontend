@@ -7,7 +7,7 @@ import Playlist from "../pages/playlists/playlists-games/VideosPlaylist";
 import PlaylistVideos from "../pages/playlists/playlists-games/Playlist";
 import LivesComponent from "../pages/lives/live.component";
 import NewsComponent from "../pages/news/news-games/news.component";
-// import PodcastTi from "../pages/podcast/podcast-ti/PodcastTi";
+// TODO:import PodcastTi from "../pages/podcast/podcast-ti/PodcastTi";
 // import PodcastGames from "../pages/podcast/podcast-games/PodcastGames";
 import MemberComponent from "../pages/member/member.component";
 import AboutComponent from "../pages/about/about.component";
