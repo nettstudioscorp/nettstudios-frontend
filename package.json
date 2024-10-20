@@ -1,5 +1,5 @@
 {
-  "name": "nettko-site-react",
+  "name": "nettko-frontend-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -41,5 +41,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "![theNettko](./docs/theNettko-12-09-24-page.png)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
