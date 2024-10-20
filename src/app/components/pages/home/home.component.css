@@ -5,30 +5,12 @@
   padding: 20px;
 }
 
-.carousel-image {
-  width: 100%;
-  height: auto;
-  max-height: 500px;
-  border-radius: 0;
-  object-fit: cover;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.movie-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-}
-
 .movie-card {
-  background-color: transparent;
+  background-color: #252634;
   color: white;
   text-align: center;
+  padding: 10px;
+  border-radius: 8px;
   transition: transform 0.3s;
 }
 
@@ -40,26 +22,22 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 0;
   max-height: 250px;
+  border-radius: 8px;
 }
 
-.movie-title {
-  font-size: 1rem;
-  color: white;
-  margin-top: 0.5rem;
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.custom-carousel .p-carousel-container {
+  padding-bottom: 2rem;
 }
 
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
-  }
-
-  .movie-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
-
-  .movie-title {
-    font-size: 0.9rem;
   }
 }
