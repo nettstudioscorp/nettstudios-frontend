@@ -1,0 +1,46 @@
+/* src/pages/footer/footer.component.css */
+
+/* Estilo básico do footer */
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
+
+.page-wrapper {
+  min-height: 100vh; /* Garante que o conteúdo principal ocupe a altura total da tela */
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #212529;
+  padding: 1rem;
+  text-align: center;
+  position: relative; /* Faz o footer seguir o fluxo normal da página */
+  margin-top: auto; /* Empurra o footer para a parte inferior do container flexível */
+  width: 100%; /* Garante que o footer ocupe toda a largura da página */
+  color: #f8f9fa; /* Cor do texto */
+}
+
+.footer-logo {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.footer-text {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .footer-logo {
+    width: 60px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+  }
+}

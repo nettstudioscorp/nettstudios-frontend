@@ -1,0 +1,48 @@
+.menu-item {
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-item:hover {
+  background-color: #f5f5f5;
+}
+
+.submenu-arrow {
+  color: #004aaa;
+}
+
+.submenu-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 999;
+}
+
+.submenu {
+  list-style: none;
+  padding: 20px;
+}
+
+.submenu li {
+  margin: 10px 0;
+}
+
+.back-btn {
+  background-color: white;
+  border: none;
+  font-size: 18px;
+  color: #000000;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.back-btn:hover {
+  color: #004aaa;
+}

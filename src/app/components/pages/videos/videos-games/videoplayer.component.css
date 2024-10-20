@@ -1,0 +1,130 @@
+.video-player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 115vh;
+  text-align: center;
+  padding: 5rem;
+  box-sizing: border-box;
+  /* background: rgba(0, 2, 34, 0.979); */
+  background: #000000;
+}
+
+.video-player-wrapper {
+  width: 100%;
+  max-width: 80%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  /* border: 2px solid #ddd; */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-player-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-details {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.video-details h3 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.video-details p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.video-details strong {
+  color: #ffffff;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.modal h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.modal p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.modal button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  margin: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* .modal button:hover {
+  background-color: #0056b3;
+} */
+
+/* .modal button:last-child {
+  background-color: #f00;
+}
+
+.modal button:last-child:hover {
+  background-color: #c00;
+} */
+
+@media (max-width: 768px) {
+  .video-player-wrapper {
+    max-width: 110%;
+    max-width: 110%;
+  }
+
+  .video-player-container {
+    height: 73vh;
+    height: -150vh;
+    padding: 1rem;
+  }
+
+  .video-details h3 {
+    font-size: 1.25rem;
+  }
+
+  .video-details p {
+    font-size: 0.9rem;
+  }
+}

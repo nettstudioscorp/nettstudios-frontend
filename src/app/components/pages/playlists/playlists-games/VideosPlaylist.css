@@ -1,0 +1,100 @@
+.videos-playlist-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.playlist-cover {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cover-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.playlist-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.play-all-btn,
+.shuffle-btn {
+  background-color: #1f80e0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.play-all-btn:hover,
+.shuffle-btn:hover {
+  background-color: #1667b7;
+}
+
+.video-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.playlist-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-index {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.video-thumbnail {
+  width: 120px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.video-info {
+  flex: 1;
+  margin-left: 15px;
+}
+
+.video-info h4 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.video-info p {
+  color: #666;
+}
+
+.video-duration {
+  font-weight: bold;
+  color: #333;
+}
+
+.more-options-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+}
