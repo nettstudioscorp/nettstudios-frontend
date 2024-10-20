@@ -82,7 +82,7 @@ npm start
 
 A aplicação estará disponível em http://localhost:3000.
 
-**Contribuindo**
+<!--**Contribuindo**
 
 _Se você deseja contribuir para o projeto, sinta-se à vontade para fazer um fork do repositório e enviar pull requests. Certifique-se de seguir as boas práticas de desenvolvimento e fornecer uma descrição clara das alterações feitas._
 
@@ -92,4 +92,4 @@ _Este projeto está licenciado sob a Licença MIT._
 
 _Se você tiver alguma dúvida ou problema, não hesite em abrir uma issue no GitHub ou entrar em contato com o mantenedor do projeto._
 
-**_Obrigado por usar o theNettko!_**
+**_Obrigado por usar o theNettko!_** -->
