@@ -1,6 +1,9 @@
 body {
   background-color: #f8f9fa;
   color: #212529;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-section {
@@ -11,42 +14,15 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-image: url("../../../../assets/images/channel_banner.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.hero-text {
-  position: relative;
-  z-index: 1;
-  color: #fff;
-}
-
-.hero-title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.hero-subtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.cta-button {
-  background-color: #004aaa;
-  color: white;
-  padding: 0.75rem 2rem;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.cta-button:hover {
   background-color: #000000;
-  color: #ffffff;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 0px;
+  object-fit: cover;
 }
 
 .games-section {
@@ -66,22 +42,33 @@ body {
 }
 
 .game-card {
-  background-color: #000000;
+  background-color: #000;
   color: white;
   border-radius: 10px;
   padding: 1.5rem;
   text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .game-image {
   width: 100%;
   border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.game-card:hover .game-image {
+  transform: scale(1.1);
 }
 
 .game-title {
   font-size: 1.5rem;
   margin: 1rem 0;
-  font-weight: bold;
 }
 
 .game-description {
@@ -89,74 +76,54 @@ body {
   color: #b3b3b3;
 }
 
-.news-section {
-  padding: 4rem 2rem;
-  background-color: #f1f1f1;
-}
-
-.news-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.news-card {
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.news-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.news-description {
-  font-size: 1rem;
-}
-
-.podcast-section {
-  padding: 4rem 2rem;
-}
-
-.podcast-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.podcast-card {
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 1.5rem;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.podcast-title {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.podcast-description {
-  font-size: 1rem;
-}
-
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .hero-section {
-    height: 250px;
-    background-size: cover;
+    height: 300px;
+  }
+
+  .carousel-image {
+    max-height: 300px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .game-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .game-title {
+    font-size: 1.25rem;
+  }
+
+  .game-description {
+    font-size: 0.9rem;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media (max-width: 480px) {
   .hero-section {
-    height: 200px;
-    background-size: contain;
-    background-position: center top;
+    height: 250px;
+  }
+
+  .carousel-image {
+    max-height: 200px;
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+  }
+
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .game-title {
+    font-size: 1.2rem;
+  }
+
+  .game-description {
+    font-size: 0.85rem;
   }
 }
