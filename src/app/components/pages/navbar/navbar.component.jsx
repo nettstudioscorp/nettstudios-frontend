@@ -62,9 +62,7 @@ const Navbar = () => {
           <span className="icon">&#9776;</span>
           <span className="menu-text">Menu</span>
         </div>
-        <div className="brand">
-          <h1>THENETTKO</h1>
-        </div>
+        <div className="brand">{/* <h1>THENETTKO</h1> */}</div>
         <div className="login">
           <button>Login</button>
         </div>
@@ -81,6 +79,11 @@ const Navbar = () => {
               </Link>
             </li>
             <Submenu title="Vídeos" items={submenuItems.videos} />
+            <li>
+              <a href="https://www.youtube.com/@Nettko/streams" target="blank">
+                Lives
+              </a>
+            </li>
             <li>
               <a href="https://www.youtube.com/@Nettko" target="blank">
                 YouTube
