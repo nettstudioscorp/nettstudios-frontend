@@ -1,12 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Pagination } from "swiper/modules";
+import Modal from "react-modal";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
+
+import VideoDisplay from "./video/data/VideoDisplay";
+import { videosData, anotherVideoData } from "./video/data/VideoList";
+import Skeleton from "./Skeleton";
 import "../home/home.component.css";
+import BannerChannel from "../home/img/channel_banner.jpg";
+
+Modal.setAppElement("#root");
 
 const HomeComponent = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = () => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    };
+
+    loadData();
+  }, []);
+
+  const openModal = (videoId, title) => {
+    setSelectedVideo({ videoId, title });
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+    setSelectedVideo(null);
+  };
+
+  const handleWatch = (url) => {
+    window.open(url, "_blank");
+    closeModal();
+  };
+
   return (
     <div className="home-container">
       <Swiper
@@ -19,6 +56,13 @@ const HomeComponent = () => {
       >
         <SwiperSlide>
           <img
+            src={BannerChannel} // use a imagem importada
+            alt="Assassin's Creed Valhalla"
+            className="carousel-image"
+          />
+        </SwiperSlide>
+        {/* TODO: <SwiperSlide>
+          <img
             src="https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
             alt="Assassin's Creed Valhalla"
             className="carousel-image"
@@ -26,63 +70,60 @@ const HomeComponent = () => {
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4RKia895j9bcLcVEsLL1PB/dbd31dfe5049a8b65abbe13727d113ef/ac-rogue-heroBanner.jpg"
-            alt="Assassin's Creed Rogue"
+            src="https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
+            alt="Assassin's Creed Valhalla"
             className="carousel-image"
           />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
-            alt="Batman: Arkham Knight"
-            className="carousel-image"
-          />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
 
-      <section id="games" className="games-section">
-        <h2 className="section-title">
-          Jogos em andamento e suas curiosidades!
-        </h2>
-        <div className="game-grid">
-          <div className="game-card">
-            <img
-              src="https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
-              alt="Assassin's Creed Valhalla"
-              className="game-image"
-            />
-            <h3 className="game-title">Assassin's Creed Valhalla</h3>
-            <p className="game-description">
-              Sinopse: O movimento do Grande Exército Pagão na Inglaterra
-              durante as expansões Vikings...
-            </p>
-          </div>
-          <div className="game-card">
-            <img
-              src="https://staticctf.ubisoft.com/J3yJr34U2pZ2Ieem48Dwy9uqj5PNUQTn/4RKia895j9bcLcVEsLL1PB/dbd31dfe5049a8b65abbe13727d113ef/ac-rogue-heroBanner.jpg"
-              alt="Assassin's Creed Rogue"
-              className="game-image"
-            />
-            <h3 className="game-title">Assassin's Creed Rogue</h3>
-            <p className="game-description">
-              Também é o único Assassin's Creed a estrelar um Templário, pois o
-              ex-Assassino Shay Cormac...
-            </p>
-          </div>
-          <div className="game-card">
-            <img
-              src="https://assets.nuuvem.com/image/upload/t_product_sharing_banner/v1/products/557dbb9f69702d0a9c7da700/sharing_images/nok69j6m12kgovgokrbh.jpg"
-              alt="Batman: Arkham Knight"
-              className="game-image"
-            />
-            <h3 className="game-title">Batman: Arkham Knight</h3>
-            <p className="game-description">
-              Escrita por Sefton Hill, a história acontece um ano após os
-              eventos de Arkham City...
-            </p>
-          </div>
-        </div>
-      </section>
+      {loading ? (
+        <>
+          <Skeleton />
+          <Skeleton />
+        </>
+      ) : (
+        <>
+          <VideoDisplay
+            title="Recomendados"
+            videos={videosData}
+            openModal={openModal}
+          />
+          <VideoDisplay
+            title="Vídeos"
+            videos={anotherVideoData}
+            openModal={openModal}
+          />
+        </>
+      )}
+
+      {/* TODO: <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Escolha a opção de assistir"
+        className="modal"
+        overlayClassName="modal-overlay"
+      >
+        <h2>{selectedVideo?.title}</h2>
+        <p>Escolha onde deseja assistir:</p>
+        <button
+          className="btn btn-external"
+          onClick={() =>
+            handleWatch(
+              `https://www.youtube.com/watch?v=${selectedVideo?.videoId}`
+            )
+          }
+        >
+          Assistir no YouTube
+        </button>
+        <button
+          className="btn btn-internal"
+          onClick={() => handleWatch(`/watch/${selectedVideo?.videoId}`)}
+        >
+          Assistir na Página
+        </button>
+        <button onClick={closeModal}>Fechar</button>
+      </Modal> */}
     </div>
   );
 };
