@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeComponent from "../pages/home/home.component";
 import VideosGames from "../pages/videos/videos-games/videos.component";
 import VideoPlayerGames from "../pages/videos/videos-games/VideoPlayerComponent";
+import VideoPlayerComponent from "../pages/videos/videos-games/VideoPlayerComponent";
 import Playlist from "../pages/playlists/playlists-games/VideosPlaylist";
 import PlaylistVideos from "../pages/playlists/playlists-games/Playlist";
 import LivesComponent from "../pages/lives/live.component";
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/about" element={<AboutComponent />} />
         <Route path="/help" element={<HelpComponent />} />
         <Route path="/watch/:videoId" element={<VideoPlayerGames />} />
+        <Route path="/videos/:videoId" element={<VideoPlayerComponent />} />
         <Route path="/playlist/:id" element={<Playlist />} />
       </Routes>
       <FooterComponent />

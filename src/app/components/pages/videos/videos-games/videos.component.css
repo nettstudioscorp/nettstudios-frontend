@@ -47,6 +47,36 @@ p.video-date {
   text-align: left;
 }
 
+.modal {
+  background-color: #004aab;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  position: relative;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  z-index: 1000;
+}
+
+.modal-overlay {
+  z-index: 999;
+}
+
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
