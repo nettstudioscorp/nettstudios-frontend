@@ -29,8 +29,8 @@ const HomeComponent = () => {
     loadData();
   }, []);
 
-  const openModal = (videoId, title) => {
-    setSelectedVideo({ videoId, title });
+  const openModal = (video) => {
+    setSelectedVideo(video);
     setModalIsOpen(true);
   };
 
@@ -56,25 +56,11 @@ const HomeComponent = () => {
       >
         <SwiperSlide>
           <img
-            src={BannerChannel} // use a imagem importada
+            src={BannerChannel}
             alt="Assassin's Creed Valhalla"
             className="carousel-image"
           />
         </SwiperSlide>
-        {/* TODO: <SwiperSlide>
-          <img
-            src="https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
-            alt="Assassin's Creed Valhalla"
-            className="carousel-image"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="https://cdn1.epicgames.com/400347196e674de89c23cc2a7f2121db/offer/AC%20KINGDOM%20PREORDER_STANDARD%20EDITION_EPIC_Key_Art_Wide_3840x2160-3840x2160-485fe17203671386c71bde8110886c7d.jpg"
-            alt="Assassin's Creed Valhalla"
-            className="carousel-image"
-          />
-        </SwiperSlide> */}
       </Swiper>
 
       {loading ? (
@@ -97,7 +83,7 @@ const HomeComponent = () => {
         </>
       )}
 
-      {/* TODO: <Modal
+      <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Escolha a opção de assistir"
@@ -123,7 +109,7 @@ const HomeComponent = () => {
           Assistir na Página
         </button>
         <button onClick={closeModal}>Fechar</button>
-      </Modal> */}
+      </Modal>
     </div>
   );
 };

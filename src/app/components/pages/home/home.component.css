@@ -198,6 +198,18 @@ p.video-date {
   /* border-bottom: 1px solid #000000; */
 }
 
+.video-item:hover {
+  transform: scale(1.03);
+}
+
+.video-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  /* border-bottom: 1px solid #000000; */
+}
+
 h3 {
   font-size: 1rem;
   margin: 0.5rem 0;
