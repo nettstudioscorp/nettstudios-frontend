@@ -6,10 +6,10 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 
-import VideoDisplay from "./video/data/VideoDisplay";
-import { videosData, anotherVideoData } from "./video/data/VideoList";
-import Skeleton from "./Skeleton";
-import "../home/home.component.css";
+import VideoDisplay from "./service/HomeVideoDisplay";
+import { videosData, anotherVideoData } from "./service/HomeVideoList";
+import Skeleton from "./skeleton/Skeleton";
+import "../home/css/Home.css";
 import BannerChannel from "../home/img/channel_banner.jpg";
 
 Modal.setAppElement("#root");

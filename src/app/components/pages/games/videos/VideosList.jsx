@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { videos } from "./service/youtubeService";
-import "../../videos/videos-games/videos.component.css";
+import { videos } from "./service/Videoslist.Service";
+import "../../games/videos/css/VideosList.css";
 
 const VideosComponent = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);

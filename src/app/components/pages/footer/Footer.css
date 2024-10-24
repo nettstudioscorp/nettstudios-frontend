@@ -1,0 +1,85 @@
+.footer {
+  background-color: #212529;
+  padding: 2rem;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.footer-description {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0.5rem 0;
+}
+
+.footer-email {
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+
+.footer-email a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer-links {
+  margin-top: 1.5rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.footer-links ul li a {
+  font-size: 24px;
+  color: #000;
+  text-decoration: none;
+}
+
+.footer-app-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.footer-bottom a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-left,
+  .footer-right {
+    max-width: 100%;
+  }
+}

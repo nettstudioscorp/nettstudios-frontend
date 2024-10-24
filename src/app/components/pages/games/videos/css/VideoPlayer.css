@@ -20,6 +20,8 @@
   background-color: #191a23;
   box-shadow: none;
   padding: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 @media (min-width: 768px) {
@@ -86,30 +88,4 @@
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.video-details {
-  margin-top: 1rem;
-  text-align: left;
-  width: 100%;
-}
-
-.video-details h3 {
-  margin: 0.5rem 0;
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-
-.video-details p {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  color: #191a23;
-  line-height: 1.5;
-  padding: 60px;
-}
-
-@media (max-width: 767px) {
-  .video-details p {
-    padding: 0;
-  }
 }

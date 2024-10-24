@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Submenu from "../navbar/submenu/Submenu";
-import "../navbar/navbar.component.css";
+import "../navbar/Navbar.css";
 import "../../../../index.css";
 
 const Navbar = () => {

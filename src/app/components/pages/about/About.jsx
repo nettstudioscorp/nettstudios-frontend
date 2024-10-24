@@ -1,5 +1,5 @@
 import React from "react";
-import "../about/about.component.css";
+import "../about/About.css";
 
 const About = () => {
   return (
@@ -42,6 +42,11 @@ const About = () => {
           horizontes!
         </p>
       </section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       {/* TODO:
       <section className="about-team">
         <h2>Nosso Time/h2>

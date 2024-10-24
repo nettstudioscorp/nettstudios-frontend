@@ -2,9 +2,10 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  margin: 20px;
+  margin: 50px;
   background-color: transparent;
   border-radius: 10px;
+  padding: 30px;
 }
 
 .video-item {

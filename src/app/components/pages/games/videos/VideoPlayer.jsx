@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { videos } from "../videos-games/service/youtubeService";
-import "../../videos/videos-games/videoplayer.component.css";
+import { videos } from "./service/Videoslist.Service";
+import "../../games/videos/css/VideoPlayer.css";
 
 const VideoPlayerComponent = () => {
   const { videoId } = useParams();
@@ -40,7 +40,7 @@ const VideoPlayerComponent = () => {
             allowFullScreen
           ></iframe>
         </div>
-        {/* <div className="video-details">
+        {/* TODO: <div className="video-details">
           <h3>{title}</h3>
           <p>{description}</p>
         </div> */}
