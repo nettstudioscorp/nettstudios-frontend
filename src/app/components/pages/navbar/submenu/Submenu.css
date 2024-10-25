@@ -5,18 +5,18 @@
   align-items: center;
   cursor: pointer;
   border-bottom: 1px solid #ddd;
-  color: #004aaa;
+  color: white;
   font-size: 20px;
   font-weight: bolder;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .menu-item:hover {
-  background-color: #ffffff;
+  background-color: #004aaa;
 }
 
 .submenu-arrow {
-  color: #004aaa;
+  color: white;
 }
 
 .submenu-overlay {
@@ -42,7 +42,7 @@
   background-color: #212529;
   border: none;
   font-size: 25px;
-  color: #004aaa;
+  color: white;
   cursor: pointer;
   margin: 10px;
 }

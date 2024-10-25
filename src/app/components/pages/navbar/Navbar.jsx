@@ -78,22 +78,33 @@ const Navbar = () => {
                 Início
               </Link>
             </li>
+
             <Submenu title="Vídeos" items={submenuItems.videos} />
+
+            <li>
+              <a href="/playlists" target="blank">
+                Playlist
+              </a>
+            </li>
+
             <li>
               <a href="https://www.youtube.com/@Nettko/streams" target="blank">
                 Lives
               </a>
             </li>
+
             <li>
               <a href="https://www.youtube.com/@Nettko" target="blank">
                 YouTube
               </a>
             </li>
+
             <li>
               <Link to="/about" onClick={closeMenu}>
                 Sobre Nós
               </Link>
             </li>
+
           </ul>
         </nav>
       </div>

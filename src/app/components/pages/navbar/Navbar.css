@@ -56,17 +56,17 @@
 .menu-icon .icon {
   font-size: 24px;
   margin-right: 8px;
-  color: #004aad;
+  color: white;
 }
 
 .menu-text {
-  color: #004aad;
+  color: white;
   font-size: 18px;
   font-weight: bold;
 }
 
 .brand h1 {
-  color: #004aad;
+  color: white;
   font-size: 24px;
 }
 
@@ -107,21 +107,27 @@
   margin-top: 50px;
 }
 
-.sidebar nav ul li {
+.sidebar nav ul li a{
   padding: 15px 20px;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.sidebar nav ul li a {
-  text-decoration: none;
-  color: #004aad;
-  font-size: 20px;
-  font-weight: bolder;
-  font-family: Georgia, "Times New Roman", Times, serif;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background-color: #004aaa;
+}
+
+
+.sidebar nav ul li a:hover {
+  background-color: #004aaa;
 }
 
 .sidebar nav ul li a::after {
@@ -156,6 +162,7 @@
 
 .close-btn {
   background: none;
+  color: white;
   border: none;
   font-size: 24px;
   padding: 10px;
@@ -200,7 +207,7 @@
   }
 
   .sidebar nav ul li a {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .sidebar nav ul li a::after {

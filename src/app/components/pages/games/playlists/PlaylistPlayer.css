@@ -1,120 +1,30 @@
-.playlist-container {
+.content-wrapper {
   display: flex;
-  flex-direction: column;
-  margin: 20px;
-  position: relative;
-}
-
-.category-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.category-item {
-  display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #f4f4f4;
-  padding: 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  position: relative;
-}
-
-.category-item img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-.category-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.category-info h3 {
-  margin: 0;
-  font-size: 1rem;
-  color: #333;
-}
-
-.category-info p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
   padding: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: #191a23;
 }
 
-.video-item {
-  border: 1px solid #ddd;
+.video-player {
+  position: sticky;
+  top: 20px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-  cursor: pointer;
-  background-color: #fff;
-  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.video-item img {
+.video-player iframe {
   width: 100%;
-  height: auto;
-  display: block;
-}
-
-.video-info {
-  padding: 0.5rem;
-}
-
-.video-info h3 {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  color: #333;
-}
-
-.video-item:hover {
-  transform: scale(1.05);
-}
-
-.back-button {
-  background: none;
+  height: 700px;
   border: none;
-  font-size: 14px;
-  padding: 6px 12px;
-  cursor: pointer;
-  color: #000000;
-  margin-bottom: 1rem;
-  display: inline-block;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .category-item img {
-    height: 120px;
-  }
-
-  .video-info h3 {
-    font-size: 0.8rem;
-  }
-
-  .back-button {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
+  padding: 50px;
+  margin-top: -50px;
 }

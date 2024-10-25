@@ -1,62 +1,47 @@
 .playlist-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  gap: 20px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 50px;
+  padding: 25px;
+  background-color: #191a23;
+  color: #fff;
+  margin: 50px;
 }
 
 .playlist-card {
-  background-color: #f1f1f1;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 250px;
+  background-color: #1f1f1f;
+  border-radius: 50px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
-  padding: 15px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
 }
 
 .playlist-card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
 }
 
-.playlist-image {
+.playlist-card img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  display: block;
 }
 
 .playlist-info {
-  margin-top: 10px;
+  padding: 5px;
 }
 
 .playlist-info h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 .playlist-info p {
-  color: #555;
+  color: #1f1f1f;
+  font-size: 0.9em;
 }
 
-.view-playlist-button {
-  background-color: #1f80e0;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.view-playlist-button:hover {
-  background-color: #1667b7;
-}
-
-.playlist-list {
-  margin-top: 15px;
-  background-color: #eaeaea;
-  padding: 10px;
-  border-radius: 8px;
+.playlist-card a {
+  text-decoration: none;
+  color: inherit;
 }

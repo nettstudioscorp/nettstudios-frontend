@@ -1,23 +1,44 @@
-export const getPlaylistVideos = () => {
-  return [
-    {
-      name: "Assassin's Creed Valhalla - Walkthrough (PC)",
-      image:
-        "https://wallpapers.com/images/high/4k-assassin-s-creed-valhalla-background-3840-x-2160-inzoy2k4g3k6c4bf.webp",
-      videos: [
-        {
-          title:
-            "Assassin's Creed Valhalla Parte 1 Gameplay PC Walkthrough Sem Comentários em Português - PTBR",
-          url: "https://youtu.be/Wy_TSJIKdq0?si=VlYjx9KcEEftf5em",
-          thumbnail:
-            "https://wallpapers.com/images/high/4k-assassin-s-creed-valhalla-background-3840-x-2160-inzoy2k4g3k6c4bf.webp",
-        },
-        {
-          title: "React Video 2",
-          url: "https://www.youtube.com/embed/xyz456",
-          thumbnail: "https://via.placeholder.com/150",
-        },
-      ],
-    },
-  ];
+const PlayListPlayerService = {
+    getPlaylistById: (id) => {
+        const playlists = [
+            {
+                id: 1,
+                title: 'Assassin\'s Creed Valhalla',
+                videos: [
+                    { videoId: 'video1_id', title: 'Video 1', description: 'Descrição do video 1' },
+                    { videoId: 'video2_id', title: 'Video 2', description: 'Descrição do video 2' },
+                ]
+            },
+            {
+                id: 2,
+                title: 'Assassin\'s Creed III Remastered',
+                videos: [
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                ]
+            },
+            {
+                id: 2,
+                title: 'Assassin\'s Creed II',
+                videos: [
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                    { videoId: 'eULaVtrz6ek', title: 'Assassin\'s Creed III Remastered Parte 1', description: 'Descrição do video 1' },
+                ]
+            },
+        ];
+
+        return playlists.find(playlist => playlist.id === parseInt(id));
+    }
 };
+
+export default PlayListPlayerService;

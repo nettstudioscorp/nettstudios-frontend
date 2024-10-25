@@ -4,8 +4,9 @@ import HomeComponent from "../pages/home/Home";
 import VideosLists from "../pages/games/videos/VideosList";
 import VideoPlayer from "../pages/games/videos/VideoPlayer";
 import VideoPlayerVideoID from "../pages/games/videos/VideoPlayer";
-// TODO: import Playlist from "../pages/games/playlists/VideosPlaylist";
-// import PlaylistVideos from "../pages/games/playlists/Playlist";
+import Playlist from "../pages/games/playlists/Playlist";
+import PlaylistPlayer from "../pages/games/playlists/PlayListPlayer";
+import PlaylistPlayerID from "../pages/games/playlists/PlayListPlayer";
 import LivesComponent from "../pages/games/lives/live.component";
 import NewsComponent from "../pages/games/news/News";
 import MemberComponent from "../pages/member/member.component";
@@ -21,18 +22,19 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/videos/gameplays" element={<VideosLists />} />
-
         <Route path="/lives" element={<LivesComponent />} />
         <Route path="/news/games" element={<NewsComponent />} />
         <Route path="/member" element={<MemberComponent />} />
         <Route path="/about" element={<AboutComponent />} />
         <Route path="/help" element={<HelpComponent />} />
+
         <Route path="/watch/:videoId" element={<VideoPlayer />} />
         <Route path="/videos/:videoId" element={<VideoPlayerVideoID />} />
 
-        {/* TODO: <Route path="/playlist/:id" element={<Playlist />} />
         <Route path="/playlists" element={<Playlist />} />
-        <Route path="/playlists/gameplays" element={<PlaylistVideos />} /> */}
+        <Route path="/playlist/:id" element={<PlaylistPlayerID />} />
+        <Route path="/playlists/gameplays" element={<PlaylistPlayer />} />
+
       </Routes>
       <FooterComponent />
     </Router>
