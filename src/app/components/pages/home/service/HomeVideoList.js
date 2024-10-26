@@ -149,6 +149,64 @@ export const videosDataSerieA = [
   },
 ];
 
+export const videosDataDestaques = [
+  {
+    title: "Assassin's Creed Revelations - Parte 1",
+    thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+    videoId: "N3F1BAu-XUU",
+  },
+  {
+    title: "Assassin's Creed III Remastered - Parte 1",
+    thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "DYING LIGHT - Parte 1",
+    thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+    videoId: "OVyYdQJc_IU",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+];
+
 export const allVideos = [
   {
     title: "Assassin's Creed Revelations - Parte 1",

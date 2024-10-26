@@ -9,8 +9,9 @@ import "swiper/css/pagination";
 import HomeVideoDisplay from "./service/HomeVideoDisplay";
 import {
   videosData,
-  allVideos,
   videosDataSerieA,
+  videosDataDestaques, // Novo conjunto de dados para a seção "Destaques"
+  allVideos,
 } from "./service/HomeVideoList";
 import Skeleton from "./skeleton/Skeleton";
 import "../home/css/Home.css";
@@ -18,18 +19,68 @@ import BannerChannel from "../home/img/channel_banner.jpg";
 
 Modal.setAppElement("#root");
 
+const VideoSection = ({
+  title,
+  videos,
+  displayedCount,
+  setDisplayedCount,
+  loadingMore,
+  setLoadingMore,
+  openModal,
+}) => (
+  <>
+    <h1>{title}</h1>
+    <HomeVideoDisplay
+      videos={videos.slice(0, displayedCount)}
+      openModal={openModal}
+    />
+    {displayedCount < videos.length && (
+      <button
+        className="load-more-btn"
+        onClick={() => {
+          if (loadingMore) {
+            setDisplayedCount((prev) => prev + 8);
+          } else {
+            setDisplayedCount(videos.length); // Exibir todos
+          }
+          setLoadingMore((prev) => !prev);
+        }}
+      >
+        {loadingMore ? "Ver Mais" : "Ver Mais"}
+      </button>
+    )}
+    {loadingMore && displayedCount >= videos.length && (
+      <button
+        className="load-more-btn"
+        onClick={() => {
+          setDisplayedCount(4); // Retornar ao estado inicial
+          setLoadingMore(false);
+        }}
+      >
+        Fechar
+      </button>
+    )}
+    <br />
+    <br />
+  </>
+);
+
 const HomeComponent = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Estados para exibir vídeos
   const [displayedVideosRecommended, setDisplayedVideosRecommended] =
     useState(4);
   const [displayedVideosSeries, setDisplayedVideosSeries] = useState(4);
+  const [displayedVideosDestaques, setDisplayedVideosDestaques] = useState(4); // Novo estado para "Destaques"
   const [displayedVideosAll, setDisplayedVideosAll] = useState(4);
 
+  // Estados para carregamento
   const [loadingMoreRecommended, setLoadingMoreRecommended] = useState(false);
   const [loadingMoreSeries, setLoadingMoreSeries] = useState(false);
+  const [loadingMoreDestaques, setLoadingMoreDestaques] = useState(false); // Novo estado de carregamento para "Destaques"
   const [loadingMoreAll, setLoadingMoreAll] = useState(false);
 
   useEffect(() => {
@@ -50,31 +101,6 @@ const HomeComponent = () => {
   const closeModal = () => {
     setModalIsOpen(false);
     setSelectedVideo(null);
-  };
-
-  const handleLoadMore = (section) => {
-    if (section === "recommended") {
-      if (loadingMoreRecommended) {
-        setDisplayedVideosRecommended(8);
-      } else {
-        setDisplayedVideosRecommended((prev) => prev + 8);
-      }
-      setLoadingMoreRecommended((prev) => !prev);
-    } else if (section === "series") {
-      if (loadingMoreSeries) {
-        setDisplayedVideosSeries(8);
-      } else {
-        setDisplayedVideosSeries((prev) => prev + 8);
-      }
-      setLoadingMoreSeries((prev) => !prev);
-    } else if (section === "all") {
-      if (loadingMoreAll) {
-        setDisplayedVideosAll(100);
-      } else {
-        setDisplayedVideosAll((prev) => prev + 50);
-      }
-      setLoadingMoreAll((prev) => !prev);
-    }
   };
 
   return (
@@ -99,101 +125,46 @@ const HomeComponent = () => {
         </>
       ) : (
         <>
-          <br />
-          <br />
-          <br />
-          <br />
-
-          <h1>Recomendados</h1>
-          <HomeVideoDisplay
-            videos={videosData.slice(0, displayedVideosRecommended)}
+          <VideoSection
+            title="Recomendados"
+            videos={videosData}
+            displayedCount={displayedVideosRecommended}
+            setDisplayedCount={setDisplayedVideosRecommended}
+            loadingMore={loadingMoreRecommended}
+            setLoadingMore={setLoadingMoreRecommended}
             openModal={openModal}
           />
-          {displayedVideosRecommended < videosData.length && (
-            <button
-              className="load-more-btn"
-              onClick={() => handleLoadMore("recommended")}
-            >
-              {loadingMoreRecommended ? "Ver Mais" : "Ver Mais"}
-            </button>
-          )}
-          {loadingMoreRecommended &&
-            displayedVideosRecommended >= videosData.length && (
-              <button
-                className="load-more-btn"
-                onClick={() => handleLoadMore("recommended")}
-              >
-                Fechar
-              </button>
-            )}
 
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-
-          <h1>Series</h1>
-          <h2>Assassin's Creed Valhalla</h2>
-          <HomeVideoDisplay
-            videos={videosDataSerieA.slice(0, displayedVideosSeries)}
+          <VideoSection
+            title="Series"
+            videos={videosDataSerieA}
+            displayedCount={displayedVideosSeries}
+            setDisplayedCount={setDisplayedVideosSeries}
+            loadingMore={loadingMoreSeries}
+            setLoadingMore={setLoadingMoreSeries}
             openModal={openModal}
           />
-          {displayedVideosSeries < videosDataSerieA.length && (
-            <button
-              className="load-more-btn"
-              onClick={() => handleLoadMore("series")}
-            >
-              {loadingMoreSeries ? "Ver Mais" : "Ver Mais"}
-            </button>
-          )}
-          {loadingMoreSeries &&
-            displayedVideosSeries >= videosDataSerieA.length && (
-              <button
-                className="load-more-btn"
-                onClick={() => handleLoadMore("series")}
-              >
-                Fechar
-              </button>
-            )}
 
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-
-          <h1>Todos os Vídeos</h1>
-          <HomeVideoDisplay
-            videos={allVideos.slice(0, displayedVideosAll)}
+          {/* Nova Seção para Destaques */}
+          <VideoSection
+            title="Destaques"
+            videos={videosDataDestaques} // Dados para a nova seção
+            displayedCount={displayedVideosDestaques}
+            setDisplayedCount={setDisplayedVideosDestaques}
+            loadingMore={loadingMoreDestaques}
+            setLoadingMore={setLoadingMoreDestaques}
             openModal={openModal}
           />
-          {displayedVideosAll < allVideos.length && (
-            <button
-              className="load-more-btn"
-              onClick={() => handleLoadMore("all")}
-            >
-              {loadingMoreAll ? "Ver Mais" : "Ver Mais"}
-            </button>
-          )}
-          {loadingMoreAll && displayedVideosAll >= allVideos.length && (
-            <button
-              className="load-more-btn"
-              onClick={() => handleLoadMore("all")}
-            >
-              Fechar
-            </button>
-          )}
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
+
+          <VideoSection
+            title="Todos os Vídeos"
+            videos={allVideos}
+            displayedCount={displayedVideosAll}
+            setDisplayedCount={setDisplayedVideosAll}
+            loadingMore={loadingMoreAll}
+            setLoadingMore={setLoadingMoreAll}
+            openModal={openModal}
+          />
         </>
       )}
 
