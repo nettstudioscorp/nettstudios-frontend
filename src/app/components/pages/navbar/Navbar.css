@@ -1,216 +1,93 @@
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  background-color: #212529;
-  padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
-  justify-content: center;
-}
-
-.topbar nav ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.topbar nav ul li {
-  margin-right: 20px;
-}
-
-.topbar a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* .topbar a:hover {
-  color: #004aaa;
-} */
-
-.topbar .account a {
-  margin-left: 15px;
-  font-weight: bold;
-}
-
-/* .topbar .account a:hover {
-  color: #d32f2f;
-} */
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #212529;
+  background-color: #1c1c1c;
   padding: 10px 20px;
-  border-bottom: 1px solid #004aad;
+  position: relative;
+}
+
+.logo-image {
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
 }
 
 .menu-icon {
   cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.menu-icon .icon {
-  font-size: 24px;
-  margin-right: 8px;
   color: white;
-}
-
-.menu-text {
-  color: white;
-  font-size: 18px;
+  transition: color 0.3s;
+  font-size: x-large;
   font-weight: bold;
 }
 
-.brand h1 {
-  color: white;
-  font-size: 24px;
+.menu-icon:hover {
+  color: #1100ff;
 }
 
 .login button {
-  background-color: #004aaa;
+  background-color: #0b046c;
+  font-weight: bold;
   color: white;
-  border: none;
-  padding: 8px 12px;
+  border: 25px;
+  padding: 8px 16px;
   cursor: pointer;
-  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .login button:hover {
-  background-color: #000000;
+  background-color: #ffffff;
+  color: #0b046c;
 }
 
 .sidebar {
   position: fixed;
-  top: 0;
-  left: -100%;
+  left: 0;
   width: 250px;
   height: 100%;
-  background-color: #212529;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  transition: left 0.3s ease;
+  background-color: #191a23;
+  color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
   z-index: 1000;
-  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar.open {
-  left: 0;
+  transform: translateX(0);
 }
 
-.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 50px;
-}
-
-.sidebar nav ul li a{
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.menu-item {
   cursor: pointer;
-  border-bottom: 1px solid #ddd;
+  padding: 10px;
   color: white;
-  font-size: 20px;
-  font-weight: bolder;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  text-decoration: none;
+  background-color: #191a23;
+}
+
+.menu-item.open {
+  background-color: #191a23;
 }
 
 .menu-item:hover {
-  background-color: #004aaa;
+  background-color: #191a23;
+  color: #40329e;
 }
 
-
-.sidebar nav ul li a:hover {
-  background-color: #004aaa;
+.menu-item a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
 }
 
-.sidebar nav ul li a::after {
-  content: "";
-  font-size: 20px;
-  color: none;
-  margin-left: 10px;
+.submenu {
+  background-color: #191a23;
+  padding-left: 20px;
 }
 
-/* .sidebar nav ul li a:hover::after {
-  color: #ff0000;
-} */
-
-/* .sidebar nav ul li a:hover {
-  color: #004aaa;
-  background-color: #f5f5f5;
-} */
-
-.sidebar-special a::after {
-  content: none;
+.submenu li {
+  padding: 5px 0;
 }
 
-.sidebar-special a {
-  font-weight: bold;
-  color: #d32f2f;
-}
-/* 
-.sidebar-special a:hover {
-  color: white;
-  background-color: #004aaa;
-} */
-
-.close-btn {
-  background: none;
-  color: white;
-  border: none;
-  font-size: 24px;
-  padding: 10px;
-  cursor: pointer;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .topbar ul {
-    display: none;
-  }
-
-  .topbar .account {
-    display: none;
-  }
-
-  .menu-icon {
-    display: block;
-  }
-
-  .navbar {
-    justify-content: space-between;
-  }
-
-  .brand h1 {
-    font-size: 20px;
-  }
-
-  .login button {
-    padding: 6px 10px;
-  }
-
-  .sidebar {
-    width: 200px;
-  }
-
-  .sidebar nav ul li {
-    padding: 10px 15px;
-  }
-
-  .sidebar nav ul li a {
-    font-size: 18px;
-  }
-
-  .sidebar nav ul li a::after {
-    font-size: 18px;
-  }
+.submenu li:hover {
+  color: #40329e;
 }

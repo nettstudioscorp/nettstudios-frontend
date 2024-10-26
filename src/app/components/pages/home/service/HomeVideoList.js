@@ -149,6 +149,99 @@ export const videosDataSerieA = [
   },
 ];
 
+export const videosDataSerieB = [
+  {
+    title: "Assassin's Creed Valhalla - Parte 1",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "Wy_TSJIKdq0",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 2",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 3",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 4",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 5",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 6",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+];
+
 export const videosDataDestaques = [
   {
     title: "Assassin's Creed Revelations - Parte 1",

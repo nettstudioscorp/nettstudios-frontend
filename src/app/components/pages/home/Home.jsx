@@ -10,7 +10,8 @@ import HomeVideoDisplay from "./service/HomeVideoDisplay";
 import {
   videosData,
   videosDataSerieA,
-  videosDataDestaques, // Novo conjunto de dados para a seção "Destaques"
+  videosDataSerieB,
+  videosDataDestaques,
   allVideos,
 } from "./service/HomeVideoList";
 import Skeleton from "./skeleton/Skeleton";
@@ -53,7 +54,7 @@ const VideoSection = ({
       <button
         className="load-more-btn"
         onClick={() => {
-          setDisplayedCount(4); // Retornar ao estado inicial
+          setDisplayedCount(4); // Retornar inicial
           setLoadingMore(false);
         }}
       >
@@ -70,17 +71,21 @@ const HomeComponent = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Estados para exibir vídeos
+  //exibir vídeos
   const [displayedVideosRecommended, setDisplayedVideosRecommended] =
     useState(4);
   const [displayedVideosSeries, setDisplayedVideosSeries] = useState(4);
-  const [displayedVideosDestaques, setDisplayedVideosDestaques] = useState(4); // Novo estado para "Destaques"
+  const [displayedVideosDestaques, setDisplayedVideosDestaques] = useState(4);
+  const [displayedVideosvideosDataSerieB, setDisplayedVideosvideosDataSerieB] =
+    useState(4);
   const [displayedVideosAll, setDisplayedVideosAll] = useState(4);
 
-  // Estados para carregamento
+  // carregamento
   const [loadingMoreRecommended, setLoadingMoreRecommended] = useState(false);
   const [loadingMoreSeries, setLoadingMoreSeries] = useState(false);
-  const [loadingMoreDestaques, setLoadingMoreDestaques] = useState(false); // Novo estado de carregamento para "Destaques"
+  const [loadingMorevideosDataSerieB, setLoadingMorevideosDataSerieB] =
+    useState(false);
+  const [loadingMoreDestaques, setLoadingMoreDestaques] = useState(false);
   const [loadingMoreAll, setLoadingMoreAll] = useState(false);
 
   useEffect(() => {
@@ -136,7 +141,22 @@ const HomeComponent = () => {
           />
 
           <VideoSection
-            title="Series"
+            title="Destaques"
+            videos={videosDataDestaques}
+            displayedCount={displayedVideosDestaques}
+            setDisplayedCount={setDisplayedVideosDestaques}
+            loadingMore={loadingMoreDestaques}
+            setLoadingMore={setLoadingMoreDestaques}
+            openModal={openModal}
+          />
+          <br />
+          <br />
+          <br />
+          <h1 className="titlePage">Playlists Recomendadas</h1>
+          <hr />
+
+          <VideoSection
+            title="Assassin's Creed Valhalla"
             videos={videosDataSerieA}
             displayedCount={displayedVideosSeries}
             setDisplayedCount={setDisplayedVideosSeries}
@@ -144,18 +164,19 @@ const HomeComponent = () => {
             setLoadingMore={setLoadingMoreSeries}
             openModal={openModal}
           />
-
-          {/* Nova Seção para Destaques */}
+          <hr />
+          <br />
           <VideoSection
-            title="Destaques"
-            videos={videosDataDestaques} // Dados para a nova seção
-            displayedCount={displayedVideosDestaques}
-            setDisplayedCount={setDisplayedVideosDestaques}
-            loadingMore={loadingMoreDestaques}
-            setLoadingMore={setLoadingMoreDestaques}
+            title="RESIDENT EVIL 7 Biohazard"
+            videos={videosDataSerieB}
+            displayedCount={displayedVideosvideosDataSerieB}
+            setDisplayedCount={setDisplayedVideosvideosDataSerieB}
+            loadingMore={loadingMorevideosDataSerieB}
+            setLoadingMore={setLoadingMorevideosDataSerieB}
             openModal={openModal}
           />
-
+          <hr />
+          <br />
           <VideoSection
             title="Todos os Vídeos"
             videos={allVideos}
@@ -165,6 +186,16 @@ const HomeComponent = () => {
             setLoadingMore={setLoadingMoreAll}
             openModal={openModal}
           />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
         </>
       )}
 

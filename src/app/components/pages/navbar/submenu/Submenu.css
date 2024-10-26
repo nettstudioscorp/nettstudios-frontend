@@ -1,52 +1,31 @@
 .menu-item {
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color: #fff;
+  padding: 10px;
   cursor: pointer;
-  border-bottom: 1px solid #ddd;
-  color: white;
-  font-size: 20px;
-  font-weight: bolder;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  transition: color 0.3s;
 }
 
 .menu-item:hover {
-  background-color: #004aaa;
-}
-
-.submenu-arrow {
-  color: white;
-}
-
-.submenu-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #212529;
-  z-index: 999;
+  color: #2200ff;
 }
 
 .submenu {
+  background-color: #ffffff;
+  font-weight: bold;
+  padding: 10px;
+  margin: 0;
   list-style: none;
-  padding: 20px;
 }
 
 .submenu li {
-  margin: 10px 0;
+  padding: 5px 10px;
 }
 
-.back-btn {
-  background-color: #212529;
-  border: none;
-  font-size: 25px;
-  color: white;
-  cursor: pointer;
-  margin: 10px;
+.submenu li a {
+  color: #fff;
+  text-decoration: none;
 }
 
-.back-btn:hover {
-  color: #004aaa;
+.submenu li a:hover {
+  color: #2200ff;
 }
