@@ -16,14 +16,30 @@ const Navbar = () => {
   };
 
   const submenuItems = {
-    videos: [
-      { label: "Gameplays", link: "/videos/gameplays" },
-      { label: "Exclusive Gameplays", link: "/videos/exclusivegameplays" },
+    conteudo1: [
+      { label: "Videos", link: "/videos/gameplays" },
+      { label: "Playlist", link: "/playlists" },
+      { label: "Lives", link: "/live" },
     ],
-    news: [{ label: "News sobre Games", link: "/news/games" }],
-    podcasts: [{ label: "Podcasts sobre Games", link: "/podcasts/games" }],
-    playlists: [{ label: "Gameplays", link: "/playlists/gameplays" }],
-    lives: [{ label: "Gameplays", link: "/lives/gameplays" }],
+    conteudo2: [
+      { label: "Videos", link: "/videos/ti" },
+      { label: "Playlist", link: "/playlists/ti" },
+      { label: "Lives", link: "/live/ti" },
+    ],
+    conteudo3: [
+      { label: "Sobre Games", link: "/news/games" },
+      { label: "Sobre TI", link: "/news/ti" },
+    ],
+    conteudo4: [
+      { label: "Sobre Games", link: "/podcast/games" },
+      { label: "Sobre TI", link: "/podcast/ti" },
+    ],
+    conteudo5: [
+      { label: "Sobre Nós", link: "/about" },
+      { label: "Termos de uso", link: "/about/termos" },
+      { label: "Política de privacidade", link: "/about/privacidade" },
+      { label: "YouTube", link: "https://www.youtube.com/@Nettko" },
+    ],
   };
 
   const getGreeting = () => {
@@ -79,32 +95,15 @@ const Navbar = () => {
               </Link>
             </li>
 
-            <Submenu title="Vídeos" items={submenuItems.videos} />
+            <Submenu title="Games" items={submenuItems.conteudo1} />
 
-            <li>
-              <a href="/playlists" target="blank">
-                Playlist
-              </a>
-            </li>
+            <Submenu title="TI" items={submenuItems.conteudo2} />
 
-            <li>
-              <a href="https://www.youtube.com/@Nettko/streams" target="blank">
-                Lives
-              </a>
-            </li>
+            <Submenu title="News" items={submenuItems.conteudo3} />
 
-            <li>
-              <a href="https://www.youtube.com/@Nettko" target="blank">
-                YouTube
-              </a>
-            </li>
+            <Submenu title="PodCast" items={submenuItems.conteudo4} />
 
-            <li>
-              <Link to="/about" onClick={closeMenu}>
-                Sobre Nós
-              </Link>
-            </li>
-
+            <Submenu title="Sobre Nós" items={submenuItems.conteudo5} />
           </ul>
         </nav>
       </div>

@@ -7,7 +7,9 @@ import VideoPlayerVideoID from "../pages/games/videos/VideoPlayer";
 import Playlist from "../pages/games/playlists/Playlist";
 import PlaylistPlayer from "../pages/games/playlists/PlayListPlayer";
 import PlaylistPlayerID from "../pages/games/playlists/PlayListPlayer";
-import LivesComponent from "../pages/games/lives/live.component";
+import Live from "../pages/games/live/Live";
+import LivePlayer from "../pages/games/live/LivePlayer";
+import LivePlayerID from "../pages/games/live/LivePlayer";
 import NewsComponent from "../pages/games/news/News";
 import MemberComponent from "../pages/member/member.component";
 import AboutComponent from "../pages/about/About";
@@ -22,7 +24,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/videos/gameplays" element={<VideosLists />} />
-        <Route path="/lives" element={<LivesComponent />} />
+        <Route path="/lives" element={<Live />} />
         <Route path="/news/games" element={<NewsComponent />} />
         <Route path="/member" element={<MemberComponent />} />
         <Route path="/about" element={<AboutComponent />} />
@@ -35,6 +37,9 @@ const App = () => {
         <Route path="/playlist/:id" element={<PlaylistPlayerID />} />
         <Route path="/playlists/gameplays" element={<PlaylistPlayer />} />
 
+        <Route path="/live" element={<Live />} />
+        <Route path="/live/:gameId" element={<LivePlayerID />} />
+        <Route path="/live/gameplays" element={<LivePlayer />} />
       </Routes>
       <FooterComponent />
     </Router>

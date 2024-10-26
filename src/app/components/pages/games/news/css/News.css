@@ -19,14 +19,21 @@
   padding: 15px 0;
   margin-bottom: 20px;
 }
+h1 {
+  color: white;
+}
 
+p,
+small {
+  color: #ddd;
+}
 .news-article h2 {
   font-size: 24px;
   margin: 0;
 }
 
 .news-article h2 a {
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
@@ -35,12 +42,12 @@
 }
 
 .news-article h2 a:active {
-  color: darkblue;
+  color: rgb(234, 234, 234);
 }
 
 .news-article p {
   font-size: 16px;
-  color: #555;
+  color: #dddddd;
 }
 
 @media (max-width: 768px) {
