@@ -1,130 +1,932 @@
-const videosData = [
+export const videosData = [
   {
-    id: "N3F1BAu-XUU",
-    title:
-      "Assassin's Creed Revelations - #1 Gameplay Sem Comentários em Português - PTBR",
+    title: "Assassin's Creed Revelations - Parte 1",
+    thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+    videoId: "N3F1BAu-XUU",
   },
   {
-    id: "eULaVtrz6ek",
-    title:
-      "Assassin's Creed III Remastered Parte 1 Gameplay PC - Playthrough Sem Comentários em Português PTBR",
+    title: "Assassin's Creed III Remastered - Parte 1",
+    thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+    videoId: "eULaVtrz6ek",
   },
   {
-    id: "OVyYdQJc_IU",
-    title:
-      "DYING LIGHT Walkthrough Gameplay Sem Comentários Parte 1 JOGO COMPLETO",
+    title: "DYING LIGHT - Parte 1",
+    thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+    videoId: "OVyYdQJc_IU",
   },
   {
-    id: "wMwNP9SZ-Bs",
-    title:
-      "RESIDENT EVIL 7 Biohazard Parte 1 Walkthrough Gameplay Sem Comentários em Português PTBR",
-  },
-];
-
-const anotherVideoData = [
-  {
-    id: "8YVNOXuQuts",
-    title:
-      "Assassin's Creed Valhalla Parte 6 Gameplay PC Walkthrough Sem Comentários em Português - PTBR",
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
   },
   {
-    id: "rNEra09Lkyc",
-    title:
-      "Assassin's Creed Valhalla Parte 5 Gameplay PC Walkthrough Sem Comentários em Português - PTBR",
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
   },
   {
-    id: "UI4s7S7OFtA",
-    title:
-      "Far Cry Primal Walkthrough Gameplay Sem Comentários em Português - PTBR Parte 19 (JOGO COMPLETO)",
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
   },
   {
-    id: "5_seyG6_wmI",
-    title:
-      "Assassin's Creed Rogue Parte 21 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
   },
   {
-    id: "Hk0Mpe-9kYw",
-    title:
-      "Assassin's Creed Rogue Parte 20 Gameplay Walkthrough Sem Comentários em Português - PTBR",
-  },
-
-  {
-    id: "lcc3y-0FGGE",
-    title:
-      "Assassin's Creed Rogue Parte 19 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
   },
   {
-    id: "xciDMwUcyLY",
-    title:
-      "Assassin's Creed Rogue Parte 18 Gameplay Walkthrough Sem Comentários em Português - PTBR",
-  },
-
-  {
-    id: "40KPSfpxPMg",
-    title:
-      "DeadRising 3 Parte 18 Gameplay Walkthrough Sem Comentários em Português - PTBR (JOGO COMPLETO)",
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
   },
   {
-    id: "sux3Vo38K4M",
-    title:
-      "DeadRising 3 Parte 17 Gameplay Walkthrough Sem Comentários em Português - PTBR (JOGO COMPLETO)",
-  },
-
-  {
-    id: "DU0k3DZRjG8",
-    title:
-      "Assassin's Creed Rogue Parte 17 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
   },
   {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
-  },
-  {
-    id: "LHbSm1PQPrk",
-    title:
-      "Far Cry Primal Walkthrough Gameplay Sem Comentários em Português - PT-BR Parte 18 (JOGO COMPLETO)",
-  },
-  {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
-  },
-  {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
-  },
-  {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
-  },
-  {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
-  },
-  {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
-  },
-  {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
-  },
-  {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
-  },
-  {
-    id: "5U-AO0hayJE",
-    title:
-      "DeadRising 3 Parte 16 Gameplay Walkthrough Sem Comentários em Português PTBR JOGO COMPLETO",
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
   },
 ];
 
-export { videosData, anotherVideoData };
+export const videosDataSerieA = [
+  {
+    title: "Assassin's Creed Valhalla - Parte 1",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "Wy_TSJIKdq0",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 2",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 3",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 4",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 5",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 6",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "Assassin's Creed Valhalla - Parte 7",
+    thumbnail:
+      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+];
+
+export const allVideos = [
+  {
+    title: "Assassin's Creed Revelations - Parte 1",
+    thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+    videoId: "N3F1BAu-XUU",
+  },
+  {
+    title: "Assassin's Creed III Remastered - Parte 1",
+    thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+    videoId: "eULaVtrz6ek",
+  },
+  {
+    title: "DYING LIGHT - Parte 1",
+    thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+    videoId: "OVyYdQJc_IU",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+  {
+    title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+    thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+    videoId: "wMwNP9SZ-Bs",
+  },
+];
+
+// export const allVideos = [
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+//   {
+//     title: "Assassin's Creed Revelations - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/150/thumb-1920-150363.jpg",
+//     videoId: "N3F1BAu-XUU",
+//   },
+//   {
+//     title: "Assassin's Creed III Remastered - Parte 1",
+//     thumbnail: "https://wallpapercave.com/wp/wp4207383.jpg",
+//     videoId: "eULaVtrz6ek",
+//   },
+//   {
+//     title: "DYING LIGHT - Parte 1",
+//     thumbnail: "https://images.alphacoders.com/568/thumb-1920-568688.jpg",
+//     videoId: "OVyYdQJc_IU",
+//   },
+//   {
+//     title: "RESIDENT EVIL 7 Biohazard - Parte 1",
+//     thumbnail: "https://images6.alphacoders.com/889/889569.jpg",
+//     videoId: "wMwNP9SZ-Bs",
+//   },
+// ];

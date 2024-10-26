@@ -8,12 +8,12 @@ const FooterComponent = () => {
       <div className="footer-content">
         <div className="footer-left">
           <img src={logo} alt="Logo" className="footer-logo" />
-          <p className="footer-description">
+          {/* TODO: <p className="footer-description">
             theNettko, é um website que não apenas continua oferecendo conteúdo
             de jogos, mas também se tornou um hub de informações sobre
             programação, tecnologia e outras áreas relacionadas ao mundo
             digital.
-          </p>
+          </p> */}
           <p className="footer-email">
             Email:{" "}
             <a href="mailto: contatonettplay@gmail.com">

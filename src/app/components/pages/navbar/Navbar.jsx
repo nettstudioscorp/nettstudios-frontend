@@ -36,8 +36,8 @@ const Navbar = () => {
     ],
     conteudo5: [
       { label: "Sobre Nós", link: "/about" },
-      { label: "Termos de uso", link: "/about/termos" },
-      { label: "Política de privacidade", link: "/about/privacidade" },
+      // TODO: { label: "Termos de uso", link: "/about/termos" },
+      // { label: "Política de privacidade", link: "/about/privacidade" },
       { label: "YouTube", link: "https://www.youtube.com/@Nettko" },
     ],
   };
@@ -97,11 +97,11 @@ const Navbar = () => {
 
             <Submenu title="Games" items={submenuItems.conteudo1} />
 
-            <Submenu title="TI" items={submenuItems.conteudo2} />
+            {/* TODO: <Submenu title="TI" items={submenuItems.conteudo2} />
 
             <Submenu title="News" items={submenuItems.conteudo3} />
 
-            <Submenu title="PodCast" items={submenuItems.conteudo4} />
+            <Submenu title="PodCast" items={submenuItems.conteudo4} /> */}
 
             <Submenu title="Sobre Nós" items={submenuItems.conteudo5} />
           </ul>

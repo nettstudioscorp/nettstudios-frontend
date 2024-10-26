@@ -1,40 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 
-const VideoList = ({ title, videos, openModal }) => {
-  const [visibleVideos, setVisibleVideos] = useState(12);
-
-  const loadMoreVideos = () => {
-    setVisibleVideos((prev) => prev + 12);
-  };
-
+const HomeVideoDisplay = ({ videos, openModal }) => {
   return (
-    <section className="video-section">
-      <h1 className="section-title-home">{title}</h1>
-      <div className="video-grid">
-        {videos.slice(0, visibleVideos).map((video) => (
-          <div
-            className="video-card"
-            key={video.id}
-            onClick={() => openModal(video.id, video.title)}
-          >
-            <iframe
-              src={`https://www.youtube.com/embed/${video.id}`}
-              title={video.title}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-            <h3 className="video-title">{video.title}</h3>
-          </div>
-        ))}
-      </div>
-      {visibleVideos < videos.length && (
-        <button className="load-more" onClick={loadMoreVideos}>
-          Ver mais
-        </button>
-      )}
-    </section>
+    <div className="video-display">
+      {videos.map((video) => (
+        <div
+          key={video.videoId}
+          className="video-thumbnail"
+          onClick={() => openModal(video)}
+        >
+          <img
+            src={video.thumbnail}
+            alt={video.title}
+            className="thumbnail-image"
+          />
+          <p>{video.title}</p>
+        </div>
+      ))}
+    </div>
   );
 };
 
-export default VideoList;
+export default HomeVideoDisplay;
