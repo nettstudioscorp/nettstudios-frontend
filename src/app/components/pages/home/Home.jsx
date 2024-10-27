@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Pagination } from "swiper/modules";
+import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -130,6 +131,12 @@ const HomeComponent = () => {
         </>
       ) : (
         <>
+          <br />
+          <br />
+          <br />
+          <b>
+            <br />
+          </b>
           <VideoSection
             title="Recomendados"
             videos={videosData}
@@ -167,7 +174,7 @@ const HomeComponent = () => {
           <hr />
           <br />
           <VideoSection
-            title="RESIDENT EVIL 7 Biohazard"
+            title="Assassin's Creed III Remastered"
             videos={videosDataSerieB}
             displayedCount={displayedVideosvideosDataSerieB}
             setDisplayedCount={setDisplayedVideosvideosDataSerieB}
@@ -217,6 +224,7 @@ const HomeComponent = () => {
           allowFullScreen
         ></iframe>
         <button onClick={closeModal}>Fechar</button>
+        <Link to="/playlists">Playlists</Link>
       </Modal>
     </div>
   );

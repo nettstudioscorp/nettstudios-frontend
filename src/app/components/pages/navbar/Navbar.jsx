@@ -5,7 +5,7 @@ import Logo from "../navbar/images/logo.jpg";
 import "../navbar/Navbar.css";
 import "../../../../index.css";
 
-const Navbar = () => {
+const Navbar = ({ user, onLogout }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState({
     games: false,
@@ -52,7 +52,16 @@ const Navbar = () => {
           <span className="menu-text">Menu</span>
         </div>
         <div className="login">
-          <button>Login</button>
+          {/* Se o usuário não estiver logado, exibe o botão "Login" */}
+          {!user ? (
+            <Link to="/login">Login</Link>
+          ) : (
+            // Se o usuário estiver logado, exibe o avatar e o nome
+            <div className="user-avatar" onClick={onLogout}>
+              <img src={user.avatar} alt="User Avatar" className="avatar" />
+              <span>{user.name}</span>
+            </div>
+          )}
         </div>
       </div>
       <div className={`sidebar ${menuOpen ? "open" : ""}`}>
@@ -63,7 +72,6 @@ const Navbar = () => {
                 Início
               </Link>
             </li>
-
             <li
               onClick={() => toggleSubmenu("games")}
               className={`menu-item ${submenuOpen.games ? "open" : ""}`}
@@ -77,7 +85,6 @@ const Navbar = () => {
                 />
               )}
             </li>
-
             <li
               onClick={() => toggleSubmenu("about")}
               className={`menu-item ${submenuOpen.about ? "open" : ""}`}
@@ -91,6 +98,7 @@ const Navbar = () => {
                 />
               )}
             </li>
+            {/* Removido o link de Login da sidebar */}
           </ul>
         </nav>
       </div>

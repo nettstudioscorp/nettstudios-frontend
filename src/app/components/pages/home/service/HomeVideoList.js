@@ -67,178 +67,112 @@ export const videosDataSerieA = [
     title: "Assassin's Creed Valhalla - Parte 2",
     thumbnail:
       "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+    videoId: "vxwt3n7VBfU",
   },
   {
     title: "Assassin's Creed Valhalla - Parte 3",
     thumbnail:
       "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+    videoId: "g6E0jshwsac",
   },
   {
     title: "Assassin's Creed Valhalla - Parte 4",
     thumbnail:
       "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+    videoId: "612cjAypXxw",
   },
   {
     title: "Assassin's Creed Valhalla - Parte 5",
     thumbnail:
       "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+    videoId: "rNEra09Lkyc",
   },
   {
     title: "Assassin's Creed Valhalla - Parte 6",
     thumbnail:
       "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+    videoId: "8YVNOXuQuts",
   },
 ];
 
 export const videosDataSerieB = [
   {
-    title: "Assassin's Creed Valhalla - Parte 1",
+    title: "Assassin's Creed III Remastered - Parte 1",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "Wy_TSJIKdq0",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 2",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
     videoId: "eULaVtrz6ek",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 3",
+    title: "Assassin's Creed III Remastered - Parte 2",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "PUCozvQU1_0",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 4",
+    title: "Assassin's Creed III Remastered - Parte 3",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "h7MP4RRtUj8",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 5",
+    title: "Assassin's Creed III Remastered - Parte 4",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "rXiPLrpnAYk",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 6",
+    title: "Assassin's Creed III Remastered - Parte 5",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "yE9uzBrIGgE",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 7",
+    title: "Assassin's Creed III Remastered - Parte 6",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "e7zzsmLv1lU",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 7",
+    title: "Assassin's Creed III Remastered - Parte 7",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "zwmL7UvdIM8",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 7",
+    title: "Assassin's Creed III Remastered - Parte 8",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "z8csaOu_ntM",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 7",
+    title: "Assassin's Creed III Remastered - Parte 9",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "MEExe9N2Sqw",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 7",
+    title: "Assassin's Creed III Remastered - Parte 10",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "CzDhlGKWt8I",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 7",
+    title: "Assassin's Creed III Remastered - Parte 11",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "2p92B2XDL0I",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 7",
+    title: "Assassin's Creed III Remastered - Parte 12",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "80_0LMQvrIg",
   },
   {
-    title: "Assassin's Creed Valhalla - Parte 7",
+    title: "Assassin's Creed III Remastered - Parte 13",
     thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
-  },
-  {
-    title: "Assassin's Creed Valhalla - Parte 7",
-    thumbnail:
-      "https://wallpapers.com/images/hd/assassin-s-creed-valhalla-varin-s-axe-k7diwwziiqd0t1uq.jpg",
-    videoId: "eULaVtrz6ek",
+      "https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_assassins_creed_iii_remastered_01_2560x1080.jpg&height=506&sharpen",
+    videoId: "zYu8Zn0el9Y",
   },
 ];
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Login from "../pages/login/Login";
 import HomeComponent from "../pages/home/Home";
 import VideosLists from "../pages/games/videos/VideosList";
 import VideoPlayer from "../pages/games/videos/VideoPlayer";
@@ -23,6 +24,7 @@ const App = () => {
       <NavbarComponent />
       <Routes>
         <Route path="/" element={<HomeComponent />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/videos/gameplays" element={<VideosLists />} />
         <Route path="/lives" element={<Live />} />
         <Route path="/news/games" element={<NewsComponent />} />

@@ -91,3 +91,38 @@
 .submenu li:hover {
   color: #40329e;
 }
+
+.navbar .login {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.login-container {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
