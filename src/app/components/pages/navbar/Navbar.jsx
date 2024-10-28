@@ -42,17 +42,27 @@ const Navbar = ({ user, onLogout }) => {
   return (
     <header>
       <div className="navbar">
-        <div className="menu-icon" onClick={toggleMenu}>
-          <span className="icon">&#9776;</span>
-          <span className="menu-text">Menu</span>
-        </div>
         <div className="logo">
           <Link to="/">
             <img src={Logo} alt="Logo" className="logo-image" />
           </Link>
         </div>
+        {/* TODO:<div className="menu-icon" onClick={toggleMenu}>
+          <span className="icon">&#9776;</span>
+          <span className="menu-text">Menu</span>
+        </div> */}
+        {/* TODO:<div className="login">
+          {!user ? (
+            <Link to="/login">Login</Link>
+          ) : (
+            <div className="user-avatar" onClick={onLogout}>
+              <img src={user.avatar} alt="User Avatar" className="avatar" />
+              <span>{user.name}</span>
+            </div>
+          )}
+        </div> */}
       </div>
-      <div className={`sidebar ${menuOpen ? "open" : ""}`}>
+      {/* TODO: <div className={`sidebar ${menuOpen ? "open" : ""}`}>
         <nav>
           <ul>
             <li className="menu-item">
@@ -88,7 +98,7 @@ const Navbar = ({ user, onLogout }) => {
             </li>
           </ul>
         </nav>
-      </div>
+      </div> */}
     </header>
   );
 };

@@ -158,9 +158,13 @@ const HomeComponent = () => {
           />
           <br />
           <br />
-          <br />
-          <h1 className="titlePage">Playlists Recomendadas</h1>
+
           <hr />
+          <br />
+          <h1 className="titlePage">Todas as Playlists</h1>
+          <br />
+          {/* TODO: <p>Recomendadas</p> */}
+          <br />
 
           <VideoSection
             title="Assassin's Creed Valhalla"
@@ -171,7 +175,7 @@ const HomeComponent = () => {
             setLoadingMore={setLoadingMoreSeries}
             openModal={openModal}
           />
-          <hr />
+
           <br />
           <VideoSection
             title="Assassin's Creed III Remastered"
@@ -184,8 +188,10 @@ const HomeComponent = () => {
           />
           <hr />
           <br />
+          <h1 className="titlePage">Todos os Videos</h1>
+          <br />
           <VideoSection
-            title="Todos os Vídeos"
+            title=""
             videos={allVideos}
             displayedCount={displayedVideosAll}
             setDisplayedCount={setDisplayedVideosAll}
