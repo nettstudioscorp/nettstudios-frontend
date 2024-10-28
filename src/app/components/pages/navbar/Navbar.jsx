@@ -42,26 +42,14 @@ const Navbar = ({ user, onLogout }) => {
   return (
     <header>
       <div className="navbar">
-        <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" className="logo-image" />
-          </Link>
-        </div>
         <div className="menu-icon" onClick={toggleMenu}>
           <span className="icon">&#9776;</span>
           <span className="menu-text">Menu</span>
         </div>
-        <div className="login">
-          {/* Se o usuário não estiver logado, exibe o botão "Login" */}
-          {!user ? (
-            <Link to="/login">Login</Link>
-          ) : (
-            // Se o usuário estiver logado, exibe o avatar e o nome
-            <div className="user-avatar" onClick={onLogout}>
-              <img src={user.avatar} alt="User Avatar" className="avatar" />
-              <span>{user.name}</span>
-            </div>
-          )}
+        <div className="logo">
+          <Link to="/">
+            <img src={Logo} alt="Logo" className="logo-image" />
+          </Link>
         </div>
       </div>
       <div className={`sidebar ${menuOpen ? "open" : ""}`}>
@@ -98,7 +86,6 @@ const Navbar = ({ user, onLogout }) => {
                 />
               )}
             </li>
-            {/* Removido o link de Login da sidebar */}
           </ul>
         </nav>
       </div>
