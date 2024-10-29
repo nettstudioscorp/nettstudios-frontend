@@ -1,104 +1,152 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import Submenu from "../navbar/submenu/Submenu";
-import Logo from "../navbar/images/logo.jpg";
 import "../navbar/Navbar.css";
-import "../../../../index.css";
+import Logo from "../navbar/images/logo.jpg";
 
-const Navbar = ({ user, onLogout }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState({
-    games: false,
-    about: false,
-  });
+const Navbar = ({ onLogout }) => {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("/");
+  const searchInputRef = useRef(null);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+  const popularSearches = [
+    "Assassin's Creed Valhalla",
+    "Assassin's Creed III Remastered",
+    "FarCry 4",
+    "The Evil Within",
+    "Outlast",
+    "DYING LIGHT",
+    "RESIDENT EVIL 7",
+  ];
+
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+    setSearchTerm("");
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
   };
 
-  const closeMenu = () => {
-    setMenuOpen(false);
+  const handleSearch = () => {
+    const allTitles = document.querySelectorAll("h1");
+    let found = false;
+
+    allTitles.forEach((title) => {
+      if (
+        title.textContent
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .includes(
+            searchTerm
+              .toLowerCase()
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+          )
+      ) {
+        title.scrollIntoView({ behavior: "smooth" });
+        setIsSearchOpen(false);
+        found = true;
+      }
+    });
+
+    if (!found) {
+      alert("Título não encontrado.");
+    }
   };
 
-  const toggleSubmenu = (menu) => {
-    setSubmenuOpen((prevState) => ({
-      ...prevState,
-      [menu]: !prevState[menu],
-    }));
-  };
-
-  const submenuItems = {
-    conteudo1: [
-      { label: "Videos", link: "/videos/gameplays" },
-      { label: "Playlist", link: "/playlists" },
-      { label: "Lives", link: "/live" },
-    ],
-    conteudo5: [
-      { label: "Sobre Nós", link: "/about" },
-      { label: "YouTube", link: "https://www.youtube.com/@Nettko" },
-    ],
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (isSearchOpen) {
+      setIsSearchOpen(false);
+    }
   };
 
   return (
     <header>
       <div className="navbar">
         <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" className="logo-image" />
-          </Link>
+          {/* TODO: <Link target="blank" to="https://www.youtube.com/@Nettko"> */}
+          <Link target="blank" to="/"></Link>
+          <img src={Logo} alt="Logo" className="logo-image" />
         </div>
-        {/* TODO:<div className="menu-icon" onClick={toggleMenu}>
-          <span className="icon">&#9776;</span>
-          <span className="menu-text">Menu</span>
-        </div> */}
-        {/* TODO:<div className="login">
-          {!user ? (
-            <Link to="/login">Login</Link>
-          ) : (
-            <div className="user-avatar" onClick={onLogout}>
-              <img src={user.avatar} alt="User Avatar" className="avatar" />
-              <span>{user.name}</span>
+        {/* TODO: <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+          &#9776; Menu
+        </button> */}
+        <nav className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
+          {/* TODO: <Link
+            to="/"
+            className={activeLink === "/" ? "active" : ""}
+            onClick={() => setActiveLink("/")}
+          >
+            Inicio
+          </Link> */}
+          {/* <Link
+            to="/videos/gameplays"
+            className={activeLink === "/videos/gameplays" ? "active" : ""}
+            onClick={() => setActiveLink("/videos/gameplays")}
+          >
+            Videos
+          </Link>
+          <Link
+            to="/playlists"
+            className={activeLink === "/playlists" ? "active" : ""}
+            onClick={() => setActiveLink("/playlists")}
+          >
+            Series
+          </Link>
+          <Link
+            to="/live"
+            className={activeLink === "/live" ? "active" : ""}
+            onClick={() => setActiveLink("/live")}
+          >
+            Lives
+          </Link>
+          <Link
+            to="/about"
+            className={activeLink === "/about" ? "active" : ""}
+            onClick={() => setActiveLink("/about")}
+          >
+            Sobre Nos
+          </Link> */}
+        </nav>
+        <div className={`search-area ${isMobileMenuOpen ? "hidden" : ""}`}>
+          {isSearchOpen && (
+            <div className="search-modal">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                ref={searchInputRef}
+                className="search-input"
+                placeholder="Digite o título"
+              />
+              <button onClick={handleSearch}>Buscar</button>
+              <div className="search-history">
+                {searchTerm && <span>{searchTerm}</span>}
+              </div>
+              <h3>Buscas Populares</h3>
+              <ul className="search-list">
+                {popularSearches.map((search, index) => (
+                  <li
+                    key={index}
+                    className="search-item"
+                    onClick={() => setSearchTerm(search)}
+                  >
+                    {search}
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
-        </div> */}
+          <button onClick={toggleSearch}>🔍 Pesquisar</button>
+        </div>
+        <div className="user-actions">
+          {/* <button>Baixar Nettko APK</button> */}
+          {/* <Link to="/login">Entrar/Registrar</Link> */}
+        </div>
       </div>
-      {/* TODO: <div className={`sidebar ${menuOpen ? "open" : ""}`}>
-        <nav>
-          <ul>
-            <li className="menu-item">
-              <Link to="/" onClick={closeMenu}>
-                Início
-              </Link>
-            </li>
-            <li
-              onClick={() => toggleSubmenu("games")}
-              className={`menu-item ${submenuOpen.games ? "open" : ""}`}
-            >
-              <span>Games</span>
-              {submenuOpen.games && (
-                <Submenu
-                  title=""
-                  items={submenuItems.conteudo1}
-                  closeSubmenu={() => toggleSubmenu("games")}
-                />
-              )}
-            </li>
-            <li
-              onClick={() => toggleSubmenu("about")}
-              className={`menu-item ${submenuOpen.about ? "open" : ""}`}
-            >
-              <span>Sobre Nós</span>
-              {submenuOpen.about && (
-                <Submenu
-                  title=""
-                  items={submenuItems.conteudo5}
-                  closeSubmenu={() => toggleSubmenu("about")}
-                />
-              )}
-            </li>
-          </ul>
-        </nav>
-      </div> */}
     </header>
   );
 };

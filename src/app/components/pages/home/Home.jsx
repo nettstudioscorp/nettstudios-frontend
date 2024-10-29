@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Autoplay, Pagination } from "swiper/modules";
-import { Link } from "react-router-dom";
 import Modal from "react-modal";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
-
 import HomeVideoDisplay from "./service/HomeVideoDisplay";
 import {
   videosData,
@@ -71,6 +69,9 @@ const HomeComponent = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [bannerVisible, setBannerVisible] = useState(true);
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   //exibir vídeos
   const [displayedVideosRecommended, setDisplayedVideosRecommended] =
@@ -99,6 +100,18 @@ const HomeComponent = () => {
     loadData();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setBannerVisible(window.innerWidth > 480);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const openModal = (video) => {
     setSelectedVideo(video);
     setModalIsOpen(true);
@@ -111,18 +124,20 @@ const HomeComponent = () => {
 
   return (
     <div className="home-container">
-      <Swiper
-        spaceBetween={30}
-        effect="fade"
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        modules={[EffectFade, Autoplay, Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>
-          <img src={BannerChannel} alt="Banner" className="carousel-image" />
-        </SwiperSlide>
-      </Swiper>
+      {bannerVisible && (
+        <Swiper
+          spaceBetween={30}
+          effect="fade"
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          modules={[EffectFade, Autoplay, Pagination]}
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <img src={BannerChannel} alt="Banner" className="carousel-image" />
+          </SwiperSlide>
+        </Swiper>
+      )}
 
       {loading ? (
         <>
@@ -134,9 +149,6 @@ const HomeComponent = () => {
           <br />
           <br />
           <br />
-          <b>
-            <br />
-          </b>
           <VideoSection
             title="Recomendados"
             videos={videosData}
@@ -162,8 +174,7 @@ const HomeComponent = () => {
           <hr />
           <br />
           <h1 className="titlePage">Todas as Playlists</h1>
-          <br />
-          {/* TODO: <p>Recomendadas</p> */}
+          <h1>Assassin's Creed Valhalla</h1>
           <br />
 
           <VideoSection
@@ -202,13 +213,6 @@ const HomeComponent = () => {
           <br />
           <br />
           <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
         </>
       )}
 
@@ -216,7 +220,7 @@ const HomeComponent = () => {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Video Player"
-        className="modal"
+        className="modal-home"
         overlayClassName="modal-overlay"
       >
         <h2>{selectedVideo?.title}</h2>
@@ -230,7 +234,6 @@ const HomeComponent = () => {
           allowFullScreen
         ></iframe>
         <button onClick={closeModal}>Fechar</button>
-        <Link to="/playlists">Playlists</Link>
       </Modal>
     </div>
   );
