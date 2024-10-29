@@ -126,7 +126,7 @@ const Navbar = ({ onLogout }) => {
               <div className="search-history">
                 {searchTerm && <span>{searchTerm}</span>}
               </div>
-              <h3>Buscas Populares</h3>
+              <h3>Buscas Populares:</h3>
               <ul className="search-list">
                 {popularSearches.map((search, index) => (
                   <li

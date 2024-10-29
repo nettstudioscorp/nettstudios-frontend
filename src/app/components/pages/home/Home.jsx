@@ -10,6 +10,7 @@ import {
   videosData,
   videosDataSerieA,
   videosDataSerieB,
+  videosDataSerieC,
   videosDataDestaques,
   allVideos,
 } from "./service/HomeVideoList";
@@ -65,7 +66,7 @@ const VideoSection = ({
   </>
 );
 
-const HomeComponent = () => {
+const Home = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -80,12 +81,16 @@ const HomeComponent = () => {
   const [displayedVideosDestaques, setDisplayedVideosDestaques] = useState(4);
   const [displayedVideosvideosDataSerieB, setDisplayedVideosvideosDataSerieB] =
     useState(4);
+  const [displayedVideosvideosDataSerieC, setDisplayedVideosvideosDataSerieC] =
+    useState(4);
   const [displayedVideosAll, setDisplayedVideosAll] = useState(4);
 
   // carregamento
   const [loadingMoreRecommended, setLoadingMoreRecommended] = useState(false);
   const [loadingMoreSeries, setLoadingMoreSeries] = useState(false);
   const [loadingMorevideosDataSerieB, setLoadingMorevideosDataSerieB] =
+    useState(false);
+  const [loadingMorevideosDataSerieC, setLoadingMorevideosDataSerieC] =
     useState(false);
   const [loadingMoreDestaques, setLoadingMoreDestaques] = useState(false);
   const [loadingMoreAll, setLoadingMoreAll] = useState(false);
@@ -173,12 +178,12 @@ const HomeComponent = () => {
 
           <hr />
           <br />
-          <h1 className="titlePage">Todas as Playlists</h1>
-          <h1>Assassin's Creed Valhalla</h1>
+          <h1 className="titlePage">Séries de Assassin's Creed</h1>
           <br />
+          <h1>Assassin's Creed Valhalla</h1>
 
           <VideoSection
-            title="Assassin's Creed Valhalla"
+            title=""
             videos={videosDataSerieA}
             displayedCount={displayedVideosSeries}
             setDisplayedCount={setDisplayedVideosSeries}
@@ -188,8 +193,10 @@ const HomeComponent = () => {
           />
 
           <br />
+
+          <h1>Assassin's Creed III Remastered</h1>
           <VideoSection
-            title="Assassin's Creed III Remastered"
+            title=""
             videos={videosDataSerieB}
             displayedCount={displayedVideosvideosDataSerieB}
             setDisplayedCount={setDisplayedVideosvideosDataSerieB}
@@ -197,6 +204,20 @@ const HomeComponent = () => {
             setLoadingMore={setLoadingMorevideosDataSerieB}
             openModal={openModal}
           />
+          <br />
+          <h1 className="titlePage">Séries de Far Cry</h1>
+          <br />
+          <h1>Far Cry Classic</h1>
+          <VideoSection
+            title=""
+            videos={videosDataSerieC}
+            displayedCount={displayedVideosvideosDataSerieC}
+            setDisplayedCount={setDisplayedVideosvideosDataSerieC}
+            loadingMore={loadingMorevideosDataSerieC}
+            setLoadingMore={setLoadingMorevideosDataSerieC}
+            openModal={openModal}
+          />
+          <br />
           <hr />
           <br />
           <h1 className="titlePage">Todos os Videos</h1>
@@ -239,4 +260,4 @@ const HomeComponent = () => {
   );
 };
 
-export default HomeComponent;
+export default Home;

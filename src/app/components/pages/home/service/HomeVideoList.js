@@ -167,6 +167,63 @@ export const videosDataSerieB = [
   },
 ];
 
+export const videosDataSerieC = [
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+  {
+    title: "Far Cry Classic - Parte 1",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "83JuFaz0KdE",
+  },
+];
+
 export const allVideos = [
   {
     title: "Assassin's Creed Revelations - Parte 1",
