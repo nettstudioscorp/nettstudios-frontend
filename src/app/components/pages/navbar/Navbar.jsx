@@ -13,7 +13,7 @@ const Navbar = ({ onLogout }) => {
   const popularSearches = [
     "Assassin's Creed Valhalla",
     "Assassin's Creed III Remastered",
-    "FarCry 4",
+    "Far Cry 4",
     "The Evil Within",
     "Outlast",
     "DYING LIGHT",
