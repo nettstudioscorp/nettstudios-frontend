@@ -23,24 +23,24 @@ export default function Home() {
           </Link>
 
           <nav className="hidden gap-12 lg:flex 2xl:ml-16">
-            <a href="#" className="text-lg font-semibold text-indigo-500">
+            <a href="#" className="text-lg font-semibold text-[#003D9C]">
               Home
             </a>
             <a
               href="#"
-              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-[#003D9C] active:text-indigo-700"
             >
               Videos
             </a>
             <a
               href="#"
-              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-[#003D9C] active:text-indigo-700"
             >
               Playlists
             </a>
             <a
               href="#"
-              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-indigo-500 active:text-indigo-700"
+              className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-[#003D9C] active:text-indigo-700"
             >
               About
             </a>
