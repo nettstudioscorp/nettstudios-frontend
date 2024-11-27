@@ -7,7 +7,7 @@
 }
 
 .footer-logo {
-  width: 50px;
+  width: 100px;
   height: auto;
   border-radius: 50%;
   margin-bottom: 1rem;
@@ -71,6 +71,15 @@
 .footer-bottom a {
   color: #007bff;
   text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  color: blue;
 }
 
 @media (max-width: 768px) {

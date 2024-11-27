@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../../../assets/images/logo.jpg";
+import logo from "../../../assets/images/NettStudios - logo.png";
 import "../footer/Footer.css";
 
 const FooterComponent = () => {
@@ -14,12 +14,12 @@ const FooterComponent = () => {
             programação, tecnologia e outras áreas relacionadas ao mundo
             digital.
           </p> */}
-          <p className="footer-email">
+          {/* <p className="footer-email">
             Email:{" "}
             <a href="mailto: contatonettplay@gmail.com">
               contatonettko@mail.com
             </a>
-          </p>
+          </p> */}
         </div>
 
         <div className="footer-right">
@@ -53,8 +53,16 @@ const FooterComponent = () => {
       </div>
       <br />
       <div className="footer-bottom">
+        <p>
+          © Copyright 2015-2024 Todos os Direitos Reservados.
+          <a href="#" target="_blank">
+            NettCorpSolutions
+          </a>
+          . Inovação em Tecnologia, TI, Soluções Digitais e Criação de Conteúdo
+          de Games. LTDA
+        </p>
         {/* TODO: <a href="#">Termos de uso e Política de privacidade</a> */}
-        <p>Copyright © theNettko 2024 All Rights Reserved</p>
+
         <p>Site: 0.1.0</p>
       </div>
     </footer>

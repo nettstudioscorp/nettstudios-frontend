@@ -15,8 +15,8 @@ import NewsComponent from "../pages/games/news/News";
 import MemberComponent from "../pages/member/member.component";
 import AboutComponent from "../pages/about/About";
 import HelpComponent from "../pages/help/help.component";
-import NavbarComponent from "../pages/navbar/Navbar";
-import FooterComponent from "../pages/footer/Footer";
+import NavbarComponent from "../navbar/Navbar";
+import FooterComponent from "../footer/Footer";
 
 const App = () => {
   return (

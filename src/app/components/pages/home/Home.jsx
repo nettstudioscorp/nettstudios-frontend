@@ -16,7 +16,7 @@ import {
 } from "./service/HomeVideoList";
 import Skeleton from "./skeleton/Skeleton";
 import "../home/css/Home.css";
-import BannerChannel from "../home/img/channel_banner.jpg";
+import BannerChannel from "../home/img/channel_banner_web.png";
 
 Modal.setAppElement("#root");
 
