@@ -1,49 +1,63 @@
 @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sauce+Code&display=swap");
 
+.navbar-container {
+  width: 100%;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 5px;
-  padding: 1rem 11rem;
+  padding: 1rem;
   background-color: #212529;
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+body {
+  margin-top: 80px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
-}
 
-.logo-text {
-  font-family: "Alfa Slab One", serif;
-  font-size: 1rem;
-  font-weight: 100;
-  color: #ffffff;
+  gap: 0.5rem;
 }
 
 .logo-image {
-  height: 3rem;
-  border-radius: 50px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.logo-text {
+  font-size: 1rem;
+  font-weight: lighter;
+  font-family: "Alfa Slab One", sans-serif;
+  color: #ffffff;
 }
 
 .nav-links {
-  font-size: larger;
-  font-family: "Open Sauce Code", monospace; /* Fonte alterada para Open Sauce Code */
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding-left: 250px;
-  gap: 3rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #ffffff;
+  font-size: 1rem;
+  font-family: "Open Sauce Code", sans-serif;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
+  transform: translateX(-50px);
 }
 
 .nav-links a:hover {
@@ -54,33 +68,25 @@
   color: #007bff;
 }
 
-button {
-  background-color: #0b046c;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-weight: bold;
-  padding: 10px;
+.user-info {
+  display: none;
 }
 
 .mobile-menu-button {
   display: none;
   background: none;
   border: none;
-  color: white;
-  font-size: 28px;
+  color: #003366;
   cursor: pointer;
-  z-index: 1000;
 }
 
 .hamburger-icon {
-  display: block;
   width: 30px;
   height: 3px;
   background-color: #ffffff;
   position: relative;
+  transform: translateX(-50px);
+  transition: all 0.3s;
 }
 
 .hamburger-icon:before,
@@ -90,7 +96,7 @@ button {
   width: 30px;
   height: 3px;
   background-color: #ffffff;
-  left: 0;
+  transition: all 0.3s;
 }
 
 .hamburger-icon:before {
@@ -101,58 +107,63 @@ button {
   top: 8px;
 }
 
-.nav-links {
-  display: flex;
-  gap: 3rem;
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100%;
+  background-color: #212529;
+  color: white;
+  display: none;
+  flex-direction: column;
+  z-index: 2000;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
 }
 
-.nav-links.open {
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.close-menu {
+  background: none;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile-nav-links {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 60px;
-  right: 0;
-  background-color: #1c1c1c;
-  width: 100%;
-  padding: 1rem 0;
-  z-index: 1500;
+  padding: 1rem;
+  gap: 1rem;
 }
 
-.nav-links a {
-  padding: 10px;
-  text-align: center;
+.mobile-nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.mobile-nav-links a:hover {
+  color: #007bff;
 }
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-  }
-
-  .logo {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .logo-text {
-    font-size: 1.2rem;
-    text-align: center;
-  }
-
-  .logo-image {
-    height: 2.5rem;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-  }
-
   .mobile-menu-button {
     display: block;
   }
 
-  .nav-links.open {
-    display: flex;
+  .nav-links {
+    display: none;
   }
 }

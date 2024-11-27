@@ -1,42 +1,31 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Logo from "../navbar/images/logo2.png";
 
-const Navbar = ({ onLogout }) => {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const Navbar = () => {
   const [activeLink, setActiveLink] = useState("/");
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-    if (isSearchOpen) {
-      setIsSearchOpen(false);
-    }
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
   };
 
   return (
     <header>
       <div className="navbar">
         <div className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" className="logo-image" />
-          </Link>
-          <h1 className="logo-text">N e t t S t u d i o s</h1>
+          <img src={Logo} alt="Logo" className="logo-image" />
+          <h1 className="logo-text">Studios</h1>
         </div>
 
-        <div className="mobile-menu-button" onClick={toggleMobileMenu}>
-          <span className="hamburger-icon"></span>
-        </div>
-
-        <nav className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
+        <nav className="nav-links">
           <Link
             to="/"
             className={activeLink === "/" ? "active" : ""}
             onClick={() => setActiveLink("/")}
           >
-            Inicio
+            Home
           </Link>
           <Link
             to="/videos/gameplays"
@@ -50,7 +39,7 @@ const Navbar = ({ onLogout }) => {
             className={activeLink === "/playlists" ? "active" : ""}
             onClick={() => setActiveLink("/playlists")}
           >
-            Series
+            Playlists
           </Link>
           <Link
             to="/live"
@@ -64,9 +53,85 @@ const Navbar = ({ onLogout }) => {
             className={activeLink === "/about" ? "active" : ""}
             onClick={() => setActiveLink("/about")}
           >
-            Sobre Nos
+            Sobre Nós
           </Link>
+          {/* TODO: Em breve <Link
+            to="/team"
+            className={activeLink === "/team" ? "active" : ""}
+            onClick={() => setActiveLink("/team")}
+          >
+            Equipe
+          </Link> */}
         </nav>
+
+        <button className="mobile-menu-button" onClick={toggleMenu}>
+          <div className="hamburger-icon"></div>
+        </button>
+      </div>
+
+      <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
+        <div className="mobile-menu-header">
+          <span>Menu</span>
+          <button className="close-menu" onClick={toggleMenu}>
+            &times;
+          </button>
+        </div>
+        <div className="mobile-nav-links">
+          <Link
+            to="/"
+            onClick={() => {
+              setActiveLink("/");
+              toggleMenu();
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            to="/videos/gameplays"
+            onClick={() => {
+              setActiveLink("/videos/gameplays");
+              toggleMenu();
+            }}
+          >
+            Videos
+          </Link>
+          <Link
+            to="/playlists"
+            onClick={() => {
+              setActiveLink("/playlists");
+              toggleMenu();
+            }}
+          >
+            Playlists
+          </Link>
+          <Link
+            to="/live"
+            onClick={() => {
+              setActiveLink("/live");
+              toggleMenu();
+            }}
+          >
+            Lives
+          </Link>
+          <Link
+            to="/about"
+            onClick={() => {
+              setActiveLink("/about");
+              toggleMenu();
+            }}
+          >
+            Sobre Nós
+          </Link>
+          {/* TODO: Em breve<Link
+            to="/team"
+            onClick={() => {
+              setActiveLink("/team");
+              toggleMenu();
+            }}
+          >
+            Equipe
+          </Link> */}
+        </div>
       </div>
     </header>
   );
