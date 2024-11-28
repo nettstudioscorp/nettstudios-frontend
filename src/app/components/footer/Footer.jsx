@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../../assets/images/NettStudios - logo.png";
 import "../footer/Footer.css";
+import { Link } from "react-router-dom";
 
 const FooterComponent = () => {
   return (
@@ -8,18 +9,19 @@ const FooterComponent = () => {
       <div className="footer-content">
         <div className="footer-left">
           <img src={logo} alt="Logo" className="footer-logo" />
-          {/* TODO: <p className="footer-description">
-            theNettko, é um website que não apenas continua oferecendo conteúdo
-            de jogos, mas também se tornou um hub de informações sobre
-            programação, tecnologia e outras áreas relacionadas ao mundo
-            digital.
-          </p> */}
-          {/* <p className="footer-email">
+
+          <p className="footer-description">
+            NettStudios é uma divisão do NettCorpSolutions, focada no universo
+            dos games e do entretenimento digital. Desde 2015, o NettStudios
+            produz e compartilha conteúdos de qualidade, incluindo gameplays,
+            análises, e dicas voltadas para gamers e entusiastas do setor. Com
+            um compromisso de inspirar e engajar sua audiência, o NettStudios se
+            destaca como um espaço criativo para apaixonados por jogos.
+          </p>
+          <p className="footer-email">
             Email:{" "}
-            <a href="mailto: contatonettplay@gmail.com">
-              contatonettko@mail.com
-            </a>
-          </p> */}
+            <a href="mailto: contatonettplay@gmail.com">nettstudios@mail.com</a>
+          </p>
         </div>
 
         <div className="footer-right">
@@ -43,27 +45,28 @@ const FooterComponent = () => {
               </li>
             </ul>
           </div> */}
-
-          {/* TODO: <div className="footer-app">
-            <a href="#" className="footer-app-button">
-              Baixe aqui!
-            </a>
+          {/* <div className="footer-app">
+            <Link to="/about" className="footer-app-button">
+              Sobre Nós
+            </Link>
           </div> */}
         </div>
       </div>
       <br />
       <div className="footer-bottom">
         <p>
-          © Copyright 2015-2024 Todos os Direitos Reservados.
+          © Copyright 2015-2024 NettStudios - Games, Entretenimento e Criação de
+          Conteúdo.
+        </p>
+        <p>
           <a href="#" target="_blank">
             NettCorpSolutions
-          </a>
-          . Inovação em Tecnologia, TI, Soluções Digitais e Criação de Conteúdo
-          de Games. LTDA
+          </a>{" "}
+          é parte integrante - Inovação em Tecnologia, TI e Soluções Digitais.
         </p>
         {/* TODO: <a href="#">Termos de uso e Política de privacidade</a> */}
 
-        <p>Site: 0.1.0</p>
+        <p>Site: 0.0.1</p>
       </div>
     </footer>
   );

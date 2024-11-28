@@ -51,8 +51,9 @@
 }
 
 .footer-app-button {
-  background-color: #007bff;
+  background-color: #0b046c;
   color: white;
+  font-weight: bolder;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
@@ -78,9 +79,9 @@ a {
   color: blue;
 }
 
-a:hover {
-  color: blue;
-}
+/* a:hover {
+  color: rgb(255, 255, 255);
+} */
 
 @media (max-width: 768px) {
   .footer-content {

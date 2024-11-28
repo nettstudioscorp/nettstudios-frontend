@@ -5,65 +5,61 @@ const About = () => {
   return (
     <div className="about-container">
       <section className="about-header">
-        <h1>Sobre Nós</h1>
+        <h1>Sobre o NettStudios</h1>
         <p>
-          TheNettko começou sua jornada em 2015 como um projeto focado
-          exclusivamente em gameplays no youtube. Desde o início, nosso objetivo
-          foi que pudessem encontrar conteúdo envolvente e divertido, explorando
-          novos mundos virtuais e compartilhando experiências dentro dos jogos.
-          Com o passar dos anos, vimos a oportunidade de expandir nosso escopo
-          para além dos gameplays. Hoje, estamos desenvolvendo o site TheNettko,
-          um portal que não apenas continua oferecendo conteúdo de jogos, mas
-          também se tornou um hub de informações sobre programação, tecnologia e
-          outras áreas relacionadas ao mundo digital. Nosso novo foco inclui:
-          Gameplays: Mantendo a essência do projeto original, continuamos
-          trazendo vídeos, tutoriais e streams sobre os jogos mais populares e
-          os lançamentos mais esperados. Programação: Entendemos a importância
-          da tecnologia no mundo moderno, por isso expandimos nosso conteúdo
-          para oferecer artigos, tutoriais e dicas para desenvolvedores e
-          entusiastas de programação. Podcasts: Estamos criando uma série de
-          podcasts, onde discutimos tendências, novidades e insights do mundo
-          dos games e da tecnologia, com convidados especiais e especialistas da
-          área. Notícias (News): Fique por dentro das últimas atualizações,
-          lançamentos e eventos importantes, não apenas no universo dos jogos,
-          mas também em tecnologia e programação.
+          Bem-vindo ao <strong>NettStudios</strong>, um projeto inovador voltado
+          para a criação de conteúdo no universo dos <strong>games</strong>. A
+          missão é oferecer uma plataforma onde os fãs de jogos, criadores de
+          conteúdo e entusiastas do entretenimento digital possam se "conectar",
+          explorar e se divertir. Criamos vídeos, gameplays e outros conteúdos
+          originais com o objetivo de proporcionar uma experiência única,
+          divertida e envolvente para todos.
+        </p>
+        <p>
+          O <strong>NettStudios</strong> nasceu da paixão por games e pela
+          vontade de compartilhar nossa jornada com um público que, assim como
+          nós, adora explorar mundos virtuais e se divertir com os desafios do
+          universo dos jogos. Desde o nosso início em 2015 no{" "}
+          <strong>YouTube</strong> o objetivo sempre foi criar conteúdo
+          relevante, interativo e de qualidade, seja você um gamer ou alguém em
+          busca de entretenimento. E, embora tenhamos evoluído ao longo dos
+          anos, nossa essência continua sendo a mesma: trazer diversão e
+          experiências únicas no mundo dos games.
         </p>
       </section>
 
       <section className="about-content">
         <h2>Nossa Missão</h2>
         <p>
-          No TheNettko, acreditamos que o mundo digital é vasto e cheio de
-          possibilidades, e nossa missão é ser o seu ponto de referência para
-          aprender, explorar e se divertir com conteúdo de alta qualidade. Nossa
-          equipe está sempre trabalhando para trazer novidades, com a mesma
-          paixão e dedicação que temos desde o início. Venha fazer parte da
-          nossa jornada enquanto continuamos a crescer e explorar novos
-          horizontes!
+          Acreditamos que o entretenimento deve ser acessível, diversificado e
+          sempre inovador. <strong>NettStudios</strong> é o seu lugar para
+          encontrar gameplays emocionantes, dicas, análises e tudo o que envolve
+          o fascinante mundo dos jogos. Trabalhamos para que cada vídeo seja uma
+          experiência única, com a melhor qualidade possível, e sempre em
+          sintonia com os mais novos lançamentos do mercado de games.
+        </p>
+        <h2>Parcerias e Unidades</h2>
+        <p>
+          O <strong>NettStudios</strong> faz parte do{" "}
+          <strong>NettCorpSolutions</strong>, um conglomerado que reúne outras
+          unidades inovadoras e com foco em diferentes áreas. Junto a nós,
+          também temos o <strong>NettCode</strong>, uma divisão especializada em{" "}
+          <strong>TI, Consultoria e Desenvolvimento de Software</strong>.
+          Juntas, essas "empresas" formam um ecossistema completo que busca não
+          só entreter, mas também inovar e oferecer soluções tecnológicas para
+          quem precisa.
+        </p>
+        <h2>Assinaturas e Acesso Exclusivo</h2>
+        <p>
+          Em breve, vamos oferecer opções de assinaturas para que você possa ter
+          acesso a conteúdos ainda mais exclusivos! Vale ressaltar que, por
+          enquanto, não haverá cobrança para acessar os nossos vídeos. Quando as
+          assinaturas forem ativadas, a proposta será simbólica e voltada para
+          oferecer algo realmente exclusivo para quem deseja apoiar nosso
+          trabalho, com benefícios como conteúdos extras, bastidores, acesso
+          antecipado a novos vídeos e muito mais.
         </p>
       </section>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      {/* TODO:
-      <section className="about-team">
-        <h2>Nosso Time/h2>
-        <div className="team-members">
-          <div className="member">
-            <img src="path-to-image" alt="Team member 1" />
-            <h3>John Doe</h3>
-            <p>Lead Developer</p>
-          </div>
-          <div className="member">
-            <img src="path-to-image" alt="Team member 2" />
-            <h3>Jane Smith</h3>
-            <p>Project Manager</p>
-          </div>
-          
-        </div>
-      </section> */}
     </div>
   );
 };
