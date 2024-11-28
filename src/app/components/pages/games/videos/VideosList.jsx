@@ -102,7 +102,7 @@ const VideosComponent = () => {
           overlayClassName="modal-overlay"
         >
           <h2>{selectedVideo?.snippet.title}</h2>
-          <p>Escolha onde deseja assistir:</p>
+          {/* <p>Escolha onde deseja assistir:</p>
           <button
             className="btn btn-external"
             onClick={() =>
@@ -112,14 +112,16 @@ const VideosComponent = () => {
             }
           >
             Assistir no YouTube
-          </button>
+          </button> */}
           <button
-            className="btn btn-internal"
+            className="btn-internal"
             onClick={() => handleWatch(`/watch/${selectedVideo?.videoId}`)}
           >
-            Assistir na Página
+            Assistir
           </button>
-          <button onClick={closeModal}>Fechar</button>
+          <button className="button-modal-close" onClick={closeModal}>
+            Fechar
+          </button>
         </Modal>
       </div>
     </>
