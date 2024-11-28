@@ -254,7 +254,9 @@ const Home = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-        <button onClick={closeModal}>Fechar</button>
+        <button className="bt-close" onClick={closeModal}>
+          Fechar
+        </button>
       </Modal>
     </div>
   );

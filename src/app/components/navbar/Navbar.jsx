@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import Logo from "../navbar/images/logo2.png";
+import Logo from "../navbar/images/NettStudios.svg";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState("/");
@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="navbar">
         <div className="logo">
           <img src={Logo} alt="Logo" className="logo-image" />
-          <h1 className="logo-text">Studios</h1>
+          {/* <h1 className="logo-text"></h1> */}
         </div>
 
         <nav className="nav-links">
@@ -27,6 +27,7 @@ const Navbar = () => {
           >
             Home
           </Link>
+
           <Link
             to="/videos/gameplays"
             className={activeLink === "/videos/gameplays" ? "active" : ""}
@@ -34,6 +35,7 @@ const Navbar = () => {
           >
             Videos
           </Link>
+
           <Link
             to="/playlists"
             className={activeLink === "/playlists" ? "active" : ""}
@@ -41,6 +43,7 @@ const Navbar = () => {
           >
             Playlists
           </Link>
+
           <Link
             to="/live"
             className={activeLink === "/live" ? "active" : ""}
@@ -48,6 +51,23 @@ const Navbar = () => {
           >
             Lives
           </Link>
+
+          <Link
+            to="/news"
+            className={activeLink === "/news" ? "active" : ""}
+            onClick={() => setActiveLink("/news")}
+          >
+            News
+          </Link>
+
+          <Link
+            to="/story"
+            className={activeLink === "/story" ? "active" : ""}
+            onClick={() => setActiveLink("/story")}
+          >
+            Stories
+          </Link>
+
           <Link
             to="/about"
             className={activeLink === "/about" ? "active" : ""}
@@ -55,6 +75,7 @@ const Navbar = () => {
           >
             Sobre Nós
           </Link>
+
           {/* TODO: Em breve <Link
             to="/team"
             className={activeLink === "/team" ? "active" : ""}
@@ -86,6 +107,7 @@ const Navbar = () => {
           >
             Home
           </Link>
+
           <Link
             to="/videos/gameplays"
             onClick={() => {
@@ -95,6 +117,7 @@ const Navbar = () => {
           >
             Videos
           </Link>
+
           <Link
             to="/playlists"
             onClick={() => {
@@ -104,6 +127,7 @@ const Navbar = () => {
           >
             Playlists
           </Link>
+
           <Link
             to="/live"
             onClick={() => {
@@ -113,6 +137,23 @@ const Navbar = () => {
           >
             Lives
           </Link>
+
+          <Link
+            to="/news"
+            className={activeLink === "/news" ? "active" : ""}
+            onClick={() => setActiveLink("/news")}
+          >
+            News
+          </Link>
+
+          <Link
+            to="/story"
+            className={activeLink === "/story" ? "active" : ""}
+            onClick={() => setActiveLink("/story")}
+          >
+            Stories
+          </Link>
+
           <Link
             to="/about"
             onClick={() => {

@@ -29,13 +29,13 @@ body {
 .logo {
   display: flex;
   align-items: center;
-
   gap: 0.5rem;
 }
 
 .logo-image {
   height: 40px;
   border-radius: 20px;
+  transform: translateX(350px);
 }
 
 .logo-text {
@@ -51,13 +51,16 @@ body {
 }
 
 .nav-links a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1rem;
-  font-family: "Open Sauce Code", sans-serif;
-  font-weight: bold;
-  transition: color 0.3s;
-  transform: translateX(-50px);
+  transform: translateX(-700px);
+  position: relative;
+  font: 14px/28px D-DIN-Bold, Arial, Verdana, sans-serif;
+  font-weight: 400;
+  font-weight: 500;
+  font-style: normal;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-transition: color 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
@@ -85,8 +88,22 @@ body {
   height: 3px;
   background-color: #ffffff;
   position: relative;
-  transform: translateX(-50px);
+
   transition: all 0.3s;
+  display: block;
+  top: 50%;
+  right: 50px;
+  width: 16px;
+  height: 16px;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(50%);
+  z-index: 55;
+  padding: 0 8px;
+  border: 0;
+  background: 0 0;
+  appeareance: none;
+  -webkit-transition: opacity 0.2s linear 0.1s;
+  transition: opacity 0.2s linear 0.1s;
 }
 
 .hamburger-icon:before,
@@ -111,7 +128,7 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  width: 80%;
+  width: 20%;
   height: 100%;
   background-color: #212529;
   color: white;
@@ -158,6 +175,151 @@ body {
   color: #007bff;
 }
 
+@media (max-width: 1880px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+  .nav-links a {
+    transform: translateX(00px);
+  }
+}
+
+@media (max-width: 1496px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(150px);
+  }
+  .nav-links a {
+    transform: translateX(100px);
+  }
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 100%;
+    background-color: #212529;
+    color: white;
+    display: none;
+    flex-direction: column;
+    z-index: 2000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  .mobile-menu {
+    width: 70%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 1410px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+}
+
+@media (max-width: 1372px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+}
+
+@media (max-width: 1280px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+
+  .mobile-menu {
+    width: 24%;
+    height: 100%;
+  }
+}
+
+@media (max-width: 778px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+}
+
+@media (max-width: 776px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+}
+
+@media (max-width: 774px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+}
+
+@media (max-width: 770px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+}
+
 @media (max-width: 768px) {
   .mobile-menu-button {
     display: block;
@@ -165,5 +327,52 @@ body {
 
   .nav-links {
     display: none;
+  }
+  .logo-image {
+    transform: translateX(0px);
+  }
+
+  @media (max-width: 568px) {
+    .mobile-menu-button {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+    }
+    .logo-image {
+      transform: translateX(0px);
+    }
+  }
+
+  @media (max-width: 484px) {
+    .mobile-menu-button {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+    }
+    .logo-image {
+      transform: translateX(0px);
+    }
+  }
+
+  @media (max-width: 484px) {
+    .mobile-menu-button {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+    }
+    .logo-image {
+      transform: translateX(0px);
+    }
+  }
+
+  .mobile-menu {
+    width: 50%;
+    height: 100%;
   }
 }

@@ -12,11 +12,12 @@ const FooterComponent = () => {
 
           <p className="footer-description">
             NettStudios é uma divisão do NettCorpSolutions, focada no universo
-            dos games e do entretenimento digital. Desde 2015, o NettStudios
+            dos games e do entretenimento digital.{" "}
+            {/*Desde 2015, o NettStudios
             produz e compartilha conteúdos de qualidade, incluindo gameplays,
             análises, e dicas voltadas para gamers e entusiastas do setor. Com
             um compromisso de inspirar e engajar sua audiência, o NettStudios se
-            destaca como um espaço criativo para apaixonados por jogos.
+            destaca como um espaço criativo para apaixonados por jogos. */}
           </p>
           <p className="footer-email">
             Email:{" "}
