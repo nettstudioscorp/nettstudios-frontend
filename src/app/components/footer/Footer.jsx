@@ -67,7 +67,7 @@ const FooterComponent = () => {
         </p>
         {/* TODO: <a href="#">Termos de uso e Política de privacidade</a> */}
 
-        <p>Site: 0.0.1</p>
+        <p>Site: 0.0.2</p>
       </div>
     </footer>
   );
