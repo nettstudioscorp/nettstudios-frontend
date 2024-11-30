@@ -1,31 +1,100 @@
-.content-wrapper {
+.player-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
-  padding: 1rem;
-  max-height: 80vh;
-  overflow-y: auto;
   background-color: #191a23;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-.video-player {
-  position: sticky;
-  top: -20px;
-  margin: 0 auto;
+.video-player-wrapper-live {
   width: 100%;
-  max-width: 900px;
+  max-width: 600%;
   aspect-ratio: 16 / 9;
+  position: relative;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-.video-player iframe {
+.video-player-wrapper-live iframe {
   width: 100%;
   height: 100%;
   border: none;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.video-player {
+  position: relative;
+}
+
+.video-info {
+  margin-top: 20px;
+}
+
+.video-info h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.video-info p {
+  margin: 5px 0;
+}
+
+.sinopse {
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+.video-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.nav-button {
+  padding: 8px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+  border: none;
+}
+
+.nav-button.active {
+  background-color: #004aac;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.action-button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.recommendations {
+  margin-top: 30px;
+}
+
+.recommendations-list {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.recommendation-item {
+  min-width: 150px;
+  background-color: #444;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
 }

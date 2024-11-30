@@ -7,10 +7,11 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import HomeVideoDisplay from "./service/HomeVideoDisplay";
 import {
-  videosData,
   videosDataSerieA,
   videosDataSerieB,
   videosDataSerieC,
+  videosDataSerieD,
+  videosData,
   videosDataDestaques,
   allVideos,
 } from "./service/HomeVideoList";
@@ -83,6 +84,8 @@ const Home = () => {
     useState(4);
   const [displayedVideosvideosDataSerieC, setDisplayedVideosvideosDataSerieC] =
     useState(4);
+  const [displayedVideosvideosDataSerieD, setDisplayedVideosvideosDataSerieD] =
+    useState(4);
   const [displayedVideosAll, setDisplayedVideosAll] = useState(4);
 
   // carregamento
@@ -91,6 +94,8 @@ const Home = () => {
   const [loadingMorevideosDataSerieB, setLoadingMorevideosDataSerieB] =
     useState(false);
   const [loadingMorevideosDataSerieC, setLoadingMorevideosDataSerieC] =
+    useState(false);
+  const [loadingMorevideosDataSerieD, setLoadingMorevideosDataSerieD] =
     useState(false);
   const [loadingMoreDestaques, setLoadingMoreDestaques] = useState(false);
   const [loadingMoreAll, setLoadingMoreAll] = useState(false);
@@ -218,7 +223,17 @@ const Home = () => {
             openModal={openModal}
           />
           <br />
-          <hr />
+
+          <h1>Far Cry 2</h1>
+          <VideoSection
+            title=""
+            videos={videosDataSerieD}
+            displayedCount={displayedVideosvideosDataSerieD}
+            setDisplayedCount={setDisplayedVideosvideosDataSerieD}
+            loadingMore={loadingMorevideosDataSerieD}
+            setLoadingMore={setLoadingMorevideosDataSerieD}
+            openModal={openModal}
+          />
           <br />
           <h1 className="titlePage">Todos os Videos</h1>
           <br />

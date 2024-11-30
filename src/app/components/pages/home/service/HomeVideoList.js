@@ -175,52 +175,115 @@ export const videosDataSerieC = [
     videoId: "83JuFaz0KdE",
   },
   {
-    title: "Far Cry Classic - Parte 1",
+    title: "Far Cry Classic - Parte 2",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "aVvNS0ZB0cM",
+  },
+  {
+    title: "Far Cry Classic - Parte 3",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "gLtW2c5X12I",
+  },
+  {
+    title: "Far Cry Classic - Parte 4",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "R_IClH0f7Xg",
+  },
+  {
+    title: "Far Cry Classic - Parte 5",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "nPwzXKa5IXc",
+  },
+  {
+    title: "Far Cry Classic - Parte 6",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "N6yy1kC82Y4",
+  },
+  {
+    title: "Far Cry Classic - Parte 7",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "G735PTt590o",
+  },
+  {
+    title: "Far Cry Classic - Parte 8",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "Jx_Vm2cBxao",
+  },
+  {
+    title: "Far Cry Classic - Parte 9",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "aNlAtmlEQcs",
+  },
+];
+
+export const videosDataSerieD = [
+  {
+    title: "Far Cry 2 - Parte 1",
     thumbnail:
       "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
     videoId: "83JuFaz0KdE",
   },
   {
-    title: "Far Cry Classic - Parte 1",
+    title: "Far Cry 2 - Parte 2",
     thumbnail:
       "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
-    videoId: "83JuFaz0KdE",
+    videoId: "aVvNS0ZB0cM",
   },
   {
-    title: "Far Cry Classic - Parte 1",
+    title: "Far Cry 2 - Parte 3",
     thumbnail:
       "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
-    videoId: "83JuFaz0KdE",
+    videoId: "gLtW2c5X12I",
   },
   {
-    title: "Far Cry Classic - Parte 1",
+    title: "Far Cry 2 - Parte 4",
     thumbnail:
       "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
-    videoId: "83JuFaz0KdE",
+    videoId: "R_IClH0f7Xg",
   },
   {
-    title: "Far Cry Classic - Parte 1",
+    title: "Far Cry 2 - Parte 5",
     thumbnail:
       "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
-    videoId: "83JuFaz0KdE",
+    videoId: "nPwzXKa5IXc",
   },
   {
-    title: "Far Cry Classic - Parte 1",
+    title: "Far Cry 2 - Parte 6",
     thumbnail:
       "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
-    videoId: "83JuFaz0KdE",
+    videoId: "N6yy1kC82Y4",
   },
   {
-    title: "Far Cry Classic - Parte 1",
+    title: "Far Cry 2 - Parte 7",
     thumbnail:
       "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
-    videoId: "83JuFaz0KdE",
+    videoId: "G735PTt590o",
   },
   {
-    title: "Far Cry Classic - Parte 1",
+    title: "Far Cry 2 - Parte 8",
     thumbnail:
       "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
-    videoId: "83JuFaz0KdE",
+    videoId: "Jx_Vm2cBxao",
+  },
+  {
+    title: "Far Cry 2 - Parte 9",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "aNlAtmlEQcs",
+  },
+  {
+    title: "Far Cry 2 - Parte 10",
+    thumbnail:
+      "https://store-images.s-microsoft.com/image/apps.54937.66944972600899848.2db4b474-478c-4477-907a-83efddd67275.2b0030d3-b042-4574-b3af-85f2e4cf3f1b",
+    videoId: "aNlAtmlEQcs",
   },
 ];
 

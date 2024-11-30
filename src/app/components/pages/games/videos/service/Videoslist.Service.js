@@ -3,8 +3,7 @@ export const videos = [
     id: "1",
     videoId: "8YVNOXuQuts",
     snippet: {
-      title:
-        "Assassin's Creed Valhalla Parte 6 Gameplay PC Walkthrough Sem Comentários em Português - PTBR",
+      title: "Assassin's Creed Valhalla Parte 6",
       thumbnails: {
         medium: {
           url: "https://wallpapers.com/images/high/4k-assassin-s-creed-valhalla-background-3840-x-2160-inzoy2k4g3k6c4bf.webp",
@@ -17,8 +16,7 @@ export const videos = [
     id: "2",
     videoId: "rNEra09Lkyc",
     snippet: {
-      title:
-        "Assassin's Creed Valhalla Parte 5 Gameplay PC Walkthrough Sem Comentários em Português - PTBR",
+      title: "Assassin's Creed Valhalla Parte 5",
       thumbnails: {
         medium: {
           url: "https://wallpapers.com/images/high/4k-assassin-s-creed-valhalla-background-3840-x-2160-inzoy2k4g3k6c4bf.webp",
@@ -31,8 +29,7 @@ export const videos = [
     id: "3",
     videoId: "UI4s7S7OFtA",
     snippet: {
-      title:
-        "Far Cry Primal Walkthrough Gameplay Sem Comentários em Português - PTBR Parte 19 (JOGO COMPLETO)",
+      title: "Far Cry Primal Parte 19 ",
       thumbnails: {
         medium: {
           url: "https://wallpapercave.com/wp/wp1896894.jpg",
@@ -45,8 +42,7 @@ export const videos = [
     id: "4",
     videoId: "5_seyG6_wmI",
     snippet: {
-      title:
-        "Assassin's Creed Rogue Parte 21 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+      title: "Assassin's Creed Rogue Parte 21 ",
       thumbnails: {
         medium: {
           url: "https://wallpapercave.com/wp/wp2212972.jpg",
@@ -59,8 +55,7 @@ export const videos = [
     id: "5",
     videoId: "Hk0Mpe-9kYw",
     snippet: {
-      title:
-        "Assassin's Creed Rogue Parte 20 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+      title: "Assassin's Creed Rogue Parte 20",
       thumbnails: {
         medium: {
           url: "https://wallpapercave.com/wp/wp2212972.jpg",
@@ -73,8 +68,7 @@ export const videos = [
     id: "5",
     videoId: "Hk0Mpe-9kYw",
     snippet: {
-      title:
-        "Assassin's Creed Rogue Parte 20 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+      title: "Assassin's Creed Rogue Parte 20 ",
       thumbnails: {
         medium: {
           url: "https://wallpapercave.com/wp/wp2212972.jpg",
@@ -87,8 +81,7 @@ export const videos = [
     id: "5",
     videoId: "Hk0Mpe-9kYw",
     snippet: {
-      title:
-        "Assassin's Creed Rogue Parte 20 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+      title: "Assassin's Creed Rogue Parte 20 ",
       thumbnails: {
         medium: {
           url: "https://wallpapercave.com/wp/wp2212972.jpg",
@@ -101,8 +94,7 @@ export const videos = [
     id: "5",
     videoId: "Hk0Mpe-9kYw",
     snippet: {
-      title:
-        "Assassin's Creed Rogue Parte 20 Gameplay Walkthrough Sem Comentários em Português - PTBR",
+      title: "Assassin's Creed Rogue Parte 20 ",
       thumbnails: {
         medium: {
           url: "https://wallpapercave.com/wp/wp2212972.jpg",

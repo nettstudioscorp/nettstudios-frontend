@@ -63,7 +63,7 @@ const FooterComponent = () => {
           <a href="#" target="_blank">
             NettCorpSolutions
           </a>{" "}
-          é parte integrante - Inovação em Tecnologia, TI e Soluções Digitais.
+          - Soluções Digitais, TI e Inovação em Tecnologia.
         </p>
         {/* TODO: <a href="#">Termos de uso e Política de privacidade</a> */}
 

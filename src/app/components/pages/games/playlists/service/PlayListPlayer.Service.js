@@ -1,108 +1,35 @@
-const PlayListPlayerService = {
-  getPlaylistById: (id) => {
-    const playlists = [
+// Função para retornar playlists com base no gameId
+export const getPlaylistByGameId = (gameId) => {
+  const playlists = {
+    // Lista de vídeos para o jogo WatchDogs
+    WatchDogs: [
       {
-        id: 1,
-        title: "Assassin's Creed Valhalla",
-        videos: [
-          {
-            videoId: "video1_id",
-            title: "Video 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "video2_id",
-            title: "Video 2",
-            description: "Descrição do video 2",
-          },
-        ],
+        videoId: "E8tjZoSwD0c",
+        title: "Spiderman - Parte 1",
       },
       {
-        id: 2,
-        title: "Assassin's Creed III Remastered",
-        videos: [
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-        ],
+        videoId: "E8tjZoSwD0c",
+        title: "Spiderman - Parte 2",
+      },
+    ],
+    // Lista de vídeos para o jogo WatchDogs 2
+    "WatchDogs 2": [
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
       },
       {
-        id: 2,
-        title: "Assassin's Creed II",
-        videos: [
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-          {
-            videoId: "eULaVtrz6ek",
-            title: "Assassin's Creed III Remastered Parte 1",
-            description: "Descrição do video 1",
-          },
-        ],
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 2",
       },
-    ];
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 3",
+      },
+    ],
+    // Adicionar Games
+  };
 
-    return playlists.find((playlist) => playlist.id === parseInt(id));
-  },
+  // Retorna a playlist correspondente ao gameId ou um array vazio se não encontrar
+  return playlists[gameId] || [];
 };
-
-export default PlayListPlayerService;

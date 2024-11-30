@@ -27,7 +27,7 @@ const About = () => {
           experiências únicas no mundo dos games.
         </p>
       </section>
-
+      <br />
       <section className="about-content">
         <h2>Nossa Missão</h2>
         <p>
@@ -38,6 +38,7 @@ const About = () => {
           experiência única, com a melhor qualidade possível, e sempre em
           sintonia com os mais novos lançamentos do mercado de games.
         </p>
+        <br />
         <h2>Parcerias e Unidades</h2>
         <p>
           O <strong>NettStudios</strong> faz parte do{" "}
@@ -49,6 +50,7 @@ const About = () => {
           só entreter, mas também inovar e oferecer soluções tecnológicas para
           quem precisa.
         </p>
+        <br />
         <h2>Assinaturas e Acesso Exclusivo</h2>
         <p>
           Em breve, vamos oferecer opções de assinaturas para que você possa ter
@@ -59,7 +61,50 @@ const About = () => {
           trabalho, com benefícios como conteúdos extras, bastidores, acesso
           antecipado a novos vídeos e muito mais.
         </p>
+        <br />
+        <h2>Como funciona?</h2>
+        <p>
+          Gameplays Sem Narração Nosso canal no YouTube é voltado para aqueles
+          que preferem mergulhar completamente no universo do jogo, sem
+          interrupções ou comentários. As gameplays são gravadas diretamente do
+          jogo, preservando toda a ambientação e permitindo que você sinta como
+          se estivesse jogando. Legendagem e Dublagem em PT-BR Nos preocupamos
+          com a acessibilidade e a inclusão. Por isso, para jogos que não
+          possuem legendas ou dublagem em português, adicionamos legendas em
+          PT-BR e, sempre que possível, trazemos dublagens exclusivas para
+          enriquecer a experiência de nossos espectadores. Diversidade de
+          Conteúdo Trazemos uma variedade de jogos, desde os mais populares e
+          lançamentos recentes até títulos clássicos que marcaram gerações.
+          Aqui, você encontra conteúdo para todos os gostos!
+        </p>
+        <p>
+          Reviews No site, você encontra análises detalhadas sobre jogos. Nosso
+          objetivo é ajudá-lo a escolher o que jogar, com informações claras
+          sobre jogabilidade, história, gráficos e muito mais. News (Notícias)
+          Fique por dentro das últimas novidades do mundo dos games. Cobertura
+          de lançamentos, atualizações e eventos importantes. Podcasts Para quem
+          quer saber mais sobre os bastidores do universo gamer, oferecemos
+          podcasts com discussões aprofundadas, curiosidades e entrevistas com
+          especialistas. Storys Uma seção dedicada à história dos personagens,
+          curiosidades sobre jogos e o que há de mais intrigante no
+          desenvolvimento dos mundos virtuais.
+        </p>
+        <br />
+        <h2>Por que NettStudios é único?</h2>
+        <p>
+          Por que NettStudios é único? Sem narração: Um formato exclusivo para
+          quem valoriza a experiência original dos jogos. Legendagem e dublagem
+          personalizada: Trazemos legendas em português para jogos que não
+          possuem suporte ao idioma, e trabalhamos em possíveis dublagens para
+          tornar o conteúdo mais acessível e imersivo. Foco na experiência:
+          Criamos conteúdo que vai além do gameplay, abordando tudo o que torna
+          o universo dos games tão fascinante. Acessibilidade: Nosso conteúdo é
+          feito para todos, sem necessidade de assinatura. Caso futuramente
+          existam opções premium, serão valores simbólicos para itens
+          exclusivos, mantendo o acesso ao conteúdo principal gratuito.
+        </p>
       </section>
+      <br />
     </div>
   );
 };

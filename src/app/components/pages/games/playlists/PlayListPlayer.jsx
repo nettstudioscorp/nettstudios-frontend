@@ -1,71 +1,88 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import PlayListPlayerService from "./service/PlayListPlayer.Service";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { getPlaylistByGameId } from "./service/PlayListPlayer.Service";
 import "./PlaylistPlayer.css";
 
-const PlayListPlayer = () => {
-  const { id } = useParams();
-  const [playlist, setPlaylist] = useState(null);
+const LivePlayer = () => {
+  const { gameId } = useParams();
+  const [playlist, setPlaylist] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchedPlaylist = PlayListPlayerService.getPlaylistById(id);
-    setPlaylist(fetchedPlaylist);
-  }, [id]);
+    const gamePlaylist = getPlaylistByGameId(gameId);
+    setPlaylist(gamePlaylist);
+  }, [gameId]);
 
-  if (!playlist) {
-    return <p>Carregando playlist...</p>;
-  }
-
-  const handleVideoClick = (index) => {
+  const handleVideoChange = (index) => {
     setCurrentVideoIndex(index);
   };
 
-  const handleBackClick = () => {
-    navigate(-1);
-  };
+  const currentVideo = playlist[currentVideoIndex];
 
   return (
-    <div className="playlist-player-container">
-      <div className="header">
-        <button className="back-button" onClick={handleBackClick}>
-          ← Voltar
-        </button>
-      </div>
+    <div className="player-container">
+      <h1>{gameId.toUpperCase()} - Playlist</h1>
 
-      <div className="content-wrapper">
-        <div className="video-list">
-          <h3>{playlist.title}</h3>
-          <div className="video-list-items">
-            {playlist.videos.map((video, index) => (
-              <div
-                key={index}
-                className={`video-item ${
-                  index === currentVideoIndex ? "active" : ""
-                }`}
-                onClick={() => handleVideoClick(index)}
-              >
-                <div className="video-info">
-                  <h4>{video.title}</h4>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="video-player">
+      {currentVideo?.videoId ? (
+        <div className="video-player-wrapper-live">
           <iframe
-            width="100%"
-            height="500"
-            src={`https://www.youtube.com/embed/${playlist.videos[currentVideoIndex].videoId}`}
-            title={playlist.videos[currentVideoIndex].title}
+            title="YouTube Video Player"
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${currentVideo.videoId}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
+        </div>
+      ) : (
+        <video controls width="560" height="315" src={currentVideo?.url} />
+      )}
+
+      <div className="video-info">
+        {/* <h2>Temp.</h2>
+        <p>Disponível até 5 Mai</p>
+        <p>
+          <strong>Gênero:</strong> Drama, Horror, Mystery, Sci-Fi, Thriller
+        </p>
+        <p>
+          <strong>Direção:</strong> 
+        </p>
+        <p className="sinopse">
+          <strong>Sinopse:</strong> 
+        </p> */}
+      </div>
+
+      <div className="video-navigation">
+        {playlist.map((_, index) => (
+          <button
+            key={index}
+            className={`nav-button ${
+              currentVideoIndex === index ? "active" : ""
+            }`}
+            onClick={() => handleVideoChange(index)}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
+
+      <div className="actions">
+        {/* <button className="action-button">Favoritado</button>
+        <button className="action-button">Upload</button> */}
+      </div>
+
+      <div className="recommendations">
+        {/* <h3>Você também pode gostar</h3> */}
+
+        <div className="recommendations-list">
+          {/* <div className="recommendation-item">Recomendação 1</div>
+          <div className="recommendation-item">Recomendação 2</div>
+          <div className="recommendation-item">Recomendação 3</div> */}
         </div>
       </div>
     </div>
   );
 };
 
-export default PlayListPlayer;
+export default LivePlayer;

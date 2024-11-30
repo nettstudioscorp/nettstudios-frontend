@@ -1,26 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import PlayListService from './service/PlayList.Service';
-import './Playlist.css'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { getGamesListA, getGamesListB } from "./service/PlayList.Service";
+import "./Playlist.css";
 
 const Playlist = () => {
-    const playlists = PlayListService.getPlaylists();
+  const navigate = useNavigate();
 
-    return (
-        <div className="playlist-container">
-            {playlists.map((playlist, index) => (
-                <div key={index} className="playlist-card">
-                    <Link to={`/playlist/${playlist.id}`}>
-                        <img src={playlist.thumbnail} alt={playlist.title} />
-                        <div className="playlist-info">
-                            <h3>{playlist.title}</h3>
-                            <p>{playlist.videos.length} vídeos</p>
-                        </div>
-                    </Link>
-                </div>
-            ))}
-        </div>
-    );
+  // Obter lista de jogos gerais e jogos em destaque
+  const featuredA = getGamesListA();
+  const featuredB = getGamesListB();
+
+  return (
+    <div className="live-container">
+      {/* <h2>Todos os Jogos</h2> */}
+      <div className="games-list">
+        {featuredA.map((game) => (
+          <div
+            key={game.id}
+            className="thumbnail"
+            onClick={() => navigate(`/playlist/${game.id}`)}
+          >
+            <img src={game.thumbnail} alt={game.name} />
+            <p>{game.name}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* <h2>Jogos em Destaque</h2> */}
+      <div className="featured-list">
+        {featuredB.map((game) => (
+          <div
+            key={game.id}
+            className="thumbnail"
+            onClick={() => navigate(`/playlist/${game.id}`)}
+          >
+            <img src={game.thumbnail} alt={game.name} />
+            <p>{game.name}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Playlist;

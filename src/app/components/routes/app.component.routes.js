@@ -25,8 +25,9 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/videos/gameplays" element={<VideosLists />} />
+        <Route path="/videos" element={<VideosLists />} />
         <Route path="/lives" element={<Live />} />
+        <Route path="/playlists" element={<Playlist />} />
         <Route path="/news/" element={<NewsComponent />} />
         <Route path="/member" element={<MemberComponent />} />
         <Route path="/about" element={<AboutComponent />} />
@@ -35,11 +36,11 @@ const App = () => {
         <Route path="/watch/:videoId" element={<VideoPlayer />} />
         <Route path="/videos/:videoId" element={<VideoPlayerVideoID />} />
 
-        <Route path="/playlists" element={<Playlist />} />
-        <Route path="/playlist/:id" element={<PlaylistPlayerID />} />
-        <Route path="/playlists/gameplays" element={<PlaylistPlayer />} />
+        <Route path="/playlist" element={<Playlist />} />
+        <Route path="/playlist/:gameId" element={<PlaylistPlayerID />} />
+        <Route path="/playlist/gameplays" element={<PlaylistPlayer />} />
 
-        <Route path="/live" element={<Live />} />
+        <Route path="/lives" element={<Live />} />
         <Route path="/live/:gameId" element={<LivePlayerID />} />
         <Route path="/live/gameplays" element={<LivePlayer />} />
       </Routes>

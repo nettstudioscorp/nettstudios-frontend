@@ -109,9 +109,9 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/videos/gameplays"
+            to="/videos"
             onClick={() => {
-              setActiveLink("/videos/gameplays");
+              setActiveLink("/videos");
               toggleMenu();
             }}
           >
@@ -129,9 +129,9 @@ const Navbar = () => {
           </Link>
 
           <Link
-            to="/live"
+            to="/lives"
             onClick={() => {
-              setActiveLink("/live");
+              setActiveLink("/lives");
               toggleMenu();
             }}
           >
