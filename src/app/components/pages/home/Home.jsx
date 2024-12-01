@@ -18,7 +18,7 @@ import {
 import Skeleton from "./skeleton/Skeleton";
 import "../home/css/Home.css";
 import BannerChannel from "../home/img/channel_banner_web.png";
-import { useNavigate } from "react-router-dom"; // Importando useNavigate para redirecionamento
+import { useNavigate } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
@@ -191,7 +191,7 @@ const Home = () => {
           <br />
           <br />
 
-          <hr />
+          {/* <hr />
           <br />
           <h1 className="titlePage">Séries de Assassin's Creed</h1>
           <br />
@@ -231,10 +231,10 @@ const Home = () => {
             loadingMore={loadingMorevideosDataSerieC}
             setLoadingMore={setLoadingMorevideosDataSerieC}
             openModal={openModal}
-          />
+          /> */}
           <br />
 
-          <h1>Far Cry 2</h1>
+          {/* TODO: <h1>Far Cry 2</h1>
           <VideoSection
             title=""
             videos={videosDataSerieD}
@@ -243,9 +243,9 @@ const Home = () => {
             loadingMore={loadingMorevideosDataSerieD}
             setLoadingMore={setLoadingMorevideosDataSerieD}
             openModal={openModal}
-          />
+          /> */}
           <br />
-          <h1 className="titlePage">Todos os Videos</h1>
+          {/* TODO:<h1 className="titlePage">Todos os Videos</h1>
           <br />
           <VideoSection
             title=""
@@ -255,7 +255,7 @@ const Home = () => {
             loadingMore={loadingMoreAll}
             setLoadingMore={setLoadingMoreAll}
             openModal={openModal}
-          />
+          /> */}
           <br />
           <br />
           <br />

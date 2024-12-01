@@ -19,7 +19,8 @@
 
 .nav-scroll-button {
   position: sticky;
-  background: #333;
+  background: #0b046c;
+  font-size: larger;
   color: white;
   border: none;
   border-radius: 4px;
@@ -29,7 +30,8 @@
 }
 
 .nav-scroll-button:hover {
-  background: #444;
+  background: #ffffff;
+  color: black;
 }
 
 .nav-scroll::-webkit-scrollbar {
@@ -37,11 +39,10 @@
 }
 
 .video-navigation::-webkit-scrollbar-thumb {
-  background-color: #555; /* Cor da barra de rolagem */
+  background-color: #d10303; /* Cor da barra de rolagem */
   border-radius: 4px;
 }
 
 .video-navigation::-webkit-scrollbar-track {
-  background: #222; /* Fundo da barra de rolagem */
+  background: #ba3a3a; /* Fundo da barra de rolagem */
 }
-
