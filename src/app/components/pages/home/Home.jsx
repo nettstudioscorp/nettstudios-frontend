@@ -170,6 +170,18 @@ const Home = () => {
           <br />
           <br />
           <VideoSection
+            title="Destaques"
+            videos={videosDataDestaques}
+            displayedCount={displayedVideosDestaques}
+            setDisplayedCount={setDisplayedVideosDestaques}
+            loadingMore={loadingMoreDestaques}
+            setLoadingMore={setLoadingMoreDestaques}
+            openModal={openModal}
+          />
+
+          <br />
+          <br />
+          <VideoSection
             title="Recomendados"
             videos={videosData}
             displayedCount={displayedVideosRecommended}
@@ -179,26 +191,12 @@ const Home = () => {
             openModal={openModal}
           />
 
-          <VideoSection
-            title="Destaques"
-            videos={videosDataDestaques}
-            displayedCount={displayedVideosDestaques}
-            setDisplayedCount={setDisplayedVideosDestaques}
-            loadingMore={loadingMoreDestaques}
-            setLoadingMore={setLoadingMoreDestaques}
-            openModal={openModal}
-          />
+          {/* <h1 className="titlePage">Séries de Assassin's Creed</h1> */}
           <br />
-          <br />
-
-          {/* <hr />
-          <br />
-          <h1 className="titlePage">Séries de Assassin's Creed</h1>
-          <br />
-          <h1>Assassin's Creed Valhalla</h1>
+          {/* <h1>Assassin's Creed Valhalla</h1> */}
 
           <VideoSection
-            title=""
+            title="Terror"
             videos={videosDataSerieA}
             displayedCount={displayedVideosSeries}
             setDisplayedCount={setDisplayedVideosSeries}
@@ -209,9 +207,8 @@ const Home = () => {
 
           <br />
 
-          <h1>Assassin's Creed III Remastered</h1>
           <VideoSection
-            title=""
+            title="Ação"
             videos={videosDataSerieB}
             displayedCount={displayedVideosvideosDataSerieB}
             setDisplayedCount={setDisplayedVideosvideosDataSerieB}
@@ -220,42 +217,41 @@ const Home = () => {
             openModal={openModal}
           />
           <br />
-          <h1 className="titlePage">Séries de Far Cry</h1>
+
           <br />
-          <h1>Far Cry Classic</h1>
+
           <VideoSection
-            title=""
+            title="Aventura"
             videos={videosDataSerieC}
             displayedCount={displayedVideosvideosDataSerieC}
             setDisplayedCount={setDisplayedVideosvideosDataSerieC}
             loadingMore={loadingMorevideosDataSerieC}
             setLoadingMore={setLoadingMorevideosDataSerieC}
             openModal={openModal}
-          /> */}
+          />
           <br />
 
-          {/* TODO: <h1>Far Cry 2</h1>
           <VideoSection
-            title=""
+            title="Esportes"
             videos={videosDataSerieD}
             displayedCount={displayedVideosvideosDataSerieD}
             setDisplayedCount={setDisplayedVideosvideosDataSerieD}
             loadingMore={loadingMorevideosDataSerieD}
             setLoadingMore={setLoadingMorevideosDataSerieD}
             openModal={openModal}
-          /> */}
+          />
           <br />
-          {/* TODO:<h1 className="titlePage">Todos os Videos</h1>
+
           <br />
           <VideoSection
-            title=""
+            title="Ação/Aventura"
             videos={allVideos}
             displayedCount={displayedVideosAll}
             setDisplayedCount={setDisplayedVideosAll}
             loadingMore={loadingMoreAll}
             setLoadingMore={setLoadingMoreAll}
             openModal={openModal}
-          /> */}
+          />
           <br />
           <br />
           <br />

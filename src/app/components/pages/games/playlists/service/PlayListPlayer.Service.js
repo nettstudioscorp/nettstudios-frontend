@@ -1,199 +1,125 @@
 // Função para retornar playlists com base no gameId
 export const getPlaylistByGameId = (gameId) => {
   const playlists = {
-    // Lista de vídeos para o jogo WatchDogs
-    WatchDogs: [
+    "Far Cry Classic": [
       {
-        videoId: "E8tjZoSwD0c",
-        title: "Spiderman - Parte 1",
+        videoId: "83JuFaz0KdE",
+        title: "Far Cry Classic - Parte 1",
       },
       {
-        videoId: "E8tjZoSwD0c",
-        title: "Spiderman - Parte 2",
-      },
-    ],
-    // Lista de vídeos para o jogo WatchDogs 2
-    "WatchDogs 2": [
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 1",
+        videoId: "aVvNS0ZB0cM",
+        title: "Far Cry Classic - Parte 2",
       },
       {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 2",
+        videoId: "gLtW2c5X12I",
+        title: "Far Cry Classic - Parte 3",
       },
       {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
+        videoId: "R_IClH0f7Xg",
+        title: "Far Cry Classic - Parte 4",
       },
       {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
+        videoId: "nPwzXKa5IXc",
+        title: "Far Cry Classic - Parte 5",
       },
       {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
+        videoId: "N6yy1kC82Y4",
+        title: "Far Cry Classic - Parte 6",
       },
       {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
+        videoId: "G735PTt590o",
+        title: "Far Cry Classic - Parte 7",
       },
       {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
+        videoId: "Jx_Vm2cBxao",
+        title: "Far Cry Classic - Parte 8",
       },
       {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
-      },
-      {
-        videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
+        videoId: "aNlAtmlEQcs",
+        title: "Far Cry Classic - Parte 9",
       },
     ],
-    // Adicionar Games
+
+    "Assassin's Creed III Remastered": [
+      {
+        videoId: "eULaVtrz6ek",
+        title: "Assassin's Creed III Remastered - Parte 1",
+      },
+      {
+        videoId: "PUCozvQU1_0",
+        title: "Assassin's Creed III Remastered - Parte 2",
+      },
+      {
+        videoId: "h7MP4RRtUj8",
+        title: "Assassin's Creed III Remastered - Parte 3",
+      },
+      {
+        videoId: "rXiPLrpnAYk",
+        title: "Assassin's Creed III Remastered - Parte 4",
+      },
+      {
+        videoId: "yE9uzBrIGgE",
+        title: "Assassin's Creed III Remastered - Parte 5",
+      },
+      {
+        videoId: "e7zzsmLv1lU",
+        title: "Assassin's Creed III Remastered - Parte 6",
+      },
+      {
+        videoId: "zwmL7UvdIM8",
+        title: "Assassin's Creed III Remastered - Parte 7",
+      },
+      {
+        videoId: "z8csaOu_ntM",
+        title: "Assassin's Creed III Remastered - Parte 8",
+      },
+      {
+        videoId: "MEExe9N2Sqw",
+        title: "Assassin's Creed III Remastered - Parte 9",
+      },
+      {
+        videoId: "CzDhlGKWt8I",
+        title: "Assassin's Creed III Remastered - Parte 10",
+      },
+      {
+        videoId: "2p92B2XDL0I",
+        title: "Assassin's Creed III Remastered - Parte 11",
+      },
+      {
+        videoId: "80_0LMQvrIg",
+        title: "Assassin's Creed III Remastered - Parte 12",
+      },
+      {
+        videoId: "zYu8Zn0el9Y",
+        title: "Assassin's Creed III Remastered - Parte 13",
+      },
+    ],
+    "Assassin's Creed Valhalla": [
+      {
+        videoId: "Wy_TSJIKdq0",
+        title: "Assassin's Creed Valhalla - Parte 1",
+      },
+      {
+        videoId: "vxwt3n7VBfU",
+        title: "Assassin's Creed Valhalla - Parte 2",
+      },
+      {
+        videoId: "g6E0jshwsac",
+        title: "Assassin's Creed Valhalla - Parte 3",
+      },
+      {
+        videoId: "612cjAypXxw",
+        title: "Assassin's Creed Valhalla - Parte 4",
+      },
+      {
+        videoId: "rNEra09Lkyc",
+        title: "Assassin's Creed Valhalla - Parte 5",
+      },
+      {
+        videoId: "8YVNOXuQuts",
+        title: "Assassin's Creed Valhalla - Parte 6",
+      },
+    ],
   };
 
   // Retorna a playlist correspondente ao gameId ou um array vazio se não encontrar
