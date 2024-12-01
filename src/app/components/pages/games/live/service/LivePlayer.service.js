@@ -20,11 +20,189 @@ export const getPlaylistByGameId = (gameId) => {
       },
       {
         videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 2",
+        title: "WatchDogs 2 - Parte 1",
       },
       {
         videoId: "X4GgZoSwD0c",
-        title: "WatchDogs 2 - Parte 3",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
+      },
+      {
+        videoId: "X4GgZoSwD0c",
+        title: "WatchDogs 2 - Parte 1",
       },
     ],
     // Adicionar Games

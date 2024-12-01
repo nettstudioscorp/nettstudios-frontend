@@ -1,100 +1,47 @@
-.player-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: #191a23;
-  padding: 2rem;
-  box-sizing: border-box;
-}
-
-.video-player-wrapper-live {
-  width: 100%;
-  max-width: 600%;
-  aspect-ratio: 16 / 9;
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.video-player-wrapper-live iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.video-player {
-  position: relative;
-}
-
-.video-info {
-  margin-top: 20px;
-}
-
-.video-info h2 {
-  font-size: 1.5em;
-  margin: 0;
-}
-
-.video-info p {
-  margin: 5px 0;
-}
-
-.sinopse {
-  font-size: 0.9em;
-  color: #aaa;
-}
-
 .video-navigation {
   display: flex;
-  justify-content: center;
+  align-items: center; /* Center buttons vertically */
+  width: 100%;
   margin-top: 20px;
+  position: relative;
 }
 
-.nav-button {
-  padding: 8px;
-  margin: 0 5px;
-  cursor: pointer;
-  background-color: #333;
-  color: #fff;
-  border: none;
-}
-
-.nav-button.active {
-  background-color: #004aac;
-}
-
-.actions {
+.nav-scroll {
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.action-button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.recommendations {
-  margin-top: 30px;
-}
-
-.recommendations-list {
-  display: flex;
-  gap: 10px;
+  flex-wrap: nowrap;
+  gap: 8px;
   overflow-x: auto;
+  scroll-behavior: smooth;
+  width: calc(100% - 80px); /* Account for scroll buttons */
+  margin: 0 auto;
+  padding: 10px 0;
 }
 
-.recommendation-item {
-  min-width: 150px;
-  background-color: #444;
-  padding: 10px;
-  text-align: center;
-  color: #fff;
+.nav-scroll-button {
+  position: sticky;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  z-index: 2;
 }
+
+.nav-scroll-button:hover {
+  background: #444;
+}
+
+.nav-scroll::-webkit-scrollbar {
+  height: 8px; /* Altura da barra de rolagem */
+}
+
+.video-navigation::-webkit-scrollbar-thumb {
+  background-color: #555; /* Cor da barra de rolagem */
+  border-radius: 4px;
+}
+
+.video-navigation::-webkit-scrollbar-track {
+  background: #222; /* Fundo da barra de rolagem */
+}
+

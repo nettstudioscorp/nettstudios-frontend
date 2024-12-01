@@ -7,6 +7,7 @@ const LivePlayer = () => {
   const { gameId } = useParams();
   const [playlist, setPlaylist] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     const gamePlaylist = getPlaylistByGameId(gameId);
@@ -17,10 +18,43 @@ const LivePlayer = () => {
     setCurrentVideoIndex(index);
   };
 
+  const formatIndex = (index) => {
+    return index < 9 ? `0${index + 1}` : index + 1;
+  };
+
   const currentVideo = playlist[currentVideoIndex];
+
+  const scrollTo = (direction) => {
+    const navScroll = document.querySelector(".nav-scroll");
+    const maxScrollPosition = navScroll.scrollWidth - navScroll.clientWidth;
+
+    let newScrollPosition =
+      scrollPosition + (direction === "left" ? -200 : 200);
+
+    // Impede que o scroll ultrapasse o início ou o final da lista
+    if (newScrollPosition < 0) {
+      newScrollPosition = 0; // Garante que não vá além do início
+    }
+    if (newScrollPosition > maxScrollPosition) {
+      newScrollPosition = maxScrollPosition; // Garante que não vá além do final
+    }
+
+    setScrollPosition(newScrollPosition);
+    navScroll.scrollTo({
+      left: newScrollPosition,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="player-container">
+      <button
+        className="back-button"
+        onClick={() => (window.location.href = "/lives")}
+      >
+        Voltar
+      </button>
+
       <h1>{gameId.toUpperCase()} - Playlist</h1>
 
       {currentVideo?.videoId ? (
@@ -39,32 +73,26 @@ const LivePlayer = () => {
         <video controls width="560" height="315" src={currentVideo?.url} />
       )}
 
-      <div className="video-info">
-        {/* <h2>Temp.</h2>
-        <p>Disponível até 5 Mai</p>
-        <p>
-          <strong>Gênero:</strong> Drama, Horror, Mystery, Sci-Fi, Thriller
-        </p>
-        <p>
-          <strong>Direção:</strong> 
-        </p>
-        <p className="sinopse">
-          <strong>Sinopse:</strong> 
-        </p> */}
-      </div>
-
       <div className="video-navigation">
-        {playlist.map((_, index) => (
-          <button
-            key={index}
-            className={`nav-button ${
-              currentVideoIndex === index ? "active" : ""
-            }`}
-            onClick={() => handleVideoChange(index)}
-          >
-            {index + 1}
-          </button>
-        ))}
+        <button className="nav-scroll-button" onClick={() => scrollTo("left")}>
+          &lt;
+        </button>
+        <div className="nav-scroll">
+          {playlist.map((_, index) => (
+            <button
+              key={index}
+              className={`nav-button ${
+                currentVideoIndex === index ? "active" : ""
+              }`}
+              onClick={() => handleVideoChange(index)}
+            >
+              {formatIndex(index)}
+            </button>
+          ))}
+        </div>
+        <button className="nav-scroll-button" onClick={() => scrollTo("right")}>
+          &gt;
+        </button>
       </div>
 
       <div className="actions">

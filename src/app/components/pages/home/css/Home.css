@@ -50,12 +50,27 @@ h2 {
   color: black;
 }
 
-.bt-close {
+.bt-playlist,
+.bt-videos {
   background-color: #0b046c;
   color: white;
   padding: 10px 20px;
-  margin: 20px auto;
-  display: block;
+  margin: 5px;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bt-close {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 10px 20px;
+  margin: 5px;
+  display: inline-block;
   border: none;
   border-radius: 5px;
   font-size: 20px;

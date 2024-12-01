@@ -18,6 +18,7 @@ import {
 import Skeleton from "./skeleton/Skeleton";
 import "../home/css/Home.css";
 import BannerChannel from "../home/img/channel_banner_web.png";
+import { useNavigate } from "react-router-dom"; // Importando useNavigate para redirecionamento
 
 Modal.setAppElement("#root");
 
@@ -68,6 +69,7 @@ const VideoSection = ({
 );
 
 const Home = () => {
+  const navigate = useNavigate(); // Hook para navegação
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -130,6 +132,14 @@ const Home = () => {
   const closeModal = () => {
     setModalIsOpen(false);
     setSelectedVideo(null);
+  };
+
+  // Função para redirecionar para a página de playlists
+  const goToPlaylist = () => {
+    navigate("/playlist");
+  };
+  const goToAllVideos = () => {
+    navigate("/videos");
   };
 
   return (
@@ -269,9 +279,22 @@ const Home = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-        <button className="bt-close" onClick={closeModal}>
+        {/* <button className="bt-close" onClick={closeModal}>
           Fechar
-        </button>
+        </button> */}
+        <br />
+        <br />
+        <div className="button-container">
+          <button className="bt-playlist" onClick={goToPlaylist}>
+            Playlist
+          </button>
+          <button className="bt-videos" onClick={goToAllVideos}>
+            Videos
+          </button>
+          <button className="bt-close" onClick={closeModal}>
+            Fechar
+          </button>
+        </div>
       </Modal>
     </div>
   );

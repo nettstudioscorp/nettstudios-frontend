@@ -15,8 +15,10 @@ const Navbar = () => {
     <header>
       <div className="navbar">
         <div className="logo">
-          <img src={Logo} alt="Logo" className="logo-image" />
-          {/* <h1 className="logo-text"></h1> */}
+          {/* Tornando a logo clicável, redirecionando para a rota "/" */}
+          <Link to="/" onClick={() => setActiveLink("/")}>
+            <img src={Logo} alt="Logo" className="logo-image" />
+          </Link>
         </div>
 
         <nav className="nav-links">
@@ -152,6 +154,22 @@ const Navbar = () => {
             onClick={() => setActiveLink("/story")}
           >
             Stories
+          </Link>
+
+          <Link
+            to="#"
+            className={activeLink === "/#" ? "active" : ""}
+            onClick={() => setActiveLink("/#")}
+          >
+            NettCode
+          </Link>
+
+          <Link
+            to="#"
+            className={activeLink === "/#" ? "active" : ""}
+            onClick={() => setActiveLink("/#")}
+          >
+            NettCorpSolutions
           </Link>
 
           <Link

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getPlaylistByGameId } from "./service/PlayListPlayer.Service";
-import "./PlaylistPlayer.css";
+import "../playlists/PlaylistPlayer.css";
 
-const LivePlayer = () => {
+const PlaylistPlayer = () => {
   const { gameId } = useParams();
+  const navigate = useNavigate();
   const [playlist, setPlaylist] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
+  // Carregar a playlist conforme o gameId
   useEffect(() => {
     const gamePlaylist = getPlaylistByGameId(gameId);
     setPlaylist(gamePlaylist);
@@ -17,10 +20,37 @@ const LivePlayer = () => {
     setCurrentVideoIndex(index);
   };
 
+  const formatIndex = (index) => (index < 9 ? `0${index + 1}` : index + 1);
+
   const currentVideo = playlist[currentVideoIndex];
+
+  const scrollTo = (direction) => {
+    const navScroll = document.querySelector(".nav-scroll");
+    const maxScrollPosition = navScroll.scrollWidth - navScroll.clientWidth;
+
+    let newScrollPosition =
+      scrollPosition + (direction === "left" ? -200 : 200);
+
+    // Impede que o scroll ultrapasse o início ou o final da lista
+    if (newScrollPosition < 0) {
+      newScrollPosition = 0;
+    }
+    if (newScrollPosition > maxScrollPosition) {
+      newScrollPosition = maxScrollPosition;
+    }
+
+    setScrollPosition(newScrollPosition);
+    navScroll.scrollTo({
+      left: newScrollPosition,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className="player-container">
+      <button className="back-button" onClick={() => navigate("/playlists")}>
+        Voltar
+      </button>
       <h1>{gameId.toUpperCase()} - Playlist</h1>
 
       {currentVideo?.videoId ? (
@@ -39,50 +69,29 @@ const LivePlayer = () => {
         <video controls width="560" height="315" src={currentVideo?.url} />
       )}
 
-      <div className="video-info">
-        {/* <h2>Temp.</h2>
-        <p>Disponível até 5 Mai</p>
-        <p>
-          <strong>Gênero:</strong> Drama, Horror, Mystery, Sci-Fi, Thriller
-        </p>
-        <p>
-          <strong>Direção:</strong> 
-        </p>
-        <p className="sinopse">
-          <strong>Sinopse:</strong> 
-        </p> */}
-      </div>
-
       <div className="video-navigation">
-        {playlist.map((_, index) => (
-          <button
-            key={index}
-            className={`nav-button ${
-              currentVideoIndex === index ? "active" : ""
-            }`}
-            onClick={() => handleVideoChange(index)}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
-
-      <div className="actions">
-        {/* <button className="action-button">Favoritado</button>
-        <button className="action-button">Upload</button> */}
-      </div>
-
-      <div className="recommendations">
-        {/* <h3>Você também pode gostar</h3> */}
-
-        <div className="recommendations-list">
-          {/* <div className="recommendation-item">Recomendação 1</div>
-          <div className="recommendation-item">Recomendação 2</div>
-          <div className="recommendation-item">Recomendação 3</div> */}
+        <button className="nav-scroll-button" onClick={() => scrollTo("left")}>
+          &lt;
+        </button>
+        <div className="nav-scroll">
+          {playlist.map((_, index) => (
+            <button
+              key={index}
+              className={`nav-button ${
+                currentVideoIndex === index ? "active" : ""
+              }`}
+              onClick={() => handleVideoChange(index)}
+            >
+              {formatIndex(index)}
+            </button>
+          ))}
         </div>
+        <button className="nav-scroll-button" onClick={() => scrollTo("right")}>
+          &gt;
+        </button>
       </div>
     </div>
   );
 };
 
-export default LivePlayer;
+export default PlaylistPlayer;
