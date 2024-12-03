@@ -10,10 +10,10 @@ const About = () => {
           Bem-vindo ao <strong>NettStudios</strong>, um projeto inovador voltado
           para a criação de conteúdo no universo dos <strong>games</strong>. A
           missão é oferecer uma plataforma onde os fãs de jogos, criadores de
-          conteúdo e entusiastas do entretenimento digital possam se "conectar",
-          explorar e se divertir. Criamos vídeos, gameplays e outros conteúdos
-          originais com o objetivo de proporcionar uma experiência única,
-          divertida e envolvente para todos.
+          conteúdo e entusiastas do entretenimento digital possam se divertir.
+          Criamos vídeos, gameplays e outros conteúdos originais com o objetivo
+          de proporcionar uma experiência única, divertida e envolvente para
+          todos.
         </p>
         <p>
           O <strong>NettStudios</strong> nasceu da paixão por games e pela
@@ -41,15 +41,14 @@ const About = () => {
         <br />
         <h2>Parcerias e Unidades</h2>
         <p>
-          O <strong>NettStudios</strong> faz parte do{" "}
-          <strong>NettCorpSolutions</strong>, um conglomerado que reúne outras
-          unidades inovadoras e com foco em diferentes áreas. Junto a nós,
-          também temos o <strong>NettCode</strong>, uma divisão especializada em{" "}
-          <strong>TI, Consultoria e Desenvolvimento de Software</strong>.
-          Juntas, essas "empresas" formam um ecossistema completo que busca não
-          só entreter, mas também inovar e oferecer soluções tecnológicas para
-          quem precisa.
+          O <strong>NettStudios</strong> faz parte do projeto{" "}
+          <strong>NettCorpSolutions</strong>, um conglomerado que reúne unidades
+          inovadoras com foco em diferentes áreas. Essa divisão é especializada
+          em <strong>TI, consultoria e desenvolvimento de software</strong>.
+          Junto a nós, temos o <strong>NettCode</strong>, uma divisão dedicada a
+          <strong>conteúdos de TI e tutoriais educacionais</strong>.
         </p>
+
         <br />
         <h2>Assinaturas e Acesso Exclusivo</h2>
         <p>

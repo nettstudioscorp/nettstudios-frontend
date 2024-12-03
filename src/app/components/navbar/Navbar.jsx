@@ -112,6 +112,21 @@ const Navbar = () => {
                   News
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link
+                  to="/reviews"
+                  className={`nav-link ${
+                    activeLink === "/reviews" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setActiveLink("/reviews");
+                    closeMenu();
+                  }}
+                >
+                  Reviews
+                </Link>
+              </li>
               <li className="nav-item">
                 <Link
                   to="/story"
@@ -140,6 +155,46 @@ const Navbar = () => {
                   Sobre Nós
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link
+                  to="/"
+                  className="nav-link"
+                  onClick={() => {
+                    setActiveLink("/");
+                    closeMenu();
+                  }}
+                >
+                  NettCorpSolutions
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link
+                  to="/"
+                  className="nav-link"
+                  onClick={() => {
+                    setActiveLink("/");
+                    closeMenu();
+                  }}
+                >
+                  NettCode
+                </Link>
+              </li>
+              {/* 
+              <li className="nav-item">
+                <Link
+                  to=""
+                  className="nav-link"
+                  onClick={() => {
+                    setActiveLink("");
+                    closeMenu();
+                  }}
+                >
+                  Channel
+                </Link>
+              </li> */}
+
               <li className="nav-item">
                 <Link
                   to="/login"

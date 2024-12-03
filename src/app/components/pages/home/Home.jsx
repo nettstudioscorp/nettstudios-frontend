@@ -19,7 +19,6 @@ import BannerChannel from "../home/img/channel_banner_web.png";
 import { useNavigate } from "react-router-dom";
 import { Carousel } from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 Modal.setAppElement("#root");
 
@@ -187,7 +186,7 @@ const Home = () => {
             </div>
             <div className="carousel-item">
               <img
-                src="https://images4.alphacoders.com/108/1087054.jpg"
+                src="https://www.psu.com/wp/wp-content/uploads/2020/10/Assassins-Creed-Valhalla-PS4-PS5-Wallpapers-06.jpg"
                 className="d-block w-100"
                 alt="Assassin's Creed Valhalla"
               />
@@ -198,15 +197,13 @@ const Home = () => {
             </div>
             <div className="carousel-item">
               <img
-                src="https://wallpapers.com/images/featured/assassins-creed-valhalla-tiswxpekr3su98uv.jpg"
+                src="https://wallpapercave.com/wp/wp8599453.jpg"
                 className="d-block w-100"
-                alt="Assassin's Creed Valhalla"
+                alt="Dead Rising 3 "
               />
               <div className="carousel-caption d-none d-md-block">
-                <h5>Assassin's Creed Valhalla</h5>
-                <p>
-                  Vikings, raids, and the struggle for power in medieval Europe.
-                </p>
+                <h5>Dead Rising 3 </h5>
+                <p>Get immersed in the post-apocalyptic world.</p>
               </div>
             </div>
           </div>
