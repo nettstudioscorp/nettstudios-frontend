@@ -31,12 +31,11 @@ const LivePlayer = () => {
     let newScrollPosition =
       scrollPosition + (direction === "left" ? -200 : 200);
 
-    // Impede que o scroll ultrapasse o início ou o final da lista
     if (newScrollPosition < 0) {
-      newScrollPosition = 0; // Garante que não vá além do início
+      newScrollPosition = 0;
     }
     if (newScrollPosition > maxScrollPosition) {
-      newScrollPosition = maxScrollPosition; // Garante que não vá além do final
+      newScrollPosition = maxScrollPosition;
     }
 
     setScrollPosition(newScrollPosition);
@@ -55,8 +54,8 @@ const LivePlayer = () => {
         Voltar
       </button>
 
-      <h1>{gameId.toUpperCase()} - Playlist</h1>
-
+      {/* <h1>{gameId.toUpperCase()} - Playlist</h1> */}
+      <br />
       {currentVideo?.videoId ? (
         <div className="video-player-wrapper-live">
           <iframe

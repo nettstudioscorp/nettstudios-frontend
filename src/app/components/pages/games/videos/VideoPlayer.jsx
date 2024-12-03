@@ -51,12 +51,12 @@ const UnifiedVideoPlayer = () => {
 
   return (
     <div className="player-container">
-      <button
+      {/* TODO: <button
         className="back-button"
         onClick={() => (window.location.href = "/videos")}
       >
         Voltar
-      </button>
+      </button> */}
 
       <div className="video-sidebar">
         {videos.map((v, index) => (

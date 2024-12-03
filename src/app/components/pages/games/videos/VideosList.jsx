@@ -90,7 +90,7 @@ const VideosComponent = () => {
               onClick={() => openModal(video)}
             />
             <h3 onClick={() => openModal(video)}>{video.snippet.title}</h3>
-            <p className="video-date">{video.snippet.description}</p>
+            {/* <p className="video-date">{video.snippet.description}</p> */}
           </div>
         ))}
 

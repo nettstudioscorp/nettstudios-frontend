@@ -11,8 +11,8 @@ const FooterComponent = () => {
           <img src={logo} alt="Logo" className="footer-logo" />
 
           <p className="footer-description">
-            NettStudios é uma divisão do NettCorpSolutions, focada no universo
-            dos games e do entretenimento digital.{" "}
+            NettStudios, focada no universo dos games e do entretenimento
+            digital.{" "}
             {/*Desde 2015, o NettStudios
             produz e compartilha conteúdos de qualidade, incluindo gameplays,
             análises, e dicas voltadas para gamers e entusiastas do setor. Com

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Autoplay, Pagination } from "swiper/modules";
 import Modal from "react-modal";
 import "swiper/css";
 import "swiper/css/effect-fade";
@@ -19,6 +17,9 @@ import Skeleton from "./skeleton/Skeleton";
 import "../home/css/Home.css";
 import BannerChannel from "../home/img/channel_banner_web.png";
 import { useNavigate } from "react-router-dom";
+import { Carousel } from "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 Modal.setAppElement("#root");
 
@@ -145,18 +146,95 @@ const Home = () => {
   return (
     <div className="home-container">
       {bannerVisible && (
-        <Swiper
-          spaceBetween={30}
-          effect="fade"
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          modules={[EffectFade, Autoplay, Pagination]}
-          className="mySwiper"
+        <div
+          id="carouselExampleCaptions"
+          className="carousel slide"
+          data-bs-ride="carousel"
         >
-          <SwiperSlide>
-            <img src={BannerChannel} alt="Banner" className="carousel-image" />
-          </SwiperSlide>
-        </Swiper>
+          <div className="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              className="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img
+                src="https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_far_cry_primal_05_2560x1080.jpg&height=506&sharpen"
+                className="d-block w-100"
+                alt="Far Cry Primal"
+              />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Far Cry Primal</h5>
+                <p>Explore the savage world of Far Cry Primal.</p>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://images4.alphacoders.com/108/1087054.jpg"
+                className="d-block w-100"
+                alt="Assassin's Creed Valhalla"
+              />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Assassin's Creed Valhalla</h5>
+                <p>Join Eivor on a legendary journey through the Viking Age.</p>
+              </div>
+            </div>
+            <div className="carousel-item">
+              <img
+                src="https://wallpapers.com/images/featured/assassins-creed-valhalla-tiswxpekr3su98uv.jpg"
+                className="d-block w-100"
+                alt="Assassin's Creed Valhalla"
+              />
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Assassin's Creed Valhalla</h5>
+                <p>
+                  Vikings, raids, and the struggle for power in medieval Europe.
+                </p>
+              </div>
+            </div>
+          </div>
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
       )}
 
       {loading ? (
@@ -257,7 +335,6 @@ const Home = () => {
           <br />
         </>
       )}
-
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

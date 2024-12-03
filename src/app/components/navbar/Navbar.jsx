@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
+import "../navbar/Navbar.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Logo from "../navbar/images/NettStudios.svg";
 
 const Navbar = () => {
@@ -11,187 +12,150 @@ const Navbar = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <header>
-      <div className="navbar">
-        <div className="logo">
-          {/* Tornando a logo clicável, redirecionando para a rota "/" */}
-          <Link to="/" onClick={() => setActiveLink("/")}>
-            <img src={Logo} alt="Logo" className="logo-image" />
-          </Link>
-        </div>
-
-        <nav className="nav-links">
+      <nav className="navbar navbar-expand-lg">
+        <div className="container-fluid">
           <Link
+            className="navbar-brand"
             to="/"
-            className={activeLink === "/" ? "active" : ""}
             onClick={() => setActiveLink("/")}
           >
-            Home
+            <img src={Logo} alt="Logo" className="logo-image" />
           </Link>
-
-          <Link
-            to="/videos/gameplays"
-            className={activeLink === "/videos/gameplays" ? "active" : ""}
-            onClick={() => setActiveLink("/videos/gameplays")}
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded={isMenuOpen ? "true" : "false"}
+            aria-label="Toggle navigation"
+            onClick={toggleMenu}
           >
-            Videos
-          </Link>
-
-          <Link
-            to="/playlists"
-            className={activeLink === "/playlists" ? "active" : ""}
-            onClick={() => setActiveLink("/playlists")}
-          >
-            Playlists
-          </Link>
-
-          <Link
-            to="/live"
-            className={activeLink === "/live" ? "active" : ""}
-            onClick={() => setActiveLink("/live")}
-          >
-            Lives
-          </Link>
-
-          <Link
-            to="/news"
-            className={activeLink === "/news" ? "active" : ""}
-            onClick={() => setActiveLink("/news")}
-          >
-            News
-          </Link>
-
-          <Link
-            to="/story"
-            className={activeLink === "/story" ? "active" : ""}
-            onClick={() => setActiveLink("/story")}
-          >
-            Stories
-          </Link>
-
-          <Link
-            to="/about"
-            className={activeLink === "/about" ? "active" : ""}
-            onClick={() => setActiveLink("/about")}
-          >
-            Sobre Nós
-          </Link>
-
-          {/* TODO: Em breve <Link
-            to="/team"
-            className={activeLink === "/team" ? "active" : ""}
-            onClick={() => setActiveLink("/team")}
-          >
-            Equipe
-          </Link> */}
-        </nav>
-
-        <button className="mobile-menu-button" onClick={toggleMenu}>
-          <div className="hamburger-icon"></div>
-        </button>
-      </div>
-
-      <div className={`mobile-menu ${isMenuOpen ? "open" : ""}`}>
-        <div className="mobile-menu-header">
-          <span>Menu</span>
-          <button className="close-menu" onClick={toggleMenu}>
-            &times;
+            <span className="navbar-toggler-icon"></span>
           </button>
+          <div
+            className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`}
+            id="navbarNavDropdown"
+          >
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <Link
+                  to="/"
+                  className={`nav-link ${activeLink === "/" ? "active" : ""}`}
+                  onClick={() => {
+                    setActiveLink("/");
+                    closeMenu();
+                  }}
+                >
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/videos/gameplays"
+                  className={`nav-link ${
+                    activeLink === "/videos/gameplays" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setActiveLink("/videos/gameplays");
+                    closeMenu();
+                  }}
+                >
+                  Videos
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/playlists"
+                  className={`nav-link ${
+                    activeLink === "/playlists" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setActiveLink("/playlists");
+                    closeMenu();
+                  }}
+                >
+                  Playlists
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/lives"
+                  className={`nav-link ${
+                    activeLink === "/lives" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setActiveLink("/lives");
+                    closeMenu();
+                  }}
+                >
+                  Lives
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/news"
+                  className={`nav-link ${
+                    activeLink === "/news" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setActiveLink("/news");
+                    closeMenu();
+                  }}
+                >
+                  News
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/story"
+                  className={`nav-link ${
+                    activeLink === "/story" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setActiveLink("/story");
+                    closeMenu();
+                  }}
+                >
+                  Stories
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/about"
+                  className={`nav-link ${
+                    activeLink === "/about" ? "active" : ""
+                  }`}
+                  onClick={() => {
+                    setActiveLink("/about");
+                    closeMenu();
+                  }}
+                >
+                  Sobre Nós
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  to="/login"
+                  className="nav-link"
+                  onClick={() => {
+                    setActiveLink("/login");
+                    closeMenu();
+                  }}
+                >
+                  Entrar/Cadastrar
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className="mobile-nav-links">
-          <Link
-            to="/"
-            onClick={() => {
-              setActiveLink("/");
-              toggleMenu();
-            }}
-          >
-            Home
-          </Link>
-
-          <Link
-            to="/videos"
-            onClick={() => {
-              setActiveLink("/videos");
-              toggleMenu();
-            }}
-          >
-            Videos
-          </Link>
-
-          <Link
-            to="/playlists"
-            onClick={() => {
-              setActiveLink("/playlists");
-              toggleMenu();
-            }}
-          >
-            Playlists
-          </Link>
-
-          <Link
-            to="/lives"
-            onClick={() => {
-              setActiveLink("/lives");
-              toggleMenu();
-            }}
-          >
-            Lives
-          </Link>
-
-          <Link
-            to="/news"
-            className={activeLink === "/news" ? "active" : ""}
-            onClick={() => setActiveLink("/news")}
-          >
-            News
-          </Link>
-
-          <Link
-            to="/story"
-            className={activeLink === "/story" ? "active" : ""}
-            onClick={() => setActiveLink("/story")}
-          >
-            Stories
-          </Link>
-
-          <Link
-            to="#"
-            className={activeLink === "/#" ? "active" : ""}
-            onClick={() => setActiveLink("/#")}
-          >
-            NettCode
-          </Link>
-
-          <Link
-            to="#"
-            className={activeLink === "/#" ? "active" : ""}
-            onClick={() => setActiveLink("/#")}
-          >
-            NettCorpSolutions
-          </Link>
-
-          <Link
-            to="/about"
-            onClick={() => {
-              setActiveLink("/about");
-              toggleMenu();
-            }}
-          >
-            Sobre Nós
-          </Link>
-          {/* TODO: Em breve<Link
-            to="/team"
-            onClick={() => {
-              setActiveLink("/team");
-              toggleMenu();
-            }}
-          >
-            Equipe
-          </Link> */}
-        </div>
-      </div>
+      </nav>
     </header>
   );
 };

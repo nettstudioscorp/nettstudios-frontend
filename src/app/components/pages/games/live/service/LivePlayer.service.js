@@ -7,6 +7,12 @@ export const getPlaylistByGameId = (gameId) => {
         title: "WATCHDOGS - Parte 1",
       },
     ],
+    WatchDogs2: [
+      {
+        videoId: "E8tjZoSwD0c",
+        title: "WATCHDOGS 2 - Parte 1",
+      },
+    ],
   };
 
   // Retorna a playlist correspondente ao gameId ou um array vazio se não encontrar

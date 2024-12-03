@@ -51,8 +51,8 @@ const PlaylistPlayer = () => {
       <button className="back-button" onClick={() => navigate("/playlists")}>
         Voltar
       </button>
-      <h1>{gameId.toUpperCase()} - Playlist</h1>
-
+      {/* <h1>{gameId.toUpperCase()} - Playlist</h1> */}
+      <br />
       {currentVideo?.videoId ? (
         <div className="video-player-wrapper-live">
           <iframe
