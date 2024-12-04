@@ -14,9 +14,8 @@ Bem-vindo ao **theNettko**! Este projeto é um site dedicado a fornecer informa�
 
 ## Tecnologias Utilizadas
 
-- **Frontend/Backend**: React
+- **Frontend**: React
 <!-- - **API**: YouTube Data API v3 -->
-- **Estilização**: CSS
 
 ## Requisitos
 
