@@ -1,4 +1,3 @@
-/* Estilos globais */
 body {
   background-color: #0a1520 !important;
   color: white !important;
@@ -127,7 +126,7 @@ h2 {
 .video-section {
   margin: 20px auto;
   padding: 20px;
-  background-color: #3498db; /* Azul similar ao da imagem */
+  background-color: #3498db;
   border-radius: 8px;
 }
 
@@ -144,13 +143,13 @@ h2 {
 }
 
 .video-carousel .carousel-item:hover {
-  transform: scale(1.05); /* Destaca o item ao passar o mouse */
+  transform: scale(1.05);
 }
 
 .video-carousel img.thumbnail {
   width: 100%;
   height: auto;
-  max-width: 120px; /* Tamanho fixo para thumbnails */
+  max-width: 120px;
   margin-bottom: 10px;
   border-radius: 4px;
 }
@@ -172,7 +171,7 @@ h2 {
 
 .slick-prev:before,
 .slick-next:before {
-  color: #3498db; /* Azul das setas */
+  color: #3498db;
   font-size: 20px;
 }
 
@@ -182,7 +181,7 @@ h2 {
 }
 
 .slick-dots li.slick-active button:before {
-  color: #000000; /* Destaque para o indicador ativo */
+  color: #000000;
 }
 
 .thumbnail-image {

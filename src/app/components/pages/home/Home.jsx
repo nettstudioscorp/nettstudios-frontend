@@ -175,7 +175,7 @@ const Home = () => {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <img
-                src="https://www.gamewallpapers.com/img_script/wallpaper_dir/img.php?src=wallpaper_far_cry_primal_05_2560x1080.jpg&height=506&sharpen"
+                src="https://c4.wallpaperflare.com/wallpaper/230/814/455/far-cry-primal-wallpaper-preview.jpg"
                 className="d-block w-100"
                 alt="Far Cry Primal"
               />

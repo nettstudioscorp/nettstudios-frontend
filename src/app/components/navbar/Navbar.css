@@ -17,7 +17,7 @@ body {
 
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show {
-  color: rgb(0, 68, 255) !important;
+  color: #007bff !important;
 }
 
 .navbar-toggler {

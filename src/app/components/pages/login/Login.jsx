@@ -14,19 +14,19 @@ const Login = () => {
         <form>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
-              Email address
+              Endereço de email
             </label>
             <input type="email" className="form-control" id="email" required />
             <div id="emailHelp" className="form-text">
               {isLogin
-                ? "We'll never share your email with anyone else."
+                ? "Nunca compartilharemos seu e-mail com mais ninguém."
                 : "Insira seu email para criar a conta."}
             </div>
           </div>
 
           <div className="mb-3">
             <label htmlFor="password" className="form-label">
-              Password
+              Senha
             </label>
             <input
               type="password"
@@ -39,7 +39,7 @@ const Login = () => {
           {!isLogin && (
             <div className="mb-3">
               <label htmlFor="confirmPassword" className="form-label">
-                Confirm Password
+                Confirme sua senha
               </label>
               <input
                 type="password"
@@ -57,19 +57,21 @@ const Login = () => {
               id="rememberMe"
             />
             <label className="form-check-label" htmlFor="rememberMe">
-              {isLogin ? "Remember me" : "I agree to the terms and conditions"}
+              {isLogin
+                ? "Lembre de mim"
+                : "Eu concordo com os termos e condições"}
             </label>
           </div>
 
           <button type="submit" className="btn btn-primary">
-            {isLogin ? "Login" : "Create Account"}
+            {isLogin ? "Login" : "Criar uma conta"}
           </button>
         </form>
 
         <p className="switch-form" onClick={toggleForm}>
           {isLogin
-            ? "Don't have an account? Register here."
-            : "Already have an account? Login here."}
+            ? "Não tem uma conta? Registre-se aqui."
+            : "Já tem uma conta? Entre aqui."}
         </p>
       </div>
     </div>
