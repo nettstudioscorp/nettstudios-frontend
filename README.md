@@ -19,9 +19,9 @@ Bem-vindo ao **NettStudios**! Este projeto é um site dedicado a fornecer inform
 
 ## Tecnologias Utilizadas
 
-- **Frontend/Backend**: React
-<!-- - **API**: YouTube Data API v3 -->
-- **Estilização**: CSS
+- **Frontend**: React
+<!-- - **API**: YouTube Data API v3 
+- **Estilização**: CSS -->
 
 ## Requisitos
 
