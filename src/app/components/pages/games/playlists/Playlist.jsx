@@ -1,25 +1,27 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
-  getGamesListA,
-  getGamesListB,
-  getGamesListC,
-} from "./service/PlayList.Service";
-import "./Playlist.css";
+  getGamesList001,
+  getGamesList002,
+  getGamesList003,
+  getGamesList004,
+} from './service/PlayList.Service';
+import './Playlist.css';
 
 const Playlist = () => {
   const navigate = useNavigate();
 
   // Obter lista de jogos gerais e jogos em destaque
-  const featuredA = getGamesListA();
-  const featuredB = getGamesListB();
-  const featuredC = getGamesListC();
+  const featured001 = getGamesList001();
+  const featured002 = getGamesList002();
+  const featured003 = getGamesList003();
+  const featured004 = getGamesList004();
 
   return (
     <div className="live-container">
       {/* <h2>Todos os Jogos</h2> */}
       <div className="games-list">
-        {featuredA.map((game) => (
+        {featured001.map((game) => (
           <div
             key={game.id}
             className="thumbnail"
@@ -33,7 +35,7 @@ const Playlist = () => {
 
       {/* <h2>Jogos em Destaque</h2> */}
       <div className="featured-list">
-        {featuredB.map((game) => (
+        {featured002.map((game) => (
           <div
             key={game.id}
             className="thumbnail"
@@ -45,7 +47,19 @@ const Playlist = () => {
         ))}
       </div>
       <div className="featured-list">
-        {featuredC.map((game) => (
+        {featured003.map((game) => (
+          <div
+            key={game.id}
+            className="thumbnail"
+            onClick={() => navigate(`/playlist/${game.id}`)}
+          >
+            <img src={game.thumbnail} alt={game.name} />
+            <p>{game.name}</p>
+          </div>
+        ))}
+      </div>
+      <div className="featured-list">
+        {featured004.map((game) => (
           <div
             key={game.id}
             className="thumbnail"
