@@ -1,7 +1,7 @@
-import React from "react";
-import logo from "../../../assets/images/NettStudios - logo.png";
-import "../footer/Footer.css";
-import { Link } from "react-router-dom";
+import React from 'react';
+import logo from '../../../assets/images/NettStudios - logo.png';
+import '../footer/Footer.css';
+// import { Link } from "react-router-dom";
 
 const FooterComponent = () => {
   return (
@@ -12,7 +12,7 @@ const FooterComponent = () => {
 
           <p className="footer-description">
             NettStudios, focada no universo dos games e do entretenimento
-            digital.{" "}
+            digital.{' '}
             {/*Desde 2015, o NettStudios
             produz e compartilha conteúdos de qualidade, incluindo gameplays,
             análises, e dicas voltadas para gamers e entusiastas do setor. Com
@@ -20,7 +20,7 @@ const FooterComponent = () => {
             destaca como um espaço criativo para apaixonados por jogos. */}
           </p>
           <p className="footer-email">
-            Email:{" "}
+            Email:{' '}
             <a href="mailto: contatonettplay@gmail.com">nettstudios@mail.com</a>
           </p>
         </div>
@@ -56,13 +56,13 @@ const FooterComponent = () => {
       <br />
       <div className="footer-bottom">
         <p>
-          © Copyright 2015-2024 NettStudios - Games, Entretenimento e Criação de
-          Conteúdo.
+          © Copyright 2015-2024 NettStudios - Games, Entretenimento e Criação
+          de Conteúdo.
         </p>
         <p>
           <a href="#" target="_blank">
             NettCorpSolutions
-          </a>{" "}
+          </a>{' '}
           - Soluções Digitais, TI e Inovação em Tecnologia.
         </p>
         {/* TODO: <a href="#">Termos de uso e Política de privacidade</a> */}
