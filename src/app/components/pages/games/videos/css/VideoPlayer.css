@@ -49,7 +49,7 @@
 
 .video-navigation {
   display: flex;
-  align-items: center; /* Center buttons vertically */
+  align-items: center;
   width: 100%;
   margin-top: 20px;
   position: relative;
@@ -61,7 +61,7 @@
   gap: 8px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  width: calc(100% - 80px); /* Account for scroll buttons */
+  width: calc(100% - 80px);
   margin: 0 auto;
   padding: 10px 0;
 }
@@ -91,19 +91,39 @@
   transition: background-color 0.3s ease;
 }
 
+.skeleton-loader-video {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 200% 100%;
+  animation: loading 30.5s infinite;
+  height: 315px;
+  width: 560px;
+  border-radius: 8px;
+  margin: 10px auto;
+  display: block;
+}
+
+@keyframes loading {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
 .nav-scroll-button:hover {
   background: #444;
 }
 
 .nav-scroll::-webkit-scrollbar {
-  height: 8px; /* Altura da barra de rolagem */
+  height: 8px;
 }
 
 .video-navigation::-webkit-scrollbar-thumb {
-  background-color: #555; /* Cor da barra de rolagem */
+  background-color: #555;
   border-radius: 4px;
 }
 
 .video-navigation::-webkit-scrollbar-track {
-  background: #222; /* Fundo da barra de rolagem */
+  background: #222;
 }

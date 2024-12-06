@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { fetchVideos } from './api/Videoslist.Service';
 import '../videos/css/VideoPlayer.css';
 
 const VideoPlayer = () => {
+  const navigate = useNavigate();
   const { videoId } = useParams();
   const [videos, setVideos] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(null);
@@ -58,6 +59,12 @@ const VideoPlayer = () => {
 
   return (
     <div className="player-container">
+      <br />
+      <br />
+      <button className="back-button" onClick={() => navigate('/videos')}>
+        Voltar
+      </button>
+      <br />
       <div className="video-sidebar">
         {videos.map((v, index) => (
           <div
@@ -75,10 +82,6 @@ const VideoPlayer = () => {
       </div>
 
       <div className="video-content">
-        {/* <h1>
-          {currentVideo ? currentVideo.snippet.title : 'Sem vídeo disponível'}
-        </h1> */}
-
         <div className="video-player">
           {currentVideo ? (
             <iframe

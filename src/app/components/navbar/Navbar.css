@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Open+Sauce+Code&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sauce+Code&display=swap');
 
 body {
   background-color: #0a1520 !important;
@@ -7,6 +7,7 @@ body {
 .navbar-expand-lg {
   width: 100%;
   background-color: #212529 !important;
+  /* TODO: position: fixed; */
 }
 
 .nav-link {

@@ -1,72 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import Modal from 'react-modal';
+import { Link } from 'react-router-dom';
 import { fetchVideos } from './api/Videoslist.Service';
 import '../../games/videos/css/VideosList.css';
 
 const VideosComponent = () => {
   const [videos, setVideos] = useState([]);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState(null);
-  // const [activeFilter, setActiveFilter] = useState('recent');
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadVideos = async () => {
       const data = await fetchVideos();
       setVideos(data);
+      setLoading(false);
     };
+
     loadVideos();
   }, []);
 
-  const openModal = (video) => {
-    setSelectedVideo(video);
-    setModalIsOpen(true);
+  const renderSkeletonLoader = () => {
+    return (
+      <div className="video-grid">
+        {[...Array(9)].map((_, index) => (
+          <div className="video-item skeleton" key={index}>
+            <div className="skeleton-thumbnail-video"></div>
+            <div className="skeleton-title-video"></div>
+          </div>
+        ))}
+      </div>
+    );
   };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setSelectedVideo(null);
+  const renderVideos = () => {
+    return (
+      <div className="video-grid">
+        {videos.map((video) => (
+          <div className="video-item" key={video.videoId}>
+            <Link to={`/videos/${video.videoId}`}>
+              <img
+                src={video.snippet.thumbnails.medium.url}
+                alt={video.snippet.title}
+              />
+            </Link>
+            <h3>{video.snippet.title}</h3>
+          </div>
+        ))}
+      </div>
+    );
   };
 
-  const filteredVideos = () => {
-    // TODO: Implemente a lógica de filtros
-    return videos;
-  };
-
-  return (
-    <div className="video-grid">
-      {filteredVideos().map((video) => (
-        <div className="video-item" key={video.id}>
-          <img
-            src={video.snippet.thumbnails.medium.url}
-            alt={video.snippet.title}
-            onClick={() => openModal(video)}
-          />
-          <h3 onClick={() => openModal(video)}>{video.snippet.title}</h3>
-        </div>
-      ))}
-
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        contentLabel="Video Modal"
-        className="modal"
-        overlayClassName="modal-overlay"
-      >
-        <h2>{selectedVideo?.snippet.title}</h2>
-        <button
-          className="btn-internal"
-          onClick={() =>
-            window.open(`/watch/${selectedVideo?.videoId}`, '_blank')
-          }
-        >
-          Assistir
-        </button>
-        <button className="button-modal-close" onClick={closeModal}>
-          Fechar
-        </button>
-      </Modal>
-    </div>
-  );
+  return <div>{loading ? renderSkeletonLoader() : renderVideos()}</div>;
 };
 
 export default VideosComponent;

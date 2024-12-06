@@ -60,6 +60,8 @@ const FooterComponent = () => {
           de Conteúdo.
         </p>
         <p>
+          {' '}
+          Desenvolvido por{' '}
           <a href="#" target="_blank">
             NettCorpSolutions
           </a>{' '}
@@ -67,7 +69,7 @@ const FooterComponent = () => {
         </p>
         {/* TODO: <a href="#">Termos de uso e Política de privacidade</a> */}
 
-        <p>Site: 0.0.3</p>
+        <p>Site: 0.0.5</p>
       </div>
     </footer>
   );

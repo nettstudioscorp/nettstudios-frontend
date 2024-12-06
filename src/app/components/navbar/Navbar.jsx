@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "../navbar/Navbar.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Logo from "../navbar/images/NettStudios.svg";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../navbar/Navbar.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Logo from '../navbar/images/NettStudios.svg';
 
 const Navbar = () => {
-  const [activeLink, setActiveLink] = useState("/");
+  const [activeLink, setActiveLink] = useState('/');
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
           <Link
             className="navbar-brand"
             to="/"
-            onClick={() => setActiveLink("/")}
+            onClick={() => setActiveLink('/')}
           >
             <img src={Logo} alt="Logo" className="logo-image" />
           </Link>
@@ -33,23 +33,23 @@ const Navbar = () => {
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown"
-            aria-expanded={isMenuOpen ? "true" : "false"}
+            aria-expanded={isMenuOpen ? 'true' : 'false'}
             aria-label="Toggle navigation"
             onClick={toggleMenu}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className={`collapse navbar-collapse ${isMenuOpen ? "show" : ""}`}
+            className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`}
             id="navbarNavDropdown"
           >
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Link
                   to="/"
-                  className={`nav-link ${activeLink === "/" ? "active" : ""}`}
+                  className={`nav-link ${activeLink === '/' ? 'active' : ''}`}
                   onClick={() => {
-                    setActiveLink("/");
+                    setActiveLink('/');
                     closeMenu();
                   }}
                 >
@@ -58,12 +58,12 @@ const Navbar = () => {
               </li>
               <li className="nav-item">
                 <Link
-                  to="/videos/gameplays"
+                  to="/videos"
                   className={`nav-link ${
-                    activeLink === "/videos/gameplays" ? "active" : ""
+                    activeLink === '/videos' ? 'active' : ''
                   }`}
                   onClick={() => {
-                    setActiveLink("/videos/gameplays");
+                    setActiveLink('/videos');
                     closeMenu();
                   }}
                 >
@@ -74,10 +74,10 @@ const Navbar = () => {
                 <Link
                   to="/playlists"
                   className={`nav-link ${
-                    activeLink === "/playlists" ? "active" : ""
+                    activeLink === '/playlists' ? 'active' : ''
                   }`}
                   onClick={() => {
-                    setActiveLink("/playlists");
+                    setActiveLink('/playlists');
                     closeMenu();
                   }}
                 >
@@ -88,10 +88,10 @@ const Navbar = () => {
                 <Link
                   to="/lives"
                   className={`nav-link ${
-                    activeLink === "/lives" ? "active" : ""
+                    activeLink === '/lives' ? 'active' : ''
                   }`}
                   onClick={() => {
-                    setActiveLink("/lives");
+                    setActiveLink('/lives');
                     closeMenu();
                   }}
                 >
@@ -102,10 +102,10 @@ const Navbar = () => {
                 <Link
                   to="/news"
                   className={`nav-link ${
-                    activeLink === "/news" ? "active" : ""
+                    activeLink === '/news' ? 'active' : ''
                   }`}
                   onClick={() => {
-                    setActiveLink("/news");
+                    setActiveLink('/news');
                     closeMenu();
                   }}
                 >
@@ -117,10 +117,10 @@ const Navbar = () => {
                 <Link
                   to="/reviews"
                   className={`nav-link ${
-                    activeLink === "/reviews" ? "active" : ""
+                    activeLink === '/reviews' ? 'active' : ''
                   }`}
                   onClick={() => {
-                    setActiveLink("/reviews");
+                    setActiveLink('/reviews');
                     closeMenu();
                   }}
                 >
@@ -131,10 +131,10 @@ const Navbar = () => {
                 <Link
                   to="/story"
                   className={`nav-link ${
-                    activeLink === "/story" ? "active" : ""
+                    activeLink === '/story' ? 'active' : ''
                   }`}
                   onClick={() => {
-                    setActiveLink("/story");
+                    setActiveLink('/story');
                     closeMenu();
                   }}
                 >
@@ -145,10 +145,10 @@ const Navbar = () => {
                 <Link
                   to="/about"
                   className={`nav-link ${
-                    activeLink === "/about" ? "active" : ""
+                    activeLink === '/about' ? 'active' : ''
                   }`}
                   onClick={() => {
-                    setActiveLink("/about");
+                    setActiveLink('/about');
                     closeMenu();
                   }}
                 >
@@ -161,7 +161,7 @@ const Navbar = () => {
                   to="/"
                   className="nav-link"
                   onClick={() => {
-                    setActiveLink("/");
+                    setActiveLink('/');
                     closeMenu();
                   }}
                 >
@@ -169,18 +169,18 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link
                   to="/"
                   className="nav-link"
                   onClick={() => {
-                    setActiveLink("/");
+                    setActiveLink('/');
                     closeMenu();
                   }}
                 >
                   NettCode
                 </Link>
-              </li>
+              </li> */}
               {/* 
               <li className="nav-item">
                 <Link
@@ -200,7 +200,7 @@ const Navbar = () => {
                   to="/login"
                   className="nav-link"
                   onClick={() => {
-                    setActiveLink("/login");
+                    setActiveLink('/login');
                     closeMenu();
                   }}
                 >
