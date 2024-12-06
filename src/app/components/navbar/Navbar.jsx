@@ -27,6 +27,7 @@ const Navbar = () => {
           >
             <img src={Logo} alt="Logo" className="logo-image" />
           </Link>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -39,6 +40,7 @@ const Navbar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
           <div
             className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`}
             id="navbarNavDropdown"
@@ -56,6 +58,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   to="/videos"
@@ -70,6 +73,7 @@ const Navbar = () => {
                   Videos
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   to="/playlists"
@@ -84,6 +88,7 @@ const Navbar = () => {
                   Playlists
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   to="/lives"
@@ -98,6 +103,7 @@ const Navbar = () => {
                   Lives
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   to="/news"
@@ -127,6 +133,7 @@ const Navbar = () => {
                   Reviews
                 </Link>
               </li>
+
               <li className="nav-item">
                 <Link
                   to="/story"
@@ -138,9 +145,36 @@ const Navbar = () => {
                     closeMenu();
                   }}
                 >
-                  Stories
+                  Members
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link
+                  to="/"
+                  className="nav-link"
+                  onClick={() => {
+                    setActiveLink('/');
+                    closeMenu();
+                  }}
+                >
+                  Comunidade
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link
+                  to="/updates"
+                  className="nav-link"
+                  onClick={() => {
+                    setActiveLink('/updates');
+                    closeMenu();
+                  }}
+                >
+                  UpdatesCenter
+                </Link>
+              </li>
+
               <li className="nav-item">
                 <Link
                   to="/about"
@@ -156,19 +190,6 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link
-                  to="/"
-                  className="nav-link"
-                  onClick={() => {
-                    setActiveLink('/');
-                    closeMenu();
-                  }}
-                >
-                  NettCorpSolutions
-                </Link>
-              </li>
-
               {/* <li className="nav-item">
                 <Link
                   to="/"
@@ -179,19 +200,6 @@ const Navbar = () => {
                   }}
                 >
                   NettCode
-                </Link>
-              </li> */}
-              {/* 
-              <li className="nav-item">
-                <Link
-                  to=""
-                  className="nav-link"
-                  onClick={() => {
-                    setActiveLink("");
-                    closeMenu();
-                  }}
-                >
-                  Channel
                 </Link>
               </li> */}
 

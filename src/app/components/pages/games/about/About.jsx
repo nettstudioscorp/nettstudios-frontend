@@ -1,5 +1,5 @@
-import React from "react";
-import "../about/About.css";
+import React from 'react';
+import './About.css';
 
 const About = () => {
   return (
@@ -19,7 +19,7 @@ const About = () => {
           O <strong>NettStudios</strong> nasceu da paixão por games e pela
           vontade de compartilhar nossa jornada com um público que, assim como
           nós, adora explorar mundos virtuais e se divertir com os desafios do
-          universo dos jogos. Desde o nosso início em 2015 no{" "}
+          universo dos jogos. Desde o nosso início em 2015 no{' '}
           <strong>YouTube</strong> o objetivo sempre foi criar conteúdo
           relevante, interativo e de qualidade, seja você um gamer ou alguém em
           busca de entretenimento. E, embora tenhamos evoluído ao longo dos
@@ -41,7 +41,7 @@ const About = () => {
         <br />
         <h2>Parcerias e Unidades</h2>
         <p>
-          O <strong>NettStudios</strong> faz parte do projeto{" "}
+          O <strong>NettStudios</strong> faz parte do projeto{' '}
           <strong>NettCorpSolutions</strong>, um conglomerado que reúne unidades
           inovadoras com foco em diferentes áreas. Essa divisão é especializada
           em <strong>TI, consultoria e desenvolvimento de software</strong>.
