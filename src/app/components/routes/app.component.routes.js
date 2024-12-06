@@ -17,10 +17,12 @@ import Live from '../pages/games/live/Live';
 import LivePlayer from '../pages/games/live/LivePlayer';
 import LivePlayerID from '../pages/games/live/LivePlayer';
 
+import UpdatesCenter from '../pages/games/updatesCenter/updateCenter';
+import UpdateReport from '../pages/games/updatesCenter/updateReport';
+
 import NewsComponent from '../pages/games/news/News';
 // import MemberComponent from '../pages/member/member.component';
 import AboutComponent from '../pages/games/about/About';
-import UpdatesCenter from '../pages/games/updatesCenter/updateCenter';
 import HelpComponent from '../pages/help/help.component';
 import Login from '../pages/login/Login';
 
@@ -35,20 +37,23 @@ const App = () => {
         <Route path="/news/" element={<NewsComponent />} />
         {/* <Route path="/member" element={<MemberComponent />} /> */}
         <Route path="/about" element={<AboutComponent />} />
-        <Route path="/updates" element={<UpdatesCenter />} />
+
         <Route path="/help" element={<HelpComponent />} />
 
         <Route path="/videos" element={<VideosLists />} />
         <Route path="/watch/:videoId" element={<VideoPlayer />} />
         <Route path="/videos/:videoId" element={<VideoPlayerVideoID />} />
 
-        <Route path="/playlist" element={<Playlist />} />
+        <Route path="/playlists" element={<Playlist />} />
         <Route path="/playlist/:gameId" element={<PlaylistPlayerID />} />
         <Route path="/playlist/gameplays" element={<PlaylistPlayer />} />
 
         <Route path="/lives" element={<Live />} />
         <Route path="/live/:gameId" element={<LivePlayerID />} />
         <Route path="/live/gameplays" element={<LivePlayer />} />
+
+        <Route path="/updates" element={<UpdatesCenter />} />
+        <Route path="/update/:id" element={<UpdateReport />} />
       </Routes>
       <FooterComponent />
     </Router>

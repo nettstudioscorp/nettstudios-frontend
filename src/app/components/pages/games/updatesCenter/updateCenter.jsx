@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { updates } from './service/updateCenter.service';
 import './css/updateCenter.css';
 
@@ -11,11 +12,15 @@ const UpdateCenter = () => {
       </header>
       <div className="updates-list">
         {updates.map((update) => (
-          <div key={update.id} className="update-card">
+          <Link
+            to={`/update/${update.id}`}
+            key={update.id}
+            className="update-card"
+          >
             <h2>{update.title}</h2>
             <p>{update.description}</p>
             <p className="update-date">{update.date}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
