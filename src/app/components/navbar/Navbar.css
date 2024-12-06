@@ -7,28 +7,35 @@ body {
 .navbar-expand-lg {
   width: 100%;
   background-color: #212529 !important;
-  /* TODO: position: fixed; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
 }
-
 .nav-link {
   font-weight: bold !important;
   color: white !important;
   padding-left: 14px !important;
 }
 
+.nav-link:hover {
+  color: #007bff !important;
+}
+
 .navbar-nav .nav-link.active,
-.navbar-nav .nav-link.show {
+.navbar-nav .nav-link.show:hover {
   color: #007bff !important;
 }
 
 .navbar-toggler {
-  background-color: #fff !important;
-  color: rgb(0, 68, 255) !important;
+  background-color: #ffffff !important;
 }
 
 .navbar-toggler-icon {
-  color: rgb(0, 140, 255) !important;
+  color: white;
 }
+
 .logo {
   display: flex;
   align-items: center;

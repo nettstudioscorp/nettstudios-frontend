@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { getPlaylistByGameId } from "./service/PlayListPlayer.Service";
-import "../playlists/PlaylistPlayer.css";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getPlaylistByGameId } from './service/PlayListPlayer.Service';
+import '../playlists/PlaylistPlayer.css';
 
 const PlaylistPlayer = () => {
   const { gameId } = useParams();
@@ -25,11 +25,11 @@ const PlaylistPlayer = () => {
   const currentVideo = playlist[currentVideoIndex];
 
   const scrollTo = (direction) => {
-    const navScroll = document.querySelector(".nav-scroll");
+    const navScroll = document.querySelector('.nav-scroll');
     const maxScrollPosition = navScroll.scrollWidth - navScroll.clientWidth;
 
     let newScrollPosition =
-      scrollPosition + (direction === "left" ? -200 : 200);
+      scrollPosition + (direction === 'left' ? -200 : 200);
 
     // Impede que o scroll ultrapasse o início ou o final da lista
     if (newScrollPosition < 0) {
@@ -42,13 +42,15 @@ const PlaylistPlayer = () => {
     setScrollPosition(newScrollPosition);
     navScroll.scrollTo({
       left: newScrollPosition,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   return (
     <div className="player-container">
-      <button className="back-button" onClick={() => navigate("/playlists")}>
+      <br />
+      <br />
+      <button className="back-button" onClick={() => navigate('/playlists')}>
         Voltar
       </button>
       {/* <h1>{gameId.toUpperCase()} - Playlist</h1> */}
@@ -70,7 +72,7 @@ const PlaylistPlayer = () => {
       )}
 
       <div className="video-navigation">
-        <button className="nav-scroll-button" onClick={() => scrollTo("left")}>
+        <button className="nav-scroll-button" onClick={() => scrollTo('left')}>
           &lt;
         </button>
         <div className="nav-scroll">
@@ -78,7 +80,7 @@ const PlaylistPlayer = () => {
             <button
               key={index}
               className={`nav-button ${
-                currentVideoIndex === index ? "active" : ""
+                currentVideoIndex === index ? 'active' : ''
               }`}
               onClick={() => handleVideoChange(index)}
             >
@@ -86,7 +88,7 @@ const PlaylistPlayer = () => {
             </button>
           ))}
         </div>
-        <button className="nav-scroll-button" onClick={() => scrollTo("right")}>
+        <button className="nav-scroll-button" onClick={() => scrollTo('right')}>
           &gt;
         </button>
       </div>
