@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { updateReports } from './service/updateReport.service';
+import { updateReports } from '../updatesCenter/service/updateReport.service';
 import { saveAs } from 'file-saver';
-import './css/updateReport.css';
+import '../updatesCenter/css/updateReport.css';
 
 const UpdateReport = () => {
   const { id } = useParams();
-  const report = updateReports[id];
+  const report = updateReports.find((r) => r.id === parseInt(id));
+
   const [feedback, setFeedback] = useState('');
+  const [isExpanded, setIsExpanded] = useState(false);
 
   if (!report) {
     return <p className="error-message">Relatório não encontrado.</p>;
@@ -28,28 +30,31 @@ const UpdateReport = () => {
 
   return (
     <div className="report-container">
-      <h1>{report.title}</h1>
-      <p className="report-content">{report.content}</p>
+      <h1 className="report-title">{report.title}</h1>
 
+      {/* Conteúdo com expansão vertical apenas */}
+      <div className={`report-content ${isExpanded ? 'expanded' : ''}`}>
+        <p>{report.content}</p>
+      </div>
+      {report.content.length > 100 && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="toggle-button"
+          aria-label={isExpanded ? 'Ver Menos' : 'Ver Mais'}
+        >
+          {isExpanded ? 'Ver Menos' : 'Ver Mais'}
+        </button>
+      )}
+
+      {/* Ações */}
       <div className="report-actions">
-        <button onClick={handleDownload} className="download-button">
+        <button
+          onClick={handleDownload}
+          className="download-button"
+          aria-label="Baixar relatório em PDF"
+        >
           📄 Baixar PDF
         </button>
-      </div>
-
-      <div className="feedback-section">
-        <h2>📢 Enviar Feedback</h2>
-        <form onSubmit={handleSubmit}>
-          <textarea
-            placeholder="Deixe sua sugestão ou comentário..."
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-            required
-          ></textarea>
-          <button type="submit" className="submit-button">
-            Enviar
-          </button>
-        </form>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ const UpdateCenter = () => {
     <div className="update-container">
       <header className="update-header">
         <h1>📢 Central de Atualizações</h1>
-        <p>Fique por dentro das últimas novidades e melhorias da plataforma.</p>
+        <p>Fique por dentro das últimas atualizações da plataforma.</p>
       </header>
       <div className="updates-list">
         {updates.map((update) => (
