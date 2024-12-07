@@ -194,7 +194,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="nav-item">
+              {/* TODO: <li className="nav-item">
                 <Link
                   to="/login"
                   className={`nav-link ${
@@ -207,7 +207,7 @@ const Navbar = () => {
                 >
                   Entrar/Cadastrar
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

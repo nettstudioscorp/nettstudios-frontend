@@ -24,7 +24,10 @@ const About = () => {
           relevante, interativo e de qualidade, seja você um gamer ou alguém em
           busca de entretenimento. E, embora tenhamos evoluído ao longo dos
           anos, nossa essência continua sendo a mesma: trazer diversão e
-          experiências únicas no mundo dos games.
+          experiências únicas no mundo dos games. Tivemos uma parceria com a
+          Boosteroid (https://boosteroid.com) é um provedor global de jogos em
+          nuvem. Que habilita acesso remoto baseado em nuvem a jogos de PC em
+          todos os dispositivos e plataformas.
         </p>
       </section>
       <br />

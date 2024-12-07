@@ -32,7 +32,6 @@ const UpdateReport = () => {
     <div className="report-container">
       <h1 className="report-title">{report.title}</h1>
 
-      {/* Conteúdo com expansão vertical apenas */}
       <div className={`report-content ${isExpanded ? 'expanded' : ''}`}>
         <p>{report.content}</p>
       </div>
@@ -46,8 +45,7 @@ const UpdateReport = () => {
         </button>
       )}
 
-      {/* Ações */}
-      <div className="report-actions">
+      {/* TODO:<div className="report-actions">
         <button
           onClick={handleDownload}
           className="download-button"
@@ -55,7 +53,7 @@ const UpdateReport = () => {
         >
           📄 Baixar PDF
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
