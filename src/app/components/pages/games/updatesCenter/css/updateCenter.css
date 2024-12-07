@@ -1,3 +1,32 @@
+/* .update-container {
+  padding: 64px;
+}
+
+.update-header {
+  text-align: center;
+}
+
+.updates-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.update-card {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.download-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+} */
+
 .update-container {
   background-color: #0a1520;
   color: #ffffff;

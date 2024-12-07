@@ -1,4 +1,22 @@
 .report-container {
+  padding: 64px;
+}
+
+.report-title {
+  font-size: 24px;
+}
+
+.feedback-form textarea {
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+}
+
+.feedback-success {
+  color: green;
+}
+
+.report-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 64px;

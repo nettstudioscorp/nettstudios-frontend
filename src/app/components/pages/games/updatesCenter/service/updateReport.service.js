@@ -1,28 +1,19 @@
 export const updateReports = [
   {
     id: 1,
-    title: 'Relatório da Atualização 0.0.6',
+    title: 'Relatório da Atualização v0.0.6',
     content: 'Essa atualização trouxe melhorias significativas na aplicação.',
     date: '2024-12-06',
+    pdfLink: '',
   },
-  // {
-  //   id: 2,
-  //   title: 'Relatório: Novo Conteúdo no Sistema',
-  //   content:
-  //     'Detalhes sobre as novas funcionalidades disponíveis na seção de vídeos...',
-  //   date: '2024-11-25',
-  // },
-  // {
-  //   id: 3,
-  //   title: 'Relatório: Correção de Bugs',
-  //   content:
-  //     'Resumo sobre os erros corrigidos na experiência de login para usuários móveis...',
-  //   date: '2024-11-20',
-  // },
-  // {
-  //   id: 4,
-  //   title: 'Relatório: Sistema de Notificações',
-  //   content: 'Descrição detalhada do sistema de notificações implementado...',
-  //   date: '2024-11-15',
-  // },
+
+  {
+    id: 2,
+    title: 'Relatório de Atualização da Plataforma - Versão 0.0.7',
+    content:
+      'Resumo da Versão: A atualização 0.0.7 traz melhorias significativas na experiência do usuário, com destaque para novas funcionalidades e otimizações no componente de vídeos, player de playlists, e adição de conteúdos.',
+    date: '2024-12-07',
+    pdfLink:
+      'https://www.flipsnack.com/A5AE96BBDC9/relat-rio-de-atualiza-o-da-plataforma-vers-o-0-0-7/full-view.html',
+  },
 ];

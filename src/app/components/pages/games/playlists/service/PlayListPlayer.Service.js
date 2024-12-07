@@ -164,6 +164,33 @@ export const getPlaylistByGameId = (gameId) => {
         title: "Assassin's Creed Rogue - Parte 10",
       },
     ],
+
+    AlanWake: [
+      {
+        videoId: 'QdoblIW1LnI',
+        title: 'Alan Wake - Parte 1',
+      },
+      {
+        videoId: 'ySeVKICbLCU',
+        title: 'Alan Wake - Parte 2',
+      },
+      {
+        videoId: 'MkOZrV0Cs_8',
+        title: 'Alan Wake - Parte 3',
+      },
+      {
+        videoId: 'Ts3jlYyQfGk',
+        title: 'Alan Wake - Parte 4',
+      },
+      {
+        videoId: 'QtafjvNLOqE',
+        title: 'Alan Wake - Parte 5',
+      },
+      {
+        videoId: 'bBfBr6VvcJ4',
+        title: 'Alan Wake - Parte 6',
+      },
+    ],
   };
 
   // Retorna a playlist correspondente ao gameId ou um array vazio se não encontrar

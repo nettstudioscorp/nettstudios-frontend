@@ -59,6 +59,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
+              {/* TODO: Improve implementation with the backend 
               <li className="nav-item">
                 <Link
                   to="/videos"
@@ -72,7 +73,7 @@ const Navbar = () => {
                 >
                   Videos
                 </Link>
-              </li>
+              </li> */}
 
               <li className="nav-item">
                 <Link
@@ -89,7 +90,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="nav-item">
+              {/* TODO: <li className="nav-item">
                 <Link
                   to="/lives"
                   className={`nav-link ${
@@ -102,9 +103,9 @@ const Navbar = () => {
                 >
                   Lives
                 </Link>
-              </li>
+              </li> */}
 
-              <li className="nav-item">
+              {/* TODO: <li className="nav-item">
                 <Link
                   to="/news"
                   className={`nav-link ${
@@ -117,7 +118,7 @@ const Navbar = () => {
                 >
                   News
                 </Link>
-              </li>
+              </li> */}
 
               {/* TODO: <li className="nav-item">
                 <Link
@@ -179,7 +180,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="nav-item">
+              {/* TODO: <li className="nav-item">
                 <Link
                   to="/about"
                   className={`nav-link ${
@@ -192,7 +193,7 @@ const Navbar = () => {
                 >
                   Sobre Nós
                 </Link>
-              </li>
+              </li> */}
 
               {/* TODO: <li className="nav-item">
                 <Link

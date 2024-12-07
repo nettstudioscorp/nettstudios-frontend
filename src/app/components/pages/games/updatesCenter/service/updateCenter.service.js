@@ -2,25 +2,16 @@ export const updates = [
   {
     id: 1,
     title: 'Atualização 0.0.6',
-    description: 'Adicionamos melhorias na aplicação.',
-    date: '2024-12-06',
+    description: 'Adicionamos melhorias na aplicação...',
+    date: '06/12/2024',
+    pdfLink: '',
   },
-  // {
-  //   id: 2,
-  //   title: 'Novo Conteúdo no Sistema',
-  //   description: 'Explore as novas funcionalidades na seção de vídeos.',
-  //   date: '2024-11-28',
-  // },
-  // {
-  //   id: 3,
-  //   title: 'Correção de Bugs',
-  //   description: 'Corrigido erro no processo de login para usuários móveis.',
-  //   date: '2024-11-25',
-  // },
-  // {
-  //   id: 4,
-  //   title: 'Sistema de Notificações Implementado',
-  //   description: 'Agora você receberá alertas em tempo real sobre novidades.',
-  //   date: '2024-11-20',
-  // },
+  {
+    id: 2,
+    title: 'Relatório de Atualização da Plataforma - Versão 0.0.7',
+    description: 'Resumo da Versão: A atualização traz melhorias...',
+    date: '07/12/2024',
+    pdfLink:
+      'https://www.flipsnack.com/A5AE96BBDC9/relat-rio-de-atualiza-o-da-plataforma-vers-o-0-0-7/full-view.html',
+  },
 ];

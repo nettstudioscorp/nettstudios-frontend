@@ -440,9 +440,9 @@ const Home = () => {
             Playlists
           </button>
 
-          <button className="bt-videos" onClick={goToAllVideos}>
+          {/* <button className="bt-videos" onClick={goToAllVideos}>
             Videos
-          </button>
+          </button> */}
 
           <button className="bt-close" onClick={closeModal}>
             Fechar

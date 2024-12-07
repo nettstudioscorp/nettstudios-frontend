@@ -33,3 +33,12 @@ export const getGamesList004 = () => [
       'https://c4.wallpaperflare.com/wallpaper/138/449/106/assassins-creed-rogue-wallpaper-preview.jpg',
   },
 ];
+
+export const getGamesList005 = () => [
+  {
+    id: 'AlanWake',
+    name: 'Alan Wake',
+    thumbnail:
+      'https://www.finalfaqs.com.br/wp-content/uploads/2020/12/Alan-Wake.jpg.webp',
+  },
+];
