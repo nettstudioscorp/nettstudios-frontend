@@ -20,6 +20,8 @@ import LivePlayerID from '../pages/games/live/LivePlayer';
 import UpdatesCenter from '../pages/games/updatesCenter/updateCenter';
 import UpdateReport from '../pages/games/updatesCenter/updateReport';
 
+import Community from '../pages/games/community/community';
+
 import NewsComponent from '../pages/games/news/News';
 // import MemberComponent from '../pages/member/member.component';
 import AboutComponent from '../pages/games/about/About';
@@ -51,6 +53,8 @@ const App = () => {
         <Route path="/lives" element={<Live />} />
         <Route path="/live/:gameId" element={<LivePlayerID />} />
         <Route path="/live/gameplays" element={<LivePlayer />} />
+
+        <Route path="/comunidade" element={<Community />} />
 
         <Route path="/updates" element={<UpdatesCenter />} />
         <Route path="/update/:id" element={<UpdateReport />} />

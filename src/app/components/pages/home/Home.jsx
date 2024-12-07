@@ -182,7 +182,7 @@ const Home = () => {
   };
 
   const goToPlaylist = () => {
-    navigate('/playlist');
+    navigate('/playlists');
   };
 
   const goToAllVideos = () => {
@@ -356,8 +356,8 @@ const Home = () => {
             setLoadingMore={setLoadingMorevideosDataSerieAction}
             openModal={openModal}
           />
-          <br />
 
+          <br />
           <br />
 
           <VideoSection
@@ -436,7 +436,7 @@ const Home = () => {
 
         <div className="button-container">
           <button className="bt-playlist" onClick={goToPlaylist}>
-            Playlist
+            Playlists
           </button>
 
           <button className="bt-videos" onClick={goToAllVideos}>

@@ -119,7 +119,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              <li className="nav-item">
+              {/* TODO: <li className="nav-item">
                 <Link
                   to="/reviews"
                   className={`nav-link ${
@@ -132,9 +132,9 @@ const Navbar = () => {
                 >
                   Reviews
                 </Link>
-              </li>
+              </li> */}
 
-              <li className="nav-item">
+              {/* TODO:  <li className="nav-item">
                 <Link
                   to="/story"
                   className={`nav-link ${
@@ -145,16 +145,18 @@ const Navbar = () => {
                     closeMenu();
                   }}
                 >
-                  Members
+                  Menbros
                 </Link>
-              </li>
+              </li> */}
 
               <li className="nav-item">
                 <Link
-                  to="/"
-                  className="nav-link"
+                  to="/comunidade"
+                  className={`nav-link ${
+                    activeLink === '/comunidade' ? 'active' : ''
+                  }`}
                   onClick={() => {
-                    setActiveLink('/');
+                    setActiveLink('/comunidade');
                     closeMenu();
                   }}
                 >
@@ -165,13 +167,15 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link
                   to="/updates"
-                  className="nav-link"
+                  className={`nav-link ${
+                    activeLink === '/updates' ? 'active' : ''
+                  }`}
                   onClick={() => {
                     setActiveLink('/updates');
                     closeMenu();
                   }}
                 >
-                  UpdatesCenter
+                  Updates
                 </Link>
               </li>
 
@@ -190,23 +194,12 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              {/* <li className="nav-item">
-                <Link
-                  to="/"
-                  className="nav-link"
-                  onClick={() => {
-                    setActiveLink('/');
-                    closeMenu();
-                  }}
-                >
-                  NettCode
-                </Link>
-              </li> */}
-
               <li className="nav-item">
                 <Link
                   to="/login"
-                  className="nav-link"
+                  className={`nav-link ${
+                    activeLink === '/login' ? 'active' : ''
+                  }`}
                   onClick={() => {
                     setActiveLink('/login');
                     closeMenu();
