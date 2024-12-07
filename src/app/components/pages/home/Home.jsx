@@ -361,7 +361,7 @@ const Home = () => {
           <br />
 
           <VideoSection
-            title="Aventura"
+            title="Rockstar Games"
             videos={Adventure}
             displayedCount={displayedVideosvideosDataSerieAdventure}
             setDisplayedCount={setDisplayedVideosvideosDataSerieAdventure}
@@ -371,7 +371,7 @@ const Home = () => {
           />
           <br />
 
-          <VideoSection
+          {/* <VideoSection
             title="Esportes"
             videos={Sports}
             displayedCount={displayedVideosvideosDataSerieSports}
@@ -380,9 +380,9 @@ const Home = () => {
             setLoadingMore={setLoadingMorevideosDataSerieSports}
             openModal={openModal}
           />
-          <br />
+          <br /> */}
 
-          <VideoSection
+          {/* <VideoSection
             title="Corrida"
             videos={Race}
             displayedCount={displayedRace}
@@ -392,8 +392,9 @@ const Home = () => {
             openModal={openModal}
           />
 
-          <br />
-          <VideoSection
+          <br /> */}
+
+          {/* <VideoSection
             title="Vídeos mais acessados"
             videos={MostViewedVideos}
             displayedCount={displayedMostViewedVideos}
@@ -401,7 +402,7 @@ const Home = () => {
             loadingMore={loadingMoreMostViewedVideos}
             setLoadingMore={setLoadingMoreMostViewedVideos}
             openModal={openModal}
-          />
+          /> */}
           <br />
           <br />
           <br />
