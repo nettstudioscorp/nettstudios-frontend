@@ -12,7 +12,6 @@ import './Playlist.css';
 const Playlist = () => {
   const navigate = useNavigate();
 
-  // Obter lista de jogos gerais e jogos em destaque
   const featured001 = getGamesList001();
   const featured002 = getGamesList002();
   const featured003 = getGamesList003();
@@ -20,73 +19,92 @@ const Playlist = () => {
   const featured005 = getGamesList005();
 
   return (
-    <div className="live-container">
-      {/* <h2>Todos os Jogos</h2> */}
-      <div className="games-list">
-        {featured001.map((game) => (
-          <div
-            key={game.id}
-            className="thumbnail"
-            onClick={() => navigate(`/playlist/${game.id}`)}
-          >
-            <img src={game.thumbnail} alt={game.name} />
-            <p>{game.name}</p>
-          </div>
-        ))}
-      </div>
+    <div className="playlist-container">
+      {/* ===================== Seção para Far Cry ========================= */}
 
-      {/* <h2>Jogos em Destaque</h2> */}
-      <div className="featured-list">
-        {featured002.map((game) => (
-          <div
-            key={game.id}
-            className="thumbnail"
-            onClick={() => navigate(`/playlist/${game.id}`)}
-          >
-            <img src={game.thumbnail} alt={game.name} />
-            <p>{game.name}</p>
-          </div>
-        ))}
-      </div>
+      <section className="game-section">
+        <h2>Far Cry</h2>
+        <div className="games-list">
+          {featured001.map((game) => (
+            <div
+              key={game.id}
+              className="thumbnail"
+              onClick={() => navigate(`/playlist/${game.id}`)}
+            >
+              <img src={game.thumbnail} alt={game.name} />
+              <p>{game.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <div className="featured-list">
-        {featured003.map((game) => (
-          <div
-            key={game.id}
-            className="thumbnail"
-            onClick={() => navigate(`/playlist/${game.id}`)}
-          >
-            <img src={game.thumbnail} alt={game.name} />
-            <p>{game.name}</p>
-          </div>
-        ))}
-      </div>
+      {/* ======================  Seção para Assassin's Creed ======================*/}
 
-      <div className="featured-list">
-        {featured004.map((game) => (
-          <div
-            key={game.id}
-            className="thumbnail"
-            onClick={() => navigate(`/playlist/${game.id}`)}
-          >
-            <img src={game.thumbnail} alt={game.name} />
-            <p>{game.name}</p>
-          </div>
-        ))}
-      </div>
+      <section className="game-section">
+        <h2>Assassin's Creed</h2>
+        <div className="games-list">
+          {featured002.map((game) => (
+            <div
+              key={game.id}
+              className="thumbnail"
+              onClick={() => navigate(`/playlist/${game.id}`)}
+            >
+              <img src={game.thumbnail} alt={game.name} />
+              <p>{game.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <div className="featured-list">
-        {featured005.map((game) => (
-          <div
-            key={game.id}
-            className="thumbnail"
-            onClick={() => navigate(`/playlist/${game.id}`)}
-          >
-            <img src={game.thumbnail} alt={game.name} />
-            <p>{game.name}</p>
-          </div>
-        ))}
-      </div>
+      {/* <section className="game-section">
+        <h2>Assassin's Creed Valhalla</h2>
+        <div className="games-list">
+          {featured003.map((game) => (
+            <div
+              key={game.id}
+              className="thumbnail"
+              onClick={() => navigate(`/playlist/${game.id}`)}
+            >
+              <img src={game.thumbnail} alt={game.name} />
+              <p>{game.name}</p>
+            </div>
+          ))}
+        </div>
+      </section> */}
+
+      {/* <section className="game-section">
+        <h2>Assassin's Creed Rogue</h2>
+        <div className="games-list">
+          {featured004.map((game) => (
+            <div
+              key={game.id}
+              className="thumbnail"
+              onClick={() => navigate(`/playlist/${game.id}`)}
+            >
+              <img src={game.thumbnail} alt={game.name} />
+              <p>{game.name}</p>
+            </div>
+          ))}
+        </div>
+      </section> */}
+
+      {/* =================== Seção para Alan Wake ======================*/}
+
+      <section className="game-section">
+        <h2>Alan Wake</h2>
+        <div className="games-list">
+          {featured005.map((game) => (
+            <div
+              key={game.id}
+              className="thumbnail"
+              onClick={() => navigate(`/playlist/${game.id}`)}
+            >
+              <img src={game.thumbnail} alt={game.name} />
+              <p>{game.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 };
