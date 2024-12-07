@@ -1,52 +1,125 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { videos } from "./service/Videoslist.Service";
-import "../../games/videos/css/VideoPlayer.css";
+import React, { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { fetchVideos } from './api/Videoslist.Service';
+import '../videos/css/VideoPlayer.css';
 
-const VideoPlayerComponent = () => {
+const VideoPlayer = () => {
+  const navigate = useNavigate();
   const { videoId } = useParams();
-  const video = videos.find((v) => v.videoId === videoId);
+  const [videos, setVideos] = useState([]);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(null);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  if (!video) {
-    return <div>Vídeo não encontrado</div>;
+  useEffect(() => {
+    const loadVideos = async () => {
+      const videoData = await fetchVideos();
+      setVideos(videoData);
+
+      const index = videoData.findIndex((v) => v.videoId === videoId);
+      setCurrentVideoIndex(index !== -1 ? index : 0);
+    };
+
+    loadVideos();
+  }, [videoId]);
+
+  const handleVideoChange = (index) => {
+    setCurrentVideoIndex(index);
+  };
+
+  const formatIndex = (index) => {
+    return index < 9 ? `0${index + 1}` : `${index + 1}`;
+  };
+
+  const scrollTo = (direction) => {
+    const navScroll = document.querySelector('.nav-scroll');
+    const maxScrollPosition = navScroll.scrollWidth - navScroll.clientWidth;
+
+    let newScrollPosition =
+      scrollPosition + (direction === 'left' ? -200 : 200);
+
+    if (newScrollPosition < 0) {
+      newScrollPosition = 0;
+    }
+    if (newScrollPosition > maxScrollPosition) {
+      newScrollPosition = maxScrollPosition;
+    }
+
+    setScrollPosition(newScrollPosition);
+    navScroll.scrollTo({
+      left: newScrollPosition,
+      behavior: 'smooth',
+    });
+  };
+
+  if (!videos.length || currentVideoIndex === null) {
+    return <div className="video-page-container">Carregando Player...</div>;
   }
 
-  const { title, description } = video.snippet;
+  const currentVideo = videos[currentVideoIndex];
 
   return (
-    <div className="video-page-container">
+    <div className="player-container">
+      <br />
+      <br />
+      <button className="back-button" onClick={() => navigate('/videos')}>
+        Voltar
+      </button>
+      <br />
       <div className="video-sidebar">
         {videos.map((v, index) => (
           <div
             key={v.videoId}
-            className={`sidebar-item ${v.videoId === videoId ? "active" : ""}`}
+            className={`sidebar-item ${index === currentVideoIndex ? 'active' : ''}`}
           >
-            <Link to={`/videos/${v.videoId}`}>
-              {index + 1}. {v.snippet.title}
+            <Link
+              to={`/videos/${v.videoId}`}
+              onClick={() => handleVideoChange(index)}
+            >
+              {/* {formatIndex(index)} - {v.snippet.title} */}
             </Link>
           </div>
         ))}
       </div>
 
-      <div className="video-player-container">
-        <div className="video-player-wrapper">
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${videoId}`}
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
+      <div className="video-content">
+        <div className="video-player">
+          {currentVideo ? (
+            <iframe
+              title="YouTube Video Player"
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${currentVideo.videoId}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <div className="no-video">Nenhum vídeo carregado</div>
+          )}
         </div>
-        {/* TODO: <div className="video-details">
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </div> */}
+      </div>
+
+      <div className="video-navigation">
+        <button className="nav-scroll-button" onClick={() => scrollTo('left')}>
+          &lt;
+        </button>
+        <div className="nav-scroll">
+          {videos.map((_, index) => (
+            <button
+              key={index}
+              className={`nav-button ${currentVideoIndex === index ? 'active' : ''}`}
+              onClick={() => handleVideoChange(index)}
+            >
+              {formatIndex(index)}
+            </button>
+          ))}
+        </div>
+        <button className="nav-scroll-button" onClick={() => scrollTo('right')}>
+          &gt;
+        </button>
       </div>
     </div>
   );
 };
 
-export default VideoPlayerComponent;
+export default VideoPlayer;

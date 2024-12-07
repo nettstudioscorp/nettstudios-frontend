@@ -1,11 +1,11 @@
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1.5rem;
   margin: 50px;
   background-color: transparent;
   border-radius: 10px;
-  padding: 30px;
+  padding: 64px;
 }
 
 .video-item {
@@ -25,11 +25,11 @@
 }
 
 .video-item img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 5px;
-  /* border-bottom: 1px solid #000000; */
+  width: 100% !important;
+  height: 150px !important;
+  border-radius: 8px !important;
+  object-fit: cover !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
 h3 {
@@ -49,9 +49,9 @@ p.video-date {
 }
 
 .modal {
-  background-color: #004aab;
+  background-color: #0b046c;
   color: white;
-  padding: 20px;
+  padding: 50px;
   border-radius: 10px;
   max-width: 600px;
   margin: auto;
@@ -76,6 +76,79 @@ p.video-date {
 
 .modal-overlay {
   z-index: 999;
+}
+
+.button-modal-close {
+  transform: translateX(15px);
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 100px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-internal {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 100px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-internal:hover {
+  background-color: #000000;
+}
+
+.btn-internal:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  background-color: #2c2c2c;
+  border-radius: 5px;
+  height: 205px;
+  position: relative;
+}
+
+.skeleton-thumbnail-video {
+  background-color: #555;
+  width: 100%;
+  height: 60%;
+  border-radius: 5px;
+  animation: skeleton-loading 1.2s infinite;
+}
+
+.skeleton-title-video {
+  background-color: #555;
+  width: 80%;
+  height: 15px;
+  margin: 0.5rem;
+  border-radius: 4px;
+  animation: skeleton-loading 30.2s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #555;
+  }
+  50% {
+    background-color: #777;
+  }
+  100% {
+    background-color: #555;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -115,5 +188,9 @@ p.video-date {
   ::-webkit-scrollbar-thumb {
     background: #000000;
     border-radius: 50rem;
+  }
+  .button-modal-close {
+    transform: translateY(15px);
+    padding: 10px 104px;
   }
 }

@@ -1,24 +1,27 @@
-import React, { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Autoplay, Pagination } from "swiper/modules";
-import Modal from "react-modal";
-import "swiper/css";
-import "swiper/css/effect-fade";
-import "swiper/css/pagination";
-import HomeVideoDisplay from "./service/HomeVideoDisplay";
+import React, { useState, useEffect } from 'react';
+import Modal from 'react-modal';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
+import HomeVideoDisplay from './service/HomeVideoDisplay';
 import {
-  videosData,
-  videosDataSerieA,
-  videosDataSerieB,
-  videosDataSerieC,
-  videosDataDestaques,
-  allVideos,
-} from "./service/HomeVideoList";
-import Skeleton from "./skeleton/Skeleton";
-import "../home/css/Home.css";
-import BannerChannel from "../home/img/channel_banner.jpg";
+  Highlights,
+  Recommended,
+  Terror,
+  Action,
+  Adventure,
+  Sports,
+  MostViewedVideos,
+  Race,
+} from './service/HomeVideoList';
+import Skeleton from './skeleton/Skeleton';
+import '../home/css/Home.css';
+import { useNavigate } from 'react-router-dom';
+import BannerChannel from '../home/img/channel_banner_web.png';
+import { Carousel } from 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 const VideoSection = ({
   title,
@@ -35,6 +38,7 @@ const VideoSection = ({
       videos={videos.slice(0, displayedCount)}
       openModal={openModal}
     />
+
     {displayedCount < videos.length && (
       <button
         className="load-more-btn"
@@ -47,9 +51,10 @@ const VideoSection = ({
           setLoadingMore((prev) => !prev);
         }}
       >
-        {loadingMore ? "Ver Mais" : "Ver Mais"}
+        {loadingMore ? 'Ver Mais' : 'Ver Mais'}
       </button>
     )}
+
     {loadingMore && displayedCount >= videos.length && (
       <button
         className="load-more-btn"
@@ -67,6 +72,7 @@ const VideoSection = ({
 );
 
 const Home = () => {
+  const navigate = useNavigate();
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -74,26 +80,74 @@ const Home = () => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  //exibir vídeos
+  {
+    /* < ==================== Exibir vídeos ===========================> */
+  }
+
+  const [displayedVideosHighlights, setDisplayedVideosHighlights] = useState(4);
+
   const [displayedVideosRecommended, setDisplayedVideosRecommended] =
     useState(4);
-  const [displayedVideosSeries, setDisplayedVideosSeries] = useState(4);
-  const [displayedVideosDestaques, setDisplayedVideosDestaques] = useState(4);
-  const [displayedVideosvideosDataSerieB, setDisplayedVideosvideosDataSerieB] =
-    useState(4);
-  const [displayedVideosvideosDataSerieC, setDisplayedVideosvideosDataSerieC] =
-    useState(4);
-  const [displayedVideosAll, setDisplayedVideosAll] = useState(4);
 
-  // carregamento
+  const [displayedVideosSeriesTerror, setDisplayedVideosSeriesTerror] =
+    useState(4);
+
+  const [
+    displayedVideosvideosDataSerieAction,
+    setDisplayedVideosvideosDataSerieAction,
+  ] = useState(4);
+
+  const [
+    displayedVideosvideosDataSerieAdventure,
+    setDisplayedVideosvideosDataSerieAdventure,
+  ] = useState(4);
+
+  const [
+    displayedVideosvideosDataSerieSports,
+    setDisplayedVideosvideosDataSerieSports,
+  ] = useState(4);
+
+  const [displayedRace, setDisplayedRace] = useState(4);
+
+  const [displayedMostViewedVideos, setDisplayedMostViewedVideos] = useState(4);
+
+  {
+    /* < ==================== Exibir vídeos Fim ===========================> */
+  }
+
+  {
+    /* < ==================== Carregamento ===========================> */
+  }
+
+  const [loadingMoreHighlights, setLoadingMoreHighlights] = useState(false);
+
   const [loadingMoreRecommended, setLoadingMoreRecommended] = useState(false);
-  const [loadingMoreSeries, setLoadingMoreSeries] = useState(false);
-  const [loadingMorevideosDataSerieB, setLoadingMorevideosDataSerieB] =
+
+  const [loadingMoreSeriesTerror, setLoadingMoreSeriesTerror] = useState(false);
+
+  const [
+    loadingMorevideosDataSerieAction,
+    setLoadingMorevideosDataSerieAction,
+  ] = useState(false);
+
+  const [
+    loadingMorevideosDataSerieAdventure,
+    setLoadingMorevideosDataSerieAdventure,
+  ] = useState(false);
+
+  const [
+    loadingMorevideosDataSerieSports,
+    setLoadingMorevideosDataSerieSports,
+  ] = useState(false);
+
+  const [loadingMoreRace, setLoadingMoreRace] = useState(false);
+
+  const [loadingMoreMostViewedVideos, setLoadingMoreMostViewedVideos] =
     useState(false);
-  const [loadingMorevideosDataSerieC, setLoadingMorevideosDataSerieC] =
-    useState(false);
-  const [loadingMoreDestaques, setLoadingMoreDestaques] = useState(false);
-  const [loadingMoreAll, setLoadingMoreAll] = useState(false);
+
+  {
+    /* < ==================== Carregamento Fim ===========================> */
+  }
 
   useEffect(() => {
     const loadData = () => {
@@ -111,9 +165,9 @@ const Home = () => {
       setBannerVisible(window.innerWidth > 480);
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -127,21 +181,120 @@ const Home = () => {
     setSelectedVideo(null);
   };
 
+  const goToPlaylist = () => {
+    navigate('/playlists');
+  };
+
+  const goToAllVideos = () => {
+    navigate('/videos');
+  };
+
+  {
+    /* < ==================== Banner ===========================> */
+  }
+
   return (
     <div className="home-container">
       {bannerVisible && (
-        <Swiper
-          spaceBetween={30}
-          effect="fade"
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          modules={[EffectFade, Autoplay, Pagination]}
-          className="mySwiper"
+        <div
+          id="carouselExampleCaptions"
+          className="carousel slide"
+          data-bs-ride="carousel"
         >
-          <SwiperSlide>
-            <img src={BannerChannel} alt="Banner" className="carousel-image" />
-          </SwiperSlide>
-        </Swiper>
+          <div className="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              className="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img
+                src="https://c4.wallpaperflare.com/wallpaper/230/814/455/far-cry-primal-wallpaper-preview.jpg"
+                className="d-block w-100"
+                alt="Far Cry Primal"
+              />
+
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Far Cry Primal</h5>
+                <p>Explore the savage world of Far Cry Primal.</p>
+              </div>
+            </div>
+
+            <div className="carousel-item">
+              <img
+                src="https://www.psu.com/wp/wp-content/uploads/2020/10/Assassins-Creed-Valhalla-PS4-PS5-Wallpapers-06.jpg"
+                className="d-block w-100"
+                alt="Assassin's Creed Valhalla"
+              />
+
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Assassin's Creed Valhalla</h5>
+                <p>Join Eivor on a legendary journey through the Viking Age.</p>
+              </div>
+            </div>
+
+            <div className="carousel-item">
+              <img
+                src="https://wallpapercave.com/wp/wp8599453.jpg"
+                className="d-block w-100"
+                alt="Dead Rising 3 "
+              />
+
+              <div className="carousel-caption d-none d-md-block">
+                <h5>Dead Rising 3 </h5>
+                <p>Get immersed in the post-apocalyptic world.</p>
+              </div>
+            </div>
+          </div>
+
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span
+              className="carousel-control-prev-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span
+              className="carousel-control-next-icon"
+              aria-hidden="true"
+            ></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+
+          {/* < ==================== Banner Fim ===========================> */}
+        </div>
       )}
 
       {loading ? (
@@ -154,9 +307,23 @@ const Home = () => {
           <br />
           <br />
           <br />
+
+          <VideoSection
+            title="Destaques"
+            videos={Highlights}
+            displayedCount={displayedVideosHighlights}
+            setDisplayedCount={setDisplayedVideosHighlights}
+            loadingMore={loadingMoreHighlights}
+            setLoadingMore={setLoadingMoreHighlights}
+            openModal={openModal}
+          />
+
+          <br />
+          <br />
+
           <VideoSection
             title="Recomendados"
-            videos={videosData}
+            videos={Recommended}
             displayedCount={displayedVideosRecommended}
             setDisplayedCount={setDisplayedVideosRecommended}
             loadingMore={loadingMoreRecommended}
@@ -164,71 +331,75 @@ const Home = () => {
             openModal={openModal}
           />
 
-          <VideoSection
-            title="Destaques"
-            videos={videosDataDestaques}
-            displayedCount={displayedVideosDestaques}
-            setDisplayedCount={setDisplayedVideosDestaques}
-            loadingMore={loadingMoreDestaques}
-            setLoadingMore={setLoadingMoreDestaques}
-            openModal={openModal}
-          />
+          {/* <h1 className="titlePage">Séries de Assassin's Creed</h1> */}
           <br />
-          <br />
-
-          <hr />
-          <br />
-          <h1 className="titlePage">Séries de Assassin's Creed</h1>
-          <br />
-          <h1>Assassin's Creed Valhalla</h1>
+          {/* <h1>Assassin's Creed Valhalla</h1> */}
 
           <VideoSection
-            title=""
-            videos={videosDataSerieA}
-            displayedCount={displayedVideosSeries}
-            setDisplayedCount={setDisplayedVideosSeries}
-            loadingMore={loadingMoreSeries}
-            setLoadingMore={setLoadingMoreSeries}
+            title="Terror"
+            videos={Terror}
+            displayedCount={displayedVideosSeriesTerror}
+            setDisplayedCount={setDisplayedVideosSeriesTerror}
+            loadingMore={loadingMoreSeriesTerror}
+            setLoadingMore={setLoadingMoreSeriesTerror}
             openModal={openModal}
           />
 
           <br />
 
-          <h1>Assassin's Creed III Remastered</h1>
           <VideoSection
-            title=""
-            videos={videosDataSerieB}
-            displayedCount={displayedVideosvideosDataSerieB}
-            setDisplayedCount={setDisplayedVideosvideosDataSerieB}
-            loadingMore={loadingMorevideosDataSerieB}
-            setLoadingMore={setLoadingMorevideosDataSerieB}
+            title="Ação"
+            videos={Action}
+            displayedCount={displayedVideosvideosDataSerieAction}
+            setDisplayedCount={setDisplayedVideosvideosDataSerieAction}
+            loadingMore={loadingMorevideosDataSerieAction}
+            setLoadingMore={setLoadingMorevideosDataSerieAction}
+            openModal={openModal}
+          />
+
+          <br />
+          <br />
+
+          <VideoSection
+            title="Aventura"
+            videos={Adventure}
+            displayedCount={displayedVideosvideosDataSerieAdventure}
+            setDisplayedCount={setDisplayedVideosvideosDataSerieAdventure}
+            loadingMore={loadingMorevideosDataSerieAdventure}
+            setLoadingMore={setLoadingMorevideosDataSerieAdventure}
             openModal={openModal}
           />
           <br />
-          <h1 className="titlePage">Séries de Far Cry</h1>
-          <br />
-          <h1>Far Cry Classic</h1>
+
           <VideoSection
-            title=""
-            videos={videosDataSerieC}
-            displayedCount={displayedVideosvideosDataSerieC}
-            setDisplayedCount={setDisplayedVideosvideosDataSerieC}
-            loadingMore={loadingMorevideosDataSerieC}
-            setLoadingMore={setLoadingMorevideosDataSerieC}
+            title="Esportes"
+            videos={Sports}
+            displayedCount={displayedVideosvideosDataSerieSports}
+            setDisplayedCount={setDisplayedVideosvideosDataSerieSports}
+            loadingMore={loadingMorevideosDataSerieSports}
+            setLoadingMore={setLoadingMorevideosDataSerieSports}
             openModal={openModal}
           />
           <br />
-          <hr />
-          <br />
-          <h1 className="titlePage">Todos os Videos</h1>
+
+          <VideoSection
+            title="Corrida"
+            videos={Race}
+            displayedCount={displayedRace}
+            setDisplayedCount={setDisplayedRace}
+            loadingMore={loadingMoreRace}
+            setLoadingMore={setLoadingMoreRace}
+            openModal={openModal}
+          />
+
           <br />
           <VideoSection
-            title=""
-            videos={allVideos}
-            displayedCount={displayedVideosAll}
-            setDisplayedCount={setDisplayedVideosAll}
-            loadingMore={loadingMoreAll}
-            setLoadingMore={setLoadingMoreAll}
+            title="Vídeos mais acessados"
+            videos={MostViewedVideos}
+            displayedCount={displayedMostViewedVideos}
+            setDisplayedCount={setDisplayedMostViewedVideos}
+            loadingMore={loadingMoreMostViewedVideos}
+            setLoadingMore={setLoadingMoreMostViewedVideos}
             openModal={openModal}
           />
           <br />
@@ -237,6 +408,7 @@ const Home = () => {
         </>
       )}
 
+      {/* < ==================== MODAL ===========================> */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -245,6 +417,7 @@ const Home = () => {
         overlayClassName="modal-overlay"
       >
         <h2>{selectedVideo?.title}</h2>
+
         <iframe
           width="100%"
           height="315"
@@ -254,8 +427,29 @@ const Home = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-        <button onClick={closeModal}>Fechar</button>
+        {/* TODO: <button className="bt-close" onClick={closeModal}>
+          Fechar
+        </button> */}
+
+        <br />
+        <br />
+
+        <div className="button-container">
+          <button className="bt-playlist" onClick={goToPlaylist}>
+            Playlists
+          </button>
+
+          <button className="bt-videos" onClick={goToAllVideos}>
+            Videos
+          </button>
+
+          <button className="bt-close" onClick={closeModal}>
+            Fechar
+          </button>
+        </div>
       </Modal>
+
+      {/* < ==================== MODAL-FIM ===========================> */}
     </div>
   );
 };

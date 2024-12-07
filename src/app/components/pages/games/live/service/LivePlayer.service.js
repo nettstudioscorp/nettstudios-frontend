@@ -1,23 +1,20 @@
+// Função para retornar playlists com base no gameId
 export const getPlaylistByGameId = (gameId) => {
   const playlists = {
-    R6: [
-      {
-        videoId: "VIDEO_ID_BATMAN1",
-        title: "Batman - Parte 1",
-        thumbnail: "/thumbnails/batman1.jpg",
-      },
-      {
-        videoId: "VIDEO_ID_BATMAN2",
-        title: "Batman - Parte 2",
-        thumbnail: "/thumbnails/batman2.jpg",
-      },
-    ],
     WatchDogs: [
       {
         videoId: "E8tjZoSwD0c",
-        title: "Spiderman - Parte 1",
+        title: "WATCHDOGS - Parte 1",
+      },
+    ],
+    WatchDogs2: [
+      {
+        videoId: "E8tjZoSwD0c",
+        title: "WATCHDOGS 2 - Parte 1",
       },
     ],
   };
+
+  // Retorna a playlist correspondente ao gameId ou um array vazio se não encontrar
   return playlists[gameId] || [];
 };

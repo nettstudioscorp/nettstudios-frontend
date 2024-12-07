@@ -1,71 +1,99 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import PlayListPlayerService from "./service/PlayListPlayer.Service";
-import "./PlaylistPlayer.css";
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getPlaylistByGameId } from './service/PlayListPlayer.Service';
+import '../playlists/PlaylistPlayer.css';
 
-const PlayListPlayer = () => {
-  const { id } = useParams();
-  const [playlist, setPlaylist] = useState(null);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+const PlaylistPlayer = () => {
+  const { gameId } = useParams();
   const navigate = useNavigate();
+  const [playlist, setPlaylist] = useState([]);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
+  // Carregar a playlist conforme o gameId
   useEffect(() => {
-    const fetchedPlaylist = PlayListPlayerService.getPlaylistById(id);
-    setPlaylist(fetchedPlaylist);
-  }, [id]);
+    const gamePlaylist = getPlaylistByGameId(gameId);
+    setPlaylist(gamePlaylist);
+  }, [gameId]);
 
-  if (!playlist) {
-    return <p>Carregando playlist...</p>;
-  }
-
-  const handleVideoClick = (index) => {
+  const handleVideoChange = (index) => {
     setCurrentVideoIndex(index);
   };
 
-  const handleBackClick = () => {
-    navigate(-1);
+  const formatIndex = (index) => (index < 9 ? `0${index + 1}` : index + 1);
+
+  const currentVideo = playlist[currentVideoIndex];
+
+  const scrollTo = (direction) => {
+    const navScroll = document.querySelector('.nav-scroll');
+    const maxScrollPosition = navScroll.scrollWidth - navScroll.clientWidth;
+
+    let newScrollPosition =
+      scrollPosition + (direction === 'left' ? -200 : 200);
+
+    // Impede que o scroll ultrapasse o início ou o final da lista
+    if (newScrollPosition < 0) {
+      newScrollPosition = 0;
+    }
+    if (newScrollPosition > maxScrollPosition) {
+      newScrollPosition = maxScrollPosition;
+    }
+
+    setScrollPosition(newScrollPosition);
+    navScroll.scrollTo({
+      left: newScrollPosition,
+      behavior: 'smooth',
+    });
   };
 
   return (
-    <div className="playlist-player-container">
-      <div className="header">
-        <button className="back-button" onClick={handleBackClick}>
-          ← Voltar
-        </button>
-      </div>
-
-      <div className="content-wrapper">
-        <div className="video-list">
-          <h3>{playlist.title}</h3>
-          <div className="video-list-items">
-            {playlist.videos.map((video, index) => (
-              <div
-                key={index}
-                className={`video-item ${
-                  index === currentVideoIndex ? "active" : ""
-                }`}
-                onClick={() => handleVideoClick(index)}
-              >
-                <div className="video-info">
-                  <h4>{video.title}</h4>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="video-player">
+    <div className="player-container">
+      <br />
+      <br />
+      <button className="back-button" onClick={() => navigate('/playlists')}>
+        Voltar
+      </button>
+      {/* <h1>{gameId.toUpperCase()} - Playlist</h1> */}
+      <br />
+      {currentVideo?.videoId ? (
+        <div className="video-player-wrapper-live">
           <iframe
-            width="100%"
-            height="500"
-            src={`https://www.youtube.com/embed/${playlist.videos[currentVideoIndex].videoId}`}
-            title={playlist.videos[currentVideoIndex].title}
+            title="YouTube Video Player"
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${currentVideo.videoId}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         </div>
+      ) : (
+        <video controls width="560" height="315" src={currentVideo?.url} />
+      )}
+
+      <div className="video-navigation">
+        <button className="nav-scroll-button" onClick={() => scrollTo('left')}>
+          &lt;
+        </button>
+        <div className="nav-scroll">
+          {playlist.map((_, index) => (
+            <button
+              key={index}
+              className={`nav-button ${
+                currentVideoIndex === index ? 'active' : ''
+              }`}
+              onClick={() => handleVideoChange(index)}
+            >
+              {formatIndex(index)}
+            </button>
+          ))}
+        </div>
+        <button className="nav-scroll-button" onClick={() => scrollTo('right')}>
+          &gt;
+        </button>
       </div>
     </div>
   );
 };
 
-export default PlayListPlayer;
+export default PlaylistPlayer;
