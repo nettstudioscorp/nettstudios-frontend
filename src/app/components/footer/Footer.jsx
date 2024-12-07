@@ -59,17 +59,17 @@ const FooterComponent = () => {
           © Copyright 2015-2024 NettStudios - Games, Entretenimento e Criação
           de Conteúdo.
         </p>
-        <p>
+        {/* <p>
           {' '}
           Desenvolvido por{' '}
           <a href="#" target="_blank">
             NettCorpSolutions
           </a>{' '}
           - Soluções Digitais, TI e Inovação em Tecnologia.
-        </p>
+        </p> */}
         {/* TODO: <a href="#">Termos de uso e Política de privacidade</a> */}
 
-        <p>Site: 0.0.6</p>
+        <p>Site: 0.0.7</p>
       </div>
     </footer>
   );
