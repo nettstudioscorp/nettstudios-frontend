@@ -4,10 +4,11 @@
   color: #ffffff;
   font-family: Arial, sans-serif;
   text-align: center;
+  padding: 1rem;
 }
 
 .footer-logo {
-  width: 50px;
+  width: 100px;
   height: auto;
   border-radius: 50%;
   margin-bottom: 1rem;
@@ -51,8 +52,9 @@
 }
 
 .footer-app-button {
-  background-color: #007bff;
+  background-color: #0b046c;
   color: white;
+  font-weight: bolder;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
@@ -72,6 +74,15 @@
   color: #007bff;
   text-decoration: none;
 }
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+/* a:hover {
+  color: rgb(255, 255, 255);
+} */
 
 @media (max-width: 768px) {
   .footer-content {

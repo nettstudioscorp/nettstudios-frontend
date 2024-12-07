@@ -1,0 +1,10 @@
+# Ignorar a pasta node_modules
+node_modules/
+
+# Ignorar arquivos específicos
+src/ignore-this-file.js
+src/app/components/pages
+Home.jsx/
+
+# Ignorar toda a pasta build
+build/

@@ -1,21 +1,28 @@
-# theNettko
 
-![theNettko](./docs/banner-website.png)
+Bem-vindo ao **NettStudios**! Este projeto é um site dedicado a fornecer informações sobre games, incluindo vídeos, notícias e atualizações relacionadas a games. O **theNettko** foi criado em 2015 como um canal do YouTube, e agora estamos expandindo nosso conteúdo para incluir um site interativo que oferece uma experiência completa para entusiastas de jogos e programação.
 
-Bem-vindo ao **theNettko**! Este projeto é um site dedicado a fornecer informações sobre games, incluindo vídeos, notícias e atualizações relacionadas a games e programação. O **theNettko** foi criado em 2015 como um canal do YouTube, e agora estamos expandindo nosso conteúdo para incluir um site interativo que oferece uma experiência completa para entusiastas de jogos e programação.
+## Web
+
+![theNettko](./docs/NettStudios-web.png)
+
+## Mobile
+
+![theNettko](./docs/NettStudios-mobile.png)
 
 ## Funcionalidades
 
 - **Vídeos de Games**: Exiba vídeos recentes do YouTube relacionados ao canal de jogos.
-- **Notícias sobre Games**: Mantenha-se atualizado com as últimas notícias e novidades no mundo dos games.
-- **Podcasts sobre Games e Programação**: Ouça podcasts informativos sobre games e programação para expandir seu conhecimento e ficar por dentro das tendências do setor.
+<!-- - **Notícias sobre Games**: Mantenha-se atualizado com as últimas notícias e novidades no mundo dos games.
+- **Podcasts sobre Games**: Ouça podcasts informativos sobre games.
 - **Sistema de Membros**: Usuários cadastrados na plataforma podem receber notificações de novidades e atualizações.
-- **Sistema de Login**: Gerencie o acesso dos usuários com funcionalidades de login e autenticação.
+- **Sistema de Login**: Gerencie o acesso dos usuários com funcionalidades de login e autenticação. -->
 
 ## Tecnologias Utilizadas
 
 - **Frontend**: React
-<!-- - **API**: YouTube Data API v3 -->
+
+<!-- - **API**: YouTube Data API v3 
+- **Estilização**: CSS -->
 
 ## Requisitos
 

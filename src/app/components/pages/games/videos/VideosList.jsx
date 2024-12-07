@@ -1,129 +1,54 @@
-import React, { useState } from "react";
-import Modal from "react-modal";
-import { videos } from "./service/Videoslist.Service";
-import "../../games/videos/css/VideosList.css";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { fetchVideos } from './api/Videoslist.Service';
+import '../../games/videos/css/VideosList.css';
 
 const VideosComponent = () => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState(null);
-  const [activeFilter, setActiveFilter] = useState("recent");
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const openModal = (video) => {
-    setSelectedVideo(video);
-    setModalIsOpen(true);
-  };
+  useEffect(() => {
+    const loadVideos = async () => {
+      const data = await fetchVideos();
+      setVideos(data);
+      setLoading(false);
+    };
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-    setSelectedVideo(null);
-  };
+    loadVideos();
+  }, []);
 
-  const handleWatch = (url) => {
-    window.open(url, "_blank");
-    closeModal();
-  };
-
-  const handleFilter = (filter) => {
-    setActiveFilter(filter);
-  };
-
-  const filteredVideos = () => {
-    switch (activeFilter) {
-      case "recent":
-        return [...videos].sort(
-          (a, b) =>
-            new Date(b.snippet.description.split(" • ")[1]) -
-            new Date(a.snippet.description.split(" • ")[1])
-        );
-      case "popular":
-        return [...videos].sort(
-          (a, b) =>
-            parseInt(b.snippet.description.split(" ")[0]) -
-            parseInt(a.snippet.description.split(" ")[0])
-        );
-      case "oldest":
-        return [...videos].sort(
-          (a, b) =>
-            new Date(a.snippet.description.split(" • ")[1]) -
-            new Date(b.snippet.description.split(" • ")[1])
-        );
-      default:
-        return videos;
-    }
-  };
-
-  return (
-    <>
-      {/* TODO: <div className="buttons-container">
-        <button
-          className={`filter-button ${
-            activeFilter === "recent" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("recent")}
-        >
-          Mais recentes
-        </button>
-        <button
-          className={`filter-button ${
-            activeFilter === "popular" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("popular")}
-        >
-          Em alta
-        </button>
-        <button
-          className={`filter-button ${
-            activeFilter === "oldest" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("oldest")}
-        >
-          Mais antigo
-        </button>
-      </div> */}
-
+  const renderSkeletonLoader = () => {
+    return (
       <div className="video-grid">
-        {filteredVideos().map((video) => (
-          <div className="video-item" key={video.id}>
-            <img
-              src={video.snippet.thumbnails.medium.url}
-              alt={video.snippet.title}
-              onClick={() => openModal(video)}
-            />
-            <h3 onClick={() => openModal(video)}>{video.snippet.title}</h3>
-            <p className="video-date">{video.snippet.description}</p>
+        {[...Array(9)].map((_, index) => (
+          <div className="video-item skeleton" key={index}>
+            <div className="skeleton-thumbnail-video"></div>
+            <div className="skeleton-title-video"></div>
           </div>
         ))}
-
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          contentLabel="Choose Watch Option"
-          className="modal"
-          overlayClassName="modal-overlay"
-        >
-          <h2>{selectedVideo?.snippet.title}</h2>
-          <p>Escolha onde deseja assistir:</p>
-          <button
-            className="btn btn-external"
-            onClick={() =>
-              handleWatch(
-                `https://www.youtube.com/watch?v=${selectedVideo?.videoId}`
-              )
-            }
-          >
-            Assistir no YouTube
-          </button>
-          <button
-            className="btn btn-internal"
-            onClick={() => handleWatch(`/watch/${selectedVideo?.videoId}`)}
-          >
-            Assistir na Página
-          </button>
-          <button onClick={closeModal}>Fechar</button>
-        </Modal>
       </div>
-    </>
-  );
+    );
+  };
+
+  const renderVideos = () => {
+    return (
+      <div className="video-grid">
+        {videos.map((video) => (
+          <div className="video-item" key={video.videoId}>
+            <Link to={`/videos/${video.videoId}`}>
+              <img
+                src={video.snippet.thumbnails.medium.url}
+                alt={video.snippet.title}
+              />
+            </Link>
+            <h3>{video.snippet.title}</h3>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  return <div>{loading ? renderSkeletonLoader() : renderVideos()}</div>;
 };
 
 export default VideosComponent;
