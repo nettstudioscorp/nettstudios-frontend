@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import '../community/community.css';
 import { getCommunityPosts } from '../community/service/community.service';
 
@@ -14,9 +15,28 @@ const Community = () => {
   const handleReplySubmit = (e, postId) => {
     e.preventDefault();
     if (reply.trim()) {
-      alert(`Comentário enviado: "${reply}" no post ${postId}`);
-      setReply('');
-      setRepliedPostId(null);
+      const emailData = {
+        to_name: 'Equipe NettStudios',
+        from_name: 'Usuário do NettStudios',
+        message: `Comentário no post ${postId + 1}: "${reply}"`,
+      };
+
+      emailjs
+        .send(
+          process.env.REACT_APP_EMAILJS_SERVICE_ID,
+          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+          emailData,
+          process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+        )
+        .then(() => {
+          alert('Comentário enviado com sucesso!');
+          setReply('');
+          setRepliedPostId(null);
+        })
+        .catch((error) => {
+          console.error('Erro ao enviar o e-mail:', error);
+          alert('Falha ao enviar o comentário. Tente novamente.');
+        });
     }
   };
 
@@ -66,7 +86,6 @@ const Community = () => {
               )}
             </div>
             <div className="post-actions">
-              {/* TODO: <button className="action-button">👍 {post.likes}</button> */}
               <button
                 className="action-button"
                 onClick={() => toggleReplyForm(index)}

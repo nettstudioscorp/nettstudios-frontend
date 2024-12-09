@@ -1,5 +1,16 @@
 export const getCommunityPosts = () => [
   {
+    author: 'NettStudios - Updates',
+    authorLogo: 'NS',
+    time: '07/12/24',
+    content: `Atualização da Plataforma v0.0.7
+  traz melhorias significativas na experiência do usuário. Para mais informações, acesse a seção Updates, onde você encontrará o relatório e PDF da atualização da versão da plataforma.`,
+    likes: 0,
+    comments: [],
+    expanded: false,
+  },
+
+  {
     author: 'NettStudios',
     authorLogo: 'NS',
     time: 'há 2 meses (editado)',
