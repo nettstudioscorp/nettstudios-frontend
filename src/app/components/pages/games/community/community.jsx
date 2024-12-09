@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
 import '../community/community.css';
 import { getCommunityPosts } from '../community/service/community.service';
+import { sendEmail } from '../../games/community/service/emailjs';
 
 const Community = () => {
   const [posts, setPosts] = useState(getCommunityPosts());
@@ -15,19 +15,7 @@ const Community = () => {
   const handleReplySubmit = (e, postId) => {
     e.preventDefault();
     if (reply.trim()) {
-      const emailData = {
-        to_name: 'Equipe NettStudios',
-        from_name: 'Usuário do NettStudios',
-        message: `Comentário no post ${postId + 1}: "${reply}"`,
-      };
-
-      emailjs
-        .send(
-          process.env.REACT_APP_EMAILJS_SERVICE_ID,
-          process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-          emailData,
-          process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-        )
+      sendEmail(postId, reply)
         .then(() => {
           alert('Comentário enviado com sucesso!');
           setReply('');
