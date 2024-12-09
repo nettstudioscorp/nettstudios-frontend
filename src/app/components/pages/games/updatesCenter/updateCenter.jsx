@@ -7,7 +7,7 @@ const UpdateCenter = () => {
   return (
     <div className="update-container">
       <header className="update-header">
-        <h1>📢 Central de Atualizações</h1>
+        <h1>🔔 Central de Atualizações</h1>
         <p>Fique por dentro das últimas atualizações da plataforma.</p>
       </header>
       <div className="updates-list">

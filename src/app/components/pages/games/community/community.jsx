@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import '../community/community.css';
 import { getCommunityPosts } from '../community/service/community.service';
 import { sendEmail } from '../../games/community/service/emailjs';
@@ -37,25 +38,32 @@ const Community = () => {
 
   return (
     <div className="community-container">
-      <h1>🔔 Central da Comunidade</h1>
+      <h1>📢 Central de Novidades e Atualizações</h1>
       <p>
-        Fique por dentro das últimas novidades, melhorias, avisos e agendas do
-        mês da plataforma.
+        Descubra as últimas melhorias, eventos, avisos e novidades da nossa
+        plataforma. Fique sempre por dentro!
       </p>
+
+      <Link to="/updates" className="updates-button">
+        <button className="update-button">Ver Atualizações</button>
+      </Link>
+
       <br />
       <br />
       <div className="posts-list">
         {posts.map((post, index) => (
           <div className="post-card" key={index}>
             <div className="post-header">
-              <div className="post-author-logo">
+              {/* TODO: <div className="post-author-logo">
                 <span>{post.authorLogo}</span>
-              </div>
-              <div className="post-author-details">
+              </div> */}
+
+              {/* TODO: <div className="post-author-details">
                 <h2 className="post-author-name">{post.author}</h2>
                 <p className="post-time">{post.time}</p>
-              </div>
+              </div> */}
             </div>
+
             <div className="post-content">
               <p>
                 {post.expanded
@@ -73,6 +81,7 @@ const Community = () => {
                 </button>
               )}
             </div>
+
             <div className="post-actions">
               <button
                 className="action-button"
@@ -92,6 +101,7 @@ const Community = () => {
                   value={reply}
                   onChange={(e) => setReply(e.target.value)}
                 />
+
                 <button className="reply-submit-button" type="submit">
                   Enviar
                 </button>

@@ -13,6 +13,21 @@
   min-height: 100vh;
 }
 
+.update-button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #1761ff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.update-button:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
 .community-title {
   text-align: center;
   font-size: 2.5rem;

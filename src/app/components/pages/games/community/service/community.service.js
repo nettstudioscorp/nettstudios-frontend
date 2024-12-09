@@ -1,8 +1,8 @@
 export const getCommunityPosts = () => [
   {
-    author: 'NettStudios - Updates',
-    authorLogo: 'NS',
-    time: '07/12/24',
+    // author: 'NettStudios',
+    // authorLogo: 'NS',
+    // time: '07/12/24',
     content: `Atualização da Plataforma v0.0.7
   traz melhorias significativas na experiência do usuário. Para mais informações, acesse a seção Updates, onde você encontrará o relatório e PDF da atualização da versão da plataforma.`,
     likes: 0,
@@ -11,9 +11,9 @@ export const getCommunityPosts = () => [
   },
 
   {
-    author: 'NettStudios',
-    authorLogo: 'NS',
-    time: 'há 2 meses (editado)',
+    // author: 'NettStudios',
+    // authorLogo: 'NS',
+    // time: 'há 2 meses (editado)',
     content: `Novidades em Breve no Canal!:
     Olá, pessoal!
 
@@ -28,9 +28,9 @@ Durante esse período de desenvolvimento, o canal entrará em uma pausa indefini
   },
 
   {
-    author: 'NettStudios',
-    authorLogo: 'NS',
-    time: 'há 1 ano',
+    // author: 'NettStudios',
+    // authorLogo: 'NS',
+    // time: 'há 1 ano',
     content: `Agenda deste mês de Outubro:
     - Assassin's Creed Brotherhood
     - Mafia III Definitive Edition

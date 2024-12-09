@@ -164,7 +164,7 @@ const Navbar = () => {
                   Comunidade
                 </Link>
               </li>
-
+              {/* 
               <li className="nav-item">
                 <Link
                   to="/updates"
@@ -178,7 +178,7 @@ const Navbar = () => {
                 >
                   Updates
                 </Link>
-              </li>
+              </li> */}
 
               {/* TODO: <li className="nav-item">
                 <Link
