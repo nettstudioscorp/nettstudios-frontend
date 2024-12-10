@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserService } from '../../pages/login/services/userService';
 import '../login/Login.css';
 
 const Login = () => {
@@ -7,34 +8,58 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState('');
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem('isAuthenticated') === 'true') {
+      navigate('/comunidade');
+    }
+  }, [navigate]);
 
   const toggleForm = () => setIsLogin(!isLogin);
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  const handleLogin = async () => {
+    try {
+      const userLoggedIn = await UserService.login(email, password);
 
-    if (isLogin) {
-      const storedUser = JSON.parse(localStorage.getItem('user'));
-      if (
-        storedUser &&
-        storedUser.email === email &&
-        storedUser.password === password
-      ) {
+      if (userLoggedIn) {
         localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('user', JSON.stringify({ email }));
+        alert('Login bem-sucedido!');
         navigate('/comunidade');
       } else {
-        alert('Email ou senha inválidos.');
+        alert('Credenciais inválidas!');
       }
-    } else {
+    } catch (error) {
+      alert('Erro ao fazer login');
+    }
+  };
+
+  const handleSignup = async () => {
+    try {
       if (password !== confirmPassword) {
-        alert('As senhas não coincidem.');
+        alert('Senhas não coincidem');
         return;
       }
 
-      localStorage.setItem('user', JSON.stringify({ email, password }));
-      alert('Conta criada com sucesso! Faça login.');
-      setIsLogin(true);
+      const response = await UserService.signup({ email, password, name });
+
+      localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem('user', JSON.stringify({ email, name }));
+      alert('Conta criada com sucesso!');
+      navigate('/comunidade');
+    } catch (error) {
+      alert('Erro ao criar conta');
+    }
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    if (isLogin) {
+      await handleLogin();
+    } else {
+      await handleSignup();
     }
   };
 
@@ -44,12 +69,9 @@ const Login = () => {
         <h2>{isLogin ? 'Login' : 'Cadastro'}</h2>
         <form onSubmit={handleFormSubmit}>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Endereço de email
-            </label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
-              className="form-control"
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -58,12 +80,9 @@ const Login = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              Senha
-            </label>
+            <label htmlFor="password">Senha</label>
             <input
               type="password"
-              className="form-control"
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -73,12 +92,22 @@ const Login = () => {
 
           {!isLogin && (
             <div className="mb-3">
-              <label htmlFor="confirmPassword" className="form-label">
-                Confirme sua senha
-              </label>
+              <label htmlFor="name">Nome</label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+          )}
+
+          {!isLogin && (
+            <div className="mb-3">
+              <label htmlFor="confirmPassword">Confirme sua senha</label>
               <input
                 type="password"
-                className="form-control"
                 id="confirmPassword"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -88,14 +117,12 @@ const Login = () => {
           )}
 
           <button type="submit" className="btn btn-primary">
-            {isLogin ? 'Login' : 'Criar uma conta'}
+            {isLogin ? 'Entrar' : 'Cadastrar'}
           </button>
         </form>
 
         <p className="switch-form" onClick={toggleForm}>
-          {isLogin
-            ? 'Não tem uma conta? Registre-se aqui.'
-            : 'Já tem uma conta? Entre aqui.'}
+          {isLogin ? 'Não tem conta? Cadastre-se' : 'Já tem conta? Faça login'}
         </p>
       </div>
     </div>

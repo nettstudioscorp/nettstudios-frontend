@@ -10,7 +10,6 @@ const Community = () => {
   const [repliedPostId, setRepliedPostId] = useState(null);
   const navigate = useNavigate();
 
-  // Verifica se o usuário está autenticado
   useEffect(() => {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
     if (isAuthenticated !== 'true') {
