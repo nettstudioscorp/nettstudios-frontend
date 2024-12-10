@@ -7,6 +7,11 @@ import Logo from '../navbar/images/NettStudios.svg';
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('/');
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para controle de login
+  const [user, setUser] = useState({
+    name: 'Alan Rocha Gomes',
+    avatar: 'https://via.placeholder.com/40', // URL padrão do avatar
+  });
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -14,6 +19,15 @@ const Navbar = () => {
 
   const closeMenu = () => {
     setMenuOpen(false);
+  };
+
+  const handleLogin = () => {
+    setIsLoggedIn(true); // Simula login
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false); // Simula logout
+    setUser({});
   };
 
   return (
@@ -58,23 +72,6 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-
-              {/* TODO: Improve implementation with the backend 
-              <li className="nav-item">
-                <Link
-                  to="/videos"
-                  className={`nav-link ${
-                    activeLink === '/videos' ? 'active' : ''
-                  }`}
-                  onClick={() => {
-                    setActiveLink('/videos');
-                    closeMenu();
-                  }}
-                >
-                  Videos
-                </Link>
-              </li> */}
-
               <li className="nav-item">
                 <Link
                   to="/playlists"
@@ -89,67 +86,6 @@ const Navbar = () => {
                   Playlists
                 </Link>
               </li>
-
-              {/* TODO: <li className="nav-item">
-                <Link
-                  to="/lives"
-                  className={`nav-link ${
-                    activeLink === '/lives' ? 'active' : ''
-                  }`}
-                  onClick={() => {
-                    setActiveLink('/lives');
-                    closeMenu();
-                  }}
-                >
-                  Lives
-                </Link>
-              </li> */}
-
-              {/* TODO: <li className="nav-item">
-                <Link
-                  to="/news"
-                  className={`nav-link ${
-                    activeLink === '/news' ? 'active' : ''
-                  }`}
-                  onClick={() => {
-                    setActiveLink('/news');
-                    closeMenu();
-                  }}
-                >
-                  News
-                </Link>
-              </li> */}
-
-              {/* TODO: <li className="nav-item">
-                <Link
-                  to="/reviews"
-                  className={`nav-link ${
-                    activeLink === '/reviews' ? 'active' : ''
-                  }`}
-                  onClick={() => {
-                    setActiveLink('/reviews');
-                    closeMenu();
-                  }}
-                >
-                  Reviews
-                </Link>
-              </li> */}
-
-              {/* TODO:  <li className="nav-item">
-                <Link
-                  to="/story"
-                  className={`nav-link ${
-                    activeLink === '/story' ? 'active' : ''
-                  }`}
-                  onClick={() => {
-                    setActiveLink('/story');
-                    closeMenu();
-                  }}
-                >
-                  Menbros
-                </Link>
-              </li> */}
-
               <li className="nav-item">
                 <Link
                   to="/comunidade"
@@ -164,52 +100,24 @@ const Navbar = () => {
                   Comunidade
                 </Link>
               </li>
-              {/* 
-              <li className="nav-item">
-                <Link
-                  to="/updates"
-                  className={`nav-link ${
-                    activeLink === '/updates' ? 'active' : ''
-                  }`}
-                  onClick={() => {
-                    setActiveLink('/updates');
-                    closeMenu();
-                  }}
-                >
-                  Updates
-                </Link>
-              </li> */}
-
-              {/* TODO: <li className="nav-item">
-                <Link
-                  to="/about"
-                  className={`nav-link ${
-                    activeLink === '/about' ? 'active' : ''
-                  }`}
-                  onClick={() => {
-                    setActiveLink('/about');
-                    closeMenu();
-                  }}
-                >
-                  Sobre Nós
-                </Link>
-              </li> */}
-
-              {/* TODO: <li className="nav-item">
-                <Link
-                  to="/login"
-                  className={`nav-link ${
-                    activeLink === '/login' ? 'active' : ''
-                  }`}
-                  onClick={() => {
-                    setActiveLink('/login');
-                    closeMenu();
-                  }}
-                >
-                  Entrar/Cadastrar
-                </Link>
-              </li> */}
             </ul>
+            <div className="ms-auto">
+              {!isLoggedIn ? (
+                <button className="btn btn-primary" onClick={handleLogin}>
+                  Entrar
+                </button>
+              ) : (
+                <div className="user-section">
+                  <img
+                    src={user.avatar}
+                    alt="User Avatar"
+                    className="user-avatar"
+                    onClick={handleLogout}
+                  />
+                  <p className="user-name">{user.name}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </nav>

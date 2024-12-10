@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../community/community.css';
 import { getCommunityPosts } from '../community/service/community.service';
 import { sendEmail } from '../../games/community/service/emailjs';
@@ -8,6 +8,16 @@ const Community = () => {
   const [posts, setPosts] = useState(getCommunityPosts());
   const [reply, setReply] = useState('');
   const [repliedPostId, setRepliedPostId] = useState(null);
+  const navigate = useNavigate();
+
+  // Verifica se o usuário está autenticado
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    if (isAuthenticated !== 'true') {
+      alert('Você precisa estar logado para acessar esta página.');
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const toggleReplyForm = (index) => {
     setRepliedPostId(repliedPostId === index ? null : index);

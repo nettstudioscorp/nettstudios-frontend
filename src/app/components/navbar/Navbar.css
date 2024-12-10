@@ -90,3 +90,59 @@ h3 {
   padding: 0 1rem !important;
   text-align: left !important;
 }
+
+.user-section {
+  display: flex;
+  align-items: center;
+}
+
+.user-dropdown {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.user-menu {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: none;
+}
+
+.user-dropdown:hover .user-menu {
+  display: block;
+}
+
+.user-menu p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.user-menu a {
+  text-decoration: none;
+  color: #007bff;
+  margin-top: 5px;
+  display: block;
+}
+
+.logout-button {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  margin-top: 10px;
+  display: block;
+}
