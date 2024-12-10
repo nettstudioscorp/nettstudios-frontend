@@ -10,7 +10,7 @@
 }
 
 .form-card {
-  background: #0066ff;
+  background: #023177;
   color: #ffffff;
   font-weight: bold;
   padding: 2rem;
@@ -34,7 +34,7 @@ h2 {
 .btn-primary {
   width: 100%;
   padding: 0.8rem;
-  background-color: #000000;
+  background-color: #0099ff;
   border: none;
   border-radius: 5px;
   color: white;
@@ -44,7 +44,8 @@ h2 {
 }
 
 .btn-primary:hover {
-  background-color: #004494;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .switch-form {

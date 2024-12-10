@@ -1,132 +1,57 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import EditProfileModal from './EditProfileModal';
+import './DropdownUserMenu.css';
 
 const DropdownUserMenu = ({ onLogout }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [userName, setUserName] = useState('Usuário');
-  const navigate = useNavigate();
-
-  const toggleDropdown = () => {
-    setIsDropdownOpen((prevState) => !prevState);
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user?.name) {
-      setUserName(user.name);
-    }
+    if (user?.name) setUserName(user.name);
   }, []);
 
-  const handleEditProfile = () => {
-    setIsEditModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsEditModalOpen(false);
-  };
-
-  const handleSaveProfile = () => {
-    const updatedName = userName;
-    localStorage.setItem(
-      'user',
-      JSON.stringify({
-        ...(JSON.parse(localStorage.getItem('user')) || {}),
-        name: updatedName,
-      })
-    );
-    alert('Perfil salvo com sucesso!');
-    setIsEditModalOpen(false);
-  };
-
-  const handleDeleteAccount = () => {
-    const confirmation = window.confirm(
-      'Tem certeza de que deseja excluir sua conta?'
-    );
-    if (confirmation) {
-      localStorage.clear();
-      alert('Conta excluída com sucesso');
-      navigate('/login');
-      setUserName('Usuário');
-    }
-  };
-
-  const handleLogout = () => {
-    localStorage.clear();
-    onLogout();
-    setUserName('Usuário');
+  const handleProfileUpdate = (updatedUser) => {
+    if (updatedUser.name) setUserName(updatedUser.name);
   };
 
   return (
     <div className="dropdown">
-      {/* ================ Dropdown ============ */}
+      {/* =========== Botão do Dropdown =========== */}
       <button
         className="btn btn-secondary dropdown-toggle"
         type="button"
-        aria-expanded={isDropdownOpen}
-        onClick={toggleDropdown}
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
       >
-        {userName}
+        <div className="avatar">{userName[0]?.toUpperCase()}</div>
+        <span>{userName}</span>
       </button>
 
-      {isDropdownOpen && (
-        <ul className="dropdown-menu show">
-          <li>
-            <button
-              className="dropdown-item"
-              type="button"
-              onClick={handleEditProfile}
-            >
-              Editar Perfil
-            </button>
-          </li>
-          <li>
-            <button
-              className="dropdown-item"
-              type="button"
-              onClick={handleDeleteAccount}
-            >
-              Excluir Conta
-            </button>
-          </li>
-          <li>
-            <button
-              className="dropdown-item"
-              type="button"
-              onClick={handleLogout}
-            >
-              Sair
-            </button>
-          </li>
-        </ul>
-      )}
+      {/* ============= Menu Dropdown ================== */}
+      <ul className="dropdown-menu">
+        <li>
+          <button
+            className="dropdown-item"
+            type="button"
+            onClick={() => setIsModalOpen(true)}
+          >
+            Editar Perfil
+          </button>
+        </li>
+        <li>
+          <button className="dropdown-item" type="button" onClick={onLogout}>
+            Sair
+          </button>
+        </li>
+      </ul>
 
-      {/* ============= Modal  ================ */}
-
-      {isEditModalOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <h3>Editar Perfil</h3>
-            <div>
-              <label htmlFor="username">Nome:</label>
-              <input
-                id="username"
-                type="text"
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-              />
-            </div>
-            <div className="modal-buttons">
-              <button className="btn btn-success" onClick={handleSaveProfile}>
-                Salvar
-              </button>
-              <button className="btn btn-secondary" onClick={handleModalClose}>
-                Cancelar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* ==================== Modal ================= */}
+      <EditProfileModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onProfileUpdate={handleProfileUpdate}
+      />
     </div>
   );
 };

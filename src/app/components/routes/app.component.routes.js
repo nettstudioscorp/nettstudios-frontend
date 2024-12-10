@@ -26,7 +26,9 @@ import NewsComponent from '../pages/games/news/News';
 // import MemberComponent from '../pages/member/member.component';
 import AboutComponent from '../pages/games/about/About';
 import HelpComponent from '../pages/help/help.component';
+
 import Login from '../pages/login/Login';
+import EditProfile from '../../components/conta/ProfileEditModal';
 
 const App = () => {
   return (
@@ -36,6 +38,8 @@ const App = () => {
         <Route path="/" element={<HomeComponent />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/edit-profile" element={<EditProfile />} />
+
         <Route path="/news/" element={<NewsComponent />} />
         {/* <Route path="/member" element={<MemberComponent />} /> */}
         <Route path="/about" element={<AboutComponent />} />
