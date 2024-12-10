@@ -1,18 +1,18 @@
-/* Centralizando o container principal da tela */
 .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url('../login/img/NettStudios.svg');
-  background-size: cover;
+  background-image: url('../login/img/NettStudios\ \(1\).svg');
+  background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-/* Cartão central do formulário */
 .form-card {
-  background: #ffffff;
+  background: #0066ff;
+  color: #ffffff;
+  font-weight: bold;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
@@ -21,23 +21,20 @@
   text-align: center;
 }
 
-/* Títulos no formulário */
 h2 {
-  color: #333;
+  color: #ffffff;
   margin-bottom: 1rem;
 }
 
-/* Espaçamento entre elementos */
 .mb-3 {
   margin-bottom: 1.2rem;
   width: 100%;
 }
 
-/* Estilização dos botões */
 .btn-primary {
   width: 100%;
   padding: 0.8rem;
-  background-color: #0056b3;
+  background-color: #000000;
   border: none;
   border-radius: 5px;
   color: white;
@@ -50,11 +47,10 @@ h2 {
   background-color: #004494;
 }
 
-/* Link para alternar entre login e cadastro */
 .switch-form {
   margin-top: 1rem;
   cursor: pointer;
-  color: #0056b3;
+  color: #ffffff;
   font-size: 0.9rem;
 }
 
@@ -62,7 +58,6 @@ h2 {
   text-decoration: underline;
 }
 
-/* Campos de input responsivos */
 input[type='email'],
 input[type='password'],
 input[type='text'] {

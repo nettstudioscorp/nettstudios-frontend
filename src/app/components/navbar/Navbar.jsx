@@ -73,9 +73,9 @@ const Navbar = () => {
 
               <div className="ms-auto">
                 {!isLoggedIn ? (
-                  <Link to="/login" className="btn btn-primary">
+                  <Link to="/login" className="login-button">
                     {' '}
-                    Entrar
+                    Entrar/Cadrastrar
                   </Link>
                 ) : (
                   <DropdownUserMenu
