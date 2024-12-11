@@ -6,18 +6,25 @@ const DropdownUserMenu = ({ onLogout }) => {
   const [userName, setUserName] = useState('Usuário');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  useEffect(() => {
+  const getUserName = () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    if (user?.name) setUserName(user.name);
+    if (user?.name) {
+      setUserName(user.name);
+    } else {
+      setUserName('Usuário');
+    }
+  };
+
+  useEffect(() => {
+    getUserName();
   }, []);
 
-  const handleProfileUpdate = (updatedUser) => {
-    if (updatedUser.name) setUserName(updatedUser.name);
+  const handleProfileUpdate = () => {
+    getUserName();
   };
 
   return (
     <div className="dropdown">
-      {/* =========== Botão do Dropdown =========== */}
       <button
         className="btn btn-secondary dropdown-toggle"
         type="button"
@@ -28,7 +35,6 @@ const DropdownUserMenu = ({ onLogout }) => {
         <span>{userName}</span>
       </button>
 
-      {/* ============= Menu Dropdown ================== */}
       <ul className="dropdown-menu">
         <li>
           <button
@@ -46,7 +52,6 @@ const DropdownUserMenu = ({ onLogout }) => {
         </li>
       </ul>
 
-      {/* ==================== Modal ================= */}
       <EditProfileModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

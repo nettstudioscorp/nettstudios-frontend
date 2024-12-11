@@ -21,36 +21,59 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const userLoggedIn = await UserService.login(email, password);
+      const response = await fetch('http://localhost:3000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-      if (userLoggedIn) {
+      const data = await response.json();
+
+      if (response.ok) {
         localStorage.setItem('isAuthenticated', 'true');
-        localStorage.setItem('user', JSON.stringify({ email }));
+        localStorage.setItem('user', JSON.stringify(data.user));
         alert('Login bem-sucedido!');
         navigate('/comunidade');
       } else {
-        alert('Credenciais inválidas!');
+        alert(data.message || 'Erro no login');
       }
     } catch (error) {
-      alert('Erro ao fazer login');
+      alert('Erro no servidor');
     }
   };
 
   const handleSignup = async () => {
+    if (password !== confirmPassword) {
+      alert('Senhas não coincidem');
+      return;
+    }
+
     try {
-      if (password !== confirmPassword) {
-        alert('Senhas não coincidem');
-        return;
+      const response = await fetch('http://localhost:3000/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          password,
+          name,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('user', JSON.stringify({ email, name }));
+        alert(data.message); // Mensagem de sucesso do backend
+        navigate('/comunidade');
+      } else {
+        alert(data.message || 'Erro ao cadastrar');
       }
-
-      const response = await UserService.signup({ email, password, name });
-
-      localStorage.setItem('isAuthenticated', 'true');
-      localStorage.setItem('user', JSON.stringify({ email, name }));
-      alert('Conta criada com sucesso!');
-      navigate('/comunidade');
     } catch (error) {
-      alert('Erro ao criar conta');
+      alert('Erro no servidor');
     }
   };
 

@@ -96,7 +96,7 @@ const Navbar = () => {
                   </Link>
                 </li> */}
 
-                {/* TODO: <li className="nav-item">
+                <li className="nav-item">
                   <Link
                     to="/comunidade"
                     className={`nav-link ${activeLink === '/comunidade' ? 'active' : ''}`}
@@ -107,7 +107,7 @@ const Navbar = () => {
                   >
                     Comunidade
                   </Link>
-                </li> */}
+                </li>
 
                 <li className="nav-item">
                   <Link
@@ -123,7 +123,7 @@ const Navbar = () => {
                 </li>
               </ul>
 
-              {/* TODO:  Implement login system <div className="ms-auto">
+              <div className="ms-auto">
                 {!isLoggedIn ? (
                   // <Link to="/login" className="login-button">
                   //   {' '}
@@ -145,7 +145,7 @@ const Navbar = () => {
                     onLogout={handleLogout}
                   />
                 )}
-              </div> */}
+              </div>
             </div>
           </div>
         </nav>
