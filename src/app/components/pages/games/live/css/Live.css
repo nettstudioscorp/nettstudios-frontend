@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  padding: 20px;
+  padding: 100px;
 }
 
 .thumbnail {
@@ -30,7 +30,7 @@
 }
 
 .player-container {
-  background-color: #252d44;
+  background-color: #0a1520;
   max-width: 1000px;
   margin: auto;
   padding: 50px;

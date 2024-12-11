@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
-import { fetchVideos } from './api/Videoslist.Service';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { videos } from './api/Videoslist.Service';
 import '../videos/css/VideoPlayer.css';
 
 const VideoPlayer = () => {
-  const navigate = useNavigate();
   const { videoId } = useParams();
-  const [videos, setVideos] = useState([]);
+  const navigate = useNavigate();
   const [currentVideoIndex, setCurrentVideoIndex] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    const loadVideos = async () => {
-      const videoData = await fetchVideos();
-      setVideos(videoData);
-
-      const index = videoData.findIndex((v) => v.videoId === videoId);
-      setCurrentVideoIndex(index !== -1 ? index : 0);
-    };
-
-    loadVideos();
+    const index = videos.findIndex((v) => v.videoId === videoId);
+    setCurrentVideoIndex(index !== -1 ? index : 0);
   }, [videoId]);
 
   const handleVideoChange = (index) => {
@@ -29,6 +21,8 @@ const VideoPlayer = () => {
   const formatIndex = (index) => {
     return index < 9 ? `0${index + 1}` : `${index + 1}`;
   };
+
+  const currentVideo = videos[currentVideoIndex];
 
   const scrollTo = (direction) => {
     const navScroll = document.querySelector('.nav-scroll');
@@ -51,51 +45,49 @@ const VideoPlayer = () => {
     });
   };
 
-  if (!videos.length || currentVideoIndex === null) {
-    return <div className="video-page-container">Carregando Player...</div>;
+  if (!currentVideo) {
+    return <div className="video-page-container">Vídeo não encontrado</div>;
   }
-
-  const currentVideo = videos[currentVideoIndex];
 
   return (
     <div className="player-container">
       <br />
       <br />
-      <button className="back-button" onClick={() => navigate('/videos')}>
+      {/* <button className="back-button" onClick={() => navigate('/videos')}>
         Voltar
-      </button>
-      <br />
+      </button> */}
+
       <div className="video-sidebar">
         {videos.map((v, index) => (
           <div
             key={v.videoId}
-            className={`sidebar-item ${index === currentVideoIndex ? 'active' : ''}`}
+            className={`sidebar-item ${
+              index === currentVideoIndex ? 'active' : ''
+            }`}
           >
             <Link
               to={`/videos/${v.videoId}`}
               onClick={() => handleVideoChange(index)}
             >
-              {/* {formatIndex(index)} - {v.snippet.title} */}
+              {/* {formatIndex(index)} - {v.title} */}
             </Link>
           </div>
         ))}
       </div>
 
       <div className="video-content">
+        <h1>{currentVideo.title}</h1>
+
         <div className="video-player">
-          {currentVideo ? (
-            <iframe
-              title="YouTube Video Player"
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${currentVideo.videoId}`}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          ) : (
-            <div className="no-video">Nenhum vídeo carregado</div>
-          )}
+          <iframe
+            title="YouTube Video Player"
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${currentVideo.videoId}`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
         </div>
       </div>
 
@@ -107,7 +99,9 @@ const VideoPlayer = () => {
           {videos.map((_, index) => (
             <button
               key={index}
-              className={`nav-button ${currentVideoIndex === index ? 'active' : ''}`}
+              className={`nav-button ${
+                currentVideoIndex === index ? 'active' : ''
+              }`}
               onClick={() => handleVideoChange(index)}
             >
               {formatIndex(index)}

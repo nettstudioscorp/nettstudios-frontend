@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getPlaylistByGameId } from "./service/LivePlayer.service";
-import "./css/LivePlayer.css";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getPlaylistByGameId } from './service/LivePlayer.service';
+import './css/LivePlayer.css';
 
 const LivePlayer = () => {
   const { gameId } = useParams();
@@ -25,11 +25,11 @@ const LivePlayer = () => {
   const currentVideo = playlist[currentVideoIndex];
 
   const scrollTo = (direction) => {
-    const navScroll = document.querySelector(".nav-scroll");
+    const navScroll = document.querySelector('.nav-scroll');
     const maxScrollPosition = navScroll.scrollWidth - navScroll.clientWidth;
 
     let newScrollPosition =
-      scrollPosition + (direction === "left" ? -200 : 200);
+      scrollPosition + (direction === 'left' ? -200 : 200);
 
     if (newScrollPosition < 0) {
       newScrollPosition = 0;
@@ -41,15 +41,17 @@ const LivePlayer = () => {
     setScrollPosition(newScrollPosition);
     navScroll.scrollTo({
       left: newScrollPosition,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
   return (
     <div className="player-container">
+      <br />
+      <br />
       <button
         className="back-button"
-        onClick={() => (window.location.href = "/lives")}
+        onClick={() => (window.location.href = '/lives')}
       >
         Voltar
       </button>
@@ -73,7 +75,7 @@ const LivePlayer = () => {
       )}
 
       <div className="video-navigation">
-        <button className="nav-scroll-button" onClick={() => scrollTo("left")}>
+        <button className="nav-scroll-button" onClick={() => scrollTo('left')}>
           &lt;
         </button>
         <div className="nav-scroll">
@@ -81,7 +83,7 @@ const LivePlayer = () => {
             <button
               key={index}
               className={`nav-button ${
-                currentVideoIndex === index ? "active" : ""
+                currentVideoIndex === index ? 'active' : ''
               }`}
               onClick={() => handleVideoChange(index)}
             >
@@ -89,7 +91,7 @@ const LivePlayer = () => {
             </button>
           ))}
         </div>
-        <button className="nav-scroll-button" onClick={() => scrollTo("right")}>
+        <button className="nav-scroll-button" onClick={() => scrollTo('right')}>
           &gt;
         </button>
       </div>

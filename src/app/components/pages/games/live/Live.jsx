@@ -1,12 +1,11 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import { getGamesListA, getGamesListB } from "./service/Live.service";
-import "./css/Live.css";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getGamesListA, getGamesListB } from './service/Live.service';
+import './css/Live.css';
 
 const Live = () => {
   const navigate = useNavigate();
 
-  // Obter lista de jogos gerais e jogos em destaque
   const featuredA = getGamesListA();
   const featuredB = getGamesListB();
 
