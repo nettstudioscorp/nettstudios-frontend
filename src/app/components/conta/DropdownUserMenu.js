@@ -4,12 +4,14 @@ import './DropdownUserMenu.css';
 
 const DropdownUserMenu = ({ onLogout }) => {
   const [userName, setUserName] = useState('Usuário');
+  const [profilePicture, setProfilePicture] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getUserName = () => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user?.name) {
       setUserName(user.name);
+      setProfilePicture(user.profilePicture || '');
     } else {
       setUserName('Usuário');
     }
@@ -31,19 +33,23 @@ const DropdownUserMenu = ({ onLogout }) => {
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        <div className="avatar">{userName[0]?.toUpperCase()}</div>
+        {profilePicture ? (
+          <img src={profilePicture} alt="Foto de Perfil" className="avatar" />
+        ) : (
+          <div className="avatar">{userName[0]?.toUpperCase()}</div>
+        )}
         <span>{userName}</span>
       </button>
 
       <ul className="dropdown-menu">
         <li>
-          {/* TODO: Solve the duplication problem when updating it creates another user <button
+          <button
             className="dropdown-item"
             type="button"
             onClick={() => setIsModalOpen(true)}
           >
             Editar Perfil
-          </button> */}
+          </button>
         </li>
         <li>
           <button className="dropdown-item" type="button" onClick={onLogout}>

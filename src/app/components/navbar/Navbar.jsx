@@ -109,7 +109,7 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link
                     to="/updates"
                     className={`nav-link ${activeLink === '/updates' ? 'active' : ''}`}
@@ -120,7 +120,7 @@ const Navbar = () => {
                   >
                     Updates
                   </Link>
-                </li>
+                </li> */}
               </ul>
 
               <div className="ms-auto">

@@ -13,7 +13,7 @@ const Login = () => {
 
   useEffect(() => {
     if (localStorage.getItem('isAuthenticated') === 'true') {
-      navigate('/comunidade');
+      navigate('/');
     }
   }, [navigate]);
 
@@ -70,7 +70,7 @@ const Login = () => {
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('user', JSON.stringify({ email, name }));
         alert(data.message);
-        navigate('/comunidade');
+        navigate('/');
       } else {
         alert(data.message || 'Erro ao cadastrar');
       }
