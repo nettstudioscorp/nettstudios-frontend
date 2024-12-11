@@ -14,6 +14,7 @@ const Login = () => {
   useEffect(() => {
     if (localStorage.getItem('isAuthenticated') === 'true') {
       navigate('/');
+      window.location.reload();
     }
   }, [navigate]);
 
@@ -71,6 +72,7 @@ const Login = () => {
         localStorage.setItem('user', JSON.stringify({ email, name }));
         alert(data.message);
         navigate('/');
+        window.location.reload();
       } else {
         alert(data.message || 'Erro ao cadastrar');
       }
@@ -138,6 +140,15 @@ const Login = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
+            </div>
+          )}
+
+          {!isLogin && (
+            <div className="warning-message">
+              <p>
+                Após o cadastro, para editar seu perfil pela primeira vez, você
+                deve sair e entrar novamente.
+              </p>
             </div>
           )}
 
