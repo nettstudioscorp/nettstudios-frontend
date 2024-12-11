@@ -33,6 +33,7 @@ const Login = () => {
       const data = await response.json();
 
       if (response.ok) {
+        localStorage.setItem('token', data.token);
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('user', JSON.stringify(data.user));
         alert('Login bem-sucedido!');
@@ -67,7 +68,7 @@ const Login = () => {
       if (response.ok) {
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('user', JSON.stringify({ email, name }));
-        alert(data.message); // Mensagem de sucesso do backend
+        alert(data.message);
         navigate('/comunidade');
       } else {
         alert(data.message || 'Erro ao cadastrar');

@@ -14,9 +14,8 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
     }
   }, [isOpen]);
 
-  const handleSave = () => {
+  const handleSave = async () => {
     const user = JSON.parse(localStorage.getItem('user')) || {};
-
     const updatedUser = {
       ...user,
       ...(name && { name }),
@@ -24,10 +23,29 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
       ...(password && { password }),
     };
 
-    localStorage.setItem('user', JSON.stringify(updatedUser));
-    onProfileUpdate(updatedUser);
-    alert('Dados atualizados com sucesso!');
-    onClose();
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/update', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(updatedUser),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        localStorage.setItem('user', JSON.stringify(updatedUser));
+        onProfileUpdate(updatedUser);
+        alert('Dados atualizados com sucesso!');
+        onClose();
+      } else {
+        alert(data.message || 'Erro ao atualizar os dados');
+      }
+    } catch (error) {
+      alert('Erro no servidor');
+    }
   };
 
   if (!isOpen) return null;
