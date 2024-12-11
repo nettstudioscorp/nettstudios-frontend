@@ -4,7 +4,7 @@
 }
 
 .btn-secondary {
-  background-color: #1e1e1e;
+  background-color: #212529;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -15,7 +15,7 @@
 }
 
 .btn-secondary .avatar {
-  background-color: #ffcc00;
+  background-color: #1761ff;
   color: #1e1e1e;
   font-weight: bold;
   font-size: 16px;
@@ -50,6 +50,7 @@
 }
 
 .dropdown-item:hover {
-  background-color: #ffcc00;
-  color: #1e1e1e;
+  background-color: #1761ff;
+  font-weight: bold;
+  color: #ffffff;
 }

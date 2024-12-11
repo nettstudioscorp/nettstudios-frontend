@@ -30,6 +30,7 @@
 }
 
 .player-container {
+  background-color: #252d44;
   max-width: 1000px;
   margin: auto;
   padding: 50px;

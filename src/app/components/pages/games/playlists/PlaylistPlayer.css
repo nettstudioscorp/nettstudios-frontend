@@ -49,24 +49,24 @@
 
 .video-navigation {
   display: flex;
-  gap: 8px; /* Espaçamento entre os botões */
+  gap: 8px;
   margin-top: 20px;
-  overflow-x: auto; /* Ativa o scroll horizontal */
-  white-space: nowrap; /* Evita que os botões quebrem de linha */
-  padding: 10px 0; /* Espaçamento interno */
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 0;
 }
 
 .video-navigation::-webkit-scrollbar {
-  height: 8px; /* Altura da barra de rolagem */
+  height: 8px;
 }
 
 .video-navigation::-webkit-scrollbar-thumb {
-  background-color: #555; /* Cor da barra de rolagem */
+  background-color: #555;
   border-radius: 4px;
 }
 
 .video-navigation::-webkit-scrollbar-track {
-  background: #222; /* Fundo da barra de rolagem */
+  background: #222;
 }
 
 .nav-button {

@@ -37,13 +37,13 @@ const DropdownUserMenu = ({ onLogout }) => {
 
       <ul className="dropdown-menu">
         <li>
-          <button
+          {/* TODO: Solve the duplication problem when updating it creates another user <button
             className="dropdown-item"
             type="button"
             onClick={() => setIsModalOpen(true)}
           >
             Editar Perfil
-          </button>
+          </button> */}
         </li>
         <li>
           <button className="dropdown-item" type="button" onClick={onLogout}>

@@ -37,7 +37,8 @@ const Login = () => {
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('user', JSON.stringify(data.user));
         alert('Login bem-sucedido!');
-        navigate('/comunidade');
+        navigate('/');
+        window.location.reload();
       } else {
         alert(data.message || 'Erro no login');
       }

@@ -1,6 +1,6 @@
 .video-navigation {
   display: flex;
-  align-items: center; /* Center buttons vertically */
+  align-items: center;
   width: 100%;
   margin-top: 20px;
   position: relative;
@@ -12,7 +12,7 @@
   gap: 8px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  width: calc(100% - 80px); /* Account for scroll buttons */
+  width: calc(100% - 80px);
   margin: 0 auto;
   padding: 10px 0;
 }
@@ -35,14 +35,14 @@
 }
 
 .nav-scroll::-webkit-scrollbar {
-  height: 8px; /* Altura da barra de rolagem */
+  height: 8px;
 }
 
 .video-navigation::-webkit-scrollbar-thumb {
-  background-color: #d10303; /* Cor da barra de rolagem */
+  background-color: #d10303;
   border-radius: 4px;
 }
 
 .video-navigation::-webkit-scrollbar-track {
-  background: #ba3a3a; /* Fundo da barra de rolagem */
+  background: #ba3a3a;
 }
