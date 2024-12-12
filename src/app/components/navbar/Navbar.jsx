@@ -137,6 +137,19 @@ const Navbar = () => {
 
                 <li className="nav-item">
                   <Link
+                    to="/member"
+                    className={`nav-link ${activeLink === '/member' ? 'active' : ''}`}
+                    onClick={() => {
+                      setActiveLink('/member');
+                      closeMenu();
+                    }}
+                  >
+                    Membros
+                  </Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link
                     to="/about"
                     className={`nav-link ${activeLink === '/about' ? 'active' : ''}`}
                     onClick={() => {
