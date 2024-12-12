@@ -27,17 +27,17 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
     };
 
     try {
-      const response = await fetch(
-        'https://user-auth-backend-deploy.onrender.com/api/auth/update',
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-          body: JSON.stringify(updatedUser),
-        }
-      );
+      // const response = await fetch(
+      //   'https://user-auth-backend-deploy.onrender.com/api/auth/update',
+      //   {
+      const response = await fetch('http://localhost:3000/api/auth/update', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify(updatedUser),
+      });
 
       const data = await response.json();
 
@@ -64,8 +64,11 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
 
     const user = JSON.parse(localStorage.getItem('user')) || {};
     try {
+      // const response = await fetch(
+      //   'https://user-auth-backend-deploy.onrender.com/api/auth/deleteAccount',
+      //   {
       const response = await fetch(
-        'https://user-auth-backend-deploy.onrender.com/api/auth/deleteAccount',
+        'http://localhost:3000/api/auth/deleteAccount',
         {
           method: 'DELETE',
           headers: {
