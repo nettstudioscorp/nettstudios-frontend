@@ -6,6 +6,7 @@ const DropdownUserMenu = ({ onLogout }) => {
   const [userName, setUserName] = useState('Usuário');
   const [profilePicture, setProfilePicture] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
 
   const getUserName = () => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -19,6 +20,19 @@ const DropdownUserMenu = ({ onLogout }) => {
 
   useEffect(() => {
     getUserName();
+    const now = new Date();
+    setCurrentTime(
+      now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    );
+
+    const interval = setInterval(() => {
+      const now = new Date();
+      setCurrentTime(
+        now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      );
+    }, 60000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const handleProfileUpdate = () => {
@@ -39,6 +53,7 @@ const DropdownUserMenu = ({ onLogout }) => {
           <div className="avatar">{userName[0]?.toUpperCase()}</div>
         )}
         <span>{userName}</span>
+        <span className="user-time">{currentTime}</span>
       </button>
 
       <ul className="dropdown-menu">
