@@ -23,7 +23,7 @@ import UpdateReport from '../pages/games/updatesCenter/updateReport';
 import Community from '../pages/games/community/community';
 
 import NewsComponent from '../pages/games/news/News';
-// import MemberComponent from '../pages/member/member.component';
+import Member from '../pages/Members/member';
 import AboutComponent from '../pages/games/about/About';
 import HelpComponent from '../pages/help/help.component';
 
@@ -61,6 +61,7 @@ const App = () => {
         <Route path="/live/gameplays" element={<LivePlayer />} />
 
         <Route path="/comunidade" element={<Community />} />
+        <Route path="/member" element={<Member />} />
 
         <Route path="/updates" element={<UpdatesCenter />} />
         <Route path="/update/:id" element={<UpdateReport />} />
