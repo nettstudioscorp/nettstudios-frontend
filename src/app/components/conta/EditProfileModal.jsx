@@ -100,7 +100,7 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
         <h2>Editar Perfil</h2>
 
         <div className="form-group">
-          <label htmlFor="profilePicture">Foto de Perfil Atual:</label>
+          <label htmlFor="profilePicture">Foto de Perfil</label>
           {profilePicture && (
             <img
               src={profilePicture}
