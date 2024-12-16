@@ -1,7 +1,8 @@
 .about-container {
-  padding: 5rem;
+  padding: 2rem;
   font-family: Arial, sans-serif;
   color: white;
+  padding: 64px;
 }
 
 .about-header {
@@ -10,12 +11,12 @@
 }
 
 .about-header h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .about-header p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #ffffff;
 }
 
@@ -24,19 +25,19 @@
 }
 
 .about-content h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .about-content p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.4;
   color: #ffffff;
 }
 
 .about-footer {
   text-align: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #ffffff;
   margin-top: 3rem;
 }
