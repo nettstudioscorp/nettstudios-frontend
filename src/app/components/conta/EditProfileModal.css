@@ -9,6 +9,8 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  padding: 20px;
+  overflow: hidden;
 }
 
 .modal-content {
@@ -18,6 +20,10 @@
   border-radius: 8px;
   width: 400px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 90%;
+  height: auto;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .form-group {
@@ -40,12 +46,13 @@
 
 .modal-buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .modal-buttons .btn {
-  padding: 12px 24px;
+  padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -54,6 +61,12 @@
     transform 0.2s;
   font-size: 16px;
   margin: 5px;
+  flex: 1 1 auto;
+  min-width: 120px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-buttons .btn-primary {
@@ -84,4 +97,25 @@
 .modal-buttons .btn-danger:hover {
   background: #c82333;
   transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-buttons .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
 }

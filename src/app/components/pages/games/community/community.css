@@ -3,7 +3,7 @@
   max-width: 900px;
   font-family: Arial, sans-serif;
   color: #fff;
-  padding: 64px;
+  padding: 34px;
   background-color: #0a1520;
   border-radius: 10px;
   text-align: center;
@@ -21,6 +21,7 @@
   color: #fff;
   font-weight: bold;
   font-size: 16px;
+  width: 100%;
 }
 
 .update-button:hover {
@@ -44,7 +45,7 @@
 
 .post-card {
   background: #252d44;
-  padding: 20px;
+  padding: 16px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   transition: transform 0.2s;
@@ -139,7 +140,7 @@
 
 .reply-input {
   width: 100%;
-  height: 60px;
+  height: 40px;
   background: #222;
   color: #fff;
   border: 1px solid #555;
