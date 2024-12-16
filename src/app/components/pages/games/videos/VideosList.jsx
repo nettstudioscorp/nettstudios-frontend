@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { videos } from './api/Videoslist.Service';
 import '../../games/videos/css/VideosList.css';
+import { Link } from 'react-router-dom';
 
 const VideosComponent = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -84,13 +85,15 @@ const VideosComponent = () => {
       <div className="video-grid">
         {filteredVideos().map((video) => (
           <div className="video-item" key={video.id}>
-            <img
-              src={video.snippet.thumbnails.medium.url}
-              alt={video.snippet.title}
-              onClick={() => openModal(video)}
-            />
-            <h3 onClick={() => openModal(video)}>{video.snippet.title}</h3>
-            {/* <p className="video-date">{video.snippet.description}</p> */}
+            <Link to={`/videos/${video.videoId}`}>
+              <img
+                src={video.snippet.thumbnails.medium.url}
+                alt={video.snippet.title}
+                onClick={() => openModal(video)}
+              />
+              <h3 onClick={() => openModal(video)}>{video.snippet.title}</h3>
+              {/* <p className="video-date">{video.snippet.description}</p> */}
+            </Link>
           </div>
         ))}
 

@@ -46,8 +46,7 @@ const App = () => {
         <Route path="/about" element={<AboutComponent />} />
         <Route path="/help" element={<HelpComponent />} />
 
-        {/* 
-        <Route path="/videos" element={<VideosLists />} /> */}
+        <Route path="/videos" element={<VideosLists />} />
         <Route path="videos" element={<VideoPlayer />} />
         <Route path="/watch/:videoId" element={<VideoPlayer />} />
         <Route path="/videos/:videoId" element={<VideoPlayerVideoID />} />
