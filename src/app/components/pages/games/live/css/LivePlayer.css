@@ -6,7 +6,7 @@
   position: relative;
 }
 
-.nav-scroll {
+/* .nav-scroll {
   display: flex;
   flex-wrap: nowrap;
   gap: 8px;
@@ -15,9 +15,9 @@
   width: calc(100% - 80px);
   margin: 0 auto;
   padding: 10px 0;
-}
+} */
 
-.nav-scroll-button {
+/* .nav-scroll-button {
   position: sticky;
   background: #0b046c;
   font-size: larger;
@@ -27,16 +27,16 @@
   padding: 8px 12px;
   cursor: pointer;
   z-index: 2;
-}
+} */
 
-.nav-scroll-button:hover {
+/* .nav-scroll-button:hover {
   background: #ffffff;
   color: black;
-}
+} */
 
-.nav-scroll::-webkit-scrollbar {
+/* .nav-scroll::-webkit-scrollbar {
   height: 8px;
-}
+} */
 
 .video-navigation::-webkit-scrollbar-thumb {
   background-color: #d10303;

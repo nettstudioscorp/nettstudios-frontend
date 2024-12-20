@@ -23,7 +23,11 @@ const Playlist = () => {
       {/* ===================== Seção para Far Cry ========================= */}
 
       <section className="game-section">
-        <h2>Far Cry</h2>
+        {/* <h2>Far Cry</h2> */}
+        <br />
+        <br />
+        <br />
+
         <div className="games-list">
           {featured001.map((game) => (
             <div
@@ -41,7 +45,7 @@ const Playlist = () => {
       {/* ======================  Seção para Assassin's Creed ======================*/}
 
       <section className="game-section">
-        <h2>Assassin's Creed</h2>
+        {/* <h2>Assassin's Creed</h2> */}
         <div className="games-list">
           {featured002.map((game) => (
             <div
@@ -91,7 +95,7 @@ const Playlist = () => {
       {/* =================== Seção para Alan Wake ======================*/}
 
       <section className="game-section">
-        <h2>Alan Wake</h2>
+        {/* <h2>Alan Wake</h2> */}
         <div className="games-list">
           {featured005.map((game) => (
             <div

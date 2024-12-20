@@ -10,7 +10,6 @@ const PlaylistPlayer = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  // Carregar a playlist conforme o gameId
   useEffect(() => {
     const gamePlaylist = getPlaylistByGameId(gameId);
     setPlaylist(gamePlaylist);
@@ -31,7 +30,6 @@ const PlaylistPlayer = () => {
     let newScrollPosition =
       scrollPosition + (direction === 'left' ? -200 : 200);
 
-    // Impede que o scroll ultrapasse o início ou o final da lista
     if (newScrollPosition < 0) {
       newScrollPosition = 0;
     }
