@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: #0a1520;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +14,8 @@
 }
 
 .modal-content {
-  background: #2b2b2b;
-  color: #fff;
+  background: #0a1520 !important;
+  color: #fff !important;
   padding: 20px;
   border-radius: 8px;
   width: 400px;
@@ -33,6 +33,7 @@
 .form-group label {
   display: block;
   margin-bottom: 5px;
+  color: #fff !important;
 }
 
 .form-group input {
@@ -41,7 +42,7 @@
   border: 1px solid #444;
   border-radius: 4px;
   background: #1e1e1e;
-  color: #fff;
+  color: #fff !important;
 }
 
 .modal-buttons {
@@ -80,14 +81,15 @@
 }
 
 .modal-buttons .btn-secondary {
-  background: #6c757d;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
+  font-weight: bold;
 }
 
-.modal-buttons .btn-secondary:hover {
-  background: #5a6268;
+/* .modal-buttons .btn-secondary:hover {
+  background: #000000;
   transform: scale(1.05);
-}
+} */
 
 .modal-buttons .btn-danger {
   background: #dc3545;

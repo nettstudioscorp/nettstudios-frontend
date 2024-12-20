@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import EditProfileModal from './EditProfileModal';
 import './DropdownUserMenu.css';
 
-const DropdownUserMenu = ({ onLogout }) => {
+const DropdownUserMenu = ({ onLogout, isAdmin }) => {
   const [userName, setUserName] = useState('Usuário');
   const [profilePicture, setProfilePicture] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -66,6 +66,20 @@ const DropdownUserMenu = ({ onLogout }) => {
             Editar Perfil
           </button>
         </li>
+
+        {isAdmin && (
+          <li>
+            <button
+              className="dropdown-item"
+              type="button"
+              onClick={() => {
+                window.location.href = '/admin';
+              }}
+            >
+              Admin
+            </button>
+          </li>
+        )}
         <li>
           <button className="dropdown-item" type="button" onClick={onLogout}>
             Sair

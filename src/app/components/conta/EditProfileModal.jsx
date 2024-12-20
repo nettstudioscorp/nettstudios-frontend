@@ -172,7 +172,7 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
             Excluir Conta
           </button>
           <button className="btn btn-secondary" onClick={onClose}>
-            Cancelar
+            Voltar
           </button>
         </div>
       </div>

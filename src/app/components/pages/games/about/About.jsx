@@ -107,6 +107,35 @@ const About = () => {
         </p>
       </section>
       <br />
+      <section className="exclusive-videos">
+        <h2>Como funcionam os Vídeos Exclusivos?</h2>
+        <p>
+          Os <strong>Vídeos Exclusivos</strong> são conteúdos especiais
+          disponíveis antecipadamente apenas para nossos membros cadastrados.
+          Aqui você terá acesso antecipado a gameplays inéditos, análises
+          detalhadas e muito mais.
+        </p>
+        <p>
+          ⚡ <strong>Para Membros Cadastrados:</strong>
+          <br />
+          - Assista aos vídeos antes de todo mundo!
+          <br />- Conteúdos exclusivos liberados aqui primeiro.
+        </p>
+        <p>
+          ⏳ <strong>Para Não Membros:</strong>
+          <br />
+          - Alguns desses vídeos também serão disponibilizados na seção "Vídeos
+          Tradicionais", mas somente após um tempo.
+          <br />- Porém, outros vídeos permanecerão exclusivos e não serão
+          liberados para não membros.
+        </p>
+        <p>
+          💡 <strong>Como se tornar membro?</strong>
+          <br />- Não precisa pagar nada! Basta se cadastrar no site e
+          aproveitar os benefícios. 🎮🚀
+        </p>
+      </section>
+      <br />
     </div>
   );
 };
