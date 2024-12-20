@@ -1,3 +1,7 @@
+body {
+  font-family: 'Anaheim', sans-serif !important;
+}
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -10,14 +14,14 @@
 }
 
 .form-card {
-  background: #023177;
+  /* background: #023177; */
   color: #ffffff;
   font-weight: bold;
   padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); */
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   text-align: center;
 }
 
@@ -66,4 +70,31 @@ input[type='text'] {
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 5px;
+}
+
+.terms-checkbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.checkbox-item label {
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.terms-checkbox a {
+  color: #0099ff;
+  text-decoration: none;
+}
+
+.terms-checkbox a:hover {
+  text-decoration: underline;
 }

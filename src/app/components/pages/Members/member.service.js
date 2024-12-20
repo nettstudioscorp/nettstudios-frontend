@@ -4,6 +4,7 @@ const members = [
     name: 'Alan Rocha ',
     image: 'https://avatars.githubusercontent.com/u/141082245?v=4',
   },
+
   // {
   //   role: 'Member',
   //   name: 'Angolano',

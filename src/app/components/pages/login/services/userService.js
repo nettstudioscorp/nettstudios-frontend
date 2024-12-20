@@ -7,11 +7,14 @@ export const UserService = {
       throw new Error('Usuário já existe');
     }
 
-    users.push({ email, password, name });
+    const role = email === 'admin@example.com' ? 'admin' : 'user';
+    const newUser = { email, password, name, role };
+
+    users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
 
     localStorage.setItem('isAuthenticated', 'true');
-    localStorage.setItem('user', JSON.stringify({ email, name }));
+    localStorage.setItem('user', JSON.stringify({ email, name, role }));
 
     return true;
   },
@@ -39,5 +42,48 @@ export const UserService = {
   getUser: () => {
     const user = JSON.parse(localStorage.getItem('user'));
     return user || { name: 'Usuário' };
+  },
+
+  saveEvent: (event) => {
+    const events = JSON.parse(localStorage.getItem('events') || '[]');
+    events.push(event);
+    localStorage.setItem('events', JSON.stringify(events));
+    return event;
+  },
+
+  getEvents: () => {
+    return JSON.parse(localStorage.getItem('events') || '[]');
+  },
+
+  deleteEvent: (eventId) => {
+    const events = JSON.parse(localStorage.getItem('events') || '[]');
+    const updatedEvents = events.filter((event) => event.id !== eventId);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  },
+
+  updateEvent: (eventId, updatedEvent) => {
+    const events = JSON.parse(localStorage.getItem('events') || '[]');
+    const eventIndex = events.findIndex((event) => event.id === eventId);
+    if (eventIndex !== -1) {
+      events[eventIndex] = { ...events[eventIndex], ...updatedEvent };
+      localStorage.setItem('events', JSON.stringify(events));
+      return events[eventIndex];
+    }
+    return null;
+  },
+
+  setUserRole: (email, role) => {
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    const userIndex = users.findIndex((user) => user.email === email);
+    if (userIndex !== -1) {
+      users[userIndex].role = role;
+      localStorage.setItem('users', JSON.stringify(users));
+
+      const currentUser = JSON.parse(localStorage.getItem('user'));
+      if (currentUser && currentUser.email === email) {
+        currentUser.role = role;
+        localStorage.setItem('user', JSON.stringify(currentUser));
+      }
+    }
   },
 };

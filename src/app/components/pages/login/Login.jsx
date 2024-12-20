@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserService } from '../../pages/login/services/userService';
 import '../login/Login.css';
+import { Toast } from 'primereact/toast';
+import 'primereact/resources/themes/saga-blue/theme.css';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -9,7 +11,10 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [name, setName] = useState('');
+  const [acceptTerms, setAcceptTerms] = useState(false);
+  const [acceptImageUse, setAcceptImageUse] = useState(false);
   const navigate = useNavigate();
+  const toastTopCenter = useRef(null);
 
   useEffect(() => {
     if (localStorage.getItem('isAuthenticated') === 'true') {
@@ -19,6 +24,15 @@ const Login = () => {
   }, [navigate]);
 
   const toggleForm = () => setIsLogin(!isLogin);
+
+  const showToast = (message) => {
+    toastTopCenter.current.show({
+      severity: 'info',
+      summary: 'Info',
+      detail: message,
+      life: 3000,
+    });
+  };
 
   const handleLogin = async () => {
     try {
@@ -39,20 +53,22 @@ const Login = () => {
         localStorage.setItem('token', data.token);
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('user', JSON.stringify(data.user));
-        alert('Login bem-sucedido!');
-        navigate('/');
-        window.location.reload();
+        showToast('Login bem-sucedido!');
+        setTimeout(() => {
+          navigate('/');
+          window.location.reload();
+        }, 1000);
       } else {
-        alert(data.message || 'Erro no login');
+        showToast(data.message || 'Erro no login');
       }
     } catch (error) {
-      alert('Erro no servidor');
+      showToast('Erro no servidor');
     }
   };
 
   const handleSignup = async () => {
     if (password !== confirmPassword) {
-      alert('Senhas não coincidem');
+      showToast('Senhas não coincidem');
       return;
     }
 
@@ -75,19 +91,25 @@ const Login = () => {
       if (response.ok) {
         localStorage.setItem('isAuthenticated', 'true');
         localStorage.setItem('user', JSON.stringify({ email, name }));
-        alert(data.message);
+        showToast(data.message);
         navigate('/');
         window.location.reload();
       } else {
-        alert(data.message || 'Erro ao cadastrar');
+        showToast(data.message || 'Erro ao cadastrar');
       }
     } catch (error) {
-      alert('Erro no servidor');
+      showToast('Erro no servidor');
     }
   };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (!isLogin && (!acceptTerms || !acceptImageUse)) {
+      showToast(
+        'Você deve aceitar os termos e a política de privacidade, e autorizar a utilização da imagem.'
+      );
+      return;
+    }
     if (isLogin) {
       await handleLogin();
     } else {
@@ -97,6 +119,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
+      <Toast ref={toastTopCenter} position="top-center" />
       <div className="form-card">
         <h2>{isLogin ? 'Login' : 'Cadastro'}</h2>
         <form onSubmit={handleFormSubmit}>
@@ -145,6 +168,35 @@ const Login = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
+            </div>
+          )}
+
+          {!isLogin && (
+            <div className="terms-checkbox">
+              <div className="checkbox-item">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={acceptTerms}
+                  onChange={(e) => setAcceptTerms(e.target.checked)}
+                />
+                <label htmlFor="terms">
+                  Eu aceito os <a href="/termos-de-uso">Termos de uso</a> e{' '}
+                  <a href="/politica-de-privacidade">Política de privacidade</a>
+                  .
+                </label>
+              </div>
+              <div className="checkbox-item">
+                <input
+                  type="checkbox"
+                  id="imageAuthorization"
+                  checked={acceptImageUse}
+                  onChange={(e) => setAcceptImageUse(e.target.checked)}
+                />
+                <label htmlFor="imageAuthorization">
+                  Autorizo a utilização da minha imagem pelo NettStudios.
+                </label>
+              </div>
             </div>
           )}
 
