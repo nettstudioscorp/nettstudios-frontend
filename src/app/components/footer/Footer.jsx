@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../assets/images/NettStudios - logo.png';
+import logo from '../../../../src/app/components/footer/img/NettStudios.svg';
 import '../footer/Footer.css';
 // import { Link } from "react-router-dom";
 
@@ -59,17 +59,10 @@ const FooterComponent = () => {
           © Copyright 2015-2024 NettStudios - Games, Entretenimento e Criação
           de Conteúdo.
         </p>
-        {/* <p>
-          {' '}
-          Desenvolvido por{' '}
-          <a href="#" target="_blank">
-            NettCorpSolutions
-          </a>{' '}
-          - Soluções Digitais, TI e Inovação em Tecnologia.
-        </p> */}
-        {/* TODO: <a href="#">Termos de uso e Política de privacidade</a> */}
-
-        <p>Site: 0.0.7</p>
+        <a href="/termos-de-uso">Termos de uso</a> &nbsp;
+        <span style={{ color: 'white' }}>e</span> &nbsp;
+        <a href="/politica-de-privacidade">Política de privacidade</a>
+        <p>Site: 0.0.8</p>
       </div>
     </footer>
   );
