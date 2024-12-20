@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../agenda/agenda.css';
 import { UserService } from '../login/services/userService';
-import { AgendaService } from './services/agenda.service';
+import { agendaService } from './services/agenda.service';
 import { HolidaysService } from './services/holidays.service';
 
 const EventModal = ({ isOpen, onClose, onSave, selectedDate }) => {
@@ -135,8 +135,24 @@ const EventTooltip = ({ event }) => {
 };
 
 const WeekView = ({ selectedDate, events }) => {
-  const hours = Array.from({ length: 13 }, (_, i) => i + 9);
-  const weekDays = [
+  const getWeekStart = (date) => {
+    const curr = new Date(date);
+    const first = curr.getDate() - curr.getDay();
+    return new Date(curr.setDate(first));
+  };
+
+  const formatDateBR = (date) => {
+    return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
+  };
+
+  const weekDays = Array.from({ length: 7 }, (_, i) => {
+    const weekStart = getWeekStart(selectedDate);
+    const day = new Date(weekStart);
+    day.setDate(weekStart.getDate() + i);
+    return day;
+  });
+
+  const weekDayNames = [
     'Domingo',
     'Segunda',
     'Terça',
@@ -146,76 +162,52 @@ const WeekView = ({ selectedDate, events }) => {
     'Sábado',
   ];
 
-  const formatDate = (date) => {
-    return `${date.getDate().toString().padStart(2, '0')}/${(
-      date.getMonth() + 1
-    )
-      .toString()
-      .padStart(2, '0')}`;
-  };
-
-  const getWeekStart = (date) => {
-    const d = new Date(date);
-    const day = d.getDay();
-    const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-    return new Date(d.setDate(diff));
-  };
-
-  const weekStart = getWeekStart(selectedDate);
-
-  const weekDates = weekDays.map((_, index) => {
-    const date = new Date(weekStart);
-    date.setDate(weekStart.getDate() + index);
-    return date;
+  const timeSlots = Array.from({ length: 14 }, (_, i) => {
+    const hour = i + 9;
+    return `${hour.toString().padStart(2, '0')}:00`;
   });
 
-  const findEvents = (date, hour) => {
+  const getEventsForTimeSlot = (date, time) => {
     return events.filter((event) => {
       const eventDate = new Date(event.date);
-      const eventHour = parseInt(event.startTime.split(':')[0]);
-
-      const isSameDay =
+      return (
         eventDate.getDate() === date.getDate() &&
         eventDate.getMonth() === date.getMonth() &&
-        eventDate.getFullYear() === date.getFullYear();
-
-      return isSameDay && eventHour === hour;
+        eventDate.getFullYear() === date.getFullYear() &&
+        event.startTime === time
+      );
     });
   };
 
   return (
     <div className="week-view">
-      <div className="week-grid">
-        <div className="time-column">
-          {hours.map((hour) => (
-            <div key={hour} className="time-slot">
-              {`${hour.toString().padStart(2, '0')}:00`}
-            </div>
-          ))}
-        </div>
-
-        {weekDates.map((date, dayIndex) => (
-          <div key={dayIndex} className="day-column">
+      <div className="week-header">
+        {weekDays.map((date, index) => (
+          <div key={index} className="week-day-header">
             <div className="day-header">
-              <div className="day-name">{weekDays[dayIndex]}</div>
-              <div className="day-date">{formatDate(date)}</div>
-              {HolidaysService.isHoliday(date) && (
-                <div className="holiday-name">
-                  {HolidaysService.isHoliday(date).name}
-                </div>
-              )}
+              <span className="day-name">{weekDayNames[index]}</span>
+              <span className="day-date">
+                {formatDateBR(date).split('/').slice(0, 2).join('/')}
+              </span>
             </div>
-            {hours.map((hour) => (
-              <div key={hour} className="time-slot">
-                {findEvents(date, hour).map((event) => (
+          </div>
+        ))}
+      </div>
+
+      <div className="week-grid">
+        {timeSlots.map((time) => (
+          <div key={time} className="time-row">
+            <div className="time-slot">{time}</div>
+            {weekDays.map((date, dayIndex) => (
+              <div key={`${date}-${dayIndex}`} className="day-slot">
+                {getEventsForTimeSlot(date, time).map((event, eventIndex) => (
                   <div
-                    key={event.id}
-                    className={`week-event-item ${event.type} status-${event.status}`}
-                    data-tooltip-id={`event-${event.id}`}
+                    key={eventIndex}
+                    className={`event-item ${event.styleClass}`}
+                    title={event.description}
                   >
                     <span className="event-time">{event.startTime}</span>
                     <span className="event-title">{event.title}</span>
-                    <EventTooltip event={event} />
                   </div>
                 ))}
               </div>
@@ -241,12 +233,12 @@ const Agenda = () => {
   }, []);
 
   const loadEvents = () => {
-    const savedEvents = AgendaService.getEvents();
+    const savedEvents = agendaService.getEvents();
     setEvents(savedEvents);
   };
 
   const isAdmin = () => {
-    return AgendaService.isAdmin(user?.email);
+    return agendaService.isAdmin(user?.email);
   };
 
   const navigateDate = (direction) => {
@@ -307,6 +299,8 @@ const Agenda = () => {
       return eventDate.toDateString() === date.toDateString();
     });
 
+    console.log('Eventos do dia:', dayEvents);
+
     return (
       <div className="day-events">
         {dayEvents.map((event) => (
@@ -347,8 +341,9 @@ const Agenda = () => {
   };
 
   const handleAddEvent = (eventData) => {
-    AgendaService.addEvent(eventData);
+    agendaService.addEvent(eventData);
     loadEvents();
+    console.log('Eventos carregados:', events);
   };
 
   const formatarData = (data) => {
