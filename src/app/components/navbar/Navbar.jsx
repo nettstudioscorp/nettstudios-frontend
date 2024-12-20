@@ -4,11 +4,13 @@ import '../navbar/Navbar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from '../navbar/images/NettStudios.svg';
 import DropdownUserMenu from '../conta/DropdownUserMenu';
+import HamburgerIcon from '../navbar/images/hamburger.svg';
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('/');
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
 
   const toggleMenu = () => {
@@ -23,12 +25,18 @@ const Navbar = () => {
     localStorage.removeItem('isAuthenticated');
     localStorage.removeItem('user');
     setIsLoggedIn(false);
+    setIsAdmin(false);
     navigate('/login');
   };
 
   useEffect(() => {
     const authStatus = localStorage.getItem('isAuthenticated');
     setIsLoggedIn(authStatus === 'true');
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user && user.email === 'alanrochaarg2001@gmail.com') {
+      setIsAdmin(true);
+    }
   }, []);
 
   return (
@@ -49,7 +57,11 @@ const Navbar = () => {
               type="button"
               onClick={toggleMenu}
             >
-              <span className="navbar-toggler-icon"></span>
+              <img
+                src={HamburgerIcon}
+                alt="Menu"
+                className="navbar-toggler-icon"
+              />
             </button>
 
             <div
@@ -92,7 +104,7 @@ const Navbar = () => {
                       closeMenu();
                     }}
                   >
-                    Videos
+                    Vídeos
                   </Link>
                 </li>
 
@@ -124,29 +136,59 @@ const Navbar = () => {
 
                 <li className="nav-item">
                   <Link
-                    to="/comunidade"
-                    className={`nav-link ${activeLink === '/comunidade' ? 'active' : ''}`}
+                    to="/agenda"
+                    className={`nav-link ${activeLink === '/agenda' ? 'active' : ''}`}
                     onClick={() => {
-                      setActiveLink('/comunidade');
+                      setActiveLink('/agenda');
                       closeMenu();
                     }}
                   >
-                    Comunidade
+                    Agenda
                   </Link>
                 </li>
 
-                <li className="nav-item">
-                  <Link
-                    to="/member"
-                    className={`nav-link ${activeLink === '/member' ? 'active' : ''}`}
-                    onClick={() => {
-                      setActiveLink('/member');
-                      closeMenu();
-                    }}
-                  >
-                    Membros
-                  </Link>
-                </li>
+                {isLoggedIn && (
+                  <>
+                    {/* TODO: <li className="nav-item">
+                      <Link
+                        to="/exclusive-videos"
+                        className={`nav-link ${activeLink === '/exclusive-videos' ? 'active' : ''}`}
+                        onClick={() => {
+                          setActiveLink('/exclusive-videos');
+                          closeMenu();
+                        }}
+                      >
+                        Reviews
+                      </Link>
+                    </li> */}
+
+                    <li className="nav-item">
+                      <Link
+                        to="/comunidade"
+                        className={`nav-link ${activeLink === '/comunidade' ? 'active' : ''}`}
+                        onClick={() => {
+                          setActiveLink('/comunidade');
+                          closeMenu();
+                        }}
+                      >
+                        Comunidade
+                      </Link>
+                    </li>
+
+                    <li className="nav-item">
+                      <Link
+                        to="/member"
+                        className={`nav-link ${activeLink === '/member' ? 'active' : ''}`}
+                        onClick={() => {
+                          setActiveLink('/member');
+                          closeMenu();
+                        }}
+                      >
+                        Membros
+                      </Link>
+                    </li>
+                  </>
+                )}
 
                 <li className="nav-item">
                   <Link
@@ -160,27 +202,10 @@ const Navbar = () => {
                     Sobre Nós
                   </Link>
                 </li>
-
-                {/* <li className="nav-item">
-                  <Link
-                    to="/updates"
-                    className={`nav-link ${activeLink === '/updates' ? 'active' : ''}`}
-                    onClick={() => {
-                      setActiveLink('/updates');
-                      closeMenu();
-                    }}
-                  >
-                    Updates
-                  </Link>
-                </li> */}
               </ul>
 
               <div className="ms-auto">
                 {!isLoggedIn ? (
-                  // <Link to="/login" className="login-button">
-                  //   {' '}
-                  //   Entrar/Cadrastrar
-                  // </Link>
                   <Link
                     to="/login"
                     className={`nav-link ${activeLink === '/login' ? 'active' : ''}`}
@@ -195,6 +220,7 @@ const Navbar = () => {
                   <DropdownUserMenu
                     user={JSON.parse(localStorage.getItem('user'))}
                     onLogout={handleLogout}
+                    isAdmin={isAdmin}
                   />
                 )}
               </div>
