@@ -359,7 +359,7 @@ const Home = () => {
 
           <br />
           <br />
-
+          {/* 
           <VideoSection
             title="Rockstar Games"
             videos={Adventure}
@@ -368,7 +368,7 @@ const Home = () => {
             loadingMore={loadingMorevideosDataSerieAdventure}
             setLoadingMore={setLoadingMorevideosDataSerieAdventure}
             openModal={openModal}
-          />
+          /> */}
           <br />
 
           {/* <VideoSection
@@ -445,7 +445,7 @@ const Home = () => {
           </button> */}
 
           <button className="bt-close" onClick={closeModal}>
-            Fechar
+            Voltar
           </button>
         </div>
       </Modal>

@@ -140,31 +140,31 @@ export const Action = [
   /* < ==================== Adventure/Rockstar Games ===========================> */
 }
 
-export const Adventure = [
-  {
-    title: 'Grand Theft Auto V',
-    thumbnail:
-      'https://maisplay.com/wp-content/uploads/2023/03/a-historia-completa-de-gta-v-resumida-1320x742.jpg',
-    videoId: 'S8ZAAXGiKo4',
-  },
-  {
-    title: 'L.A.NOIRE',
-    thumbnail:
-      'https://img.hype.games/cdn/b68f51c2-6b5e-4779-a1b3-818d0f83cc10cover.jpg',
-    videoId: 'UNkZyPaoR7k',
-  },
-  {
-    title: 'Red Dead Redemption',
-    thumbnail:
-      'https://blogemuonfire.com.br/wp-content/uploads/2024/09/Red-Dead-Redemption-no-PC.webp',
-    videoId: 'SUGTtLDRnBM',
-  },
-  {
-    title: 'Bully: Anniversary Edition',
-    thumbnail: 'https://kurd4u.com/wp-content/uploads/2023/09/655417.jpg.webp',
-    videoId: '0HWyq47101k',
-  },
-];
+// export const Adventure = [
+//   {
+//     title: 'Grand Theft Auto V',
+//     thumbnail:
+//       'https://maisplay.com/wp-content/uploads/2023/03/a-historia-completa-de-gta-v-resumida-1320x742.jpg',
+//     videoId: 'S8ZAAXGiKo4',
+//   },
+//   {
+//     title: 'L.A.NOIRE',
+//     thumbnail:
+//       'https://img.hype.games/cdn/b68f51c2-6b5e-4779-a1b3-818d0f83cc10cover.jpg',
+//     videoId: 'UNkZyPaoR7k',
+//   },
+//   {
+//     title: 'Red Dead Redemption',
+//     thumbnail:
+//       'https://blogemuonfire.com.br/wp-content/uploads/2024/09/Red-Dead-Redemption-no-PC.webp',
+//     videoId: 'SUGTtLDRnBM',
+//   },
+//   {
+//     title: 'Bully: Anniversary Edition',
+//     thumbnail: 'https://kurd4u.com/wp-content/uploads/2023/09/655417.jpg.webp',
+//     videoId: '0HWyq47101k',
+//   },
+// ];
 
 {
   /* < ==================== Sports ===========================> */
