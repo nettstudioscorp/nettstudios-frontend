@@ -1,6 +1,6 @@
-import React from "react";
-import newsArticles from "../../games/news/service/newsData";
-import "../news/css/News.css";
+import React from 'react';
+import newsArticles from '../news/service/newsData';
+import '../news/css/News.css';
 
 const NewsComponent = () => {
   return (

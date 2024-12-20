@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserService } from '../login/services/userService';
 import { agendaService } from '../agenda/services/agenda.service';
-import { videosService } from '../games/videos/api/MemberExclusiveVideosList.Service';
+// import { videosService } from '../games/videos/api/MemberExclusiveVideosList.Service';
 import '../admin/admin.css';
 
 const EventModal = ({ isOpen, onClose, onSave, selectedEvent }) => {
@@ -169,7 +169,7 @@ const Admin = () => {
       return;
     }
     loadEvents();
-    loadVideos();
+    // loadVideos();
   }, [navigate]);
 
   const isAdmin = (user) => {
@@ -181,10 +181,10 @@ const Admin = () => {
     setEvents(savedEvents);
   };
 
-  const loadVideos = () => {
-    const savedVideos = videosService.getVideos();
-    setVideos(savedVideos);
-  };
+  // const loadVideos = () => {
+  //   const savedVideos = videosService.getVideos();
+  //   setVideos(savedVideos);
+  // };
 
   const handleAddEvent = (eventData) => {
     agendaService.addEvent(eventData);
@@ -202,44 +202,44 @@ const Admin = () => {
     loadEvents();
   };
 
-  const handleAddVideo = (videoData) => {
-    videosService.addVideo({
-      videoId: videoData.videoId,
-      snippet: {
-        title: videoData.title,
-        description: videoData.description,
-        thumbnails: {
-          medium: {
-            url: 'https://example.com/thumbnail.jpg',
-          },
-        },
-      },
-    });
-    loadVideos();
-    setIsVideoModalOpen(false);
-  };
+  // const handleAddVideo = (videoData) => {
+  //   videosService.addVideo({
+  //     videoId: videoData.videoId,
+  //     snippet: {
+  //       title: videoData.title,
+  //       description: videoData.description,
+  //       thumbnails: {
+  //         medium: {
+  //           url: 'https://example.com/thumbnail.jpg',
+  //         },
+  //       },
+  //     },
+  //   });
+  //   loadVideos();
+  //   setIsVideoModalOpen(false);
+  // };
 
-  const handleEditVideo = (video) => {
-    setSelectedVideo(video);
-    setIsVideoModalOpen(true);
-  };
+  // const handleEditVideo = (video) => {
+  //   setSelectedVideo(video);
+  //   setIsVideoModalOpen(true);
+  // };
 
-  const handleUpdateVideo = (videoData) => {
-    videosService.updateVideo(selectedVideo.id, {
-      videoId: videoData.videoId,
-      snippet: {
-        title: videoData.title,
-        description: videoData.description,
-      },
-    });
-    loadVideos();
-    setIsVideoModalOpen(false);
-  };
+  // const handleUpdateVideo = (videoData) => {
+  //   videosService.updateVideo(selectedVideo.id, {
+  //     videoId: videoData.videoId,
+  //     snippet: {
+  //       title: videoData.title,
+  //       description: videoData.description,
+  //     },
+  //   });
+  //   loadVideos();
+  //   setIsVideoModalOpen(false);
+  // };
 
-  const handleDeleteVideo = (videoId) => {
-    videosService.deleteVideoById(videoId);
-    loadVideos();
-  };
+  // const handleDeleteVideo = (videoId) => {
+  //   videosService.deleteVideoById(videoId);
+  //   loadVideos();
+  // };
 
   return (
     <div className="admin-container">
@@ -301,12 +301,12 @@ const Admin = () => {
         selectedEvent={selectedEvent}
       />
 
-      <VideoModal
+      {/* <VideoModal
         isOpen={isVideoModalOpen}
         onClose={() => setIsVideoModalOpen(false)}
         onSave={selectedVideo ? handleUpdateVideo : handleAddVideo}
         selectedVideo={selectedVideo}
-      />
+      /> */}
     </div>
   );
 };

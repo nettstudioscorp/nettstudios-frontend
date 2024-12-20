@@ -5,33 +5,33 @@ import HomeComponent from '../pages/home/Home';
 import NavbarComponent from '../navbar/Navbar';
 import FooterComponent from '../footer/Footer';
 
-import VideosLists from '../pages/games/videos/VideosList';
-import VideoPlayer from '../pages/games/videos/VideoPlayer';
-import VideoPlayerVideoID from '../pages/games/videos/VideoPlayer';
+import VideosLists from '../pages/videos/VideosList';
+import VideoPlayer from '../pages/videos/VideoPlayer';
+import VideoPlayerVideoID from '../pages/videos/VideoPlayer';
 
-import MemberVideosList from '../pages/games/videos/MemberExclusiveVideosList';
-import MemberVideosPlayer from '../pages/games/videos/MemberExclusiveVideosPlayer';
-import MemberVideosPlayerID from '../pages/games/videos/MemberExclusiveVideosPlayer';
+import MemberVideosList from '../pages/videos/MemberExclusiveVideosList';
+import MemberVideosPlayer from '../pages/videos/MemberExclusiveVideosPlayer';
+import MemberVideosPlayerID from '../pages/videos/MemberExclusiveVideosPlayer';
 
-import Playlist from '../pages/games/playlists/Playlist';
-import PlaylistPlayer from '../pages/games/playlists/PlayListPlayer';
-import PlaylistPlayerID from '../pages/games/playlists/PlayListPlayer';
+import Playlist from '../pages/playlists/Playlist';
+import PlaylistPlayer from '../pages/playlists/PlayListPlayer';
+import PlaylistPlayerID from '../pages/playlists/PlayListPlayer';
 
-import Live from '../pages/games/live/Live';
-import LivePlayer from '../pages/games/live/LivePlayer';
-import LivePlayerID from '../pages/games/live/LivePlayer';
+import Live from '../pages//live/Live';
+import LivePlayer from '../pages//live/LivePlayer';
+import LivePlayerID from '../pages/live/LivePlayer';
 
-import UpdatesCenter from '../pages/games/updatesCenter/updateCenter';
-import UpdateReport from '../pages/games/updatesCenter/updateReport';
-import Community from '../pages/games/community/community';
+import UpdatesCenter from '../pages/updatesCenter/updateCenter';
+import UpdateReport from '../pages/updatesCenter/updateReport';
+import Community from '../pages/community/community';
 import Member from '../pages/Members/member';
 
-import NewsComponent from '../pages/games/news/News';
+import NewsComponent from '../pages/news/News';
 import Agenda from '../pages/agenda/agenda';
 import Admin from '../pages/admin/admin';
 import AdminHome from '../pages/admin/adminHome';
 
-import AboutComponent from '../pages/games/about/About';
+import AboutComponent from '../pages/about/About';
 import Contact from '../pages/contact/contact';
 import TermsUse from '../pages/termsUse/termsUse';
 import PrivacyPolicy from '../pages/privacyPolicy/privacyPolicy';

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../community/community.css';
 import { getCommunityPosts } from '../community/service/community.service';
-import { sendEmail } from '../../games/community/service/emailjs';
+import { sendEmail } from '../community/service/emailjs';
 
 const Community = () => {
   const [posts, setPosts] = useState(getCommunityPosts());

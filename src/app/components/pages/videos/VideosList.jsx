@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { videos } from './api/Videoslist.Service';
-import '../../games/videos/css/VideosList.css';
+import '../videos/css/VideosList.css';
 import { Link } from 'react-router-dom';
 
 const VideosList = () => {
