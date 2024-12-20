@@ -8,11 +8,21 @@ const VideoPlayer = () => {
   const navigate = useNavigate();
   const [currentVideoIndex, setCurrentVideoIndex] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const isUserRegistered = localStorage.getItem('isAuthenticated') === 'true';
 
   useEffect(() => {
     const index = videos.findIndex((v) => v.videoId === videoId);
-    setCurrentVideoIndex(index !== -1 ? index : 0);
-  }, [videoId]);
+    if (index !== -1) {
+      const currentVideo = videos[index];
+      if (currentVideo.isExclusive && !isUserRegistered) {
+        navigate('/videos');
+      } else {
+        setCurrentVideoIndex(index);
+      }
+    } else {
+      setCurrentVideoIndex(0);
+    }
+  }, [videoId, navigate]);
 
   const handleVideoChange = (index) => {
     setCurrentVideoIndex(index);
@@ -47,6 +57,20 @@ const VideoPlayer = () => {
 
   if (!currentVideo) {
     return <div className="video-page-container">Vídeo não encontrado</div>;
+  }
+
+  if (currentVideo.isExclusive && !isUserRegistered) {
+    return (
+      <div className="video-page-container">
+        <h2>Acesso restrito a vídeos exclusivos.</h2>
+        <p>
+          Seja membro cadastrado e tenha acesso gratuito aos vídeos exclusivos!
+        </p>
+        <Link to="/videos" className="back-to-videos-link">
+          Voltar para a lista de vídeos
+        </Link>
+      </div>
+    );
   }
 
   return (

@@ -11,6 +11,7 @@ export const videos = [
       },
       description: '6 de jul. de 2024',
     },
+    isExclusive: true,
   },
   {
     id: '2',
@@ -24,6 +25,7 @@ export const videos = [
       },
       description: '23 de jun. de 2024',
     },
+    isExclusive: false,
   },
   {
     id: '3',
@@ -37,6 +39,7 @@ export const videos = [
       },
       description: '17 de jun. de 2024',
     },
+    isExclusive: true,
   },
   {
     id: '4',
@@ -50,6 +53,7 @@ export const videos = [
       },
       description: '10 de jun. de 2024',
     },
+    isExclusive: false,
   },
   {
     id: '5',

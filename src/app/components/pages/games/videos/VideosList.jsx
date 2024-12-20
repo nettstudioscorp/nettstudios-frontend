@@ -4,10 +4,12 @@ import { videos } from './api/Videoslist.Service';
 import '../../games/videos/css/VideosList.css';
 import { Link } from 'react-router-dom';
 
-const VideosComponent = () => {
+const VideosList = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [activeFilter, setActiveFilter] = useState('recent');
+
+  const isUserRegistered = localStorage.getItem('isAuthenticated') === 'true';
 
   const openModal = (video) => {
     setSelectedVideo(video);
@@ -29,60 +31,42 @@ const VideosComponent = () => {
   };
 
   const filteredVideos = () => {
-    switch (activeFilter) {
-      case 'recent':
-        return [...videos].sort(
-          (a, b) =>
-            new Date(b.snippet.description.split(' • ')[1]) -
-            new Date(a.snippet.description.split(' • ')[1])
-        );
-      case 'popular':
-        return [...videos].sort(
-          (a, b) =>
-            parseInt(b.snippet.description.split(' ')[0]) -
-            parseInt(a.snippet.description.split(' ')[0])
-        );
-      case 'oldest':
-        return [...videos].sort(
-          (a, b) =>
-            new Date(a.snippet.description.split(' • ')[1]) -
-            new Date(b.snippet.description.split(' • ')[1])
-        );
-      default:
-        return videos;
-    }
+    return videos
+      .filter((video) => {
+        return !(video.isExclusive && !isUserRegistered);
+      })
+      .sort((a, b) => {
+        switch (activeFilter) {
+          case 'recent':
+            return (
+              new Date(b.snippet.description.split(' • ')[1]) -
+              new Date(a.snippet.description.split(' • ')[1])
+            );
+          case 'popular':
+            return (
+              parseInt(b.snippet.description.split(' ')[0]) -
+              parseInt(a.snippet.description.split(' ')[0])
+            );
+          case 'oldest':
+            return (
+              new Date(a.snippet.description.split(' • ')[1]) -
+              new Date(b.snippet.description.split(' • ')[1])
+            );
+          default:
+            return 0;
+        }
+      });
   };
 
   return (
     <>
-      {/* TODO: <div className="buttons-container">
-        <button
-          className={`filter-button ${
-            activeFilter === "recent" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("recent")}
-        >
-          Mais recentes
-        </button>
-        <button
-          className={`filter-button ${
-            activeFilter === "popular" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("popular")}
-        >
-          Em alta
-        </button>
-        <button
-          className={`filter-button ${
-            activeFilter === "oldest" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("oldest")}
-        >
-          Mais antigo
-        </button>
-      </div> */}
-
       <div className="video-grid">
+        {filteredVideos().length === 0 && !isUserRegistered && (
+          <p>
+            Para acessar vídeos exclusivos, por favor, faça login ou crie uma
+            conta.
+          </p>
+        )}
         {filteredVideos().map((video) => (
           <div className="video-item" key={video.id}>
             <Link to={`/videos/${video.videoId}`}>
@@ -92,7 +76,6 @@ const VideosComponent = () => {
                 onClick={() => openModal(video)}
               />
               <h3 onClick={() => openModal(video)}>{video.snippet.title}</h3>
-              {/* <p className="video-date">{video.snippet.description}</p> */}
             </Link>
           </div>
         ))}
@@ -105,17 +88,6 @@ const VideosComponent = () => {
           overlayClassName="modal-overlay"
         >
           <h2>{selectedVideo?.snippet.title}</h2>
-          {/* <p>Escolha onde deseja assistir:</p>
-          <button
-            className="btn btn-external"
-            onClick={() =>
-              handleWatch(
-                `https://www.youtube.com/watch?v=${selectedVideo?.videoId}`
-              )
-            }
-          >
-            Assistir no YouTube
-          </button> */}
           <button
             className="btn-internal"
             onClick={() => handleWatch(`/watch/${selectedVideo?.videoId}`)}
@@ -131,4 +103,4 @@ const VideosComponent = () => {
   );
 };
 
-export default VideosComponent;
+export default VideosList;

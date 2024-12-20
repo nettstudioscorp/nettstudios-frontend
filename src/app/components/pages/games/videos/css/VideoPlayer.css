@@ -7,6 +7,37 @@
   box-sizing: border-box;
 }
 
+.video-page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #191a23;
+  padding: 100px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  color: white;
+  text-align: center;
+}
+
+.video-page-container h2 {
+  margin-bottom: 16px;
+}
+
+.video-page-container p {
+  font-size: 1.2em;
+}
+
+.back-to-videos-link {
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: underline;
+  font-size: 1.1em;
+}
+
+.back-to-videos-link:hover {
+  color: #0056b3;
+}
+
 .video-player {
   width: 100%;
   max-width: 600%;
@@ -78,8 +109,8 @@
 }
 
 .back-button {
-  background-color: #0b046c;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   padding: 10px 2px;
   margin: 5px;
   display: inline-block;
