@@ -193,6 +193,5 @@ export const getPlaylistByGameId = (gameId) => {
     ],
   };
 
-  // Retorna a playlist correspondente ao gameId ou um array vazio se não encontrar
   return playlists[gameId] || [];
 };

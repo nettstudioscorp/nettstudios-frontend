@@ -30,15 +30,17 @@ export const getGamesList002 = () => [
   },
 ];
 
-export const getGamesList003 = () => [];
-
-export const getGamesList004 = () => [];
-
-export const getGamesList005 = () => [
+export const getGamesList003 = () => [
   {
     id: 'AlanWake',
     name: 'Alan Wake',
     thumbnail:
       'https://www.finalfaqs.com.br/wp-content/uploads/2020/12/Alan-Wake.jpg.webp',
   },
+];
+
+export const getGamesList004 = () => [];
+
+export const getGamesList005 = () => [
+  
 ];
