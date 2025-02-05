@@ -56,7 +56,7 @@ const FooterComponent = () => {
       <br />
       <div className="footer-bottom">
         <p>
-          © Copyright 2015-2024 NettStudios - Games, Entretenimento e Criação
+          © Copyright 2015-2025 NettStudios - Games, Entretenimento e Criação
           de Conteúdo.
         </p>
         <a href="/termos-de-uso">Termos de uso</a> &nbsp;
