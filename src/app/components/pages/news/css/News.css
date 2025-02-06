@@ -1,61 +1,110 @@
 .news-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 64px;
-  margin: 0 auto;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
 }
 
-.news-articles {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.news-article {
-  border-bottom: 1px solid #ddd;
-  padding: 15px 0;
-  margin-bottom: 20px;
-}
-h1 {
-  color: white;
-}
-
-p,
-small {
-  color: #ddd;
-}
-.news-article h2 {
+.section-title {
   font-size: 24px;
-  margin: 0;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
-.news-article h2 a {
-  color: rgb(255, 255, 255);
+/* Destaques Section */
+.destaques-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.destaque-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.article-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.destaque-card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Noticias Section */
+.noticia-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.noticia-image {
+  flex: 0 0 200px;
+  height: 150px;
+}
+
+.noticia-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.noticia-content {
+  flex: 1;
+}
+
+.noticia-meta {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  color: #666;
+  font-size: 14px;
+}
+
+.noticia-item h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.noticia-item p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+a {
+  color: #ffffff;
   text-decoration: none;
 }
 
-.news-article h2 a:hover {
-  color: blue;
-}
-
-.news-article h2 a:active {
-  color: rgb(234, 234, 234);
-}
-
-.news-article p {
-  font-size: 16px;
-  color: #dddddd;
+a:hover {
+  color: #0066cc;
 }
 
 @media (max-width: 768px) {
-  .news-article h2 {
-    font-size: 20px;
+  .destaques-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .news-article p {
-    font-size: 14px;
+  .noticia-item {
+    flex-direction: column;
+  }
+
+  .noticia-image {
+    width: 100%;
+    flex: none;
   }
 }

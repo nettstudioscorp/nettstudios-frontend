@@ -37,8 +37,7 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
     };
 
     try {
-      const response = await fetch('https://nettstudios-backend.onrender.com/api/auth/update', {
-        /*const response = await fetch('http://localhost:3000/api/auth/update', {*/
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/update`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -72,10 +71,7 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
 
     const user = JSON.parse(localStorage.getItem('user')) || {};
     try {
-      const response = await fetch('https://nettstudios-backend.onrender.com/api/auth/deleteAccount', {
-          /* const response = await fetch(
-             'http://localhost:3000/api/auth/deleteAccount',
-             {*/
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/deleteAccount`, {
           method: 'DELETE',
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,

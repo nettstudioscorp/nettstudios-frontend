@@ -36,8 +36,7 @@ const Login = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('https://nettstudios-backend.onrender.com/api/auth/login', {
-        /* const response = await fetch('http://localhost:3000/api/auth/login', {*/
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -72,8 +71,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch('https://nettstudios-backend.onrender.com/api/auth/signup', {
-        /*const response = await fetch('http://localhost:3000/api/auth/signup', {*/
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
