@@ -1,8 +1,23 @@
-import React from "react";
+import React from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const HomeVideoDisplay = ({ videos, openModal }) => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: <div className="slick-prev" />,
+    nextArrow: <div className="slick-next" />,
+  };
+
   return (
-    <div className="video-display">
+    <Slider {...settings}>
       {videos.map((video) => (
         <div
           key={video.videoId}
@@ -17,7 +32,7 @@ const HomeVideoDisplay = ({ videos, openModal }) => {
           <p>{video.title}</p>
         </div>
       ))}
-    </div>
+    </Slider>
   );
 };
 
