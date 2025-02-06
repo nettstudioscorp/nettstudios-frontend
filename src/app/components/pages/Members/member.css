@@ -1,0 +1,75 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.member-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 100px;
+  min-height: 100vh;
+}
+
+.member-card {
+  background-color: transparent;
+  /* border: 1px solid #333; */
+  border-radius: 8px;
+  text-align: center;
+  padding: 20px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); */
+  transition: transform 0.2s;
+}
+
+.member-card:hover {
+  transform: scale(1.05);
+}
+
+.member-role {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.member-name {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.member-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1200px) {
+  .member-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .member-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .member-list {
+    grid-template-columns: 1fr;
+  }
+
+  .member-image {
+    width: 70px;
+    height: 70px;
+  }
+
+  .member-role {
+    font-size: 12px;
+  }
+
+  .member-name {
+    font-size: 14px;
+  }
+}

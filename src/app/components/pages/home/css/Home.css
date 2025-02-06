@@ -2,6 +2,7 @@ body {
   background-color: #0a1520 !important;
   color: white !important;
   padding: 14px;
+  font-family: inherit;
 }
 
 .titlePage {
@@ -29,7 +30,7 @@ h2 {
   max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 20px !important;
-  font-family: Arial, sans-serif !important;
+  font-family: inherit !important;
 }
 
 .load-more-btn {
@@ -162,7 +163,7 @@ h2 {
 }
 
 .slick-arrow {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -172,8 +173,9 @@ h2 {
 
 .slick-prev:before,
 .slick-next:before {
-  color: #3498db;
-  font-size: 20px;
+  content: '';
+  font-size: 30px;
+  color: white;
 }
 
 .slick-dots li button:before {
@@ -187,25 +189,25 @@ h2 {
 
 .thumbnail-image {
   width: 100% !important;
-  height: 150px !important;
+  height: 400px !important;
   border-radius: 8px !important;
   object-fit: cover !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Exibição de vídeos */
 .video-display {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 16px !important;
   margin-top: 20px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 5px !important;
 }
 
 .video-thumbnail {
-  width: calc(25% - 16px) !important;
+  width: 300px !important;
   cursor: pointer !important;
   text-align: center !important;
   transition: transform 0.3s ease !important;
+  margin: 0 2px !important;
 }
 
 .video-thumbnail:hover {
@@ -214,7 +216,7 @@ h2 {
 
 .thumbnail-image {
   width: 100% !important;
-  height: 150px !important;
+  height: auto !important;
   border-radius: 8px !important;
   object-fit: cover !important;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
@@ -277,7 +279,7 @@ h2 {
 
 @media (max-width: 768px) {
   .video-thumbnail {
-    width: calc(50% - 16px) !important;
+    width: 200px !important;
   }
 
   .modal-home iframe {
@@ -295,8 +297,14 @@ h2 {
 }
 
 @media (max-width: 480px) {
+  .video-display {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
   .video-thumbnail {
-    width: 100% !important;
+    width: 90% !important;
+    margin: 10px 0 !important;
   }
 
   .home-container,
@@ -323,5 +331,45 @@ h2 {
 
   body::-webkit-scrollbar {
     display: none !important;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  font-size: 30px;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .slick-prev,
+  .slick-next {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slick-prev,
+  .slick-next {
+    font-size: 18px;
+  }
+}
+
+.banner {
+  width: 100% !important;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 200px;
   }
 }

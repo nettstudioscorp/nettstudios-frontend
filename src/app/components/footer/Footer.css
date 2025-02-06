@@ -2,15 +2,15 @@
   background-color: #212529;
   padding: 2rem;
   color: #ffffff;
-  font-family: Arial, sans-serif;
+  font-family: inherit;
   text-align: center;
   padding: 1rem;
 }
 
 .footer-logo {
-  width: 100px;
+  width: 200px;
   height: auto;
-  border-radius: 50%;
+  border-radius: 5%;
   margin-bottom: 1rem;
 }
 
