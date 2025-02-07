@@ -9,6 +9,8 @@ const MemberExclusiveVideosList = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [activeFilter, setActiveFilter] = useState('recent');
   const [videos, setVideos] = useState([]);
+  const [visibleVideos, setVisibleVideos] = useState(27);
+  const videosPerLoad = 27;
 
   useEffect(() => {
     setVideos(videosService.getVideos());
@@ -33,109 +35,89 @@ const MemberExclusiveVideosList = () => {
     setActiveFilter(filter);
   };
 
+  const loadMoreVideos = () => {
+    setVisibleVideos(prev => prev + videosPerLoad);
+  };
+
   const filteredVideos = () => {
+    let filtered;
     switch (activeFilter) {
       case 'recent':
-        return [...videos].sort(
+        filtered = [...videos].sort(
           (a, b) =>
             new Date(b.snippet.description.split(' • ')[1]) -
             new Date(a.snippet.description.split(' • ')[1])
         );
+        break;
       case 'popular':
-        return [...videos].sort(
+        filtered = [...videos].sort(
           (a, b) =>
             parseInt(b.snippet.description.split(' ')[0]) -
             parseInt(a.snippet.description.split(' ')[0])
         );
+        break;
       case 'oldest':
-        return [...videos].sort(
+        filtered = [...videos].sort(
           (a, b) =>
             new Date(a.snippet.description.split(' • ')[1]) -
             new Date(b.snippet.description.split(' • ')[1])
         );
+        break;
       default:
-        return videos;
+        filtered = videos;
     }
+    return filtered.slice(0, visibleVideos);
   };
 
-  return (
-    <>
-      {/* TODO: <div className="buttons-container">
-        <button
-          className={`filter-button ${
-            activeFilter === "recent" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("recent")}
-        >
-          Mais recentes
-        </button>
-        <button
-          className={`filter-button ${
-            activeFilter === "popular" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("popular")}
-        >
-          Em alta
-        </button>
-        <button
-          className={`filter-button ${
-            activeFilter === "oldest" ? "active" : ""
-          }`}
-          onClick={() => handleFilter("oldest")}
-        >
-          Mais antigo
-        </button>
-      </div> */}
+  const hasMoreVideos = videos.length > visibleVideos;
 
+  return (
+    <div className="videos-container">
       <div className="video-grid">
         {filteredVideos().map((video) => (
           <div className="video-item" key={video.id}>
-            <Link to={`/exclusive-videos/${video.videoId}`}>
+            <Link to={`/exclusive-videos/${video.videoId}`} className="video-link">
               <img
-                src={
-                  video.snippet.thumbnails?.medium?.url ||
-                  'default-thumbnail.jpg'
-                }
+                src={video.snippet.thumbnails.medium.url}
                 alt={video.snippet.title}
-                onClick={() => openModal(video)}
+                loading="lazy"
               />
-              <h3 onClick={() => openModal(video)}>{video.snippet.title}</h3>
-              {/* <p className="video-date">{video.snippet.description}</p> */}
+              <div className="video-status">
+                {video.dub ? 'Dub' : ''} {video.leg ? 'Leg' : ''} {video.legendado ? 'Legendado' : ''}
+              </div>
+              <h3>{video.snippet.title}</h3>
             </Link>
           </div>
         ))}
-
-        <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          contentLabel="Choose Watch Option"
-          className="modal"
-          overlayClassName="modal-overlay"
-        >
-          <h2>{selectedVideo?.snippet.title}</h2>
-          {/* <p>Escolha onde deseja assistir:</p>
-          <button
-            className="btn btn-external"
-            onClick={() =>
-              handleWatch(
-                `https://www.youtube.com/watch?v=${selectedVideo?.videoId}`
-              )
-            }
-          >
-            Assistir no YouTube
-          </button> */}
-          <button
-            className="btn-internal"
-            onClick={() => handleWatch(`/watch/${selectedVideo?.videoId}`)}
-          >
-            Assistir
-          </button>
-          <button className="button-modal-close" onClick={closeModal}>
-            Fechar
-          </button>
-        </Modal>
       </div>
-    </>
+      
+      {hasMoreVideos && (
+        <div className="load-more-container">
+          <button className="load-more-button" onClick={loadMoreVideos}>
+            Carregar Mais
+          </button>
+        </div>
+      )}
+      
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Choose Watch Option"
+        className="modal"
+        overlayClassName="modal-overlay"
+      >
+        <h2>{selectedVideo?.snippet.title}</h2>
+        <button
+          className="btn-internal"
+          onClick={() => handleWatch(`/watch/${selectedVideo?.videoId}`)}
+        >
+          Assistir
+        </button>
+        <button className="button-modal-close" onClick={closeModal}>
+          Fechar
+        </button>
+      </Modal>
+    </div>
   );
 };
 
