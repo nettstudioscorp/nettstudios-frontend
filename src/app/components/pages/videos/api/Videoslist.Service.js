@@ -3,7 +3,7 @@ export const videos = [
     id: '1',
     videoId: '8YVNOXuQuts',
     snippet: {
-      title: "#6 - Assassin's Creed Valhalla",
+      title: "Assassin's Creed Valhalla - Episódio 6",
       thumbnails: {
         medium: {
           url: 'https://wallpapers.com/images/high/4k-assassin-s-creed-valhalla-background-3840-x-2160-inzoy2k4g3k6c4bf.webp',
@@ -17,7 +17,7 @@ export const videos = [
     id: '2',
     videoId: 'rNEra09Lkyc',
     snippet: {
-      title: "#5 - Assassin's Creed Valhalla",
+      title: "Assassin's Creed Valhalla - Episódio 5",
       thumbnails: {
         medium: {
           url: 'https://wallpapers.com/images/high/4k-assassin-s-creed-valhalla-background-3840-x-2160-inzoy2k4g3k6c4bf.webp',
@@ -31,7 +31,7 @@ export const videos = [
     id: '3',
     videoId: 'UI4s7S7OFtA',
     snippet: {
-      title: '#19 - Far Cry Primal ',
+      title: 'Far Cry Primal - Episódio 19',
       thumbnails: {
         medium: {
           url: 'https://wallpapercave.com/wp/wp1896894.jpg',
@@ -45,7 +45,7 @@ export const videos = [
     id: '4',
     videoId: '5_seyG6_wmI',
     snippet: {
-      title: "#21 - Assassin's Creed Rogue ",
+      title: "Assassin's Creed Rogue  - Episódio 21",
       thumbnails: {
         medium: {
           url: 'https://wallpapercave.com/wp/wp2212972.jpg',
@@ -59,7 +59,7 @@ export const videos = [
     id: '5',
     videoId: 'Hk0Mpe-9kYw',
     snippet: {
-      title: "#20 - Assassin's Creed Rogue",
+      title: "Assassin's Creed Rogue - Episódio 20",
       thumbnails: {
         medium: {
           url: 'https://wallpapercave.com/wp/wp2212972.jpg',

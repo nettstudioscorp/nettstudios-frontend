@@ -22,6 +22,9 @@ const FooterComponent = () => {
           <p className="footer-email">
             Email:{' '}
             <a href="mailto: contatonettplay@gmail.com">nettstudios@mail.com</a>
+            <br />
+            <br />
+            <a href="/about">Sobre Nós</a>
           </p>
         </div>
 

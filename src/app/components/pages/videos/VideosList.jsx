@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { videos } from './api/Videoslist.Service';
 import '../videos/css/VideosList.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const VideosList = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -12,6 +12,9 @@ const VideosList = () => {
   const videosPerLoad = 27;
 
   const isUserRegistered = localStorage.getItem('isAuthenticated') === 'true';
+
+  const { videoId } = useParams();
+  const video = videos.find((v) => v.videoId === videoId);
 
   const openModal = (video) => {
     setSelectedVideo(video);
@@ -69,32 +72,47 @@ const VideosList = () => {
 
   return (
     <div className="videos-container">
-      <div className="video-grid">
-        {filteredVideos().length === 0 && !isUserRegistered && (
-          <p className="login-message">
-            Para acessar vídeos exclusivos, por favor, faça login ou crie uma
-            conta.
-          </p>
-        )}
-        {filteredVideos().map((video) => (
-          <div className="video-item" key={video.id}>
-            <Link to={`/videos/${video.videoId}`} className="video-link">
-              <div className="video-overlay"></div>
-              <div className="play-button"></div>
-              <img
-                src={video.snippet.thumbnails.medium.url}
-                alt={video.snippet.title}
-                loading="lazy"
-              />
-              <div className="video-status">
-                {video.dub ? 'Dub' : ''} {video.leg ? 'Leg' : ''}{' '}
-                {video.legendado ? 'Legendado' : ''}
-              </div>
-              <h3>{video.snippet.title}</h3>
-            </Link>
-          </div>
-        ))}
-      </div>
+      {video ? (
+        <div>
+          <h2>{video.snippet.title}</h2>
+          <iframe
+            width="560"
+            height="315"
+            src={`https://www.youtube.com/embed/${video.videoId}`}
+            title={video.snippet.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+      ) : (
+        <div className="video-grid">
+          {filteredVideos().length === 0 && !isUserRegistered && (
+            <p className="login-message">
+              Para acessar vídeos exclusivos, por favor, faça login ou crie uma
+              conta.
+            </p>
+          )}
+          {filteredVideos().map((video) => (
+            <div className="video-item" key={video.id}>
+              <Link to={`/videos/${video.videoId}`} className="video-link">
+                <div className="video-overlay"></div>
+                <div className="play-button"></div>
+                <img
+                  src={video.snippet.thumbnails.medium.url}
+                  alt={video.snippet.title}
+                  loading="lazy"
+                />
+                <div className="video-status">
+                  {video.dub ? 'Dub' : ''} {video.leg ? 'Leg' : ''}{' '}
+                  {video.legendado ? 'Legendado' : ''}
+                </div>
+                <h3>{video.snippet.title}</h3>
+              </Link>
+            </div>
+          ))}
+        </div>
+      )}
 
       {hasMoreVideos && (
         <div className="load-more-container">

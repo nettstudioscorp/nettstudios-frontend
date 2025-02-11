@@ -134,7 +134,7 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                <li className="nav-item">
+                {/* TODO: to improve  <li className="nav-item">
                   <Link
                     to="/agenda"
                     className={`nav-link ${activeLink === '/agenda' ? 'active' : ''}`}
@@ -145,7 +145,7 @@ const Navbar = () => {
                   >
                     Agenda
                   </Link>
-                </li>
+                </li> */}
 
                 {isLoggedIn && (
                   <>
@@ -175,7 +175,7 @@ const Navbar = () => {
                       </Link>
                     </li>
 
-                    <li className="nav-item">
+                    {/* TODO: to improve  <li className="nav-item">
                       <Link
                         to="/member"
                         className={`nav-link ${activeLink === '/member' ? 'active' : ''}`}
@@ -186,10 +186,11 @@ const Navbar = () => {
                       >
                         Membros
                       </Link>
-                    </li>
+                    </li> */}
                   </>
                 )}
 
+                {/* hidden 
                 <li className="nav-item">
                   <Link
                     to="/about"
@@ -201,7 +202,7 @@ const Navbar = () => {
                   >
                     Sobre Nós
                   </Link>
-                </li>
+                </li> */}
               </ul>
 
               <div className="ms-auto">
