@@ -5,7 +5,7 @@ const ProfileEditModal = ({ user, onSave }) => {
   const [email, setEmail] = useState(user?.email || '');
 
   const handleSave = () => {
-    onSave({ name, email }); // Chama a função de salvar e fecha o modal
+    onSave({ name, email });
   };
 
   return (

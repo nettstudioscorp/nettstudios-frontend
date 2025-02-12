@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../community/community.css';
-import { getCommunityPosts } from '../community/service/community.service';
+import { fetchCommunityPosts } from '../community/service/community.service';
 import { sendEmail } from '../community/service/emailjs';
 
 const Community = () => {
-  const [posts, setPosts] = useState(getCommunityPosts());
+  const [posts, setPosts] = useState([]);
   const [reply, setReply] = useState('');
   const [repliedPostId, setRepliedPostId] = useState(null);
   const navigate = useNavigate();
@@ -15,8 +15,19 @@ const Community = () => {
     if (isAuthenticated !== 'true') {
       alert('Você precisa estar logado para acessar esta página.');
       navigate('/login');
+    } else {
+      fetchPosts();
     }
   }, [navigate]);
+
+  const fetchPosts = async () => {
+    try {
+      const data = await fetchCommunityPosts();
+      setPosts(data);
+    } catch (error) {
+      console.error('Erro ao buscar posts da comunidade:', error);
+    }
+  };
 
   const toggleReplyForm = (index) => {
     setRepliedPostId(repliedPostId === index ? null : index);
@@ -53,8 +64,20 @@ const Community = () => {
         plataforma. Fique sempre por dentro!
       </p>
 
-      <Link to="/updates" className="updates-button">
-        <button className="update-button">Ver Atualizações</button>
+      <Link
+        to="https://discord.gg/wVGJYq9Fz2"
+        className="updates-button"
+        target="blank"
+      >
+        <button className="update-button">Discord</button>
+      </Link>
+
+      <Link
+        to="https://www.youtube.com/@theNettko/community"
+        className="updates-button"
+        target="blank"
+      >
+        <button className="update-button">YouTube</button>
       </Link>
 
       <br />
@@ -63,14 +86,13 @@ const Community = () => {
         {posts.map((post, index) => (
           <div className="post-card" key={index}>
             <div className="post-header">
-              {/* TODO: <div className="post-author-logo">
+              <div className="post-author-logo">
                 <span>{post.authorLogo}</span>
-              </div> */}
-
-              {/* TODO: <div className="post-author-details">
+              </div>
+              <div className="post-author-details">
                 <h2 className="post-author-name">{post.author}</h2>
                 <p className="post-time">{post.time}</p>
-              </div> */}
+              </div>
             </div>
 
             <div className="post-content">

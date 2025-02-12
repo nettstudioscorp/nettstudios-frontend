@@ -1,20 +1,15 @@
-// Função para retornar playlists com base no gameId
-export const getPlaylistByGameId = (gameId) => {
-  const playlists = {
-    WatchDogs: [
-      {
-        videoId: "E8tjZoSwD0c",
-        title: "WATCHDOGS - Parte 1",
-      },
-    ],
-    WatchDogs2: [
-      {
-        videoId: "E8tjZoSwD0c",
-        title: "WATCHDOGS 2 - Parte 1",
-      },
-    ],
-  };
+const API_URL_PLAYLISTS = `${process.env.REACT_APP_API_URL}/api/live/playlists`;
 
-  // Retorna a playlist correspondente ao gameId ou um array vazio se não encontrar
-  return playlists[gameId] || [];
+export const fetchPlaylistByGameId = async (gameId) => {
+  try {
+    const response = await fetch(`${API_URL_PLAYLISTS}/${gameId}`);
+    if (!response.ok) {
+      throw new Error('Erro ao buscar a playlist');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erro:', error);
+    throw error;
+  }
 };

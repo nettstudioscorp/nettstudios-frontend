@@ -1,10 +1,32 @@
-import React from 'react';
-import newsArticles from '../news/service/newsData';
+import React, { useEffect, useState } from 'react';
+import { fetchNews } from './service/newsData';
 import '../news/css/News.css';
 
 const NewsComponent = () => {
+  const [newsArticles, setNewsArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadNews = async () => {
+      try {
+        const data = await fetchNews();
+        setNewsArticles(data);
+      } catch (error) {
+        console.error('Erro ao carregar notícias:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadNews();
+  }, []);
+
   const destaques = newsArticles.slice(0, 4);
   const noticias = newsArticles.slice(4);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="news-container">
@@ -40,9 +62,9 @@ const NewsComponent = () => {
               )}
               <div className="noticia-content">
                 <div className="noticia-meta">
-                  <span className="reading-time">
+                  {/* <span className="reading-time">
                     {article.readingTime || '0 minuto'}
-                  </span>
+                  </span> */}
                   {article.comments && (
                     <span className="comments">
                       {article.comments} comentários
