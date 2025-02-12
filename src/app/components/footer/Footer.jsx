@@ -65,7 +65,7 @@ const FooterComponent = () => {
         <a href="/termos-de-uso">Termos de uso</a> &nbsp;
         <span style={{ color: 'white' }}>e</span> &nbsp;
         <a href="/politica-de-privacidade">Política de privacidade</a>
-        <p>Site: 0.0.8</p>
+        <p>Site: v0.0.9</p>
       </div>
     </footer>
   );
