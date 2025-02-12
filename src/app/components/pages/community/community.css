@@ -14,14 +14,33 @@
 }
 
 .update-button {
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #0b046c;
+  background: #0b046c;
   color: #fff;
   font-weight: bold;
-  font-size: 16px;
-  width: 100%;
+  font-size: xx-large;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 24%;
+  margin-left: 24px;
+  cursor: pointer;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
 
 /* .update-button:hover {

@@ -1,4 +1,3 @@
-// Função para retornar playlists com base no gameId
 export const getPlaylistByGameId = (gameId) => {
   const playlists = {
     'Far Cry Classic': [

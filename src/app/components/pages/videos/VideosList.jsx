@@ -1,20 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import { videos } from './api/Videoslist.Service';
-import '../videos/css/VideosList.css';
 import { Link, useParams } from 'react-router-dom';
+import { fetchVideos } from './api/Videoslist.Service';
+// import { fetchExclusiveVideos } from './api/MemberExclusiveVideosList.Service';
+
+import '../videos/css/VideosList.css';
 
 const VideosList = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  const [activeFilter, setActiveFilter] = useState('recent');
-  const [visibleVideos, setVisibleVideos] = useState(27);
-  const videosPerLoad = 27;
+  const [videos, setVideos] = useState([]);
+  const { videoId } = useParams();
 
+  const [activeFilter, setActiveFilter] = useState('recent');
+  const [visibleVideos, setVisibleVideos] = useState(10);
+  const videosPerLoad = 5;
   const isUserRegistered = localStorage.getItem('isAuthenticated') === 'true';
 
-  const { videoId } = useParams();
-  const video = videos.find((v) => v.videoId === videoId);
+  // const [exclusiveVideos, setExclusiveVideos] = useState([]);
+
+  useEffect(() => {
+    const getVideos = async () => {
+      try {
+        const data = await fetchVideos();
+        setVideos(data);
+      } catch (error) {
+        console.error('Erro ao carregar vídeos:', error);
+      }
+    };
+
+    getVideos();
+  }, []);
+
+  // useEffect(() => {
+  //   const getExclusiveVideos = async () => {
+  //     try {
+  //       const data = await fetchExclusiveVideos();
+  //       setExclusiveVideos(data);
+  //     } catch (error) {
+  //       console.error('Erro ao carregar vídeos exclusivos:', error);
+  //     }
+  //   };
+
+  //   getExclusiveVideos();
+  // }, []);
 
   const openModal = (video) => {
     setSelectedVideo(video);
@@ -72,14 +101,14 @@ const VideosList = () => {
 
   return (
     <div className="videos-container">
-      {video ? (
+      {videoId ? (
         <div>
-          <h2>{video.snippet.title}</h2>
+          <h2>{videos.find((v) => v.videoId === videoId)?.snippet.title}</h2>
           <iframe
             width="560"
             height="315"
-            src={`https://www.youtube.com/embed/${video.videoId}`}
-            title={video.snippet.title}
+            src={`https://www.youtube.com/embed/${videoId}`}
+            title={videos.find((v) => v.videoId === videoId)?.snippet.title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -94,7 +123,7 @@ const VideosList = () => {
             </p>
           )}
           {filteredVideos().map((video) => (
-            <div className="video-item" key={video.id}>
+            <div className="video-item" key={video.videoId}>
               <Link to={`/videos/${video.videoId}`} className="video-link">
                 <div className="video-overlay"></div>
                 <div className="play-button"></div>

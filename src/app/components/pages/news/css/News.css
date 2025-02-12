@@ -12,7 +12,6 @@
   color: #ffffff;
 }
 
-/* Destaques Section */
 .destaques-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -42,7 +41,6 @@
   margin: 10px 0;
 }
 
-/* Noticias Section */
 .noticia-item {
   display: flex;
   gap: 20px;

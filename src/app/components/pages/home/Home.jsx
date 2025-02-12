@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
 
 import './css/Home.css';
-import sections from './service/HomeVideoList';
+import { fetchVideos } from './service/HomeVideoList';
 import { videos } from '../videos/api/Videoslist.Service';
 import {
-  playlistsDestaques,
-  playlistsEmLançamento,
+  fetchPlaylistsEmLançamento,
+  fetchPlaylistsDestaques,
 } from './service/HomePlayList';
 
 import Banner from './img/banner site nettstudios.jpg';
@@ -20,6 +20,29 @@ const Home = () => {
   const itemsPerPage = 10;
 
   const [episodePage, setEpisodePage] = useState(0);
+  const [playlistsLancamento, setPlaylistsLancamento] = useState([]);
+  const [playlistsDestaques, setPlaylistsDestaques] = useState([]);
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const lancamentoData = await fetchPlaylistsEmLançamento();
+      const destaquesData = await fetchPlaylistsDestaques();
+      setPlaylistsLancamento(lancamentoData);
+      setPlaylistsDestaques(destaquesData);
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const getVideos = async () => {
+      const data = await fetchVideos();
+      setVideos(data);
+    };
+
+    getVideos();
+  }, []);
 
   const openModal = (videoId) => {
     setCurrentVideoId(videoId);
@@ -41,7 +64,7 @@ const Home = () => {
     }
   };
 
-  const lastGamesSection = sections.find(
+  const lastGamesSection = videos.find(
     (section) => section.title === 'Últimos Episódios Adicionados'
   );
 
@@ -83,7 +106,7 @@ const Home = () => {
         <h2>Em Lançamento</h2>
 
         <div className="playlists-grid">
-          {playlistsEmLançamento.map((game, index) => (
+          {playlistsLancamento.map((game, index) => (
             <div
               key={game.id}
               className="playlist-card"
@@ -102,7 +125,9 @@ const Home = () => {
         </div>
       </section>
 
-      {sections.map((section, index) => (
+      {/* ====================== Últimos Episódios Adicionadoso ============================ */}
+
+      {videos.map((section, index) => (
         <section key={index} className="anime-section">
           <h2>{section.title}</h2>
           <div className="anime-grid">
@@ -128,8 +153,6 @@ const Home = () => {
                   </div>
                 ))}
           </div>
-
-          {/* ====================== Últimos Episódios Adicionadoso ============================ */}
 
           {section.title === 'Últimos Episódios Adicionados' &&
             lastGamesSection && (

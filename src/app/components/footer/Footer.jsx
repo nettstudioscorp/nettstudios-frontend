@@ -11,7 +11,7 @@ const FooterComponent = () => {
           <img src={logo} alt="Logo" className="footer-logo" />
 
           <p className="footer-description">
-            NettStudios, focada no universo dos games e do entretenimento
+            NettStudios, focada no universo dos Games, Ti e do entretenimento
             digital.{' '}
             {/*Desde 2015, o NettStudios
             produz e compartilha conteúdos de qualidade, incluindo gameplays,
@@ -59,8 +59,8 @@ const FooterComponent = () => {
       <br />
       <div className="footer-bottom">
         <p>
-          © Copyright 2015-2025 NettStudios - Games, Entretenimento e Criação
-          de Conteúdo.
+          © Copyright 2015-2025 NettStudios - Games, TI, Entretenimento e
+          Criação de Conteúdo.
         </p>
         <a href="/termos-de-uso">Termos de uso</a> &nbsp;
         <span style={{ color: 'white' }}>e</span> &nbsp;

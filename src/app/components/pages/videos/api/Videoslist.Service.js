@@ -1,71 +1,15 @@
-export const videos = [
-  {
-    id: '1',
-    videoId: '8YVNOXuQuts',
-    snippet: {
-      title: "Assassin's Creed Valhalla - Episódio 6",
-      thumbnails: {
-        medium: {
-          url: 'https://wallpapers.com/images/high/4k-assassin-s-creed-valhalla-background-3840-x-2160-inzoy2k4g3k6c4bf.webp',
-        },
-      },
-      description: '6 de jul. de 2024',
-    },
-    isExclusive: true,
-  },
-  {
-    id: '2',
-    videoId: 'rNEra09Lkyc',
-    snippet: {
-      title: "Assassin's Creed Valhalla - Episódio 5",
-      thumbnails: {
-        medium: {
-          url: 'https://wallpapers.com/images/high/4k-assassin-s-creed-valhalla-background-3840-x-2160-inzoy2k4g3k6c4bf.webp',
-        },
-      },
-      description: '23 de jun. de 2024',
-    },
-    isExclusive: false,
-  },
-  {
-    id: '3',
-    videoId: 'UI4s7S7OFtA',
-    snippet: {
-      title: 'Far Cry Primal - Episódio 19',
-      thumbnails: {
-        medium: {
-          url: 'https://wallpapercave.com/wp/wp1896894.jpg',
-        },
-      },
-      description: '17 de jun. de 2024',
-    },
-    isExclusive: true,
-  },
-  {
-    id: '4',
-    videoId: '5_seyG6_wmI',
-    snippet: {
-      title: "Assassin's Creed Rogue  - Episódio 21",
-      thumbnails: {
-        medium: {
-          url: 'https://wallpapercave.com/wp/wp2212972.jpg',
-        },
-      },
-      description: '10 de jun. de 2024',
-    },
-    isExclusive: false,
-  },
-  {
-    id: '5',
-    videoId: 'Hk0Mpe-9kYw',
-    snippet: {
-      title: "Assassin's Creed Rogue - Episódio 20",
-      thumbnails: {
-        medium: {
-          url: 'https://wallpapercave.com/wp/wp2212972.jpg',
-        },
-      },
-      description: '27 de mai. de 2024',
-    },
-  },
-];
+const API_URL = 'http://localhost:3000/api/videos/videos';
+
+export const fetchVideos = async () => {
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) {
+      throw new Error('Erro ao buscar vídeos');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Erro:', error);
+    throw error;
+  }
+};

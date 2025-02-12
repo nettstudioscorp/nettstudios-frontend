@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getPlaylistByGameId } from './service/LivePlayer.service';
+import { fetchPlaylistByGameId } from './service/LivePlayer.service';
 import './css/LivePlayer.css';
 
 const LivePlayer = () => {
@@ -10,8 +10,16 @@ const LivePlayer = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    const gamePlaylist = getPlaylistByGameId(gameId);
-    setPlaylist(gamePlaylist);
+    const fetchPlaylist = async () => {
+      try {
+        const data = await fetchPlaylistByGameId(gameId);
+        setPlaylist(data);
+      } catch (error) {
+        console.error('Erro ao carregar a playlist:', error);
+      }
+    };
+
+    fetchPlaylist();
   }, [gameId]);
 
   const handleVideoChange = (index) => {

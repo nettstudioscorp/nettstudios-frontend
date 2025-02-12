@@ -149,6 +149,18 @@ const Navbar = () => {
 
                 {isLoggedIn && (
                   <>
+                    <li className="nav-item">
+                      <Link
+                        to="/comunidade"
+                        className={`nav-link ${activeLink === '/comunidade' ? 'active' : ''}`}
+                        onClick={() => {
+                          setActiveLink('/comunidade');
+                          closeMenu();
+                        }}
+                      >
+                        Posts
+                      </Link>
+                    </li>
                     {/* TODO: <li className="nav-item">
                       <Link
                         to="/exclusive-videos"
@@ -161,19 +173,6 @@ const Navbar = () => {
                         Reviews
                       </Link>
                     </li> */}
-
-                    <li className="nav-item">
-                      <Link
-                        to="/comunidade"
-                        className={`nav-link ${activeLink === '/comunidade' ? 'active' : ''}`}
-                        onClick={() => {
-                          setActiveLink('/comunidade');
-                          closeMenu();
-                        }}
-                      >
-                        Comunidade
-                      </Link>
-                    </li>
 
                     {/* TODO: to improve  <li className="nav-item">
                       <Link
