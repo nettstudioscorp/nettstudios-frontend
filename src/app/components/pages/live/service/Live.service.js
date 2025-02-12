@@ -1,4 +1,4 @@
-const API_URL_GAMES = 'http://localhost:3000/api/live/games';
+const API_URL_GAMES = `${process.env.REACT_APP_API_URL}/api/live/games`;
 
 export const fetchGames = async () => {
   try {

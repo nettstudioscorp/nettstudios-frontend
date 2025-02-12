@@ -1,4 +1,4 @@
-const API_URL_PLAYLISTS = 'http://localhost:3000/api/live/playlists';
+const API_URL_PLAYLISTS = `${process.env.REACT_APP_API_URL}/api/live/playlists`;
 
 export const fetchPlaylistByGameId = async (gameId) => {
   try {

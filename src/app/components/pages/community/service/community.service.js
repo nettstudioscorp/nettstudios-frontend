@@ -1,4 +1,4 @@
-const API_URL_COMMUNITY = 'http://localhost:3000/api/community';
+const API_URL_COMMUNITY = `${process.env.REACT_APP_API_URL}/api/community`;
 
 export const fetchCommunityPosts = async () => {
   try {

@@ -1,6 +1,8 @@
+const API_URL = `${process.env.REACT_APP_API_URL}/api/home/videos`;
+
 export const fetchVideos = async () => {
   try {
-    const response = await fetch('http://localhost:3000/api/home/videos');
+    const response = await fetch(API_URL);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }

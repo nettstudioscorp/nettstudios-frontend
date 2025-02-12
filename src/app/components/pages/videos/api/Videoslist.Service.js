@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api/videos/videos';
+const API_URL = `${process.env.REACT_APP_API_URL}/api/videos/videos`;
 
 export const fetchVideos = async () => {
   try {

@@ -1,8 +1,9 @@
+const API_URL_PLAYLISTS_EM_LANCAMENTO = `${process.env.REACT_APP_API_URL}/api/home/playlists-em-lancamento`;
+const API_URL_PLAYLISTS_DESTAQUES = `${process.env.REACT_APP_API_URL}/api/home/playlists-destaques`;
+
 export const fetchPlaylistsEmLançamento = async () => {
   try {
-    const response = await fetch(
-      'http://localhost:3000/api/home/playlists-em-lancamento'
-    );
+    const response = await fetch(API_URL_PLAYLISTS_EM_LANCAMENTO);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -15,9 +16,7 @@ export const fetchPlaylistsEmLançamento = async () => {
 
 export const fetchPlaylistsDestaques = async () => {
   try {
-    const response = await fetch(
-      'http://localhost:3000/api/home/playlists-destaques'
-    );
+    const response = await fetch(API_URL_PLAYLISTS_DESTAQUES);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }

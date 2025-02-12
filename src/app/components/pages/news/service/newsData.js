@@ -1,4 +1,4 @@
-const API_URL_NEWS = 'http://localhost:3000/api/news';
+const API_URL_NEWS = `${process.env.REACT_APP_API_URL}/api/news`;
 
 export const fetchNews = async () => {
   try {
