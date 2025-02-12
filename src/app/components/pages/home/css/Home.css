@@ -1,375 +1,339 @@
-body {
-  background-color: #0a1520 !important;
-  color: white !important;
-  padding: 14px;
-  font-family: inherit;
-}
-
-.titlePage {
-  display: block !important;
-  font-size: 2em !important;
-  margin-block-start: 0.67em !important;
-  margin-block-end: 0.67em !important;
-  margin-inline-start: 0px !important;
-  margin-inline-end: 0px !important;
-  font-weight: bold !important;
-  text-align: center !important;
-}
-
-h2 {
-  transform: translateY(-14px) !important;
-  display: block !important;
-  margin-block-start: 0.67em !important;
-  margin-block-end: 0.67em !important;
-  margin-inline-start: 0px !important;
-  margin-inline-end: 0px !important;
-  font-weight: bold !important;
-}
-
 .home-container {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 20px !important;
-  font-family: inherit !important;
-}
-
-.load-more-btn {
-  background-color: #0b046c !important;
-  color: white !important;
-  padding: 10px 20px !important;
-  margin: 20px auto !important;
-  display: block !important;
-  border: none !important;
-  border-radius: 5px !important;
-  font-size: 16px !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-  transition: background-color 0.3s ease !important;
-}
-
-.load-more-btn:hover {
-  background-color: #ffffff !important;
-  color: black !important;
-}
-
-.bt-playlist,
-.bt-videos {
-  background-color: #0b046c !important;
-  color: white !important;
-  padding: 10px 20px !important;
-  margin: 5px !important;
-  display: inline-block !important;
-  border: none !important;
-  border-radius: 5px !important;
-  font-size: 20px !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-  transition: background-color 0.3s ease !important;
-}
-
-.bt-close {
-  background-color: #ffffff !important;
-  color: rgb(0, 0, 0) !important;
-  padding: 10px 20px !important;
-  margin: 5px !important;
-  display: inline-block !important;
-  border: none !important;
-  border-radius: 5px !important;
-  font-size: 20px !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-  transition: background-color 0.3s ease !important;
-}
-
-.carousel-image {
-  width: 100% !important;
-  height: auto !important;
-  border-radius: 8px !important;
-  object-fit: cover !important;
-  margin-top: 45px !important;
-}
-
-.carousel .slide {
-  min-width: 100% !important;
-  margin: 0 !important;
-  position: relative !important;
-  text-align: center !important;
-}
-
-.mySwiper {
-  width: 100% !important;
-  height: 400px !important;
-}
-
-.swiper-slide {
-  display: flex !important;
-  justify-content: center !important;
-}
-
-.swiper-slide img {
-  max-height: 100% !important;
-  object-fit: cover !important;
-  border-radius: 8px !important;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: white !important;
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  border-radius: 50% !important;
-  padding: 10px !important;
-  transition: background-color 0.3s ease !important;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-  background-color: #0b046c !important;
-}
-.video-section {
-  margin: 20px auto;
+  color: #ffffff;
   padding: 20px;
-  background-color: #3498db;
-  border-radius: 8px;
 }
 
-.video-carousel .carousel-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.header {
   text-align: center;
-  padding: 10px;
-  background-color: #ffffff;
-  border-radius: 4px;
-  transition: transform 0.3s ease;
 }
 
-.video-carousel .carousel-item:hover {
+.anime-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.anime-section h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 10px;
+}
+
+.anime-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 360px;
+  height: 202px;
+  margin: 10px;
+}
+
+.anime-item:hover {
   transform: scale(1.05);
 }
 
-.video-carousel img.thumbnail {
+.anime-item img {
   width: 100%;
-  height: auto;
-  max-width: 120px;
-  margin-bottom: 10px;
-  border-radius: 4px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.video-carousel p {
+.anime-item p {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  font-family: 'Anaheim';
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
   margin: 0;
-  color: #0074d9;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.continue-watching {
+  margin-top: 20px;
+}
+
+h2 {
+  font-family: 'Anaheim', sans-serif;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
   font-weight: bold;
 }
 
-.slick-arrow {
-  /* background-color: #ffffff; */
-  border: none;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  z-index: 1;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  content: '';
-  font-size: 30px;
-  color: white;
-}
-
-.slick-dots li button:before {
-  color: #ffffff;
-  font-size: 10px;
-}
-
-.slick-dots li.slick-active button:before {
-  color: #000000;
-}
-
-.thumbnail-image {
-  width: 100% !important;
-  height: 400px !important;
-  border-radius: 8px !important;
-  object-fit: cover !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-}
-
-.video-display {
-  margin-top: 20px !important;
-  display: flex !important;
-  justify-content: center !important;
-  gap: 5px !important;
-}
-
-.video-thumbnail {
-  width: 300px !important;
-  cursor: pointer !important;
-  text-align: center !important;
-  transition: transform 0.3s ease !important;
-  margin: 0 2px !important;
-}
-
-.video-thumbnail:hover {
-  transform: scale(1.05) !important;
-}
-
-.thumbnail-image {
-  width: 100% !important;
-  height: auto !important;
-  border-radius: 8px !important;
-  object-fit: cover !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-}
-
-.video-thumbnail p {
-  margin-top: 8px !important;
-  font-size: 0.9em !important;
-  font-weight: bold !important;
-  color: #ffffff !important;
-}
-
-.modal-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  background-color: rgba(0, 0, 0, 0.7) !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  z-index: 1000 !important;
-}
-
-.modal-home {
-  background: #0a1520 !important;
-  padding: 20px !important;
-  width: 90% !important;
-  max-width: 600px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
-  text-align: center !important;
-}
-
-.modal-home iframe {
-  width: 100% !important;
-  height: 315px !important;
-  border-radius: 8px !important;
-  border: none !important;
-}
-@media (max-width: 1280px) {
-  .video-thumbnail {
-    width: calc(50% - 16px) !important;
-  }
-
-  .modal-home iframe {
-    height: 250px !important;
-  }
-
-  .load-more-btn {
-    font-size: 14px !important;
-    padding: 8px 16px !important;
-  }
-
-  body::-webkit-scrollbar {
-    display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .video-thumbnail {
-    width: 200px !important;
-  }
-
-  .modal-home iframe {
-    height: 250px !important;
-  }
-
-  .load-more-btn {
-    font-size: 14px !important;
-    padding: 8px 16px !important;
-  }
-
-  body::-webkit-scrollbar {
-    display: none !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .video-display {
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-
-  .video-thumbnail {
-    width: 90% !important;
-    margin: 10px 0 !important;
-  }
-
-  .home-container,
-  .modal-home {
-    padding: 10px !important;
-  }
-
-  .modal-home iframe {
-    height: 200px !important;
-  }
-
-  .modal-home h2 {
-    font-size: 1.2em !important;
-  }
-
-  .load-more-btn {
-    font-size: 14px !important;
-    padding: 8px 16px !important;
-  }
-
-  .mySwiper {
-    display: none !important;
-  }
-
-  body::-webkit-scrollbar {
-    display: none !important;
-  }
-}
-
-.slick-prev,
-.slick-next {
-  font-size: 30px;
-  color: white;
-}
-
-@media (max-width: 768px) {
-  .slick-prev,
-  .slick-next {
-    font-size: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .slick-prev,
-  .slick-next {
-    font-size: 18px;
-  }
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .banner {
-  width: 100% !important;
-  height: 400px;
-  background-size: cover;
-  background-position: center;
+  position: relative;
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
   margin-bottom: 20px;
 }
 
+.banner-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+}
+
+.banner-text h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.banner-text p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
-  .banner {
-    height: 300px;
+  .banner-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .banner-text p {
+    font-size: 0.9rem;
+  }
+
+  .anime-grid {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+
+  .anime-item {
+    width: 360px;
+    height: 202px;
   }
 }
 
 @media (max-width: 480px) {
-  .banner {
-    height: 200px;
+  .banner-text h2 {
+    font-size: 1.2rem;
   }
+
+  .banner-text p {
+    font-size: 0.8rem;
+  }
+
+  .anime-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    justify-content: center;
+  }
+
+  .anime-item {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+
+.playlists-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.playlists-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  overflow: hidden;
+}
+
+.playlist-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.playlist-card:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.playlist-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  font-family: 'Anaheim';
+  font-size: xx-large;
+  font-weight: bolder;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  background-color: #121515;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  color: #333;
+}
+
+.pagination .active a {
+  background-color: #007bff;
+  color: white;
+}
+
+.pagination li.previous a,
+.pagination li.next a {
+  color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .pagination li a {
+    padding: 6px 12px;
+  }
+
+  .pagination li {
+    margin: 0 3px;
+  }
+}
+
+/* .pagination li.disabled a {
+  color: #ccc;
+} */
+
+/* .pagination li:hover:not(.active) a {
+  background-color: #121515;
+} */
+
+.arrow-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #000000;
+  font-weight: bolder;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.playlists-section h2,
+.anime-section h2 {
+  font-family: 'Anaheim', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.playlists-section h3,
+.anime-section h3 {
+  font-family: 'Anaheim', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.load-more {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.load-more button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.load-more button:hover {
+  background-color: #0056b3;
+}
+
+.playlists-item {
+  width: 360px;
+  height: 202px;
+  margin: 10px;
 }

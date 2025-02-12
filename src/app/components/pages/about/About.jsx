@@ -42,7 +42,7 @@ const About = () => {
           sintonia com os mais novos lançamentos do mercado de games.
         </p>
         <br />
-        <h2>Parcerias e Unidades</h2>
+        {/* TODO: <h2>Parcerias e Unidades</h2>
         <p>
           O <strong>NettStudios</strong> faz parte do projeto{' '}
           <strong>NettCorpSolutions</strong>, um conglomerado que reúne unidades
@@ -50,7 +50,7 @@ const About = () => {
           em <strong>TI, consultoria e desenvolvimento de software</strong>.
           Junto a nós, temos o <strong>NettCode</strong>, uma divisão dedicada a
           <strong>conteúdos de TI e tutoriais educacionais</strong>.
-        </p>
+        </p> */}
 
         <br />
         <h2>Assinaturas e Acesso Exclusivo</h2>

@@ -6,6 +6,7 @@ const DropdownUserMenu = ({ onLogout, isAdmin }) => {
   const [userName, setUserName] = useState('Usuário');
   const [profilePicture, setProfilePicture] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
 
   const getUserName = () => {
@@ -44,8 +45,9 @@ const DropdownUserMenu = ({ onLogout, isAdmin }) => {
       <button
         className="btn btn-secondary dropdown-toggle"
         type="button"
+        onClick={() => setIsModalOpen(!isModalOpen)}
         data-bs-toggle="dropdown"
-        aria-expanded="false"
+        aria-expanded={isModalOpen}
       >
         {profilePicture ? (
           <img src={profilePicture} alt="Foto de Perfil" className="avatar" />
@@ -56,41 +58,33 @@ const DropdownUserMenu = ({ onLogout, isAdmin }) => {
         <span className="user-time">{currentTime}</span>
       </button>
 
-      <ul className="dropdown-menu">
-        <li>
-          <button
-            className="dropdown-item"
-            type="button"
-            onClick={() => setIsModalOpen(true)}
-          >
-            Editar Perfil
-          </button>
-        </li>
-
-        {isAdmin && (
+      {isDropdownOpen && (
+        <ul className="dropdown-menu">
           <li>
             <button
               className="dropdown-item"
               type="button"
               onClick={() => {
-                window.location.href = '/admin';
+                setIsModalOpen(true);
+                setIsDropdownOpen(false);
               }}
             >
-              Admin
+              Editar Perfil
             </button>
           </li>
-        )}
-        <li>
-          <button className="dropdown-item" type="button" onClick={onLogout}>
-            Sair
-          </button>
-        </li>
-      </ul>
+          <li>
+            <button className="dropdown-item" type="button" onClick={onLogout}>
+              Sair
+            </button>
+          </li>
+        </ul>
+      )}
 
       <EditProfileModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onProfileUpdate={handleProfileUpdate}
+        onLogout={onLogout}
       />
     </div>
   );

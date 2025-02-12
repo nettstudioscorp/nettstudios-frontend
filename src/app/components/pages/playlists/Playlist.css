@@ -16,7 +16,7 @@
 
 .playlist-card {
   cursor: pointer;
-  background: #0A1520;
+  background: #0a1520;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.2s;
@@ -38,15 +38,15 @@
   object-fit: cover;
 }
 
-.video-count {
+/* .video-count {
   position: absolute;
   bottom: 8px;
   right: 8px;
-  background: #007BFF;
+  background: #007bff;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 0.9rem;
-}
+} */
 
 .playlist-info {
   padding: 1rem;

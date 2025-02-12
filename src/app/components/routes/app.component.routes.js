@@ -27,6 +27,8 @@ import Community from '../pages/community/community';
 import Member from '../pages/Members/member';
 
 import NewsComponent from '../pages/news/News';
+// import NewsDetail from '../pages/news/NewsDetail';
+
 import Agenda from '../pages/agenda/agenda';
 import Admin from '../pages/admin/admin';
 import AdminHome from '../pages/admin/adminHome';
@@ -52,6 +54,7 @@ const App = () => {
         <Route path="/edit-profile" element={<EditProfile />} />
 
         <Route path="/news/" element={<NewsComponent />} />
+        {/* <Route path="/news/:id" element={<NewsDetail />} /> */}
 
         <Route path="/about" element={<AboutComponent />} />
         <Route path="/contato" element={<Contact />} />

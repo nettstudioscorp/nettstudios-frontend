@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../conta/EditProfileModal.css';
 
-const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
+const EditProfileModal = ({ isOpen, onClose, onProfileUpdate, onLogout }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,14 +37,17 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
     };
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/update`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-        body: JSON.stringify(updatedUser),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/auth/update`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+          body: JSON.stringify(updatedUser),
+        }
+      );
 
       const data = await response.json();
 
@@ -71,7 +74,9 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
 
     const user = JSON.parse(localStorage.getItem('user')) || {};
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/deleteAccount`, {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/auth/deleteAccount`,
+        {
           method: 'DELETE',
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -93,6 +98,26 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
       alert('Erro no servidor');
     }
   };
+
+  const handleAdminRedirect = () => {
+    window.location.href = '/admin';
+  };
+
+  // const handleComunidadeRedirect = () => {
+  //   window.location.href = '/comunidade';
+  // };
+
+  // const handleMembrosRedirect = () => {
+  //   window.location.href = '/member';
+  // };
+
+  // const handleAgendaRedirect = () => {
+  //   window.location.href = '/agenda';
+  // };
+
+  // const handleNewRedirect = () => {
+  //   window.location.href = '/news';
+  // };
 
   if (!isOpen) return null;
 
@@ -163,6 +188,26 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate }) => {
           <button className="btn btn-danger" onClick={handleDeleteAccount}>
             Excluir Conta
           </button>
+          <button className="btn btn-warning" onClick={onLogout}>
+            Sair
+          </button>
+          <button className="btn btn-info" onClick={handleAdminRedirect}>
+            Admin
+          </button>
+
+          {/* <button className="btn btn-info" onClick={handleComunidadeRedirect}>
+            Comunidade
+          </button>
+          <button className="btn btn-info" onClick={handleMembrosRedirect}>
+            Membros
+          </button>
+          <button className="btn btn-info" onClick={handleAgendaRedirect}>
+            Agenda
+          </button>
+          <button className="btn btn-info" onClick={handleNewRedirect}>
+            News
+          </button> */}
+
           <button className="btn btn-secondary" onClick={onClose}>
             Voltar
           </button>

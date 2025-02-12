@@ -37,12 +37,12 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   padding: 10px 0;
-  z-index: 1000;
-  min-width: 200px;
+  z-index: 2000;
+  min-width: 300px;
 }
 
 .dropdown-item {
-  padding: 10px 20px;
+  padding: 12px 20px;
   border: none;
   background-color: transparent;
   color: #ffffff;
@@ -59,4 +59,9 @@
   color: #ffffff;
   font-size: 14px;
   margin-left: 10px;
+}
+
+.parent-component {
+  position: relative;
+  z-index: 1;
 }

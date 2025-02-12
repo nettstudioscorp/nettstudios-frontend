@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getPlaylistByGameId } from './service/PlayListPlayer.Service';
+import { fetchPlaylistByGameId } from './service/PlayListPlayer.Service';
 import '../playlists/PlaylistPlayer.css';
 
 const PlaylistPlayer = () => {
@@ -11,8 +11,16 @@ const PlaylistPlayer = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
-    const gamePlaylist = getPlaylistByGameId(gameId);
-    setPlaylist(gamePlaylist);
+    const fetchPlaylist = async () => {
+      try {
+        const gamePlaylist = await fetchPlaylistByGameId(gameId);
+        setPlaylist(gamePlaylist);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchPlaylist();
   }, [gameId]);
 
   const handleVideoChange = (index) => {
@@ -74,17 +82,21 @@ const PlaylistPlayer = () => {
           &lt;
         </button>
         <div className="nav-scroll">
-          {playlist.map((_, index) => (
-            <button
-              key={index}
-              className={`nav-button ${
-                currentVideoIndex === index ? 'active' : ''
-              }`}
-              onClick={() => handleVideoChange(index)}
-            >
-              {formatIndex(index)}
-            </button>
-          ))}
+          {playlist.length > 0 ? (
+            playlist.map((_, index) => (
+              <button
+                key={index}
+                className={`nav-button ${
+                  currentVideoIndex === index ? 'active' : ''
+                }`}
+                onClick={() => handleVideoChange(index)}
+              >
+                {formatIndex(index)}
+              </button>
+            ))
+          ) : (
+            <span>Nenhum vídeo disponível</span>
+          )}
         </div>
         <button className="nav-scroll-button" onClick={() => scrollTo('right')}>
           &gt;

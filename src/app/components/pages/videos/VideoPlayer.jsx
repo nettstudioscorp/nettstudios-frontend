@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { videos } from './api/Videoslist.Service';
+import { fetchVideos } from './api/Videoslist.Service';
 import '../videos/css/VideoPlayer.css';
 
 const VideoPlayer = () => {
@@ -8,20 +8,31 @@ const VideoPlayer = () => {
   const navigate = useNavigate();
   const [currentVideoIndex, setCurrentVideoIndex] = useState(null);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [videos, setVideos] = useState([]);
   const isUserRegistered = localStorage.getItem('isAuthenticated') === 'true';
 
   useEffect(() => {
-    const index = videos.findIndex((v) => v.videoId === videoId);
-    if (index !== -1) {
-      const currentVideo = videos[index];
-      if (currentVideo.isExclusive && !isUserRegistered) {
-        navigate('/videos');
-      } else {
-        setCurrentVideoIndex(index);
+    const getVideos = async () => {
+      try {
+        const data = await fetchVideos();
+        setVideos(data);
+        const index = data.findIndex((v) => v.videoId === videoId);
+        if (index !== -1) {
+          const currentVideo = data[index];
+          if (currentVideo.isExclusive && !isUserRegistered) {
+            navigate('/videos');
+          } else {
+            setCurrentVideoIndex(index);
+          }
+        } else {
+          setCurrentVideoIndex(0);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar vídeos:', error);
       }
-    } else {
-      setCurrentVideoIndex(0);
-    }
+    };
+
+    getVideos();
   }, [videoId, navigate]);
 
   const handleVideoChange = (index) => {
