@@ -183,3 +183,11 @@
   background: #f2f2f1;
   color: #000;
 } */
+
+@media (max-width: 600px) {
+  .update-button {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
