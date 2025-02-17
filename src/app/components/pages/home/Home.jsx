@@ -73,13 +73,13 @@ const Home = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const showLoadMoreButton = totalItems > 24 && currentPage === totalPages;
+  const showLoadMoreButton = totalItems > 15 && currentPage === totalPages;
 
   const handleEpisodePageClick = (data) => {
     setEpisodePage(data.selected);
   };
 
-  const episodesPerPage = 24;
+  const episodesPerPage = 15;
   const episodesDisplayed = lastGamesSection
     ? lastGamesSection.items.slice(
         episodePage * episodesPerPage,

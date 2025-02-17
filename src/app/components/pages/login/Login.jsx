@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserService } from '../../pages/login/services/userService';
 import '../login/Login.css';
-import { Toast } from 'primereact/toast';
-import 'primereact/resources/themes/saga-blue/theme.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import axios from 'axios';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -13,8 +15,9 @@ const Login = () => {
   const [name, setName] = useState('');
   const [acceptTerms, setAcceptTerms] = useState(false);
   const [acceptImageUse, setAcceptImageUse] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
-  const toastTopCenter = useRef(null);
 
   useEffect(() => {
     if (localStorage.getItem('isAuthenticated') === 'true') {
@@ -26,24 +29,24 @@ const Login = () => {
   const toggleForm = () => setIsLogin(!isLogin);
 
   const showToast = (message) => {
-    toastTopCenter.current.show({
-      severity: 'info',
-      summary: 'Info',
-      detail: message,
-      life: 3000,
-    });
+    toast.info(message);
   };
 
   const handleLogin = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+      const payload = {
+        email,
+        password,
+      };
+      console.log('Payload enviado:', JSON.stringify(payload));
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await response.json();
 
@@ -57,9 +60,11 @@ const Login = () => {
           window.location.reload();
         }, 1000);
       } else {
+        console.error('Erro na resposta:', data);
         showToast(data.message || 'Erro no login');
       }
     } catch (error) {
+      console.error('Erro na requisição:', error);
       showToast('Erro no servidor');
     }
   };
@@ -71,29 +76,19 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/signup`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/auth/signup`,
+        {
           email,
           password,
           name,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        localStorage.setItem('isAuthenticated', 'true');
-        localStorage.setItem('user', JSON.stringify({ email, name }));
-        showToast(data.message);
-        navigate('/');
-        window.location.reload();
-      } else {
-        showToast(data.message || 'Erro ao cadastrar');
-      }
+        }
+      );
+      showToast('Conta criada com sucesso. Agora faça o login.');
+      window.location.href = '/login';
     } catch (error) {
-      showToast('Erro no servidor');
+      console.error('Erro no cadastro:', error.response.data.message);
+      showToast(error.response.data.message);
     }
   };
 
@@ -112,14 +107,49 @@ const Login = () => {
     }
   };
 
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    const error = validatePassword(newPassword);
+    setPasswordError(error);
+  };
+
+  const validatePassword = (password) => {
+    const regex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$/;
+    const invalidChars = /[<>\/\\|]/;
+
+    if (invalidChars.test(password)) {
+      return 'A senha não deve conter caracteres como <, >, /, |, \\.';
+    }
+
+    if (!regex.test(password)) {
+      return 'A senha deve ter mais de 8 caracteres com pelo menos uma letra maiúscula, uma minúscula, um número e um caractere especial (por exemplo, !, @, #, $).';
+    }
+
+    return '';
+  };
+
   return (
     <div className="login-container">
-      <Toast ref={toastTopCenter} position="top-center" />
+      <ToastContainer />
       <div className="form-card">
         <h2>{isLogin ? 'Login' : 'Cadastro'}</h2>
         <form onSubmit={handleFormSubmit}>
           <div className="mb-3">
-            <label htmlFor="email">Email</label>
+            {!isLogin && (
+              <div className="mb-3">
+                <label htmlFor="name">Usuário *</label>
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+            )}
+
+            <label htmlFor="email">E-mail *</label>
             <input
               type="email"
               id="email"
@@ -130,39 +160,47 @@ const Login = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="password">Senha</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <label htmlFor="password">Senha *</label>
+            <div className="password-field">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+              <button
+                type="button"
+                className="toggle-password"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEye /> : <FaEyeSlash />}
+              </button>
+            </div>
+            {passwordError && (
+              <div className="password-error">{passwordError}</div>
+            )}
           </div>
 
           {!isLogin && (
             <div className="mb-3">
-              <label htmlFor="name">Nome</label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
-            </div>
-          )}
-
-          {!isLogin && (
-            <div className="mb-3">
-              <label htmlFor="confirmPassword">Confirme sua senha</label>
-              <input
-                type="password"
-                id="confirmPassword"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-              />
+              <label htmlFor="confirmPassword">Confirme sua senha *</label>
+              <div className="password-field">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="confirmPassword"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+                <button
+                  type="button"
+                  className="toggle-password"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEye /> : <FaEyeSlash />}
+                </button>
+              </div>
             </div>
           )}
 
@@ -195,6 +233,7 @@ const Login = () => {
             </div>
           )}
 
+          {/* 
           {!isLogin && (
             <div className="warning-message">
               <p>
@@ -202,7 +241,7 @@ const Login = () => {
                 deve sair e entrar novamente.
               </p>
             </div>
-          )}
+          )} */}
 
           <button type="submit" className="btn btn-primary">
             {isLogin ? 'Entrar' : 'Cadastrar'}

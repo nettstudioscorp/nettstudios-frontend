@@ -1,5 +1,21 @@
+const validatePassword = (password) => {
+  const invalidChars = /[<>\/\\|]/;
+  if (invalidChars.test(password)) {
+    throw new Error('A senha não deve conter caracteres como <, >, /, |, \\.');
+  }
+
+  const regex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$/;
+  if (!regex.test(password)) {
+    throw new Error(
+      'A senha deve ter mais de 8 caracteres com pelo menos uma letra maiúscula, uma minúscula, um número e um caractere especial (por exemplo, !, @, #, $).'
+    );
+  }
+};
+
 export const UserService = {
   signup: async ({ email, password, name }) => {
+    validatePassword(password);
+
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const userExists = users.some((user) => user.email === email);
 

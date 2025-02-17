@@ -12,12 +12,11 @@ const FooterComponent = () => {
 
           <p className="footer-description">
             NettStudios, focada no universo dos Games e do entretenimento
-            digital.{' '}
-            {/*Desde 2015, o NettStudios
-            produz e compartilha conteúdos de qualidade, incluindo gameplays,
-            análises, e dicas voltadas para gamers e entusiastas do setor. Com
-            um compromisso de inspirar e engajar sua audiência, o NettStudios se
-            destaca como um espaço criativo para apaixonados por jogos. */}
+            digital. Desde 2015, o NettStudios produz e compartilha conteúdos de
+            gameplays, análises, e dicas voltadas para gamers e entusiastas do
+            setor. Com um compromisso de inspirar e engajar sua audiência, o
+            NettStudios se destaca como um espaço criativo para apaixonados por
+            jogos.
           </p>
           <p className="footer-email">
             Email:{' '}
@@ -68,7 +67,10 @@ const FooterComponent = () => {
         <br />
         <p>
           Desenvolvido por{' '}
-          <a href="https://alanrocha.vercel.app">Alan Rocha </a> | Site: v0.0.9
+          <a href="https://alanrocha.vercel.app" target="blank">
+            Alan Rocha{' '}
+          </a>{' '}
+          | Site: v0.0.9
         </p>
       </div>
     </footer>
