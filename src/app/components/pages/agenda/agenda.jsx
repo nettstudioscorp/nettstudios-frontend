@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../agenda/agenda.css';
 import { UserService } from '../login/services/userService';
 import { agendaService } from './services/agenda.service';
-import { HolidaysService } from './services/holidays.service';
 
 const EventModal = ({ isOpen, onClose, onSave, selectedDate }) => {
   const [eventData, setEventData] = useState({
@@ -225,6 +224,7 @@ const Agenda = () => {
   const [viewMode, setViewMode] = useState('month');
   const [events, setEvents] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [tooltip, setTooltip] = useState({ visible: false, event: null });
 
   useEffect(() => {
     const currentUser = UserService.getUser();
@@ -322,13 +322,11 @@ const Agenda = () => {
     const daysInMonth = getDaysInMonth(selectedDate);
 
     return daysInMonth.map((dayInfo) => {
-      const holiday = HolidaysService.isHoliday(dayInfo.date);
+      const holiday = agendaService.isHoliday(dayInfo.date);
       return (
         <div
           key={dayInfo.date.toISOString()}
-          className={`day-cell ${!dayInfo.isCurrentMonth ? 'other-month' : ''} ${
-            holiday ? 'holiday' : ''
-          }`}
+          className={`day-cell ${!dayInfo.isCurrentMonth ? 'other-month' : ''} ${holiday ? 'holiday' : ''}`}
         >
           <div className={`date-header ${holiday ? 'holiday' : ''}`}>
             <span className="date-number">{dayInfo.date.getDate()}</span>
@@ -385,10 +383,11 @@ const Agenda = () => {
         <br />
         <br />
         <br />
-        <h1>📅 Agenda de atividades</h1>
+
+        <h1>📅 Agenda de Eventos</h1>
         <p>
           Fique por dentro da nossa programação! Confira gameplays emocionantes
-          e as últimas notícias do universo dos games na nossa agenda!" 🚀
+          do universo dos games na nossa agenda!" 🚀
         </p>
 
         <div className="agenda-controls">
@@ -442,7 +441,7 @@ const Agenda = () => {
         )}
       </div>
 
-      {isAdmin() && (
+      {/* TODO: {isAdmin() && (
         <>
           <button
             className="add-event-button"
@@ -457,7 +456,7 @@ const Agenda = () => {
             selectedDate={selectedDate}
           />
         </>
-      )}
+      )} */}
       <br />
       <br />
       <br />

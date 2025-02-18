@@ -88,7 +88,7 @@ const VideoPlayer = () => {
     <div className="player-container">
       <br />
       <br />
-      <button className="back-button" onClick={() => navigate('/videos')}>
+      <button className="back-button" onClick={() => navigate('/')}>
         Voltar
       </button>
 

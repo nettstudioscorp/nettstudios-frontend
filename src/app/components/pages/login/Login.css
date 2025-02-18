@@ -98,3 +98,31 @@ input[type='text'] {
 .terms-checkbox a:hover {
   text-decoration: underline;
 }
+
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-field input {
+  flex-grow: 1;
+  padding-right: 40px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.password-error {
+  color: red;
+  font-weight: bold;
+  font-family: 'Anaheim', sans-serif !important;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
