@@ -96,7 +96,20 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                {/* <li className="nav-item">
+                <li className="nav-item">
+                  <Link
+                    to="/lives"
+                    className={`nav-link ${activeLink === '/lives' ? 'active' : ''}`}
+                    onClick={() => {
+                      setActiveLink('/lives');
+                      closeMenu();
+                    }}
+                  >
+                    Lives
+                  </Link>
+                </li>
+
+                {/*hidden <li className="nav-item">
                   <Link
                     to="/videos"
                     className={`nav-link ${activeLink === '/videos' ? 'active' : ''}`}
@@ -122,21 +135,21 @@ const Navbar = () => {
                   </Link>
                 </li>
 
+                <li className="nav-item">
+                  <Link
+                    to="/agenda"
+                    className={`nav-link ${activeLink === '/agenda' ? 'active' : ''}`}
+                    onClick={() => {
+                      setActiveLink('/agenda');
+                      closeMenu();
+                    }}
+                  >
+                    Calendário
+                  </Link>
+                </li>
+
                 {isLoggedIn && (
                   <>
-                    <li className="nav-item">
-                      <Link
-                        to="/lives"
-                        className={`nav-link ${activeLink === '/lives' ? 'active' : ''}`}
-                        onClick={() => {
-                          setActiveLink('/lives');
-                          closeMenu();
-                        }}
-                      >
-                        Lives
-                      </Link>
-                    </li>
-
                     <li className="nav-item">
                       <Link
                         to="/comunidade"
@@ -147,19 +160,6 @@ const Navbar = () => {
                         }}
                       >
                         Comunidade
-                      </Link>
-                    </li>
-
-                    <li className="nav-item">
-                      <Link
-                        to="/agenda"
-                        className={`nav-link ${activeLink === '/agenda' ? 'active' : ''}`}
-                        onClick={() => {
-                          setActiveLink('/agenda');
-                          closeMenu();
-                        }}
-                      >
-                        Calendário
                       </Link>
                     </li>
 
