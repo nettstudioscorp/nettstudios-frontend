@@ -216,9 +216,9 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate, onLogout }) => {
           <button className="btn btn-warning" onClick={onLogout}>
             Sair
           </button>
-          <button className="btn btn-info" onClick={handleAdminRedirect}>
+          {/* TODO: <button className="btn btn-info" onClick={handleAdminRedirect}>
             Admin
-          </button>
+          </button> */}
 
           <button className="btn btn-secondary" onClick={onClose}>
             Voltar

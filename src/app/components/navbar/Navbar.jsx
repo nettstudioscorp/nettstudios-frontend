@@ -122,19 +122,6 @@ const Navbar = () => {
                   </Link>
                 </li>
 
-                {/* TODO: to improve  <li className="nav-item">
-                  <Link
-                    to="/agenda"
-                    className={`nav-link ${activeLink === '/agenda' ? 'active' : ''}`}
-                    onClick={() => {
-                      setActiveLink('/agenda');
-                      closeMenu();
-                    }}
-                  >
-                    Agenda
-                  </Link>
-                </li> */}
-
                 {isLoggedIn && (
                   <>
                     <li className="nav-item">
@@ -162,6 +149,20 @@ const Navbar = () => {
                         Comunidade
                       </Link>
                     </li>
+
+                    <li className="nav-item">
+                      <Link
+                        to="/agenda"
+                        className={`nav-link ${activeLink === '/agenda' ? 'active' : ''}`}
+                        onClick={() => {
+                          setActiveLink('/agenda');
+                          closeMenu();
+                        }}
+                      >
+                        Calendário
+                      </Link>
+                    </li>
+
                     {/* TODO: <li className="nav-item">
                       <Link
                         to="/exclusive-videos"
