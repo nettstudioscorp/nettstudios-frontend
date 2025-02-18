@@ -70,7 +70,7 @@ const FooterComponent = () => {
           <a href="https://alanrocha.vercel.app" target="blank">
             Alan Rocha{' '}
           </a>{' '}
-          | Site: v0.0.9
+          | Site: v1.0.0
         </p>
       </div>
     </footer>
