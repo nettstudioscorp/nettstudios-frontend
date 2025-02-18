@@ -602,18 +602,16 @@
 }
 
 .event-tooltip {
-  display: none;
   position: absolute;
   background: white;
-  border-radius: 8px;
-  padding: 12px;
-  min-width: 200px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  border: 1px solid #e0e0e0;
-  left: 100%;
-  top: 0;
-  margin-left: 10px;
+  max-width: 200px;
+  transition: opacity 0.2s ease;
+  opacity: 0; /* Começa invisível */
 }
 
 .event-item:hover .event-tooltip {
@@ -633,6 +631,10 @@
 .event-tooltip p {
   margin: 4px 0;
   color: #666;
+}
+
+.event-tooltip.visible {
+  opacity: 1;
 }
 
 .status-encerrado {
