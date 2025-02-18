@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../community/community.css';
 import { fetchCommunityPosts } from '../community/service/community.service';
 import { sendEmail } from '../community/service/emailjs';
@@ -8,12 +10,15 @@ const Community = () => {
   const [posts, setPosts] = useState([]);
   const [reply, setReply] = useState('');
   const [repliedPostId, setRepliedPostId] = useState(null);
+  const [commentType, setCommentType] = useState('');
+  const [username, setUsername] = useState('');
+  const [userEmail, setUserEmail] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     const isAuthenticated = localStorage.getItem('isAuthenticated');
     if (isAuthenticated !== 'true') {
-      alert('Você precisa estar logado para acessar esta página.');
+      toast.error('Você precisa estar logado para acessar esta página.');
       navigate('/login');
     } else {
       fetchPosts();
@@ -35,18 +40,53 @@ const Community = () => {
 
   const handleReplySubmit = (e, postId) => {
     e.preventDefault();
-    if (reply.trim()) {
-      sendEmail(postId, reply)
-        .then(() => {
-          alert('Comentário enviado com sucesso!');
-          setReply('');
-          setRepliedPostId(null);
-        })
-        .catch((error) => {
-          console.error('Erro ao enviar o e-mail:', error);
-          alert('Falha ao enviar o comentário. Tente novamente.');
-        });
+
+    if (!commentType) {
+      toast.error(
+        'Por favor, selecione um tipo de comentário antes de enviar.'
+      );
+      return;
     }
+
+    if (!reply.trim()) {
+      toast.error('Por favor, preencha o campo de comentário.');
+      return;
+    }
+
+    sendEmail(postId, reply, commentType, username, userEmail)
+      .then(() => {
+        toast.success('Comentário enviado com sucesso!');
+        setReply('');
+        setUsername('');
+        setUserEmail('');
+        setCommentType('');
+        setRepliedPostId(null);
+      })
+      .catch((error) => {
+        console.error('Erro ao enviar o e-mail:', error);
+        toast.error('Falha ao enviar o comentário. Tente novamente.');
+      });
+  };
+
+  const handleCommentTypeChange = (type) => {
+    setCommentType(type);
+    let message = '';
+
+    switch (type) {
+      case 'bug':
+        message = '(Reportar Bug): ';
+        break;
+      case 'suggestion':
+        message = '(Sugestão de Melhoria): ';
+        break;
+      case 'gameRequest':
+        message = '(Pedido de Jogo): ';
+        break;
+      default:
+        break;
+    }
+
+    setReply(message);
   };
 
   const toggleContent = (index) => {
@@ -58,12 +98,7 @@ const Community = () => {
 
   return (
     <div className="community-container">
-      <h1>📢 Central de Novidades e Atualizações</h1>
-      <p>
-        Descubra as últimas melhorias, eventos, avisos e novidades da nossa
-        plataforma. Fique sempre por dentro!
-      </p>
-
+      <ToastContainer />
       <Link
         to="https://discord.gg/wVGJYq9Fz2"
         className="updates-button"
@@ -80,8 +115,80 @@ const Community = () => {
         <button className="update-button">YouTube</button>
       </Link>
 
+      <h1>📢 Central de Novidades e Atualizações</h1>
+      <p>
+        Descubra as últimas melhorias, eventos, avisos e novidades da nossa
+        plataforma. Fique sempre por dentro! Se você encontrou algum erro/bug
+        deixe um comentário abaixo. Sinta-se avontade para dar sugestões sobre
+        como melhorar o site, alteração/remoção de algum recurso, ou adicionar
+        algo novo, você é quem manda! :3
+      </p>
+
+      <p>
+        Dê uma descrição detalhada do erro para que ele seja corrigido o mais
+        rápido possível. Para fazer pedidos de games deixe um comentário abaixo.
+      </p>
+
+      <div className="comment-type-selection">
+        <label>
+          <input
+            type="radio"
+            value="bug"
+            checked={commentType === 'bug'}
+            onChange={() => handleCommentTypeChange('bug')}
+          />
+          <span>Reportar Bug</span>
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="suggestion"
+            checked={commentType === 'suggestion'}
+            onChange={() => handleCommentTypeChange('suggestion')}
+          />
+          <span>Sugestão de Melhoria</span>
+        </label>
+        <label>
+          <input
+            type="radio"
+            value="gameRequest"
+            checked={commentType === 'gameRequest'}
+            onChange={() => handleCommentTypeChange('gameRequest')}
+          />
+          <span>Pedido de Jogo</span>
+        </label>
+      </div>
+
+      <form onSubmit={(e) => handleReplySubmit(e, null)}>
+        {/* TODO:<input
+          type="text"
+          placeholder="Seu Nome"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          placeholder="Seu E-mail"
+          value={userEmail}
+          onChange={(e) => setUserEmail(e.target.value)}
+          required
+        /> */}
+        <textarea
+          className="reply-input"
+          placeholder="Escreva seu comentário..."
+          value={reply}
+          onChange={(e) => setReply(e.target.value)}
+          required
+        />
+        <button className="reply-submit-button" type="submit">
+          Enviar
+        </button>
+      </form>
+
       <br />
       <br />
+
       <div className="posts-list">
         {posts.map((post, index) => (
           <div className="post-card" key={index}>

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import '../conta/EditProfileModal.css';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const EditProfileModal = ({ isOpen, onClose, onProfileUpdate, onLogout }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [profilePicture, setProfilePicture] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [newPassword, setNewPassword] = useState('');
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -27,14 +30,17 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate, onLogout }) => {
   }, [isOpen]);
 
   const handleSave = async () => {
-    const user = JSON.parse(localStorage.getItem('user')) || {};
-    const updatedUser = {
-      ...user,
-      ...(name && { name }),
-      ...(email && { email }),
-      ...(password && { password }),
-      ...(profilePicture && { profilePicture }),
-    };
+    const updatedData = {};
+
+    if (name) updatedData.name = name;
+    if (email) updatedData.email = email;
+    if (profilePicture) updatedData.profilePicture = profilePicture;
+    if (newPassword) updatedData.password = newPassword;
+
+    if (Object.keys(updatedData).length === 0) {
+      alert('Nenhuma alteração foi feita.');
+      return;
+    }
 
     try {
       const response = await fetch(
@@ -45,13 +51,15 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate, onLogout }) => {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
-          body: JSON.stringify(updatedUser),
+          body: JSON.stringify(updatedData),
         }
       );
 
       const data = await response.json();
 
       if (response.ok) {
+        const user = JSON.parse(localStorage.getItem('user')) || {};
+        const updatedUser = { ...user, ...updatedData };
         localStorage.setItem('user', JSON.stringify(updatedUser));
         onProfileUpdate(updatedUser);
         alert('Dados atualizados com sucesso!');
@@ -103,21 +111,9 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate, onLogout }) => {
     window.location.href = '/admin';
   };
 
-  // const handleComunidadeRedirect = () => {
-  //   window.location.href = '/comunidade';
-  // };
-
-  // const handleMembrosRedirect = () => {
-  //   window.location.href = '/member';
-  // };
-
-  // const handleAgendaRedirect = () => {
-  //   window.location.href = '/agenda';
-  // };
-
-  // const handleNewRedirect = () => {
-  //   window.location.href = '/news';
-  // };
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   if (!isOpen) return null;
 
@@ -171,14 +167,43 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate, onLogout }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="password">Nova Senha</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            placeholder="Digite a nova senha"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <label htmlFor="new-password">Nova Senha</label>
+          <div className="password-field">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="new-password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Digite a nova senha"
+            />
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </button>
+          </div>
+        </div>
+
+        <div className="form-group">
+          <div className="password-field">
+            <label htmlFor="new-password">Confirme sua nova senha!</label>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              id="new-password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="Digite a nova senha"
+            />
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </button>
+          </div>
         </div>
 
         <div className="modal-buttons">
@@ -191,21 +216,8 @@ const EditProfileModal = ({ isOpen, onClose, onProfileUpdate, onLogout }) => {
           <button className="btn btn-warning" onClick={onLogout}>
             Sair
           </button>
-          <button className="btn btn-info" onClick={handleAdminRedirect}>
+          {/* TODO: <button className="btn btn-info" onClick={handleAdminRedirect}>
             Admin
-          </button>
-
-          {/* <button className="btn btn-info" onClick={handleComunidadeRedirect}>
-            Comunidade
-          </button>
-          <button className="btn btn-info" onClick={handleMembrosRedirect}>
-            Membros
-          </button>
-          <button className="btn btn-info" onClick={handleAgendaRedirect}>
-            Agenda
-          </button>
-          <button className="btn btn-info" onClick={handleNewRedirect}>
-            News
           </button> */}
 
           <button className="btn btn-secondary" onClick={onClose}>

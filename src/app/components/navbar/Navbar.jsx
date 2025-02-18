@@ -69,7 +69,7 @@ const Navbar = () => {
               id="navbarNavDropdown"
             >
               <ul className="navbar-nav">
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link
                     to="/"
                     className={`nav-link ${activeLink === '/' ? 'active' : ''}`}
@@ -80,7 +80,7 @@ const Navbar = () => {
                   >
                     Home
                   </Link>
-                </li>
+                </li> */}
 
                 <li className="nav-item">
                   <Link
@@ -91,20 +91,8 @@ const Navbar = () => {
                       closeMenu();
                     }}
                   >
-                    Playlists
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link
-                    to="/videos"
-                    className={`nav-link ${activeLink === '/videos' ? 'active' : ''}`}
-                    onClick={() => {
-                      setActiveLink('/videos');
-                      closeMenu();
-                    }}
-                  >
-                    Vídeos
+                    {/* Playlists */}
+                    Videos
                   </Link>
                 </li>
 
@@ -121,6 +109,19 @@ const Navbar = () => {
                   </Link>
                 </li>
 
+                {/*hidden <li className="nav-item">
+                  <Link
+                    to="/videos"
+                    className={`nav-link ${activeLink === '/videos' ? 'active' : ''}`}
+                    onClick={() => {
+                      setActiveLink('/videos');
+                      closeMenu();
+                    }}
+                  >
+                    Vídeos
+                  </Link>
+                </li> */}
+
                 <li className="nav-item">
                   <Link
                     to="/news"
@@ -130,11 +131,11 @@ const Navbar = () => {
                       closeMenu();
                     }}
                   >
-                    News
+                    Notícias
                   </Link>
                 </li>
 
-                {/* TODO: to improve  <li className="nav-item">
+                <li className="nav-item">
                   <Link
                     to="/agenda"
                     className={`nav-link ${activeLink === '/agenda' ? 'active' : ''}`}
@@ -143,9 +144,9 @@ const Navbar = () => {
                       closeMenu();
                     }}
                   >
-                    Agenda
+                    Calendário
                   </Link>
-                </li> */}
+                </li>
 
                 {isLoggedIn && (
                   <>
@@ -158,9 +159,10 @@ const Navbar = () => {
                           closeMenu();
                         }}
                       >
-                        Posts
+                        Comunidade
                       </Link>
                     </li>
+
                     {/* TODO: <li className="nav-item">
                       <Link
                         to="/exclusive-videos"
