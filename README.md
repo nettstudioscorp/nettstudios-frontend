@@ -1,13 +1,13 @@
 
 Bem-vindo ao **NettStudios**! Este projeto é um site dedicado a fornecer informações sobre games, incluindo vídeos, notícias e atualizações relacionadas a games. O **theNettko** foi criado em 2015 como um canal do YouTube, e agora estamos expandindo nosso conteúdo para incluir um site interativo que oferece uma experiência completa para entusiastas de jogos e programação.
 
-## Web
+<!-- ## Web
 
 ![theNettko](./docs/NettStudios-web.png)
 
 ## Mobile
 
-![theNettko](./docs/NettStudios-mobile.png)
+![theNettko](./docs/NettStudios-mobile.png) -->
 
 ## Funcionalidades
 
@@ -20,6 +20,7 @@ Bem-vindo ao **NettStudios**! Este projeto é um site dedicado a fornecer inform
 ## Tecnologias Utilizadas
 
 - **Frontend**: React
+
 <!-- - **API**: YouTube Data API v3 
 - **Estilização**: CSS -->
 
@@ -85,7 +86,7 @@ Inicie o servidor de desenvolvimento para ver o projeto em funcionamento:
 npm start
 ```
 
-A aplicação estará disponível em http://localhost:3000.
+A aplicação estará disponível em http://localhost:3001.
 
 <!--**Contribuindo**
 
