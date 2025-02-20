@@ -148,6 +148,19 @@ const Navbar = () => {
                   </Link>
                 </li>
 
+                <li className="nav-item">
+                  <Link
+                    to="/member"
+                    className={`nav-link ${activeLink === '/member' ? 'active' : ''}`}
+                    onClick={() => {
+                      setActiveLink('/member');
+                      closeMenu();
+                    }}
+                  >
+                    Equipe
+                  </Link>
+                </li>
+
                 {isLoggedIn && (
                   <>
                     <li className="nav-item">
@@ -173,19 +186,6 @@ const Navbar = () => {
                         }}
                       >
                         Reviews
-                      </Link>
-                    </li> */}
-
-                    {/* TODO: to improve  <li className="nav-item">
-                      <Link
-                        to="/member"
-                        className={`nav-link ${activeLink === '/member' ? 'active' : ''}`}
-                        onClick={() => {
-                          setActiveLink('/member');
-                          closeMenu();
-                        }}
-                      >
-                        Membros
                       </Link>
                     </li> */}
                   </>
