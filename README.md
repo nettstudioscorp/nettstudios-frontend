@@ -86,7 +86,7 @@ Inicie o servidor de desenvolvimento para ver o projeto em funcionamento:
 npm start
 ```
 
-A aplicação estará disponível em http://localhost:3000.
+A aplicação estará disponível em http://localhost:3001.
 
 <!--**Contribuindo**
 
