@@ -20,7 +20,9 @@ const FooterComponent = () => {
           </p>
           <p className="footer-email">
             Email:{' '}
-            <a href="mailto: nettstudios@nettstudios.com.br">nettstudios@nettstudios.com.br</a>
+            <a href="mailto: nettstudios@nettstudios.com.br">
+              nettstudios@nettstudios.com.br
+            </a>
             <br />
             <br />
             <a href="/about">Sobre Nós</a>
@@ -66,11 +68,11 @@ const FooterComponent = () => {
         <a href="/politica-de-privacidade">Política de privacidade</a>
         <br />
         <p>
-          Desenvolvido por{' '}
+          {/* Desenvolvido por{' '}
           <a href="https://alanrocha.vercel.app" target="blank">
             Alan Rocha{' '}
-          </a>{' '}
-          | Site: v1.0.0
+          </a>  | {' '} */}
+          Site: v1.0.0
         </p>
       </div>
     </footer>
