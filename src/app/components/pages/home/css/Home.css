@@ -28,7 +28,9 @@
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   width: 360px;
   height: 202px;
   margin: 10px;
@@ -36,6 +38,7 @@
 
 .anime-item:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .anime-item img {
@@ -351,13 +354,15 @@ h3 {
 .categories-section h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-family: 'Anaheim', sans-serif;
+  font-size: 2rem;
 }
 
 .category-card {
   position: relative;
   width: 48%;
   margin: 0 0;
-  margin-bottom: 10px;
+  margin-bottom: 48px;
   overflow: hidden;
   border-radius: 8px;
   transition:
@@ -390,4 +395,72 @@ h3 {
   background: rgba(0, 0, 0, 0.5);
   padding: 5px;
   border-radius: 5px;
+}
+
+/* Estilo para a seção Ao Vivo */
+.live-section {
+  margin-top: 20px;
+}
+
+.live-videos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.live-thumbnail {
+  width: 100%;
+  text-align: center;
+}
+
+.live-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.live-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.live-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Adiciona rolagem suave à página */
+html {
+  scroll-behavior: smooth; /* Ativa a rolagem suave */
+}
+
+/* Estilo para os elementos que serão animados */
+[data-aos] {
+  opacity: 0; /* Inicialmente invisível */
+}
+
+.loading {
+  border: 8px solid #f3f3f3; /* Cor do fundo */
+  border-top: 8px solid #3498db; /* Cor do ícone */
+  border-radius: 50%; /* Forma circular */
+  width: 50px; /* Largura do ícone */
+  height: 50px; /* Altura do ícone */
+  animation: spin 1s linear infinite; /* Animação de rotação */
+  margin: 20px auto; /* Centraliza o ícone */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

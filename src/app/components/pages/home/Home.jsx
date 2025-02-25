@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReactPaginate from 'react-paginate';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { motion } from 'framer-motion';
 
 import './css/Home.css';
+
 import { fetchVideos } from './service/HomeVideoList';
 import { videos } from '../videos/api/Videoslist.Service';
+
 import {
   fetchPlaylistsEmLançamento,
   fetchPlaylistsDestaques,
 } from './service/HomePlayList';
+
+import { fetchLiveVideos } from '../live/service/Live.service';
+import { fetchGames } from '../live/service/Live.service';
 
 import Banner from './img/banner site nettstudios.jpg';
 
@@ -19,10 +27,13 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
+  const [loading, setLoading] = useState(false);
   const [episodePage, setEpisodePage] = useState(0);
   const [playlistsLancamento, setPlaylistsLancamento] = useState([]);
   const [playlistsDestaques, setPlaylistsDestaques] = useState([]);
   const [videos, setVideos] = useState([]);
+  const [liveVideos, setLiveVideos] = useState([]);
+  const [gamesA, setGamesA] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +53,37 @@ const Home = () => {
     };
 
     getVideos();
+  }, []);
+
+  useEffect(() => {
+    const getLiveVideos = async () => {
+      try {
+        const data = await fetchLiveVideos();
+        setLiveVideos(data);
+      } catch (error) {
+        console.error('Erro ao carregar vídeos ao vivo:', error);
+      }
+    };
+
+    const getGames = async () => {
+      try {
+        const data = await fetchGames();
+        setGamesA(data.listA);
+      } catch (error) {
+        console.error('Erro ao carregar jogos:', error);
+      }
+    };
+
+    getLiveVideos();
+    getGames();
+  }, []);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: false,
+    });
   }, []);
 
   const openModal = (videoId) => {
@@ -76,6 +118,7 @@ const Home = () => {
   const showLoadMoreButton = totalItems > 15 && currentPage === totalPages;
 
   const handleEpisodePageClick = (data) => {
+    setLoading(true);
     setEpisodePage(data.selected);
   };
 
@@ -86,6 +129,14 @@ const Home = () => {
         (episodePage + 1) * episodesPerPage
       )
     : [];
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [episodePage]);
 
   return (
     <div className="home-container">
@@ -102,7 +153,7 @@ const Home = () => {
 
       {/* ====================== playlistsLançamento ============================ */}
 
-      <section className="playlists-section">
+      <section className="playlists-section" data-aos="fade-up">
         <h2>Em Lançamento</h2>
 
         <div className="playlists-grid">
@@ -125,33 +176,77 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ====================== Nova Seção Ao Vivo ============================ */}
+
+      {/* TODO: <section className="live-section">
+        <h2>Ao Vivo</h2>
+        {liveVideos.length > 0 ? (
+          <div className="live-videos-list">
+            {liveVideos.slice(0, 4).map((video) => (
+              <div key={video.id} className="live-thumbnail">
+                <img src={video.thumbnail} alt={video.title} />
+                <p>{video.title}</p>
+                {video.isLive && <span className="live-badge">Ao Vivo</span>}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="games-list">
+            {gamesA.slice(0, 4).map((game) => (
+              <div
+                key={game.id}
+                className="thumbnail"
+                onClick={() => navigate(`/live/${game.id}`)}
+              >
+                <img src={game.thumbnail} alt={game.name} />
+                <p>{game.name}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </section> */}
+
       {/* ====================== Últimos Episódios Adicionadoso ============================ */}
 
       {videos.map((section, index) => (
-        <section key={index} className="anime-section">
+        <section key={index} className="anime-section" data-aos="fade-up">
           <h2>{section.title}</h2>
           <div className="anime-grid">
-            {section.title === 'Últimos Episódios Adicionados'
-              ? episodesDisplayed.map((item, idx) => (
-                  <div
+            {section.title === 'Últimos Episódios Adicionados' ? (
+              loading ? (
+                <div className="loading" />
+              ) : (
+                episodesDisplayed.map((item, idx) => (
+                  <motion.div
                     key={idx}
                     className="anime-item"
                     onClick={() => handleCardClick(item)}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                    whileHover={{ scale: 1.05 }}
                   >
                     <img src={item.image} alt={item.name} />
                     <p>{item.name}</p>
-                  </div>
+                  </motion.div>
                 ))
-              : section.items.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="anime-item"
-                    onClick={() => handleCardClick(item)}
-                  >
-                    <img src={item.image} alt={item.name} />
-                    <p>{item.name}</p>
-                  </div>
-                ))}
+              )
+            ) : (
+              section.items.map((item, idx) => (
+                <motion.div
+                  key={idx}
+                  className="anime-item"
+                  onClick={() => handleCardClick(item)}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <img src={item.image} alt={item.name} />
+                  <p>{item.name}</p>
+                </motion.div>
+              ))
+            )}
           </div>
 
           {section.title === 'Últimos Episódios Adicionados' &&
@@ -178,7 +273,7 @@ const Home = () => {
 
       {/* ====================== playlistsDestaques ============================ */}
 
-      <section className="playlists-section">
+      <section className="playlists-section" data-aos="fade-up">
         <h2>Destaques da semana</h2>
 
         <div className="playlists-grid">
@@ -203,7 +298,7 @@ const Home = () => {
 
       {/* ====================== Seção de Categorias ============================ */}
 
-      <div className="categories-section">
+      <div className="categories-section" data-aos="fade-up">
         <h2>Categorias</h2>
         <div className="categories-container">
           <div className="category-card">

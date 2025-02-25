@@ -13,3 +13,9 @@ export const fetchGames = async () => {
     throw error;
   }
 };
+
+export const fetchLiveVideos = async () => {
+  const response = await fetch('YOUR_YOUTUBE_API_ENDPOINT');
+  const data = await response.json();
+  return data.items;
+};
