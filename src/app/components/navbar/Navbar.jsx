@@ -91,12 +91,11 @@ const Navbar = () => {
                       closeMenu();
                     }}
                   >
-                    {/* Playlists */}
-                    Videos
+                    Playlists
                   </Link>
                 </li>
 
-                <li className="nav-item">
+                {/*hidden  <li className="nav-item">
                   <Link
                     to="/lives"
                     className={`nav-link ${activeLink === '/lives' ? 'active' : ''}`}
@@ -107,7 +106,7 @@ const Navbar = () => {
                   >
                     Lives
                   </Link>
-                </li>
+                </li> */}
 
                 {/*hidden <li className="nav-item">
                   <Link
@@ -122,20 +121,7 @@ const Navbar = () => {
                   </Link>
                 </li> */}
 
-                <li className="nav-item">
-                  <Link
-                    to="/news"
-                    className={`nav-link ${activeLink === '/news' ? 'active' : ''}`}
-                    onClick={() => {
-                      setActiveLink('/news');
-                      closeMenu();
-                    }}
-                  >
-                    Notícias
-                  </Link>
-                </li>
-
-                <li className="nav-item">
+                {/* TODO: make improvements <li className="nav-item">
                   <Link
                     to="/agenda"
                     className={`nav-link ${activeLink === '/agenda' ? 'active' : ''}`}
@@ -146,9 +132,9 @@ const Navbar = () => {
                   >
                     Calendário
                   </Link>
-                </li>
+                </li> */}
 
-                <li className="nav-item">
+                {/* TODO: make improvements <li className="nav-item">
                   <Link
                     to="/member"
                     className={`nav-link ${activeLink === '/member' ? 'active' : ''}`}
@@ -159,20 +145,33 @@ const Navbar = () => {
                   >
                     Equipe
                   </Link>
+                </li> */}
+
+                <li className="nav-item">
+                  <Link
+                    to="/comunidade"
+                    className={`nav-link ${activeLink === '/comunidade' ? 'active' : ''}`}
+                    onClick={() => {
+                      setActiveLink('/comunidade');
+                      closeMenu();
+                    }}
+                  >
+                    Comunidade
+                  </Link>
                 </li>
 
                 {isLoggedIn && (
                   <>
                     <li className="nav-item">
                       <Link
-                        to="/comunidade"
-                        className={`nav-link ${activeLink === '/comunidade' ? 'active' : ''}`}
+                        to="/news"
+                        className={`nav-link ${activeLink === '/news' ? 'active' : ''}`}
                         onClick={() => {
-                          setActiveLink('/comunidade');
+                          setActiveLink('/news');
                           closeMenu();
                         }}
                       >
-                        Comunidade
+                        Notícias
                       </Link>
                     </li>
 
