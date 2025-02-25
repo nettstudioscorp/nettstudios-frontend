@@ -159,15 +159,23 @@ const Home = () => {
       {/* ====================== Banner ============================ */}
 
       <div className="banner">
-        <motion.img
-          src={banners[currentBanner]}
-          alt="Banner de Apresentação"
-          className="banner-image"
-          key={currentBanner}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+        <motion.div
+          className="banner-wrapper"
+          initial={{ x: '-100%' }}
+          animate={{ x: 0 }}
+          exit={{ x: '100%' }}
           transition={{ duration: 1 }}
-        />
+        >
+          <motion.img
+            src={banners[currentBanner]}
+            alt="Banner de Apresentação"
+            className="banner-image"
+            key={currentBanner}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          />
+        </motion.div>
         <div className="banner-text">
           <h2>Bem-vindo ao NettStudios!</h2>
         </div>

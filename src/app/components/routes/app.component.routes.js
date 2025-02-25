@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import HomeComponent from '../pages/home/Home';
+import Home from '../pages/home/Home.jsx';
 import NavbarComponent from '../navbar/Navbar';
 import FooterComponent from '../footer/Footer';
 
@@ -47,7 +47,7 @@ const App = () => {
     <Router>
       <NavbarComponent />
       <Routes>
-        <Route path="/" element={<HomeComponent />} />
+        <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin-home" element={<AdminHome />} />
 
@@ -67,7 +67,7 @@ const App = () => {
         <Route path="/watch/:videoId" element={<VideoPlayer />} />
         <Route path="/videos/:videoId" element={<VideoPlayerVideoID />} />
         <Route
-          path="/categories/:category"
+          path="/categories/playlists"
           element={<ActionCategoriesList />}
         />
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../css/ActionCategoriesList.css';
 
-const mockAction = {
+const mockPlaylists = {
   'Far Cry ': [
     {
       id: 'Far Cry Classic',
@@ -47,7 +47,7 @@ const ActionCategoriesList = () => {
   const [playlists, setPlaylists] = useState({});
 
   useEffect(() => {
-    setPlaylists(mockAction);
+    setPlaylists(mockPlaylists);
   }, []);
 
   return (
