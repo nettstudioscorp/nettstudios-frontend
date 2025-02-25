@@ -23,30 +23,26 @@ const Playlist = () => {
   return (
     <div className="playlist-container">
       <div className="playlists-grid">
-        {Object.values(playlists).map((playlist) =>
-          playlist.map((game) => (
-            <div
-              key={game.id}
-              className="playlist-card"
-              onClick={() => navigate(`/playlist/${game.id}`)}
-            >
-              <div className="thumbnail-wrapper">
-                <img src={game.thumbnail} alt={game.name} />
-                {/* TODO: <div className="video-count">
-                  <span>
-                    ▶{' '}
-                    {playlist.videoCount ? playlist.videoCount[game.name] : 0}{' '}
-                    videos
-                  </span>
-                </div> */}
-              </div>
-              <div className="playlist-info">
-                <h3>{game.name}</h3>
-                <p>Ver playlist completa</p>
-              </div>
-            </div>
-          ))
-        )}
+        {Object.values(playlists)
+          .flat()
+          .map(
+            (game) =>
+              game.thumbnail && (
+                <div
+                  key={game.id}
+                  className="playlist-card"
+                  onClick={() => navigate(`/playlist/${game.id}`)}
+                >
+                  <div className="thumbnail-wrapper">
+                    <img src={game.thumbnail} alt={game.name} />
+                  </div>
+                  <div className="playlist-info">
+                    <h3>{game.name}</h3>
+                    <p>Ver playlist completa</p>
+                  </div>
+                </div>
+              )
+          )}
       </div>
     </div>
   );

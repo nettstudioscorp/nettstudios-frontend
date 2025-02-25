@@ -16,13 +16,7 @@ const Community = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('isAuthenticated');
-    if (isAuthenticated !== 'true') {
-      toast.error('Você precisa estar logado para acessar esta página.');
-      navigate('/login');
-    } else {
-      fetchPosts();
-    }
+    fetchPosts();
   }, [navigate]);
 
   const fetchPosts = async () => {
