@@ -6,8 +6,8 @@ class AgendaService {
       {
         id: 1,
         title: "Assassin's Creed Valhalla",
-        startTime: '12:00',
-        date: new Date(2025, 1, 22).toISOString(),
+        startTime: '16:00',
+        date: new Date(2025, 1, 1).toISOString(),
         type: 'Retorno',
         status: 'Em breve',
         description: 'Retorno da serie!',
