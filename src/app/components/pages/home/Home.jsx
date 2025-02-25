@@ -201,8 +201,51 @@ const Home = () => {
         </div>
       </section>
 
+      {/* ====================== Seção de Categorias ============================ */}
+
+      <div className="categories-section">
+        <h2>Categorias</h2>
+        <div className="categories-container">
+          <div className="category-card">
+            <img
+              src="https://meialua.net/wp-content/uploads/2023/10/AC-MIRAGE-CAPA.jpg"
+              alt="Ação"
+            />
+            <span>Ação</span>
+          </div>
+          <div className="category-card">
+            <img
+              src="https://www.allkeyshop.com/blog/wp-content/uploads/outlast-film-adaptation.jpg"
+              alt="Terror"
+            />
+            <span>Terror</span>
+          </div>
+          <div className="category-card">
+            <img
+              src="https://assets.gamearena.gg/wp-content/uploads/2024/06/13110439/i490784.jpeg"
+              alt="Aventura"
+            />
+            <span>Aventura</span>
+          </div>
+          <div className="category-card">
+            <img
+              src="https://store-images.s-microsoft.com/image/apps.11412.68177001893401352.f1516afd-42db-4a47-8385-15f1b976a2c7.df7b35f9-701b-486e-b387-2bd1a69bb816?q=90&w=480&h=270"
+              alt="Luta"
+            />
+            <span>Luta</span>
+          </div>
+        </div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       {/* ====================== Modal ============================ */}
 
+      {/* TODO:
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
@@ -220,7 +263,7 @@ const Home = () => {
             ></iframe>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
