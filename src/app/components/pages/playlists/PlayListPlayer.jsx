@@ -56,7 +56,10 @@ const PlaylistPlayer = () => {
     <div className="player-container">
       <br />
       <br />
-      <button className="back-button" onClick={() => navigate('/playlists')}>
+      <button
+        className="back-button"
+        onClick={() => navigate('/categories/playlist')}
+      >
         Voltar
       </button>
       {/* <h1>{gameId.toUpperCase()} - Playlist</h1> */}

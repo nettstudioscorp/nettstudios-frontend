@@ -35,6 +35,14 @@ const Home = () => {
   const [liveVideos, setLiveVideos] = useState([]);
   const [gamesA, setGamesA] = useState([]);
 
+  const banners = [
+    Banner,
+    'https://assetsio.gnwcdn.com/digitalfoundry-2015-performance-analysis-far-cry-primal-1456407474102.jpg?width=1200&height=1200&fit=bounds&quality=70&format=jpg&auto=webp',
+    'https://images7.alphacoders.com/132/1326346.jpeg',
+  ];
+
+  const [currentBanner, setCurrentBanner] = useState(0);
+
   useEffect(() => {
     const fetchData = async () => {
       const lancamentoData = await fetchPlaylistsEmLançamento();
@@ -85,6 +93,14 @@ const Home = () => {
       once: false,
     });
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % banners.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [banners.length]);
 
   const openModal = (videoId) => {
     setCurrentVideoId(videoId);
@@ -140,11 +156,17 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      {/* ====================== Banner ============================ */}
+
       <div className="banner">
-        <img
-          src={Banner}
+        <motion.img
+          src={banners[currentBanner]}
           alt="Banner de Apresentação"
           className="banner-image"
+          key={currentBanner}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
         />
         <div className="banner-text">
           <h2>Bem-vindo ao NettStudios!</h2>
@@ -299,35 +321,23 @@ const Home = () => {
       {/* ====================== Seção de Categorias ============================ */}
 
       <div className="categories-section" data-aos="fade-up">
-        <h2>Categorias</h2>
+        <h2>Veja mais </h2>
+
         <div className="categories-container">
-          <div className="category-card">
+          <div
+            className="category-card"
+            onClick={() => navigate('/categories/playlists')}
+          >
             <img
-              src="https://meialua.net/wp-content/uploads/2023/10/AC-MIRAGE-CAPA.jpg"
-              alt="Ação"
+              src="https://files.meiobit.com/wp-content/uploads/2023/02/Embracer-Group-IPs-1060x596.jpg"
+              alt="categories"
             />
-            <span>Ação</span>
+            <span>Playlists</span>
           </div>
-          <div className="category-card">
-            <img
-              src="https://www.allkeyshop.com/blog/wp-content/uploads/outlast-film-adaptation.jpg"
-              alt="Terror"
-            />
-            <span>Terror</span>
-          </div>
-          <div className="category-card">
-            <img
-              src="https://assets.gamearena.gg/wp-content/uploads/2024/06/13110439/i490784.jpeg"
-              alt="Aventura"
-            />
-            <span>Aventura</span>
-          </div>
-          <div className="category-card">
-            <img
-              src="https://store-images.s-microsoft.com/image/apps.11412.68177001893401352.f1516afd-42db-4a47-8385-15f1b976a2c7.df7b35f9-701b-486e-b387-2bd1a69bb816?q=90&w=480&h=270"
-              alt="Luta"
-            />
-            <span>Luta</span>
+
+          <div className="category-card" onClick={() => navigate('/videos')}>
+            <img src="https://t2.tudocdn.net/223397?w=1920" alt="videos" />
+            <span>Videos</span>
           </div>
         </div>
       </div>
@@ -337,28 +347,6 @@ const Home = () => {
       <br />
       <br />
       <br />
-
-      {/* ====================== Modal ============================ */}
-
-      {/* TODO:
-      {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <iframe
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${currentVideoId}`}
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };
