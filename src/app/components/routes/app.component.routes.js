@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import HomeComponent from '../pages/home/Home';
+import Home from '../pages/home/Home.jsx';
 import NavbarComponent from '../navbar/Navbar';
 import FooterComponent from '../footer/Footer';
 
 import VideosLists from '../pages/videos/VideosList';
 import VideoPlayer from '../pages/videos/VideoPlayer';
 import VideoPlayerVideoID from '../pages/videos/VideoPlayer';
+import ActionCategoriesList from '../pages/home/categories/ActionCategoriesList';
 
 import MemberVideosList from '../pages/videos/MemberExclusiveVideosList';
 import MemberVideosPlayer from '../pages/videos/MemberExclusiveVideosPlayer';
@@ -46,7 +47,7 @@ const App = () => {
     <Router>
       <NavbarComponent />
       <Routes>
-        <Route path="/" element={<HomeComponent />} />
+        <Route path="/" element={<Home />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin-home" element={<AdminHome />} />
 
@@ -65,6 +66,10 @@ const App = () => {
         <Route path="videos" element={<VideoPlayer />} />
         <Route path="/watch/:videoId" element={<VideoPlayer />} />
         <Route path="/videos/:videoId" element={<VideoPlayerVideoID />} />
+        <Route
+          path="/categories/playlists"
+          element={<ActionCategoriesList />}
+        />
 
         <Route path="/exclusive-videos" element={<MemberVideosList />} />
         <Route path="/watch/:videoId" element={<MemberVideosPlayer />} />

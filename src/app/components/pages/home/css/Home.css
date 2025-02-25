@@ -28,7 +28,9 @@
   overflow: hidden;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   width: 360px;
   height: 202px;
   margin: 10px;
@@ -36,6 +38,7 @@
 
 .anime-item:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .anime-item img {
@@ -164,6 +167,10 @@ h3 {
   .anime-item {
     width: 360px;
     height: 202px;
+  }
+
+  .banner {
+    display: none;
   }
 }
 
@@ -336,4 +343,126 @@ h3 {
   width: 360px;
   height: 202px;
   margin: 10px;
+}
+
+.categories-section {
+  margin-top: 20px;
+}
+
+.categories-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.categories-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Anaheim', sans-serif;
+  font-size: 2rem;
+}
+
+.category-card {
+  position: relative;
+  width: 48%;
+  margin: 0 0;
+  margin-bottom: 48px;
+  overflow: hidden;
+  border-radius: 8px;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.category-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.category-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.category-card:hover img {
+  transform: scale(1.01);
+}
+
+.category-card span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 1.2em;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Estilo para a seção Ao Vivo */
+.live-section {
+  margin-top: 20px;
+}
+
+.live-videos-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.live-thumbnail {
+  width: 100%;
+  text-align: center;
+}
+
+.live-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.live-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.live-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[data-aos] {
+  opacity: 0;
+}
+
+.loading {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
