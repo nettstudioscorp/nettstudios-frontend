@@ -56,17 +56,10 @@ const PlaylistPlayer = () => {
     <div className="player-container">
       <br />
       <br />
-      <div className="navigation-buttons">
-        <button className="back-button" onClick={() => navigate('/playlists')}>
-          Voltar para Playlists
-        </button>
-        <button
-          className="back-button"
-          onClick={() => navigate('/categories/playlists')}
-        >
-          Voltar para Categorias de Playlists
-        </button>
-      </div>
+      <button className="back-button" onClick={() => navigate('/playlists')}>
+        Voltar
+      </button>
+      {/* <h1>{gameId.toUpperCase()} - Playlist</h1> */}
       <br />
       {currentVideo?.videoId ? (
         <div className="video-player-wrapper-live">
