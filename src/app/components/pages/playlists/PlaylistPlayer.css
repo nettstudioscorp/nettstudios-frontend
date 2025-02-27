@@ -114,3 +114,40 @@
   text-align: center;
   color: #fff;
 }
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 5px;
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #004aac;
+}
+
+@media (max-width: 768px) {
+  .navigation-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .back-button {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}
