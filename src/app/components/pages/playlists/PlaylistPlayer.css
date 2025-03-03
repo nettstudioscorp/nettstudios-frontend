@@ -97,8 +97,29 @@
   cursor: pointer;
 }
 
+.game-info {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.game-info h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.game-info p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
 .recommendations {
   margin-top: 30px;
+  color: #fff;
+}
+
+.recommendations h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .recommendations-list {
@@ -113,6 +134,8 @@
   padding: 10px;
   text-align: center;
   color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .navigation-buttons {
@@ -150,4 +173,36 @@
     margin-bottom: 10px;
     font-size: 14px;
   }
+}
+
+.playlists-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.playlist-card {
+  flex: 1 1 calc(25% - 10px);
+  max-width: 300px;
+  /* background-color: #444;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s; */
+}
+
+.playlist-card:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.playlist-info {
+  margin-top: 10px;
 }
