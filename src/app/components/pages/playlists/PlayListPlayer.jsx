@@ -12,6 +12,9 @@ const PlaylistPlayer = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [recommendations, setRecommendations] = useState([]);
   const [description, setDescription] = useState('');
+  const [gameStatus, setGameStatus] = useState('');
+  const [releaseDate, setReleaseDate] = useState('');
+  const [year, setYear] = useState('');
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -31,6 +34,13 @@ const PlaylistPlayer = () => {
         setDescription(
           currentPlaylist?.description || 'Descrição não disponível.'
         );
+        setGameStatus(
+          currentPlaylist?.gameStatus || 'Descrição não disponível.'
+        );
+        setReleaseDate(
+          currentPlaylist?.releaseDate || 'Descrição não disponível.'
+        );
+        setYear(currentPlaylist?.year || 'Descrição não disponível.');
 
         const filteredRecommendations = playlistsArray.filter(
           (playlist) => playlist.id !== gameId
@@ -102,6 +112,9 @@ const PlaylistPlayer = () => {
         <h1>{gameId.toUpperCase()}</h1>
         <p>Total de episódios: {playlist.length}</p>
         <p>Sinopse: {description}</p>
+        <p>Status do Game: {gameStatus}</p>
+        <p>Dia de Lançamento: {releaseDate}</p>
+        <p>Ano: {year}</p>
       </div>
 
       <div className="video-navigation">
