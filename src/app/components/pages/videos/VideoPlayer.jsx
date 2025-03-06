@@ -10,6 +10,7 @@ const VideoPlayer = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [videos, setVideos] = useState([]);
   const isUserRegistered = localStorage.getItem('isAuthenticated') === 'true';
+  const [recommendations, setRecommendations] = useState([]);
 
   useEffect(() => {
     const getVideos = async () => {
@@ -147,6 +148,27 @@ const VideoPlayer = () => {
           &gt;
         </button>
       </div>
+
+      {/* TODO:<div className="recommendations">
+        <h2>Você também pode gostar</h2>
+        <div className="playlists-grid">
+          {recommendations.map((rec) => (
+            <div
+              key={rec.id}
+              className="playlist-card"
+              onClick={() => navigate(`/playlist/${rec.id}`)}
+            >
+              <div className="thumbnail-wrapper">
+                <img src={rec.thumbnail} alt={rec.title} />
+              </div>
+              <div className="playlist-info">
+                <h3>{rec.title}</h3>
+                <p>Ver playlist completa</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div> */}
     </div>
   );
 };
