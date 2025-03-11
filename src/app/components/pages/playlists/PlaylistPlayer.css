@@ -97,8 +97,29 @@
   cursor: pointer;
 }
 
+.game-info {
+  margin-top: 20px;
+  color: #fff;
+}
+
+.game-info h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.game-info p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
 .recommendations {
   margin-top: 30px;
+  color: #fff;
+}
+
+.recommendations h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .recommendations-list {
@@ -113,6 +134,8 @@
   padding: 10px;
   text-align: center;
   color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .navigation-buttons {
@@ -149,5 +172,172 @@
     width: 100%;
     margin-bottom: 10px;
     font-size: 14px;
+  }
+}
+
+.playlists-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.playlist-card {
+  flex: 1 1 calc(25% - 10px);
+  max-width: 300px;
+  /* background-color: #444;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s; */
+}
+
+.playlist-card:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.playlist-info {
+  margin-top: 10px;
+}
+
+.videos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.video-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.video-link {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.play-button {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background 0.3s ease;
+  z-index: 1;
+}
+
+.video-link:hover .play-button {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.video-link:hover .video-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.video-item img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.video-status {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 0 4px 4px 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.load-more-button {
+  background-color: rgb(0, 123, 255);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-more-button:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .playlist-card {
+    flex: 1 1 calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .playlist-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .playlist-info h3 {
+    font-size: 1rem;
   }
 }
