@@ -102,7 +102,7 @@ const Community = () => {
       </Link>
 
       <Link
-        to="https://www.youtube.com/@theNettko/community"
+        to="https://www.youtube.com/@NettStudiosOficial/community"
         className="updates-button"
         target="blank"
       >

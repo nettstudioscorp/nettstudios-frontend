@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchPlaylistByGameId } from './service/PlayListPlayer.Service';
+import { fetchPlaylists } from './service/PlayList.Service';
 import '../playlists/PlaylistPlayer.css';
 
 const PlaylistPlayer = () => {
@@ -9,14 +10,45 @@ const PlaylistPlayer = () => {
   const [playlist, setPlaylist] = useState([]);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [recommendations, setRecommendations] = useState([]);
+  const [description, setDescription] = useState('');
+  const [gameStatus, setGameStatus] = useState('');
+  const [releaseDate, setReleaseDate] = useState('');
+  const [year, setYear] = useState('');
 
   useEffect(() => {
     const fetchPlaylist = async () => {
       try {
         const gamePlaylist = await fetchPlaylistByGameId(gameId);
         setPlaylist(gamePlaylist);
+
+        const allPlaylists = await fetchPlaylists();
+        console.log('All Playlists:', allPlaylists);
+
+        const playlistsArray = Object.values(allPlaylists).flat();
+        console.log('Playlists Array:', playlistsArray);
+
+        const currentPlaylist = playlistsArray.find(
+          (playlist) => playlist.id === gameId
+        );
+        setDescription(
+          currentPlaylist?.description || 'Descrição não disponível.'
+        );
+        setGameStatus(
+          currentPlaylist?.gameStatus || 'Descrição não disponível.'
+        );
+        setReleaseDate(
+          currentPlaylist?.releaseDate || 'Descrição não disponível.'
+        );
+        setYear(currentPlaylist?.year || 'Descrição não disponível.');
+
+        const filteredRecommendations = playlistsArray.filter(
+          (playlist) => playlist.id !== gameId
+        );
+        console.log('Filtered Recommendations:', filteredRecommendations);
+        setRecommendations(filteredRecommendations.slice(0, 4));
       } catch (error) {
-        console.error(error);
+        console.error('Erro ao buscar playlists:', error);
       }
     };
 
@@ -59,7 +91,6 @@ const PlaylistPlayer = () => {
       <button className="back-button" onClick={() => navigate('/playlists')}>
         Voltar
       </button>
-      {/* <h1>{gameId.toUpperCase()} - Playlist</h1> */}
       <br />
       {currentVideo?.videoId ? (
         <div className="video-player-wrapper-live">
@@ -76,6 +107,15 @@ const PlaylistPlayer = () => {
       ) : (
         <video controls width="560" height="315" src={currentVideo?.url} />
       )}
+
+      <div className="game-info">
+        <h1>{gameId.toUpperCase()}</h1>
+        <p>Total de episódios: {playlist.length}</p>
+        <p>Sinopse: {description}</p>
+        <p>Status do Game: {gameStatus}</p>
+        <p>Dia de Lançamento: {releaseDate}</p>
+        <p>Ano: {year}</p>
+      </div>
 
       <div className="video-navigation">
         <button className="nav-scroll-button" onClick={() => scrollTo('left')}>
@@ -101,6 +141,27 @@ const PlaylistPlayer = () => {
         <button className="nav-scroll-button" onClick={() => scrollTo('right')}>
           &gt;
         </button>
+      </div>
+
+      <div className="recommendations">
+        <h2>Você também pode gostar</h2>
+        <div className="playlists-grid">
+          {recommendations.map((rec) => (
+            <div
+              key={rec.id}
+              className="playlist-card"
+              onClick={() => navigate(`/playlist/${rec.id}`)}
+            >
+              <div className="thumbnail-wrapper">
+                <img src={rec.thumbnail} alt={rec.title} />
+              </div>
+              <div className="playlist-info">
+                <h3>{rec.title}</h3>
+                <p>Ver playlist completa</p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

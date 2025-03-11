@@ -13,7 +13,7 @@ const VideosList = () => {
   const { videoId } = useParams();
 
   const [activeFilter, setActiveFilter] = useState('recent');
-  const [visibleVideos, setVisibleVideos] = useState(10);
+  const [visibleVideos, setVisibleVideos] = useState(18);
   const videosPerLoad = 5;
   const isUserRegistered = localStorage.getItem('isAuthenticated') === 'true';
 

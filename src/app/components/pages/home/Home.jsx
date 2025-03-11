@@ -4,6 +4,7 @@ import ReactPaginate from 'react-paginate';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
+import YouTube from 'react-youtube';
 
 import './css/Home.css';
 
@@ -42,6 +43,9 @@ const Home = () => {
   ];
 
   const [currentBanner, setCurrentBanner] = useState(0);
+
+  const [isPlayerOpen, setIsPlayerOpen] = useState(false);
+  const [playerHeight, setPlayerHeight] = useState(390);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,6 +106,24 @@ const Home = () => {
     return () => clearInterval(interval);
   }, [banners.length]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 600) {
+        setPlayerHeight(590);
+      } else {
+        setPlayerHeight(390);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const openModal = (videoId) => {
     setCurrentVideoId(videoId);
     setIsModalOpen(true);
@@ -131,14 +153,14 @@ const Home = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
-  const showLoadMoreButton = totalItems > 15 && currentPage === totalPages;
+  const showLoadMoreButton = totalItems > 18 && currentPage === totalPages;
 
   const handleEpisodePageClick = (data) => {
     setLoading(true);
     setEpisodePage(data.selected);
   };
 
-  const episodesPerPage = 15;
+  const episodesPerPage = 20;
   const episodesDisplayed = lastGamesSection
     ? lastGamesSection.items.slice(
         episodePage * episodesPerPage,
@@ -153,6 +175,16 @@ const Home = () => {
 
     return () => clearTimeout(timer);
   }, [episodePage]);
+
+  const openPlayer = (videoId) => {
+    setCurrentVideoId(videoId);
+    setIsPlayerOpen(true);
+  };
+
+  const closePlayer = () => {
+    setIsPlayerOpen(false);
+    setCurrentVideoId('');
+  };
 
   return (
     <div className="home-container">
@@ -250,7 +282,7 @@ const Home = () => {
                   <motion.div
                     key={idx}
                     className="anime-item"
-                    onClick={() => handleCardClick(item)}
+                    onClick={() => openPlayer(item.videoId)}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
@@ -349,6 +381,28 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* =============== Player de vídeo ================= */}
+
+      {isPlayerOpen && (
+        <div className="video-player-modal">
+          <div className="video-player-content">
+            <button className="close" onClick={closePlayer}>
+              X
+            </button>
+            <YouTube
+              videoId={currentVideoId}
+              opts={{
+                height: playerHeight,
+                width: '100%',
+                playerVars: {
+                  autoplay: 1,
+                },
+              }}
+            />
+          </div>
+        </div>
+      )}
 
       <br />
       <br />
